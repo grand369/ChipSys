@@ -28,14 +28,14 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
-            <el-form-item label="状�? prop="status" :rules="[{ required: true, message: '请选择状�?, trigger: ['change'] }]">
-              <el-select v-model="form.status" placeholder="请选择状�? class="w100">
+            <el-form-item label="状态" prop="status" :rules="[{ required: true, message: '请选择状态', trigger: ['change'] }]">
+              <el-select v-model="form.status" placeholder="请选择状态" class="w100">
                 <el-option v-for="item in state.msgStatusList" :key="item.label" :label="item.label" :value="item.value" />
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-form-item label="标题" prop="title" :rules="[{ required: true, message: '请输入标�?, trigger: ['blur', 'change'] }]">
+            <el-form-item label="标题" prop="title" :rules="[{ required: true, message: '请输入标题', trigger: ['blur', 'change'] }]">
               <el-input v-model="form.title" clearable />
             </el-form-item>
           </el-col>
@@ -44,7 +44,7 @@
               label="内容"
               prop="content"
               :rules="[
-                { required: true, message: '请输入内�?, trigger: ['blur', 'change'] },
+                { required: true, message: '请输入内容', trigger: ['blur', 'change'] },
                 { validator: testEditorContent, trigger: ['blur', 'change'] },
               ]"
             >
@@ -55,8 +55,8 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -103,7 +103,7 @@ const testEditorContent = (rule: any, value: any, callback: any) => {
     callback()
   }
   if (editorRef.value?.isEmpty()) {
-    callback(new Error('请输入内�?))
+    callback(new Error('请输入内容'))
   } else {
     callback()
   }
@@ -124,7 +124,7 @@ const getMsgTypes = async () => {
   }
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (row: MsgUpdateInput = { id: 0 }) => {
   proxy.$modal.loading()
 

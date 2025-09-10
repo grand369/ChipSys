@@ -1,9 +1,9 @@
 <template>
   <div class="layout-pd">
     <LimitsFrontEndPage style="padding: 0 !important" />
-    <!-- 演示1：组件方�?-->
-    <el-card shadow="hover" header="演示1：组件方�? class="mt15">
-      <el-row class="mb10" style="color: #808080">单个权限验证�?value="xxx"）：</el-row>
+    <!-- 演示1：组件方式 -->
+    <el-card shadow="hover" header="演示1：组件方式" class="mt15">
+      <el-row class="mb10" style="color: #808080">单个权限验证（:value="xxx"）：</el-row>
       <div class="flex-warp">
         <Auth :value="'btn.add'">
           <div class="flex-warp-item">
@@ -55,7 +55,7 @@
         </Auth>
       </div>
 
-      <el-row class="mb10 mt10" style="color: #808080">多个权限验证，满足一个则显示�?value="[xxx,xxx]"）：</el-row>
+      <el-row class="mb10 mt10" style="color: #808080">多个权限验证，满足一个则显示（:value="[xxx,xxx]"）：</el-row>
       <div class="flex-warp">
         <Auths :value="['btn.addsss', 'btn.edit', 'btn.delsss', 'btn.linksss']">
           <div class="flex-warp-item">
@@ -107,7 +107,7 @@
         </Auths>
       </div>
 
-      <el-row class="mb10 mt10" style="color: #808080">多个权限验证，全部满足则显示�?value="[xxx,xxx]"）：</el-row>
+      <el-row class="mb10 mt10" style="color: #808080">多个权限验证，全部满足则显示（:value="[xxx,xxx]"）：</el-row>
       <div class="flex-warp">
         <AuthAll :value="['btn.add', 'btn.edit', 'btn.del', 'btn.link']">
           <div class="flex-warp-item">
@@ -160,8 +160,8 @@
       </div>
     </el-card>
 
-    <!-- 演示2：指令方�?-->
-    <el-card shadow="hover" header="演示2：指令方式（页面初始化时执行�? class="mt15">
+    <!-- 演示2：指令方式 -->
+    <el-card shadow="hover" header="演示2：指令方式（页面初始化时执行）" class="mt15">
       <el-row class="mb10" style="color: #808080">单个权限验证（v-auth="xxx"）：</el-row>
       <div class="flex-warp">
         <div class="flex-warp-item" v-auth="'btn.add'">
@@ -295,9 +295,9 @@
       </div>
     </el-card>
 
-    <!-- 演示3：函数方�?-->
+    <!-- 演示3：函数方式 -->
     <el-card shadow="hover" header="演示3：函数方式（点击按钮查看有无权限，用于判断）" class="mt15">
-      <el-row class="mb10" style="color: #808080">auth('xxx')、auths(['xxx','xxx'])、authAll(['xxx','xxx'])�?/el-row>
+      <el-row class="mb10" style="color: #808080">auth('xxx')、auths(['xxx','xxx'])、authAll(['xxx','xxx'])：</el-row>
       <div class="flex-warp">
         <div class="flex-warp-item">
           <div class="flex-warp-item-box">
@@ -347,17 +347,17 @@ const AuthAll = defineAsyncComponent(() => import('/@/components/auth/authAll.vu
 
 // 单个权限验证
 const onAuthClick = () => {
-  if (!auth('btn.add')) ElMessage.error('抱歉，您没有权限�?)
+  if (!auth('btn.add')) ElMessage.error('抱歉，您没有权限！')
   else ElMessage.success('恭喜，您有权限！')
 }
-// 多个权限验证，满足一个则�?true
+// 多个权限验证，满足一个则为 true
 const onAuthsClick = () => {
-  if (!auths(['btn.add', 'btn.edit', 'btn.del', 'btn.link'])) ElMessage.error('抱歉，您没有权限�?)
+  if (!auths(['btn.add', 'btn.edit', 'btn.del', 'btn.link'])) ElMessage.error('抱歉，您没有权限！')
   else ElMessage.success('恭喜，您有权限！')
 }
-// 多个权限验证，全部满足则�?true
+// 多个权限验证，全部满足则为 true
 const onAuthAllClick = () => {
-  if (!authAll(['btn.add', 'btn.edit', 'btn.del', 'btn.link'])) ElMessage.error('抱歉，您没有权限�?)
+  if (!authAll(['btn.add', 'btn.edit', 'btn.del', 'btn.link'])) ElMessage.error('抱歉，您没有权限！')
   else ElMessage.success('恭喜，您有权限！')
 }
 </script>

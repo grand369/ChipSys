@@ -15,7 +15,6 @@
 <script setup lang="ts" name="wngEditor">
 // https://www.wangeditor.com/v5/for-frame.html#vue3
 import '@wangeditor/editor/dist/css/style.css'
-import { reactive, shallowRef, watch, onBeforeUnmount } from 'vue'
 import { IDomEditor } from '@wangeditor/editor'
 import { Toolbar, Editor } from '@wangeditor/editor-for-vue'
 import { FileApi } from '/@/api/admin/File'
@@ -23,20 +22,20 @@ import { FileApi } from '/@/api/admin/File'
 type InsertFnType = (url: string, alt: string, href: string) => void
 type InsertVideoFnType = (url: string, poster: string) => void
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   // 是否禁用
   disable: {
     type: Boolean,
     default: () => false,
   },
-  // 内容框默�?placeholder
+  // 内容框默认 placeholder
   placeholder: {
     type: String,
-    default: () => '请输入内�?..',
+    default: () => '请输入内容...',
   },
   // https://www.wangeditor.com/v5/getting-started.html#mode-%E6%A8%A1%E5%BC%8F
-  // 模式，可�?<default|simple>，默�?default
+  // 模式，可选 <default|simple>，默认 default
   mode: {
     type: String,
     default: () => 'default',
@@ -46,13 +45,13 @@ const props = defineProps({
     type: String,
     default: () => '310px',
   },
-  // 双向绑定，用于获�?editor.getHtml()
+  // 双向绑定，用于获取 editor.getHtml()
   getHtml: String,
-  // 双向绑定，用于获�?editor.getText()
+  // 双向绑定，用于获取 editor.getText()
   getText: String,
 })
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['update:getHtml', 'update:getText'])
 
 // 定义变量内容
@@ -78,7 +77,7 @@ const state = reactive({
             return
           }
           if (src.indexOf('http') !== 0) {
-            return '图片网址必须�?http/https 开�?
+            return '图片网址必须以 http/https 开头'
           }
           return true
         },
@@ -99,7 +98,7 @@ const state = reactive({
   editorVal: props.getHtml,
 })
 
-// 编辑器回调函�?
+// 编辑器回调函数
 const handleCreated = (editor: IDomEditor) => {
   editorRef.value = editor
 }

@@ -118,7 +118,7 @@ const onEdit = (row: MsgTypeGetListOutput) => {
 
 const onDelete = (row: MsgTypeGetListOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除消息分类�?{row.name}�?`)
+    .confirmDelete(`确定要删除消息分类【${row.name}】?`)
     .then(async () => {
       await new MsgTypeApi().delete({ id: row.id }, { loading: true })
       onQuery()

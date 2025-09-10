@@ -24,7 +24,7 @@
         class="login-animation3"
         prop="password"
         :rules="[
-          { required: true, message: '请输入密�?, trigger: ['blur', 'change'] },
+          { required: true, message: '请输入密码', trigger: ['blur', 'change'] },
           { validator: validatorPwd, trigger: ['blur', 'change'] },
         ]"
       >
@@ -37,9 +37,9 @@
       <el-form-item
         class="login-animation3 mb10"
         prop="corpName"
-        :rules="[{ required: true, message: '请填写完整企业名�?, trigger: ['blur', 'change'] }]"
+        :rules="[{ required: true, message: '请填写完整企业名称', trigger: ['blur', 'change'] }]"
       >
-        <el-input ref="emailRef" text :placeholder="$t('请填写完整企业名�?)" v-model="form.corpName" clearable autocomplete="off">
+        <el-input ref="emailRef" text :placeholder="$t('请填写完整企业名称')" v-model="form.corpName" clearable autocomplete="off">
           <template #prefix>
             <el-icon class="el-input__icon"><ele-OfficeBuilding /></el-icon>
           </template>
@@ -52,10 +52,10 @@
       </el-form-item>
       <el-form-item class="login-animation5 mb5 login-agree" prop="agree" :rules="[{ validator: validatorAgree, trigger: ['change'] }]">
         <div class="my-flex my-flex-items-center f12">
-          <el-checkbox v-model="form.agree">我已阅读并同�?/el-checkbox>
+          <el-checkbox v-model="form.agree">我已阅读并同意</el-checkbox>
           <div class="my-flex my-flex-items-center ml5">
-            <el-link underline="never" type="primary" class="f12" target="_blank" href="https://chipsys.net/admin/introduce.html">服务协议</el-link>�?
-            <el-link underline="never" type="primary" class="f12" target="_blank" href="https://chipsys.net/admin/introduce.html">隐私政策</el-link>
+            <el-link underline="never" type="primary" class="f12" target="_blank" href="https://zhontai.net/admin/introduce.html">服务协议</el-link>、
+            <el-link underline="never" type="primary" class="f12" target="_blank" href="https://zhontai.net/admin/introduce.html">隐私政策</el-link>
           </div>
         </div>
       </el-form-item>
@@ -113,7 +113,7 @@ const onInputPassword = (val: string) => {
   state.form.password = verifyCnAndSpace(val)
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async () => {
   state.showDialog = true
   state.form = {} as AuthRegByEmailInput & { agree: false }

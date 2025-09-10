@@ -1,7 +1,7 @@
 import { cloneDeep, merge, isEmpty, isFunction } from 'lodash-es'
 
 /**
-* @description: 列表转树形列�?
+* @description: 列表转树形列表
 * @example
 listToTree(cloneDeep(list))
 
@@ -47,7 +47,7 @@ export function listToTree(list: any = [], options = {}) {
 }
 
 /**
-* @description: 将树形列表转换为扁平化数据列�?
+* @description: 将树形列表转换为扁平化数据列表
 * @example
 toFlatList(tree, (data) => { return data['children'] }, list)
 */
@@ -89,7 +89,7 @@ export function treeToList(
 }
 
 /**
-* @description: 树形列表过滤父级或者子级数�?
+* @description: 树形列表过滤父级或者子级数据
 * @example
 filterTree(cloneDeep(tree), keyword)
 
@@ -126,7 +126,7 @@ export function filterTree(tree: any = [], keyword: string, options = {}) {
 }
 
 /**
-* @description: 列表过滤数据并返回所有父级数�?
+* @description: 列表过滤数据并返回所有父级数据
 * @example
 filterList(cloneDeep(list), keyword)
 
@@ -195,7 +195,7 @@ export function filterList(list: any[], keyword: string, options = {}) {
 }
 
 /**
-* @description: 树形列表转列表包含子�?
+* @description: 树形列表转列表包含子级
 * @example
 treeToListWithChildren(cloneDeep(tree))
 
@@ -219,7 +219,7 @@ export function treeToListWithChildren(
 }
 
 /**
-* @description: 获得自身所有父级列�?
+* @description: 获得自身所有父级列表
 * @example
 getParents(cloneDeep(items), self)
 getParents(treeToList(cloneDeep(items), self))
@@ -236,7 +236,7 @@ export function getParents(
   },
   parents = []
 ) {
-  // 空列�?
+  // 空列表
   if (!(list?.length > 0)) {
     return parents
   }
@@ -256,7 +256,7 @@ export function getParents(
 }
 
 /**
-* @description: 获得自身所有父级列表包含自�?
+* @description: 获得自身所有父级列表包含自身
 * @example
 getParentsAndSelf(cloneDeep(items), self)
 getParentsAndSelf(treeToList(cloneDeep(items)), self)

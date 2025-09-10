@@ -16,8 +16,8 @@
                   <div class="sky-center">
                     <div class="mb2">
                       <span>多云转晴</span>
-                      <span>东南�?/span>
-                      <span class="span ml5">�?/span>
+                      <span>东南风</span>
+                      <span class="span ml5">良</span>
                     </div>
                   </div>
                   <div class="sky-right">
@@ -42,27 +42,27 @@
           </div>
           <div class="flex-warp-item">
             <div class="flex-warp-item-box">
-              <div class="flex-title">当前设备状�?/div>
+              <div class="flex-title">当前设备状态</div>
               <div class="flex-content flex-content-overflow">
                 <div class="d-states">
                   <div class="d-states-item">
                     <SvgIcon name="ele-Odometer" class="i-bg1" />
                     <div class="d-states-flex">
-                      <div class="d-states-item-label">园区设备�?/div>
+                      <div class="d-states-item-label">园区设备数</div>
                       <div class="d-states-item-value">99</div>
                     </div>
                   </div>
                   <div class="d-states-item">
                     <SvgIcon name="ele-FirstAidKit" class="i-bg2" />
                     <div class="d-states-flex">
-                      <div class="d-states-item-label">预警设备�?/div>
+                      <div class="d-states-item-label">预警设备数</div>
                       <div class="d-states-item-value">10</div>
                     </div>
                   </div>
                   <div class="d-states-item">
                     <SvgIcon name="ele-VideoPlay" class="i-bg3" />
                     <div class="d-states-flex">
-                      <div class="d-states-item-label">运行设备�?/div>
+                      <div class="d-states-item-label">运行设备数</div>
                       <div class="d-states-item-value">20</div>
                     </div>
                   </div>
@@ -81,7 +81,7 @@
           </div>
           <div class="flex-warp-item">
             <div class="flex-warp-item-box">
-              <div class="flex-title">�?0天预警总数</div>
+              <div class="flex-title">近30天预警总数</div>
               <div class="flex-content">
                 <div style="height: 100%" ref="chartsWarningRef"></div>
               </div>
@@ -125,7 +125,7 @@
           <div class="flex-warp-item">
             <div class="flex-warp-item-box">
               <div class="flex-title">
-                <span>�?天产品追溯扫码统�?/span>
+                <span>近7天产品追溯扫码统计</span>
                 <span class="flex-title-small">单位：次</span>
               </div>
               <div class="flex-content">
@@ -163,19 +163,19 @@
                 </div>
                 <div class="progress">
                   <div class="progress-item">
-                    <span>施肥�?/span>
+                    <span>施肥率</span>
                     <div class="progress-box">
                       <el-progress :percentage="70" color="#43bdf0"></el-progress>
                     </div>
                   </div>
                   <div class="progress-item">
-                    <span>施药�?/span>
+                    <span>施药率</span>
                     <div class="progress-box">
                       <el-progress :percentage="36" color="#43bdf0"></el-progress>
                     </div>
                   </div>
                   <div class="progress-item">
-                    <span>农事�?/span>
+                    <span>农事率</span>
                     <div class="progress-box">
                       <el-progress :percentage="91" color="#43bdf0"></el-progress>
                     </div>
@@ -187,7 +187,7 @@
           <div class="flex-warp-item">
             <div class="flex-warp-item-box">
               <div class="flex-title">
-                <span>�?天投入品记录</span>
+                <span>近7天投入品记录</span>
                 <span class="flex-title-small">单位：件</span>
               </div>
               <div class="flex-content">
@@ -227,7 +227,7 @@ const state = reactive({
   myCharts: [] as EmptyArrayType,
 })
 
-// 初始化中间图�?
+// 初始化中间图表1
 const initChartsCenterOne = () => {
   const myChart = echarts.init(chartsCenterOneRef.value)
   const option = {
@@ -258,13 +258,13 @@ const initChartsCenterOne = () => {
         data: [
           { name: 'admin.ui.plus', value: 520 },
           { name: 'xiaoxue', value: 520 },
-          { name: 'chipsys-admin', value: 500 },
+          { name: 'zhontai-admin', value: 500 },
           { name: '更名', value: 420 },
           { name: '智慧农业', value: 520 },
           { name: '男神', value: 2.64 },
-          { name: '好身�?, value: 4.03 },
+          { name: '好身材', value: 4.03 },
           { name: '校草', value: 24.95 },
-          { name: '�?, value: 4.04 },
+          { name: '酷', value: 4.04 },
           { name: '时尚', value: 5.27 },
           { name: '阳光活力', value: 5.8 },
           { name: '初恋', value: 3.09 },
@@ -274,11 +274,11 @@ const initChartsCenterOne = () => {
           { name: '蠢萌', value: 3.88 },
           { name: '青春', value: 8.04 },
           { name: '网红', value: 5.87 },
-          { name: '�?, value: 6.97 },
+          { name: '萌', value: 6.97 },
           { name: '认真', value: 2.53 },
           { name: '古典', value: 2.49 },
           { name: '温柔', value: 3.91 },
-          { name: '有个�?, value: 3.25 },
+          { name: '有个性', value: 3.25 },
           { name: '可爱', value: 9.93 },
           { name: '幽默诙谐', value: 3.65 },
         ],
@@ -288,7 +288,7 @@ const initChartsCenterOne = () => {
   myChart.setOption(option)
   state.myCharts.push(myChart)
 }
-// 初始化近7天产品追溯扫码统�?
+// 初始化近7天产品追溯扫码统计
 const initChartsSevenDays = () => {
   const myChart = echarts.init(chartsSevenDaysRef.value)
   const option = {
@@ -304,7 +304,7 @@ const initChartsSevenDays = () => {
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?, '7�?],
+      data: ['1天', '2天', '3天', '4天', '5天', '6天', '7天'],
     },
     yAxis: {
       type: 'value',
@@ -360,7 +360,7 @@ const initChartsWarning = () => {
           { value: 40, name: '监测设备预警' },
           { value: 38, name: '天气预警' },
           { value: 32, name: '任务预警' },
-          { value: 30, name: '病虫害预�? },
+          { value: 30, name: '病虫害预警' },
         ],
       },
     ],
@@ -368,7 +368,7 @@ const initChartsWarning = () => {
   myChart.setOption(option)
   state.myCharts.push(myChart)
 }
-// 初始化当前设备监�?
+// 初始化当前设备监测
 const initChartsMonitor = () => {
   const myChart = echarts.init(chartsMonitorRef.value)
   const option = {
@@ -423,7 +423,7 @@ const initChartsInvestment = () => {
     },
     xAxis: {
       type: 'category',
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?, '7�?],
+      data: ['1天', '2天', '3天', '4天', '5天', '6天', '7天'],
     },
     yAxis: {
       type: 'value',
@@ -450,7 +450,7 @@ const initEchartsResizeFun = () => {
 const initEchartsResize = () => {
   window.addEventListener('resize', initEchartsResizeFun)
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initChartsCenterOne()
   initChartsSevenDays()
@@ -463,7 +463,7 @@ onMounted(() => {
 onActivated(() => {
   initEchartsResizeFun()
 })
-// 监听 pinia 中的 tagsview 开启全屏变化，重新 resize 图表，防止不出现/大小不变�?
+// 监听 pinia 中的 tagsview 开启全屏变化，重新 resize 图表，防止不出现/大小不变等
 watch(
   () => isTagsViewCurrenFull.value,
   () => {

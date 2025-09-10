@@ -2,7 +2,7 @@
   <div class="system-dic-container layout-padding">
     <el-card shadow="hover" class="layout-padding-auto">
       <div class="system-user-search mb15">
-        <el-input placeholder="请输入字典名�? style="max-width: 180px"> </el-input>
+        <el-input placeholder="请输入字典名称" style="max-width: 180px"> </el-input>
         <el-button type="primary" class="ml10">
           <el-icon>
             <ele-Search />
@@ -19,8 +19,8 @@
       <el-table :data="state.tableData.data" v-loading="state.tableData.loading" style="width: 100%">
         <el-table-column type="index" label="序号" width="50" />
         <el-table-column prop="dicName" label="字典名称" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="fieldName" label="字段�? show-overflow-tooltip></el-table-column>
-        <el-table-column prop="status" label="字典状�? show-overflow-tooltip>
+        <el-table-column prop="fieldName" label="字段名" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="status" label="字典状态" show-overflow-tooltip>
           <template #default="scope">
             <el-tag type="success" v-if="scope.row.status">启用</el-tag>
             <el-tag type="info" v-else>禁用</el-tag>
@@ -74,7 +74,7 @@ const state = reactive<SysDicState>({
   },
 })
 
-// 初始化表格数�?
+// 初始化表格数据
 const getTableData = () => {
   state.tableData.loading = true
   const data = []
@@ -104,7 +104,7 @@ const onOpenEditDic = (type: string, row: RowDicType) => {
 }
 // 删除字典
 const onRowDel = (row: RowDicType) => {
-  ElMessageBox.confirm(`此操作将永久删除字典名称：�?{row.dicName}”，是否继续?`, '提示', {
+  ElMessageBox.confirm(`此操作将永久删除字典名称：“${row.dicName}”，是否继续?`, '提示', {
     confirmButtonText: '确认',
     cancelButtonText: '取消',
     type: 'warning',
@@ -125,7 +125,7 @@ const onHandleCurrentChange = (val: number) => {
   state.tableData.param.pageNum = val
   getTableData()
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   getTableData()
 })

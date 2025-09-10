@@ -40,8 +40,8 @@
       </div>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">Âè?Ê∂?/el-button>
-          <el-button type="primary" @click="onSubmit">Êõ?Êç?/el-button>
+          <el-button @click="onCancel">Âèñ Ê∂à</el-button>
+          <el-button type="primary" @click="onSubmit">Êõ¥ Êç¢</el-button>
         </span>
       </template>
     </el-dialog>
@@ -49,10 +49,9 @@
 </template>
 
 <script setup lang="ts" name="cropper">
-import { reactive, ref } from 'vue'
 import 'cropperjs'
 
-const sourceRef = ref()
+const sourceRef = useTemplateRef('sourceRef')
 
 const cropperImg = defineModel('cropperImg', { type: String })
 

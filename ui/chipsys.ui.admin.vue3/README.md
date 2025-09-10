@@ -1,6 +1,6 @@
 <div align="center">
 	<h2>中台admin</h2>
-	<h3>前后端分离后台权限管理系�?/h3>
+	<h3>前后端分离后台权限管理系统</h3>
 	<p align="center">
 	    <a href="https://v3.vuejs.org/" target="_blank">
 	        <img src="https://img.shields.io/badge/vue.js-vue3.x-green" alt="vue">
@@ -20,12 +20,12 @@
 
 #### 🌈 介绍
 
-基于 vue3.x + CompositionAPI setup 语法�?+ typescript + vite + element plus + vue-router-next + pinia 技术，内置支持一键生成微服务接口，适配手机、平板、pc 的后台权限管理框架，希望减少工作量，帮助大家实现快速开发�?
+基于 vue3.x + CompositionAPI setup 语法糖 + typescript + vite + element plus + vue-router-next + pinia 技术，内置支持一键生成微服务接口，适配手机、平板、pc 的后台权限管理框架，希望减少工作量，帮助大家实现快速开发。
 
 #### ⛱️ 线上预览
 
-- vue3.x 版本预览（admin.ui.plus�?a href="https://admin.chipsys.net/login" target="_blank">https://admin.chipsys.net</a>  
-  账号：user 密码�?23asd
+- vue3.x 版本预览（admin.ui.plus）<a href="https://admin.chipsys.net/login" target="_blank">https://admin.chipsys.net</a>  
+  账号：user 密码：123asd
 
 #### 💒 代码仓库
 
@@ -39,15 +39,15 @@
 
 | Edge      | Firefox      | Chrome      | Safari      |
 | --------- | ------------ | ----------- | ----------- |
-| Edge �?88 | Firefox �?78 | Chrome �?87 | Safari �?13 |
+| Edge ≥ 88 | Firefox ≥ 78 | Chrome ≥ 87 | Safari ≥ 13 |
 
-> 由于 Vue3 不再支持 IE11，故�?ElementPlus 也不支持 IE11 及之前版本�?
+> 由于 Vue3 不再支持 IE11，故而 ElementPlus 也不支持 IE11 及之前版本。
 
-#### �?使用说明
+#### ⚡ 使用说明
 
-建议使用 pnpm，因�?yarn 有时会报错�?a href="http://nodejs.cn" target="_blank">node 版本 > 14.18+/16+</a>
+建议使用 pnpm，因为 yarn 有时会报错。<a href="http://nodejs.cn" target="_blank">node 版本 > 14.18+/16+</a>
 
-> Vite 不再支持 Node 12 / 13 / 15，因为上述版本已经进入了 EOL 阶段。现在你必须使用 Node 14.18+ / 16+ 版本�?
+> Vite 不再支持 Node 12 / 13 / 15，因为上述版本已经进入了 EOL 阶段。现在你必须使用 Node 14.18+ / 16+ 版本。
 
 ```bash
 # 克隆项目
@@ -66,15 +66,15 @@ pnpm run dev
 pnpm run build
 ```
 
-#### 📚 开发文�?
+#### 📚 开发文档
 
 - 查看开发文档：<a href="https://www.chipsys.net" target="_blank">https://chipsys.net</a>
 
-#### 💯 学习交流�?QQ �?
+#### 💯 学习交流加 QQ 群
 
-> 中台 admin 开发群�?000 人群）�?
+> 中台 admin 开发群（2000 人群）。
 
-- QQ 群号�?a target="_blank" href="//qm.qq.com/cgi-bin/qm/qr?k=zjVRMcdD_oxPokw7zG1kv8Ud4kPJUZAk&jump_from=webapi&authKey=smP6idH1QaIqi6NSiBck8nZuY1BokW4fpi/IGcRi6w/Xt/HTyqfqrC5WpVRsSi22">1058693879</a>
+- QQ 群号：<a target="_blank" href="//qm.qq.com/cgi-bin/qm/qr?k=zjVRMcdD_oxPokw7zG1kv8Ud4kPJUZAk&jump_from=webapi&authKey=smP6idH1QaIqi6NSiBck8nZuY1BokW4fpi/IGcRi6w/Xt/HTyqfqrC5WpVRsSi22">1058693879</a>
 
   <a target="_blank" href="//qm.qq.com/cgi-bin/qm/qr?k=zjVRMcdD_oxPokw7zG1kv8Ud4kPJUZAk&jump_from=webapi&authKey=smP6idH1QaIqi6NSiBck8nZuY1BokW4fpi/IGcRi6w/Xt/HTyqfqrC5WpVRsSi22">
   	<img src="https://chipsys.net/images/qq-group-1058693879.png" width="220" height="220" alt="中台admin 开发群" title="中台admin 开发群"/>
@@ -112,7 +112,7 @@ pnpm run build
 - <a href="https://github.com/jsplumb/jsplumb" target="_blank">jsplumb</a>
 - <a href="https://github.com/hxj9102/table2excel" target="_blank">js-table2excel</a>
 
-#### 💌 支持作�?
+#### 💌 支持作者
 
-如果觉得框架不错，或者已经在使用了，希望你可以去 <a target="_blank" href="https://github.com/chipsys/admin.ui.plus">Github</a> 或�?
-<a target="_blank" href="https://gitee.com/chipsys/admin.ui.plus">Gitee</a> 帮我点个 �?Star，这将是对我极大的鼓励与支持�?
+如果觉得框架不错，或者已经在使用了，希望你可以去 <a target="_blank" href="https://github.com/chipsys/admin.ui.plus">Github</a> 或者
+<a target="_blank" href="https://gitee.com/chipsys/admin.ui.plus">Gitee</a> 帮我点个 ⭐ Star，这将是对我极大的鼓励与支持。

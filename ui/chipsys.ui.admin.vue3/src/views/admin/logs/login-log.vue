@@ -5,7 +5,7 @@
         <el-form-item label="登录账号" prop="createdUserName">
           <el-input v-model="state.filter.createdUserName" placeholder="登录账号" @keyup.enter="onQuery" />
         </el-form-item>
-        <el-form-item label="登录状�? prop="status">
+        <el-form-item label="登录状态" prop="status">
           <el-select v-model="state.filter.status" :empty-values="[null]" style="width: 120px" @change="onQuery">
             <el-option v-for="status in state.statusList" :key="status.name" :label="status.name" :value="status.value" />
           </el-select>
@@ -43,7 +43,7 @@
           <template #default="{ row }"> {{ row.country }} {{ row.province }} {{ row.city }} </template>
         </el-table-column>
         <el-table-column prop="os" label="操作系统" min-width="120" show-overflow-tooltip />
-        <el-table-column prop="browser" label="浏览�? min-width="120" show-overflow-tooltip />
+        <el-table-column prop="browser" label="浏览器" min-width="120" show-overflow-tooltip />
         <el-table-column prop="elapsedMilliseconds" label="耗时 ms" min-width="120" />
         <el-table-column prop="msg" label="登录信息" min-width="150" show-overflow-tooltip />
         <el-table-column prop="createdTime" label="登录时间" :formatter="formatterTime" min-width="160" />

@@ -6,7 +6,7 @@
           <RegionSelect ref="regionSelectRef" v-model:parentId="state.filter.parentId" placeholder="上级地区" />
         </el-form-item>
         <el-form-item label="" prop="name">
-          <el-input v-model="state.filter.name" placeholder="地区�? @keyup.enter="onQuery" />
+          <el-input v-model="state.filter.name" placeholder="地区名" @keyup.enter="onQuery" />
         </el-form-item>
         <el-form-item label="类型" prop="level">
           <el-select v-model="state.filter.level" empty-values="[null]" style="width: 100px" @change="onQuery">
@@ -14,7 +14,7 @@
             <el-option v-for="item in state.regionLevelList" :key="item.label" :label="item.label" :value="item.value" />
           </el-select>
         </el-form-item>
-        <el-form-item label="状�? prop="enabled">
+        <el-form-item label="状态" prop="enabled">
           <el-select v-model="state.filter.enabled" :empty-values="[null]" style="width: 100px" @change="onQuery">
             <el-option v-for="item in state.statusList" :key="item.name" :label="item.name" :value="item.value" />
           </el-select>
@@ -45,7 +45,7 @@
               <el-select v-model="state.sync.regionLevel"  :teleported="false" style="width: 75px; margin: 0px 5px">
                 <el-option v-for="item in state.regionLevelList" :key="item.label" :label="item.label" :value="item.value" />
               </el-select>
-              �?-->
+              ？ -->
             </p>
             <div class="mt10" style="text-align: right">
               <el-button text @click="onSyncCancel">取消</el-button>
@@ -58,12 +58,12 @@
 
     <el-card class="my-fill mt8" shadow="never">
       <el-table v-loading="state.loading" :data="state.dataList" default-expand-all highlight-current-row style="width: 100%" border>
-        <el-table-column prop="name" label="地区�? min-width="120" show-overflow-tooltip />
+        <el-table-column prop="name" label="地区名" min-width="120" show-overflow-tooltip />
         <el-table-column prop="code" label="代码" min-width="120" show-overflow-tooltip />
         <el-table-column prop="level" label="类型" min-width="140" show-overflow-tooltip :formatter="formatterEnum" />
         <el-table-column prop="pinyin" label="拼音" min-width="120" show-overflow-tooltip />
         <el-table-column prop="sort" label="排序" width="82" align="center" show-overflow-tooltip />
-        <el-table-column label="状�? width="88" align="center" fixed="right">
+        <el-table-column label="状态" width="88" align="center" fixed="right">
           <template #default="{ row }">
             <el-switch
               v-if="auth('api:admin:region:set-enable')"
@@ -91,13 +91,13 @@
               :active-value="true"
               :inactive-value="false"
               inline-prompt
-              active-text="�?
-              inactive-text="�?
+              active-text="是"
+              inactive-text="否"
               :before-change="() => onSetHot(row)"
             />
             <template v-else>
-              <el-tag type="success" v-if="row.enabled">�?/el-tag>
-              <el-tag type="danger" v-else>�?/el-tag>
+              <el-tag type="success" v-if="row.enabled">是</el-tag>
+              <el-tag type="danger" v-else>否</el-tag>
             </template>
           </template>
         </el-table-column>
@@ -162,8 +162,8 @@ const state = reactive({
   ],
   hotList: [
     { name: '全部', value: undefined },
-    { name: '�?, value: true },
-    { name: '�?, value: false },
+    { name: '是', value: true },
+    { name: '否', value: false },
   ],
   regionLevelList: toOptionsByValue(RegionLevelEnum),
   filter: {
@@ -240,7 +240,7 @@ const onEdit = (row: RegionGetPageOutput) => {
 
 const onDelete = (row: RegionGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除地区�?{row.name}�?`)
+    .confirmDelete(`确定要删除地区【${row.name}】?`)
     .then(async () => {
       await new RegionApi().delete({ id: row.id }, { loading: true })
       onQuery()
@@ -248,11 +248,11 @@ const onDelete = (row: RegionGetPageOutput) => {
     .catch(() => {})
 }
 
-//启用或禁�?
+//启用或禁用
 const onSetEnable = (row: RegionGetPageOutput & { loading: boolean }) => {
   return new Promise((resolve, reject) => {
     proxy.$modal
-      .confirm(`确定�?{row.enabled ? '禁用' : '启用'}�?{row.name}�?`)
+      .confirm(`确定要${row.enabled ? '禁用' : '启用'}【${row.name}】?`)
       .then(async () => {
         row.loading = true
         const res = await new RegionApi()
@@ -280,7 +280,7 @@ const onSetEnable = (row: RegionGetPageOutput & { loading: boolean }) => {
 const onSetHot = (row: RegionGetPageOutput & { loading: boolean; hotLoading: boolean }) => {
   return new Promise((resolve, reject) => {
     proxy.$modal
-      .confirm(`确定�?{row.hot ? '关闭' : '开�?}�?{row.name}】热�?`)
+      .confirm(`确定要${row.hot ? '关闭' : '开启'}【${row.name}】热门?`)
       .then(async () => {
         row.hotLoading = true
         const res = await new RegionApi()

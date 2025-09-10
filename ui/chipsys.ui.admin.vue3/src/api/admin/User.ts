@@ -85,7 +85,7 @@ export class UserApi<SecurityDataType = unknown> extends HttpClient<SecurityData
    *
    * @tags user
    * @name GetDeletedPage
-   * @summary 查询已删除分页列�?
+   * @summary 查询已删除分页列表
    * @request POST:/api/admin/user/get-deleted-page
    * @secure
    */
@@ -451,7 +451,7 @@ export class UserApi<SecurityDataType = unknown> extends HttpClient<SecurityData
    *
    * @tags user
    * @name OneClickLogin
-   * @summary 一键登录用�?
+   * @summary 一键登录用户
    * @request GET:/api/admin/user/one-click-login
    * @secure
    */

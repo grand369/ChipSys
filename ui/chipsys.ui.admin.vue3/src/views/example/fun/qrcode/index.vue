@@ -1,8 +1,8 @@
 <template>
   <div class="qrcode-container layout-pd">
-    <el-card shadow="hover" header="qrcodejs2 二维码生�?>
+    <el-card shadow="hover" header="qrcodejs2 二维码生成">
       <el-alert
-        title="感谢优秀�?`qrcodejs2`，项目地址：https://github.com/davidshimjs/qrcodejs"
+        title="感谢优秀的 `qrcodejs2`，项目地址：https://github.com/davidshimjs/qrcodejs"
         type="success"
         :closable="false"
         class="mb15"
@@ -32,7 +32,7 @@ const qrcodeRef = ref()
 // 初始化生成二维码
 const initQrcode = () => {
   new QRCode(qrcodeRef.value, {
-    text: `https://admin.chipsys.net/login?t=${new Date().getTime()}`,
+    text: `https://admin.zhontai.net/login?t=${new Date().getTime()}`,
     width: 125,
     height: 125,
     colorDark: '#000000',
@@ -44,7 +44,7 @@ const onInitQrcode = () => {
   qrcodeRef.value.innerHTML = ''
   initQrcode()
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initQrcode()
 })

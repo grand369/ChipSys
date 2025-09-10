@@ -91,7 +91,7 @@
           >
             <el-table-column type="selection" width="55" />
             <el-table-column prop="name" label="姓名" min-width="120" show-overflow-tooltip />
-            <el-table-column prop="mobile" label="手机�? min-width="120" show-overflow-tooltip />
+            <el-table-column prop="mobile" label="手机号" min-width="120" show-overflow-tooltip />
             <el-table-column prop="email" label="邮箱" min-width="180" show-overflow-tooltip />
           </el-table>
         </el-card>
@@ -101,7 +101,7 @@
     <role-form ref="roleFormRef" :title="state.roleFormTitle" :role-tree-data="state.roleFormTreeData"></role-form>
     <user-select
       ref="userSelectRef"
-      :title="`添加�?{state.roleName}】员工`"
+      :title="`添加【${state.roleName}】员工`"
       multiple
       :sure-loading="state.sureLoading"
       @sure="onSureUser"
@@ -220,7 +220,7 @@ const onEdit = (row: RoleGetListOutput) => {
 
 const onDelete = (row: RoleGetListOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除角色�?{row.name}�?`)
+    .confirmDelete(`确定要删除角色【${row.name}】?`)
     .then(async () => {
       await new RoleApi().delete({ id: row.id }, { loading: true })
       onQuery()

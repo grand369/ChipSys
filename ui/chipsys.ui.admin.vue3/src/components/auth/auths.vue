@@ -3,11 +3,9 @@
 </template>
 
 <script setup lang="ts" name="auths">
-import { computed } from 'vue'
-import { storeToRefs } from 'pinia'
 import { useUserInfo } from '/@/stores/userInfo'
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   value: {
     type: Array,

@@ -38,9 +38,9 @@
       >
         <el-table-column prop="name" label="部门名称" min-width="120" show-overflow-tooltip />
         <el-table-column prop="code" label="部门编码" min-width="120" show-overflow-tooltip />
-        <el-table-column prop="value" label="部门�? min-width="82" show-overflow-tooltip />
+        <el-table-column prop="value" label="部门值" min-width="82" show-overflow-tooltip />
         <el-table-column prop="sort" label="排序" width="82" align="center" show-overflow-tooltip />
-        <el-table-column label="状�? width="82" align="center">
+        <el-table-column label="状态" width="82" align="center">
           <template #default="{ row }">
             <el-tag type="success" v-if="row.enabled">启用</el-tag>
             <el-tag type="danger" v-else>禁用</el-tag>
@@ -152,7 +152,7 @@ const onEdit = (row: OrgGetListOutput) => {
 
 const onDelete = (row: OrgGetListOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除部门�?{row.name}�?`)
+    .confirmDelete(`确定要删除部门【${row.name}】?`)
     .then(async () => {
       await new OrgApi().delete({ id: row.id }, { loading: true })
       Query()

@@ -191,7 +191,7 @@ export class TenantApi<SecurityDataType = unknown> extends HttpClient<SecurityDa
    *
    * @tags tenant
    * @name OneClickLogin
-   * @summary 一键登�?
+   * @summary 一键登录
    * @request POST:/api/admin/tenant/one-click-login
    * @secure
    */

@@ -3,7 +3,7 @@
     <el-card class="my-query-box mt8" shadow="never">
       <el-form :model="state.filterModel" :inline="true" @submit.stop.prevent>
         <el-form-item prop="name">
-          <el-input v-model="state.filterModel.name" placeholder="字典分类名称或编�? @keyup.enter="onQuery" />
+          <el-input v-model="state.filterModel.name" placeholder="字典分类名称或编码" @keyup.enter="onQuery" />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" icon="ele-Search" @click="onQuery"> 查询 </el-button>
@@ -33,8 +33,8 @@
         <el-table-column prop="code" label="编码" min-width="120" show-overflow-tooltip />
         <el-table-column prop="sort" label="树形" width="70" align="center">
           <template #default="{ row }">
-            <el-tag v-if="row.isTree" type="success">�?/el-tag>
-            <el-tag v-else type="info">�?/el-tag>
+            <el-tag v-if="row.isTree" type="success">是</el-tag>
+            <el-tag v-else type="info">否</el-tag>
           </template>
         </el-table-column>
         <el-table-column prop="sort" label="排序" width="70" align="center" show-overflow-tooltip />
@@ -120,7 +120,7 @@ const onEdit = (row: DictTypeGetListOutput) => {
 
 const onDelete = (row: DictTypeGetListOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除�?{row.name}�?`)
+    .confirmDelete(`确定要删除【${row.name}】?`)
     .then(async () => {
       await new DictTypeApi().delete({ id: row.id }, { loading: true, showSuccessMessage: true })
       onQuery()

@@ -245,7 +245,7 @@ export class AuthApi<SecurityDataType = unknown> extends HttpClient<SecurityData
    *
    * @tags auth
    * @name RegByMobile
-   * @summary 手机号注�?
+   * @summary 手机号注册
    * @request POST:/api/admin/auth/reg-by-mobile
    * @secure
    */

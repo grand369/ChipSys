@@ -11,7 +11,7 @@
           <el-form-item label="任务名称">
             <el-input v-model="state.filter.taskName" placeholder="任务名称" @keyup.enter="onQuery" />
           </el-form-item>
-          <el-form-item label="任务状�?>
+          <el-form-item label="任务状态">
             <el-select v-model="state.filter.taskStatus" :empty-values="[null]" style="width: 120px" @change="onQuery">
               <el-option v-for="status in state.statusList" :key="status.name" :label="status.name" :value="status.value" />
             </el-select>
@@ -30,7 +30,7 @@
           style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; background-color: var(--el-bg-color)"
         >
           <el-text class="mx-1"
-            >已选中 <el-text class="mx-1" type="primary">{{ rowSelectCount }}</el-text> �?/el-text
+            >已选中 <el-text class="mx-1" type="primary">{{ rowSelectCount }}</el-text> 项</el-text
           >
           <el-divider direction="vertical" />
           <el-button v-auth="'api:admin:task:run'" icon="ele-Promotion" text type="primary" @click="onBatchRun">执行</el-button>
@@ -58,9 +58,9 @@
             <div>{{ row.topic }}</div>
           </template>
         </el-table-column>
-        <el-table-column prop="status" label="任务状�? width="95">
+        <el-table-column prop="status" label="任务状态" width="95">
           <template #default="{ row }">
-            <el-tag v-if="row.status === 0 || row.status === 'Running'" disable-transitions>运行�?/el-tag>
+            <el-tag v-if="row.status === 0 || row.status === 'Running'" disable-transitions>运行中</el-tag>
             <el-tag v-if="row.status === 1 || row.status === 'Paused'" type="info" disable-transitions>停止</el-tag>
             <el-tag v-if="row.status === 2 || row.status === 'Completed'" type="success" disable-transitions>完成</el-tag>
           </template>
@@ -80,7 +80,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="createTime" label="创建时间" :formatter="formatterTime" width="110" />
-        <el-table-column prop="lastRunTime" label="最后运行时�? :formatter="formatterTime" width="120" />
+        <el-table-column prop="lastRunTime" label="最后运行时间" :formatter="formatterTime" width="120" />
         <el-table-column label="操作" width="210" fixed="right" header-align="center" align="center">
           <template #default="{ row }">
             <div class="my-flex">
@@ -174,9 +174,9 @@ const state = reactive({
   groupList: [{ name: '全部', value: '' }],
   statusList: [
     { name: '全部', value: undefined },
-    { name: '运行�?, value: 0 },
+    { name: '运行中', value: 0 },
     { name: '停止', value: 1 },
-    { name: '已完�?, value: 2 },
+    { name: '已完成', value: 2 },
   ],
 })
 
@@ -218,15 +218,15 @@ const formatterInterval = (cellValue: any) => {
       break
     case 12:
     case 'RunOnWeek':
-      label = '每周�?
+      label = '每周几'
       break
     case 13:
     case 'RunOnMonth':
-      label = '每月第几�?
+      label = '每月第几日'
       break
     case 21:
     case 'Custom':
-      label = 'Cron表达�?
+      label = 'Cron表达式'
       break
   }
   return label
@@ -277,7 +277,7 @@ const onShowLogs = (row: TaskGetPageOutput) => {
 
 const onRun = (row: TaskGetPageOutput) => {
   proxy.$modal
-    .confirm(`确定要运行�?{row.topic}】任�?`)
+    .confirm(`确定要运行【${row.topic}】任务?`)
     .then(async () => {
       await new TaskApi().run({ id: row.id as string }, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -287,7 +287,7 @@ const onRun = (row: TaskGetPageOutput) => {
 
 const onPause = (row: TaskGetPageOutput) => {
   proxy.$modal
-    .confirm(`确定要停止�?{row.topic}】任�?`)
+    .confirm(`确定要停止【${row.topic}】任务?`)
     .then(async () => {
       await new TaskApi().pause({ id: row.id as string }, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -297,7 +297,7 @@ const onPause = (row: TaskGetPageOutput) => {
 
 const onStart = (row: TaskGetPageOutput) => {
   proxy.$modal
-    .confirm(`确定要启动�?{row.topic}】任�?`)
+    .confirm(`确定要启动【${row.topic}】任务?`)
     .then(async () => {
       await new TaskApi().resume({ id: row.id as string }, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -307,7 +307,7 @@ const onStart = (row: TaskGetPageOutput) => {
 
 const onDelete = (row: TaskGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除�?{row.topic}】任�?`)
+    .confirmDelete(`确定要删除【${row.topic}】任务?`)
     .then(async () => {
       await new TaskApi().delete({ id: row.id as string }, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -320,7 +320,7 @@ const checkRowSelect = () => {
     return true
   } else {
     ElMessage({
-      message: '请选择任务再操�?,
+      message: '请选择任务再操作',
       type: 'warning',
     })
     return false
@@ -333,7 +333,7 @@ const onBatchRun = () => {
   }
 
   proxy.$modal
-    .confirm(`确定要运�?${rowSelectCount.value} 项任�?`)
+    .confirm(`确定要运行 ${rowSelectCount.value} 项任务?`)
     .then(async () => {
       await new TaskApi().batchRun(taskIds.value, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -347,7 +347,7 @@ const onBatchPause = () => {
   }
 
   proxy.$modal
-    .confirm(`确定要停�?${rowSelectCount.value} 项任�?`)
+    .confirm(`确定要停止 ${rowSelectCount.value} 项任务?`)
     .then(async () => {
       await new TaskApi().batchPause(taskIds.value, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -361,7 +361,7 @@ const onBatchStart = () => {
   }
 
   proxy.$modal
-    .confirm(`确定要启�?${rowSelectCount.value} 项任�?`)
+    .confirm(`确定要启动 ${rowSelectCount.value} 项任务?`)
     .then(async () => {
       await new TaskApi().batchResume(taskIds.value, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -375,7 +375,7 @@ const onBatchDelete = () => {
   }
 
   proxy.$modal
-    .confirm(`确定要删�?${rowSelectCount.value} 项任�?`)
+    .confirm(`确定要删除 ${rowSelectCount.value} 项任务?`)
     .then(async () => {
       await new TaskApi().batchDelete(taskIds.value, { loading: true, showSuccessMessage: true })
       onQuery()

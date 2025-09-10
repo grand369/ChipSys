@@ -128,37 +128,37 @@ const state = reactive({
   homeThree: [
     {
       icon: 'iconfont icon-yangan',
-      label: '浅粉�?,
+      label: '浅粉红',
       value: '2.1%OBS/M',
       iconColor: '#F72B3F',
     },
     {
       icon: 'iconfont icon-wendu',
       label: '深红(猩红)',
-      value: '30�?,
+      value: '30℃',
       iconColor: '#91BFF8',
     },
     {
       icon: 'iconfont icon-shidu',
-      label: '淡紫�?,
+      label: '淡紫红',
       value: '57%RH',
       iconColor: '#88D565',
     },
     {
       icon: 'iconfont icon-shidu',
-      label: '弱紫罗兰�?,
+      label: '弱紫罗兰红',
       value: '107w',
       iconColor: '#88D565',
     },
     {
       icon: 'iconfont icon-zaosheng',
-      label: '中紫罗兰�?,
+      label: '中紫罗兰红',
       value: '57DB',
       iconColor: '#FBD4A0',
     },
     {
       icon: 'iconfont icon-zaosheng',
-      label: '紫罗�?,
+      label: '紫罗兰',
       value: '57PV',
       iconColor: '#FBD4A0',
     },
@@ -170,13 +170,13 @@ const state = reactive({
     },
     {
       icon: 'iconfont icon-zaosheng',
-      label: '幽灵�?,
+      label: '幽灵白',
       value: '12kg',
       iconColor: '#FBD4A0',
     },
     {
       icon: 'iconfont icon-zaosheng',
-      label: '海军�?,
+      label: '海军蓝',
       value: '64fm',
       iconColor: '#FBD4A0',
     },
@@ -189,7 +189,7 @@ const state = reactive({
   },
 })
 
-// 折线�?
+// 折线图
 const initLineChart = () => {
   if (!state.global.dispose.some((b: any) => b === state.global.homeChartOne)) state.global.homeChartOne.dispose()
   state.global.homeChartOne = markRaw(echarts.init(homeLineRef.value, state.charts.theme))
@@ -204,7 +204,7 @@ const initLineChart = () => {
     tooltip: { trigger: 'axis' },
     legend: { data: ['预购队列', '最新成交价'], right: 0 },
     xAxis: {
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?, '7�?, '8�?, '9�?, '10�?, '11�?, '12�?],
+      data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
     },
     yAxis: [
       {
@@ -275,7 +275,7 @@ const initLineChart = () => {
 const initPieChart = () => {
   if (!state.global.dispose.some((b: any) => b === state.global.homeChartTwo)) state.global.homeChartTwo.dispose()
   state.global.homeChartTwo = markRaw(echarts.init(homePieRef.value, state.charts.theme))
-  var getname = ['房屋及结构物', '专用设备', '通用设备', '文物和陈列品', '图书、档�?]
+  var getname = ['房屋及结构物', '专用设备', '通用设备', '文物和陈列品', '图书、档案']
   var getvalue = [34.2, 38.87, 17.88, 9.05, 2.05]
   var data = []
   for (var i = 0; i < getname.length; i++) {
@@ -356,19 +356,19 @@ const initPieChart = () => {
   state.global.homeChartTwo.setOption(option)
   state.myCharts.push(state.global.homeChartTwo)
 }
-// 柱状�?
+// 柱状图
 const initBarChart = () => {
   if (!state.global.dispose.some((b: any) => b === state.global.homeCharThree)) state.global.homeCharThree.dispose()
   state.global.homeCharThree = markRaw(echarts.init(homeBarRef.value, state.charts.theme))
   const option = {
     backgroundColor: state.charts.bgColor,
     title: {
-      text: '地热开发利�?,
+      text: '地热开发利用',
       x: 'left',
       textStyle: { fontSize: '15', color: state.charts.color },
     },
     tooltip: { trigger: 'axis' },
-    legend: { data: ['供温', '回温', '压力�?Mpa)'], right: 0 },
+    legend: { data: ['供温', '回温', '压力值(Mpa)'], right: 0 },
     grid: { top: 70, right: 80, bottom: 30, left: 80 },
     xAxis: [
       {
@@ -389,7 +389,7 @@ const initBarChart = () => {
         axisLabel: { color: state.charts.color, formatter: '{value} ' },
       },
       {
-        name: '压力�?Mpa)',
+        name: '压力值(Mpa)',
         nameLocation: 'middle',
         nameTextStyle: { padding: [50, 4, 5, 6] },
         splitLine: { show: false },
@@ -417,7 +417,7 @@ const initBarChart = () => {
           shadowBlur: 20,
         },
         itemStyle: { color: '#FF8000' },
-        // data中可以使用对象，value代表相应的值，另外可加入自定义的属�?
+        // data中可以使用对象，value代表相应的值，另外可加入自定义的属性
         data: [
           { value: 1, stationName: 's1' },
           { value: 3, stationName: 's2' },
@@ -461,7 +461,7 @@ const initBarChart = () => {
         ],
       },
       {
-        name: '压力�?Mpa)',
+        name: '压力值(Mpa)',
         type: 'bar',
         barWidth: 30,
         yAxisIndex: 1,
@@ -470,7 +470,7 @@ const initBarChart = () => {
             { offset: 0, color: 'rgba(108,80,243,0.3)' },
             { offset: 1, color: 'rgba(108,80,243,0)' },
           ]),
-          //柱状图圆�?
+          //柱状图圆角
           borderRadius: [30, 30, 0, 0],
         },
         data: [
@@ -501,7 +501,7 @@ const initEchartsResizeFun = () => {
 const initEchartsResize = () => {
   window.addEventListener('resize', initEchartsResizeFun)
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initEchartsResize()
 })
@@ -509,14 +509,14 @@ onMounted(() => {
 onActivated(() => {
   initEchartsResizeFun()
 })
-// 监听 pinia 中的 tagsview 开启全屏变化，重新 resize 图表，防止不出现/大小不变�?
+// 监听 pinia 中的 tagsview 开启全屏变化，重新 resize 图表，防止不出现/大小不变等
 watch(
   () => isTagsViewCurrenFull.value,
   () => {
     initEchartsResizeFun()
   }
 )
-// 监听 pinia 中是否开启深色主�?
+// 监听 pinia 中是否开启深色主题
 watch(
   () => themeConfig.value.isDark,
   (isDark) => {

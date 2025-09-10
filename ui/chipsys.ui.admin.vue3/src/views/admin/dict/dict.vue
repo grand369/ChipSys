@@ -3,7 +3,7 @@
     <el-card class="my-query-box mt8" shadow="never">
       <el-form :model="state.input" :inline="true" @submit.stop.prevent>
         <el-form-item prop="name">
-          <el-input v-model="state.input.name" placeholder="字典名称或编�? @keyup.enter="onQuery" />
+          <el-input v-model="state.input.name" placeholder="字典名称或编码" @keyup.enter="onQuery" />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" icon="ele-Search" @click="onQuery"> 查询 </el-button>
@@ -35,7 +35,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="code" label="编码" min-width="120" sortable="custom" show-overflow-tooltip />
-        <el-table-column prop="value" label="�? width="90" sortable="custom" show-overflow-tooltip />
+        <el-table-column prop="value" label="值" width="90" sortable="custom" show-overflow-tooltip />
         <el-table-column prop="sort" label="排序" width="90" align="center" sortable="custom" show-overflow-tooltip />
         <el-table-column label="操作" width="145" fixed="right" header-align="center" align="center">
           <template #default="{ row }">
@@ -99,7 +99,7 @@ const state = reactive({
     downloadTemplate: (params: RequestParams) => new DictApi().downloadTemplate(params),
     downloadErrorMark: (query: any, params: RequestParams) => new DictApi().downloadErrorMark(query, params),
     duplicateAction: 1,
-    uniqueRules: ['字典名称', '字典编码', '字典�?],
+    uniqueRules: ['字典名称', '字典编码', '字典值'],
     requiredColumns: ['字典类型', '字典名称'],
   },
   export: {
@@ -149,18 +149,18 @@ const onAdd = () => {
     proxy.$modal.msgWarning('请选择字典类型')
     return
   }
-  state.dictFormTitle = `新增�?{state.dictType.name}】字典数据`
+  state.dictFormTitle = `新增【${state.dictType.name}】字典数据`
   dictFormRef.value?.open({ dictTypeId: state.input.dictTypeId }, { isTree: state.dictType.isTree })
 }
 
 const onEdit = (row: DictGetAllOutput) => {
-  state.dictFormTitle = `编辑�?{state.dictType.name}】字典数据`
+  state.dictFormTitle = `编辑【${state.dictType.name}】字典数据`
   dictFormRef.value?.open(row, { isTree: state.dictType.isTree })
 }
 
 const onDelete = (row: DictGetAllOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除�?{row.name}�?`)
+    .confirmDelete(`确定要删除【${row.name}】?`)
     .then(async () => {
       await new DictApi().delete({ id: row.id }, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -169,7 +169,7 @@ const onDelete = (row: DictGetAllOutput) => {
 }
 
 const onImport = () => {
-  state.import.title = `导入�?{state.dictType.name}】字典数据`
+  state.import.title = `导入【${state.dictType.name}】字典数据`
   dictImportRef.value?.open()
 }
 

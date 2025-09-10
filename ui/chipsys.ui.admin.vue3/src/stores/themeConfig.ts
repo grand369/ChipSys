@@ -1,9 +1,7 @@
-import { defineStore } from 'pinia'
-
 /**
  * 布局配置
  * 修改配置时：
- * 1、需要每次都清理 `window.localStorage` 浏览器永久缓�?
+ * 1、需要每次都清理 `window.localStorage` 浏览器永久缓存
  * 2、或者点击布局配置最底部 `一键恢复默认` 按钮即可看到效果
  */
 export const useThemeConfig = defineStore('themeConfig', {
@@ -11,7 +9,7 @@ export const useThemeConfig = defineStore('themeConfig', {
     themeConfig: {
       // 是否开启布局配置抽屉
       isDrawer: false,
-      // 是否创建一个h5历史，否则创建一�?hash 历史记录
+      // 是否创建一个h5历史，否则创建一个 hash 历史记录
       isCreateWebHistory: true,
 
       /**
@@ -19,7 +17,7 @@ export const useThemeConfig = defineStore('themeConfig', {
        */
       // 默认 primary 主题颜色 蓝色 #409eff 红色 #F34D37 紫色 #6954f0 绿色 #41b584
       primary: '#6954f0',
-      // 是否开启深色模�?
+      // 是否开启深色模式
       isDark: true,
 
       /**
@@ -29,7 +27,7 @@ export const useThemeConfig = defineStore('themeConfig', {
       topBar: '#FFFFFF',
       // 默认顶栏导航字体颜色
       topBarColor: '#eaeaea',
-      // 是否开启顶栏背景颜色渐�?
+      // 是否开启顶栏背景颜色渐变
       isTopBarColorGradual: false,
 
       /**
@@ -39,9 +37,9 @@ export const useThemeConfig = defineStore('themeConfig', {
       menuBar: '#FFFFFF',
       // 默认菜单导航字体颜色
       menuBarColor: '#eaeaea',
-      // 默认菜单高亮背景�?
+      // 默认菜单高亮背景色
       menuBarActiveColor: 'rgba(0, 0, 0, 0.2)',
-      // 是否开启菜单背景颜色渐�?
+      // 是否开启菜单背景颜色渐变
       isMenuBarColorGradual: false,
 
       /**
@@ -53,7 +51,7 @@ export const useThemeConfig = defineStore('themeConfig', {
       columnsMenuBarColor: '#eaeaea',
       // 默认分栏菜单高亮字体颜色
       columnsMenuBarActiveColor: '#ffffff',
-      // 是否开启分栏菜单背景颜色渐�?
+      // 是否开启分栏菜单背景颜色渐变
       isColumnsMenuBarColorGradual: false,
       // 是否开启分栏菜单鼠标悬停预加载(预览菜单)
       isColumnsMenuHoverPreload: false,
@@ -61,19 +59,19 @@ export const useThemeConfig = defineStore('themeConfig', {
       /**
        * 界面设置
        */
-      // 是否开启菜单水平折叠效�?
+      // 是否开启菜单水平折叠效果
       isCollapse: false,
       // 是否开启菜单手风琴效果
       isUniqueOpened: true,
-      // 是否开启固�?Header
+      // 是否开启固定 Header
       isFixedHeader: true,
       // 初始化变量，用于更新菜单 el-scrollbar 的高度，请勿删除
       isFixedHeaderChange: false,
-      // 是否开启经典布局分割菜单（仅经典布局生效�?
+      // 是否开启经典布局分割菜单（仅经典布局生效）
       isClassicSplitMenu: true,
-      // 是否开启自动锁�?
+      // 是否开启自动锁屏
       isLockScreen: false,
-      // 开启自动锁屏倒计�?s/�?
+      // 开启自动锁屏倒计时(s/秒)
       lockScreenTime: 30,
 
       /**
@@ -83,27 +81,27 @@ export const useThemeConfig = defineStore('themeConfig', {
       isShowLogo: true,
       // 初始化变量，用于 el-scrollbar 的高度更新，请勿删除
       isShowLogoChange: false,
-      // 是否开�?Breadcrumb，强制经典、横向布局不显�?
+      // 是否开启 Breadcrumb，强制经典、横向布局不显示
       isBreadcrumb: true,
-      // 是否开�?Tagsview
+      // 是否开启 Tagsview
       isTagsview: true,
-      // 是否开�?Breadcrumb 图标
+      // 是否开启 Breadcrumb 图标
       isBreadcrumbIcon: false,
-      // 是否开�?Tagsview 图标
+      // 是否开启 Tagsview 图标
       isTagsviewIcon: false,
-      // 是否开�?TagsView 缓存
+      // 是否开启 TagsView 缓存
       isCacheTagsView: true,
-      // 是否开�?TagsView 拖拽
+      // 是否开启 TagsView 拖拽
       isSortableTagsView: true,
-      // 是否开�?TagsView 共用
+      // 是否开启 TagsView 共用
       isShareTagsView: false,
-      // 是否开�?Footer 底部版权信息
+      // 是否开启 Footer 底部版权信息
       isFooter: false,
-      // 是否开启灰色模�?
+      // 是否开启灰色模式
       isGrayscale: false,
-      // 是否开启色弱模�?
+      // 是否开启色弱模式
       isInvert: false,
-      // 是否开启水�?
+      // 是否开启水印
       isWatermark: false,
       // 水印文案
       watermarkText: '中台Admin',
@@ -111,42 +109,42 @@ export const useThemeConfig = defineStore('themeConfig', {
       /**
        * 其它设置
        */
-      // Tagsview 风格：可选�?<tags-style-one|tags-style-four|tags-style-five>"，默�?tags-style-five
+      // Tagsview 风格：可选值"<tags-style-one|tags-style-four|tags-style-five>"，默认 tags-style-five
       // 定义的值与 `/src/layout/navBars/tagsView/tagsView.vue` 中的 class 同名
       tagsStyle: 'tags-style-five',
-      // 主页面切换动画：可选�?<slide-right|slide-left|opacitys>"，默�?slide-right
+      // 主页面切换动画：可选值"<slide-right|slide-left|opacitys>"，默认 slide-right
       animation: 'opacitys',
-      // 分栏高亮风格：可选�?<columns-round|columns-card>"，默�?columns-round
+      // 分栏高亮风格：可选值"<columns-round|columns-card>"，默认 columns-round
       columnsAsideStyle: 'columns-round',
-      // 分栏布局风格：可选�?<columns-horizontal|columns-vertical>"，默�?columns-horizontal
+      // 分栏布局风格：可选值"<columns-horizontal|columns-vertical>"，默认 columns-horizontal
       columnsAsideLayout: 'columns-vertical',
 
       /**
        * 布局切换
-       * 注意：为了演示，切换布局时，颜色会被还原成默认，代码位置�?@/layout/navBars/topBar/setings.vue
-       * 中的 `initSetLayoutChange(设置布局切换，重置主题样�?` 方法
+       * 注意：为了演示，切换布局时，颜色会被还原成默认，代码位置：/@/layout/navBars/topBar/setings.vue
+       * 中的 `initSetLayoutChange(设置布局切换，重置主题样式)` 方法
        */
-      // 布局切换：可选�?<默认 defaults | 经典 classic | 横向 transverse | 分栏 columns>"，默�?defaults
+      // 布局切换：可选值"<默认 defaults | 经典 classic | 横向 transverse | 分栏 columns>"，默认 defaults
       layout: 'columns',
 
       /**
        * 后端控制路由
        */
-      // 是否开启后端控制路�?
+      // 是否开启后端控制路由
       isRequestRoutes: true,
 
       /**
-       * 全局网站标题 / 副标�?
+       * 全局网站标题 / 副标题
        */
-      // 网站主标题（菜单导航、浏览器当前网页标题�?
+      // 网站主标题（菜单导航、浏览器当前网页标题）
       globalTitle: '中台Admin',
       // 网站副标题（登录页顶部文字）
       globalViceTitle: '中台Admin',
       // 网站副标题（登录页顶部文字）
       globalViceTitleMsg: '后台权限管理框架',
-      // 默认初始语言，可选�?<zh-cn|en|zh-tw>"，默�?zh-cn
+      // 默认初始语言，可选值"<zh-cn|en|zh-tw>"，默认 zh-cn
       globalI18n: 'zh-cn',
-      // 默认全局组件大小，可选�?<large|'default'|small>"，默�?'large'
+      // 默认全局组件大小，可选值"<large|'default'|small>"，默认 'large'
       globalComponentSize: 'default',
     },
   }),

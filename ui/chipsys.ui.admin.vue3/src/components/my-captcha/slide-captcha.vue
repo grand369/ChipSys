@@ -33,7 +33,7 @@
       </div>
       <div class="captcha_message loadding" v-if="state.showGenerateLoadding">
         <div class="captcha_message__icon captcha_message__icon--loadding"></div>
-        <div class="captcha_message__text">加载�?..</div>
+        <div class="captcha_message__text">加载中...</div>
       </div>
       <div class="captcha_message" v-if="state.showVerifyLoadding">
         <div class="captcha_message__icon captcha_message__icon--loadding"></div>
@@ -234,12 +234,12 @@ const onLayoutResize = () => {
   if (width > 0) document.documentElement.style.setProperty('--my-captcha-width', width + 'px')
 }
 
-// 页面加载�?
+// 页面加载前
 onBeforeMount(() => {
   document.documentElement.style.setProperty('--my-captcha-width', state.width + 'px')
   window.addEventListener('resize', onLayoutResize)
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   window.removeEventListener('resize', onLayoutResize)
 })
@@ -249,7 +249,7 @@ const startRequestGenerate = () => {
   reset()
   state.showGenerateLoadding = true
 }
-// 结束请求生成图片时调�?
+// 结束请求生成图片时调用
 const endRequestGenerate = (src: string, sliderSrc: string) => {
   state.showGenerateLoadding = false
   state.src = src
@@ -259,7 +259,7 @@ const endRequestGenerate = (src: string, sliderSrc: string) => {
 const startRequestVerify = () => {
   state.showVerifyLoadding = true
 }
-// 结束请求校验时调�?
+// 结束请求校验时调用
 const endRequestVerify = (isPassing: boolean) => {
   state.isPassing = isPassing
   state.showVerifyLoadding = false
@@ -289,7 +289,7 @@ const removeEventListeners = () => {
   window.removeEventListener('mousemove', handleDragMoving)
   window.removeEventListener('mouseup', handleDragFinish)
 }
-//开始拖�?
+//开始拖拽
 const handleDragStart = (e: any) => {
   e?.preventDefault()
   if (!state.isPassing && state.src && state.sliderSrc && !state.isFinish) {
@@ -305,7 +305,7 @@ const handleDragStart = (e: any) => {
     state.width = dragVerify.value.clientWidth
   }
 }
-//拖拽�?
+//拖拽中
 const handleDragMoving = (e: any) => {
   e?.preventDefault()
   if (state.isMoving && !state.isPassing && state.src && state.sliderSrc && !state.isFinish) {

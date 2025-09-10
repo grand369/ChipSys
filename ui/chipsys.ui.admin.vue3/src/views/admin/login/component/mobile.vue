@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-form ref="formRef" :model="state.ruleForm" size="large" class="login-content-form">
-      <div class="login-title"><span class="login-title-showy">手机验证�?/span>登录</div>
+      <div class="login-title"><span class="login-title-showy">手机验证码</span>登录</div>
       <el-form-item
         class="login-animation1"
         prop="mobile"
@@ -79,7 +79,7 @@ const state = reactive({
   },
 })
 
-//验证手机�?
+//验证手机号
 const validate = (callback: Function) => {
   formRef.value.validateField('mobile', (isValid: boolean) => {
     if (!isValid) {
@@ -121,9 +121,9 @@ const onSignIn = async () => {
     }
 
     useUserInfo().setTokenInfo(res.data)
-    // 添加完动态路由，再进�?router 跳转，否则可能报�?No match found for location with path "/"
+    // 添加完动态路由，再进行 router 跳转，否则可能报错 No match found for location with path "/"
     const isNoPower = await initBackEndControlRoutes()
-    // 执行�?initBackEndControlRoutes，再执行 signInSuccess
+    // 执行完 initBackEndControlRoutes，再执行 signInSuccess
     signInSuccess(isNoPower)
   })
 }
@@ -131,14 +131,14 @@ const onSignIn = async () => {
 // 登录成功后的跳转
 const signInSuccess = (isNoPower: boolean | undefined) => {
   if (isNoPower) {
-    ElMessage.warning('抱歉，您没有分配权限，请联系管理�?)
+    ElMessage.warning('抱歉，您没有分配权限，请联系管理员')
     useUserInfo().removeTokenInfo()
     Session.clear()
   } else {
     // 初始化登录成功时间问候语
     let currentTimeInfo = currentTime.value
     // 登录成功，跳到转首页
-    // 如果是复制粘贴的路径，非首页/登录页，那么登录成功后重定向到对应的路径�?
+    // 如果是复制粘贴的路径，非首页/登录页，那么登录成功后重定向到对应的路径中
     if (route.query?.redirect) {
       router.push({
         path: <string>route.query?.redirect,
@@ -149,7 +149,7 @@ const signInSuccess = (isNoPower: boolean | undefined) => {
     }
     // 登录成功提示
     const signInText = t('message.signInText')
-    ElMessage.success(`${currentTimeInfo}�?{signInText}`)
+    ElMessage.success(`${currentTimeInfo}，${signInText}`)
     // 添加 loading，防止第一次进入界面时出现短暂空白
     NextLoading.start()
   }

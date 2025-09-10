@@ -22,9 +22,9 @@
           </template>
         </el-table-column>
         <el-table-column prop="realName" label="姓名" width="120" show-overflow-tooltip />
-        <el-table-column prop="phone" label="手机�? width="120" show-overflow-tooltip />
+        <el-table-column prop="phone" label="手机号" width="120" show-overflow-tooltip />
         <!-- <el-table-column prop="email" label="邮箱" min-width="180" show-overflow-tooltip /> -->
-        <el-table-column label="状�? width="88" align="center" fixed="right">
+        <el-table-column label="状态" width="88" align="center" fixed="right">
           <template #default="{ row }">
             <el-switch
               v-if="auth('api:admin:tenant:set-enable')"
@@ -50,7 +50,7 @@
               <template #dropdown>
                 <el-dropdown-menu>
                   <el-dropdown-item v-if="auth('api:admin:tenant:delete')" @click="onDelete(row)">删除租户</el-dropdown-item>
-                  <el-dropdown-item v-if="auth('api:admin:tenant:one-click-login')" @click="onOneClickLogin(row)">一键登�?/el-dropdown-item>
+                  <el-dropdown-item v-if="auth('api:admin:tenant:one-click-login')" @click="onOneClickLogin(row)">一键登录</el-dropdown-item>
                 </el-dropdown-menu>
               </template>
             </my-dropdown-more>
@@ -144,7 +144,7 @@ const onEdit = (row: TenantGetPageOutput) => {
 
 const onDelete = (row: TenantGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除�?{row.name}�?`)
+    .confirmDelete(`确定要删除【${row.name}】?`)
     .then(async () => {
       await new TenantApi().delete({ id: row.id }, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -155,7 +155,7 @@ const onDelete = (row: TenantGetPageOutput) => {
 const onSetEnable = (row: TenantGetPageOutput & { loading: boolean }) => {
   return new Promise((resolve, reject) => {
     proxy.$modal
-      .confirm(`确定�?{row.enabled ? '禁用' : '启用'}�?{row.name}�?`)
+      .confirm(`确定要${row.enabled ? '禁用' : '启用'}【${row.name}】?`)
       .then(async () => {
         row.loading = true
         const res = await new TenantApi()
@@ -178,14 +178,14 @@ const onSetEnable = (row: TenantGetPageOutput & { loading: boolean }) => {
   })
 }
 
-//一键登�?
+//一键登录
 const onOneClickLogin = (row: TenantGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要一键登录�?{row.name}�?`)
+    .confirmDelete(`确定要一键登录【${row.name}】?`)
     .then(async () => {
       const res = await new TenantApi().oneClickLogin({ tenantId: row.id }, { loading: true })
       if (res?.success) {
-        proxy.$modal.msgSuccess('一键登录成�?)
+        proxy.$modal.msgSuccess('一键登录成功')
         window.requests = []
         Session.remove('tagsViewList')
         storesUseUserInfo.setTokenInfo(res.data)

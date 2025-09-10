@@ -31,8 +31,7 @@
 </template>
 
 <script setup lang="ts" name="navMenuVertical">
-import { defineAsyncComponent, reactive, computed, onMounted, watch } from 'vue'
-import { useRoute, onBeforeRouteUpdate, RouteRecordRaw } from 'vue-router'
+import { RouteRecordRaw } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import other from '/@/utils/other'
@@ -40,7 +39,7 @@ import other from '/@/utils/other'
 // 引入组件
 const SubItem = defineAsyncComponent(() => import('/@/layout/navMenu/subItem.vue'))
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   // 菜单列表
   menuList: {
@@ -77,17 +76,17 @@ const setParentHighlight = (currentRoute: RouteToFrom) => {
 const onALinkClick = (val: RouteItem) => {
   other.handleOpenLink(val)
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   state.defaultActive = setParentHighlight(route)
 })
-// 路由更新�?
+// 路由更新时
 onBeforeRouteUpdate((to) => {
   state.defaultActive = setParentHighlight(to)
   const clientWidth = document.body.clientWidth
   if (clientWidth < 1000) themeConfig.value.isCollapse = false
 })
-// 设置菜单的收�?展开
+// 设置菜单的收起/展开
 watch(
   () => themeConfig.value.isCollapse,
   (isCollapse) => {

@@ -11,9 +11,6 @@
 </template>
 
 <script setup lang="ts" name="layoutDefaults">
-import { defineAsyncComponent, watch, onMounted, nextTick, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import { NextLoading } from '/@/utils/loading'
 
@@ -23,13 +20,13 @@ const LayoutHeader = defineAsyncComponent(() => import('/@/layout/component/head
 const LayoutMain = defineAsyncComponent(() => import('/@/layout/component/main.vue'))
 
 // 定义变量内容
-const layoutScrollbarRef = ref<RefType>('')
+const layoutScrollbarRef = useTemplateRef<RefType>('layoutScrollbarRef')
 const layoutMainRef = useTemplateRef('layoutMainRef')
 const route = useRoute()
 const storesThemeConfig = useThemeConfig()
 const { themeConfig } = storeToRefs(storesThemeConfig)
 
-// 重置滚动条高�?
+// 重置滚动条高度
 const updateScrollbar = () => {
   // 更新父级 scrollbar
   layoutScrollbarRef.value?.update()
@@ -46,19 +43,19 @@ const initScrollBarHeight = () => {
     }, 500)
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initScrollBarHeight()
   NextLoading.done(600)
 })
-// 监听路由的变化，切换界面时，滚动条置�?
+// 监听路由的变化，切换界面时，滚动条置顶
 watch(
   () => route.path,
   () => {
     initScrollBarHeight()
   }
 )
-// 监听 themeConfig 配置文件的变化，更新菜单 el-scrollbar 的高�?
+// 监听 themeConfig 配置文件的变化，更新菜单 el-scrollbar 的高度
 watch(
   () => [themeConfig.value.isTagsview, themeConfig.value.isFixedHeader],
   () => {

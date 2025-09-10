@@ -66,7 +66,7 @@ const state = reactive({
 const getThemeConfig = computed(() => {
   return themeConfig.value
 })
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   NextLoading.done()
 })

@@ -2,7 +2,7 @@
   <el-drawer v-model="state.visible" direction="rtl" destroy-on-close size="384px" @closed="onClosed">
     <template #header="{ titleId, titleClass }">
       <div class="my-flex my-flex-between mr20">
-        <span :id="titleId" :class="titleClass">{{ $t('站内�?) }}</span>
+        <span :id="titleId" :class="titleClass">{{ $t('站内信') }}</span>
         <el-link underline="never" type="primary" class="f12" @click="onShowMore">查看更多</el-link>
       </div>
     </template>
@@ -33,8 +33,6 @@
 </template>
 
 <script setup lang="ts" name="layoutBreadcrumbMsg">
-import { reactive, getCurrentInstance, computed } from 'vue'
-import { useRouter } from 'vue-router'
 import { SiteMsgApi } from '/@/api/admin/SiteMsg'
 import { PageInputSiteMsgGetPageInput, SiteMsgGetPageOutput } from '/@/api/admin/data-contracts'
 import dayjs from 'dayjs'
@@ -110,7 +108,7 @@ const onSetAllRead = () => {
 
       state.loadingSetAllRead = false
       if (res?.success) {
-        proxy.$modal.msgSuccess('标记所有已读成�?)
+        proxy.$modal.msgSuccess('标记所有已读成功')
         eventBus.emit('refreshSiteMsg')
         eventBus.emit('checkUnreadMsg')
         onQuery()

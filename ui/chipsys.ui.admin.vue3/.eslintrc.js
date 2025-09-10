@@ -72,7 +72,7 @@ module.exports = {
     'no-case-declarations': 'off',
     'no-console': 'error',
     'no-redeclare': 'off',
-    //修复prettier格式化语句在语句前生成分号后，eslintrc检测报错误的问�?
+    //修复prettier格式化语句在语句前生成分号后，eslintrc检测报错误的问题
     'no-extra-semi': 'off',
   },
 }

@@ -1,6 +1,6 @@
 <template>
   <div class="waterfall-container layout-pd">
-    <el-card shadow="hover" header="瀑布屏（布局一�? class="mb15">
+    <el-card shadow="hover" header="瀑布屏（布局一）" class="mb15">
       <div class="waterfall-first">
         <div class="waterfall-first-item" v-for="v in 30" :key="v" v-waves>
           <div class="w100 h100 flex">
@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts" name="example/pagesWaterfall">
-// 此处需有内容（注释也得），否则缓存将失�?
+// 此处需有内容（注释也得），否则缓存将失败
 </script>
 
 <style scoped lang="scss">

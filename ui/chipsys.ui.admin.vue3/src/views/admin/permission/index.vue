@@ -23,7 +23,7 @@
               <el-dropdown-menu>
                 <el-dropdown-item v-if="auth('api:admin:permission:addgroup')" @click="onAdd({ type: 1 })">新增分组</el-dropdown-item>
                 <el-dropdown-item v-if="auth('api:admin:permission:addmenu')" @click="onAdd({ type: 2 })">新增菜单</el-dropdown-item>
-                <el-dropdown-item v-if="auth('api:admin:permission:adddot')" @click="onAdd({ type: 3 })">新增权限�?/el-dropdown-item>
+                <el-dropdown-item v-if="auth('api:admin:permission:adddot')" @click="onAdd({ type: 3 })">新增权限点</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>
@@ -49,22 +49,22 @@
         </el-table-column>
         <el-table-column prop="type" label="类型" width="82" show-overflow-tooltip>
           <template #default="{ row }">
-            {{ row.type === 1 ? '分组' : row.type === 2 ? '菜单' : row.type === 3 ? '权限�? : '' }}
+            {{ row.type === 1 ? '分组' : row.type === 2 ? '菜单' : row.type === 3 ? '权限点' : '' }}
           </template>
         </el-table-column>
         <el-table-column prop="path" label="权限地址" min-width="240" show-overflow-tooltip>
           <template #default="{ row }">
             <div v-if="row.type === 1 || row.type === 2">
-              {{ row.path ? '路由地址�? + row.path : '' }}
-              {{ row.viewPath ? '视图地址�? + row.viewPath : '' }}
-              {{ row.redirect ? '重定向地址�? + row.redirect : '' }}
-              {{ row.link ? '链接地址�? + row.link : '' }}
+              {{ row.path ? '路由地址：' + row.path : '' }}
+              {{ row.viewPath ? '视图地址：' + row.viewPath : '' }}
+              {{ row.redirect ? '重定向地址：' + row.redirect : '' }}
+              {{ row.link ? '链接地址：' + row.link : '' }}
             </div>
             <div v-if="row.type === 3">接口地址：{{ row.apiPaths }}</div>
           </template>
         </el-table-column>
         <el-table-column prop="sort" label="排序" width="82" align="center" show-overflow-tooltip />
-        <el-table-column label="状�? width="82" align="center">
+        <el-table-column label="状态" width="82" align="center">
           <template #default="{ row }">
             <el-tag type="success" v-if="row.enabled">启用</el-tag>
             <el-tag type="danger" v-else>禁用</el-tag>
@@ -101,7 +101,7 @@
                     新增菜单
                   </el-dropdown-item>
                   <el-dropdown-item v-if="row.type === 2 && auth('api:admin:permission:adddot')" @click="onAdd({ type: 3, parentId: row.id })">
-                    新增权限�?
+                    新增权限点
                   </el-dropdown-item>
                   <el-dropdown-item v-if="auth('api:admin:permission:delete')" @click="onDelete(row)">删除</el-dropdown-item>
                   <el-dropdown-item v-if="row.type === 1 && auth('api:admin:permission:addgroup')" @click="onCopy(row)"> 复制 </el-dropdown-item>
@@ -258,7 +258,7 @@ const onAdd = (row: PermissionGetListOutput) => {
       })
       break
     case 3:
-      state.permissionFormTitle = '新增权限�?
+      state.permissionFormTitle = '新增权限点'
       permissionDotFormRef.value?.open({
         id: 0,
         platform: state.filter.platform,
@@ -281,7 +281,7 @@ const onEdit = (row: PermissionGetListOutput) => {
       permissionMenuFormRef.value?.open(row as PermissionUpdateMenuInput)
       break
     case 3:
-      state.permissionFormTitle = '编辑权限�?
+      state.permissionFormTitle = '编辑权限点'
       permissionDotFormRef.value?.open(row as PermissionUpdateDotInput)
       break
   }
@@ -298,7 +298,7 @@ const onCopy = (row: PermissionGetListOutput) => {
       permissionMenuFormRef.value?.open(row as PermissionUpdateMenuInput, true)
       break
     case 3:
-      state.permissionFormTitle = '新增权限�?
+      state.permissionFormTitle = '新增权限点'
       permissionDotFormRef.value?.open(row as PermissionUpdateDotInput, true)
       break
   }
@@ -306,7 +306,7 @@ const onCopy = (row: PermissionGetListOutput) => {
 
 const onDelete = (row: PermissionGetListOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删�?{row.type === 1 ? '分组' : row.type === 2 ? '菜单' : row.type === 3 ? '权限�? : ''}�?{row.label}�?`)
+    .confirmDelete(`确定要删除${row.type === 1 ? '分组' : row.type === 2 ? '菜单' : row.type === 3 ? '权限点' : ''}【${row.label}】?`)
     .then(async () => {
       await new PermissionApi().delete({ id: row.id }, { loading: true })
       onQuery()

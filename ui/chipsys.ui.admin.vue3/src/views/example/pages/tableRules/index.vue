@@ -33,8 +33,8 @@
                   placeholder="选择日期"
                   style="width: 100%"
                 />
-                <el-input v-else-if="item.type === 'input'" v-model="scope.row[item.prop]" placeholder="请输入内�? />
-                <el-input v-else-if="item.type === 'dialog'" v-model="scope.row[item.prop]" readonly placeholder="请输入内�?>
+                <el-input v-else-if="item.type === 'input'" v-model="scope.row[item.prop]" placeholder="请输入内容" />
+                <el-input v-else-if="item.type === 'dialog'" v-model="scope.row[item.prop]" readonly placeholder="请输入内容">
                   <template v-slot:suffix>
                     <i class="iconfont icon-shouye_dongtaihui" />
                   </template>
@@ -47,7 +47,7 @@
       <el-row class="flex mt15">
         <div class="flex-margin">
           <el-button type="success" @click="onValidate(tableRulesRef)">表格验证</el-button>
-          <el-button type="primary" @click="onAddRow">新增一�?/el-button>
+          <el-button type="primary" @click="onAddRow">新增一行</el-button>
         </div>
       </el-row>
     </el-card>
@@ -66,33 +66,33 @@ const state = reactive<TableRulesState>({
   tableData: {
     data: [],
     header: [
-      { prop: 'a1', width: '', label: '一级分�?, isRequired: true, type: 'select' },
+      { prop: 'a1', width: '', label: '一级分类', isRequired: true, type: 'select' },
       { prop: 'a2', width: '', label: '二级分类', isRequired: true, type: 'select' },
       { prop: 'a3', width: '', label: '三级分类', isRequired: true, type: 'select' },
       { prop: 'a4', width: '', label: '四级分类', isRequired: true, type: 'date' },
       { prop: 'a5', width: '', label: '五级分类', isRequired: true, type: 'input' },
       { prop: 'a6', width: '', label: '六级分类', isTooltip: true, type: 'dialog' },
-      { prop: 'a7', width: '', label: '演示级分�?, type: 'input' },
-      { prop: 'a8', width: '', label: '颜色是分�?, type: 'input' },
+      { prop: 'a7', width: '', label: '演示级分类', type: 'input' },
+      { prop: 'a8', width: '', label: '颜色是分类', type: 'input' },
     ],
     option: [
-      { value: '选项1', label: '黄金�? },
-      { value: '选项2', label: '双皮�? },
-      { value: '选项3', label: '蚵仔�? },
+      { value: '选项1', label: '黄金糕' },
+      { value: '选项2', label: '双皮奶' },
+      { value: '选项3', label: '蚵仔煎' },
     ],
   },
 })
 
 // 表格验证
 const onValidate = (formEl: FormInstance | undefined) => {
-  if (state.tableData.data.length <= 0) return ElMessage.warning('请先点击增加一�?)
+  if (state.tableData.data.length <= 0) return ElMessage.warning('请先点击增加一行')
   if (!formEl) return
   formEl.validate((valid) => {
-    if (!valid) return ElMessage.warning('表格项必填未�?)
+    if (!valid) return ElMessage.warning('表格项必填未填')
     ElMessage.success('全部验证通过')
   })
 }
-// 新增一�?
+// 新增一行
 const onAddRow = () => {
   state.tableData.data.push({
     a1: '',

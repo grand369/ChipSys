@@ -21,14 +21,12 @@
 </template>
 
 <script setup lang="ts" name="layoutBreadcrumbUserNews">
-import { reactive } from 'vue'
-
 // 定义变量内容
 const state = reactive({
   newsList: [
     {
       label: '关于版本发布的通知',
-      value: 'admin，基�?vue3 + CompositionAPI + typescript + vite + element plus，正式发布时间：2022�?2�?8日！',
+      value: 'admin，基于 vue3 + CompositionAPI + typescript + vite + element plus，正式发布时间：2022年12月08日！',
       time: '2022-12-08',
     },
   ],
@@ -40,7 +38,7 @@ const onAllReadClick = () => {
 }
 // 前往通知中心点击
 const onGoToGiteeClick = () => {
-  window.open('https://gitee.com/chipsys/admin.ui.plus')
+  window.open('https://gitee.com/zhontai/admin.ui.plus')
 }
 </script>
 

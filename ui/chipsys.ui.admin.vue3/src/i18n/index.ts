@@ -3,17 +3,17 @@ import pinia from '/@/stores/index'
 import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 
-// 定义语言国际化内�?
+// 定义语言国际化内容
 
 /**
- * 说明�?
- * 须在 pages 下新建文件夹（建�?`要国际化界面目录` �?`i18n 目录` 相同，方便查找）�?
- * 注意国际化定义的字段，不要与原有的定义字段相同�?
- * 1�?src/i18n/lang 下的 ts 为框架的国际化内�?
- * 2�?src/i18n/pages 下的 ts 为各界面的国际化内容
+ * 说明：
+ * 须在 pages 下新建文件夹（建议 `要国际化界面目录` 与 `i18n 目录` 相同，方便查找），
+ * 注意国际化定义的字段，不要与原有的定义字段相同。
+ * 1、/src/i18n/lang 下的 ts 为框架的国际化内容
+ * 2、/src/i18n/pages 下的 ts 为各界面的国际化内容
  */
 
-// element plus 自带国际�?
+// element plus 自带国际化
 import enLocale from 'element-plus/es/locale/lang/en'
 import zhcnLocale from 'element-plus/es/locale/lang/zh-cn'
 import zhtwLocale from 'element-plus/es/locale/lang/zh-tw'
@@ -32,7 +32,7 @@ for (const path in modules) {
   else itemize[key![2]] = modules[path]
 }
 
-// 合并数组对象（非标准数组对象，数组中对象的每�?key、value 都不同）
+// 合并数组对象（非标准数组对象，数组中对象的每项 key、value 都不同）
 function mergeArrObj<T>(list: T, key: string) {
   let obj = {}
   list[key].forEach((i: EmptyObjectType) => {
@@ -41,7 +41,7 @@ function mergeArrObj<T>(list: T, key: string) {
   return obj
 }
 
-// 处理最终格�?
+// 处理最终格式
 for (const key in itemize) {
   messages[key] = {
     name: key,
@@ -54,7 +54,7 @@ for (const key in itemize) {
 const stores = useThemeConfig(pinia)
 const { themeConfig } = storeToRefs(stores)
 
-// 导出语言国际�?
+// 导出语言国际化
 // https://vue-i18n.intlify.dev/guide/essentials/fallback.html#explicit-fallback-with-one-locale
 export const i18n = createI18n({
   legacy: false,

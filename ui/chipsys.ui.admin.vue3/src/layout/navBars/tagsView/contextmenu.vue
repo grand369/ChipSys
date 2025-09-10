@@ -30,9 +30,7 @@
 </template>
 
 <script setup lang="ts" name="layoutTagsViewContextmenu">
-import { computed, reactive, onMounted, onUnmounted, watch } from 'vue'
-
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   dropdown: {
     type: Object,
@@ -45,7 +43,7 @@ const props = defineProps({
   },
 })
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['currentContextmenuClick'])
 
 // 定义变量内容
@@ -67,9 +65,9 @@ const state = reactive({
   arrowLeft: 10,
 })
 
-// 父级传过来的坐标 x,y �?
+// 父级传过来的坐标 x,y 值
 const dropdowns = computed(() => {
-  // 117 �?`Dropdown 下拉菜单` 的宽�?
+  // 117 为 `Dropdown 下拉菜单` 的宽度
   if (props.dropdown.x + 117 > document.documentElement.clientWidth) {
     return {
       x: document.documentElement.clientWidth - 117 - 5,
@@ -79,7 +77,7 @@ const dropdowns = computed(() => {
     return props.dropdown
   }
 })
-// 当前项菜单点�?
+// 当前项菜单点击
 const onCurrentContextmenuClick = (contextMenuClickId: number) => {
   emit('currentContextmenuClick', Object.assign({}, { contextMenuClickId }, state.item))
 }
@@ -96,7 +94,7 @@ const openContextmenu = (item: RouteItem) => {
 const closeContextmenu = () => {
   state.isShow = false
 }
-// 监听页面监听进行右键菜单的关�?
+// 监听页面监听进行右键菜单的关闭
 onMounted(() => {
   document.body.addEventListener('click', closeContextmenu)
 })

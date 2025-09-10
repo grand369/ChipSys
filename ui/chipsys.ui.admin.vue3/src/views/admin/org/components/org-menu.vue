@@ -2,7 +2,7 @@
   <el-card shadow="never" style="margin-top: 8px" body-style="padding:0px;" class="my-fill">
     <template #header>
       <div class="my-flex">
-        <el-input v-model="state.filterText" placeholder="筛选部�? clearable />
+        <el-input v-model="state.filterText" placeholder="筛选部门" clearable />
         <el-dropdown trigger="hover">
           <div class="my-flex my-flex-items-center my-icon-more">
             <my-icon name="more" color="var(--color)" size="22"></my-icon>

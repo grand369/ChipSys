@@ -17,7 +17,7 @@ import { listToTree } from '/@/utils/tree'
 // const menuApi = useMenuApi()
 
 /**
- * 获取目录下的 .vue�?tsx 全部文件
+ * 获取目录下的 .vue、.tsx 全部文件
  * @method import.meta.glob
  * @link 参考：https://cn.vitejs.dev/guide/features.html#json
  */
@@ -27,38 +27,38 @@ const dynamicViewsModules: Record<string, Function> = Object.assign({}, { ...lay
 
 /**
  * 后端控制路由：初始化方法，防止刷新时路由丢失
- * @method NextLoading 界面 loading 动画开始执�?
- * @method useUserInfo().setUserInfos() 触发初始化用户信�?pinia
+ * @method NextLoading 界面 loading 动画开始执行
+ * @method useUserInfo().setUserInfos() 触发初始化用户信息 pinia
  * @method useRequestOldRoutes().setRequestOldRoutes() 存储接口原始路由（未处理component），根据需求选择使用
- * @method setAddRoute 添加动态路�?
- * @method setFilterMenuAndCacheTagsViewRoutes 设置路由�?pinia routesList 中（已处理成多级嵌套路由）及缓存多级嵌套数组处理后的一维数�?
+ * @method setAddRoute 添加动态路由
+ * @method setFilterMenuAndCacheTagsViewRoutes 设置路由到 pinia routesList 中（已处理成多级嵌套路由）及缓存多级嵌套数组处理后的一维数组
  */
 export async function initBackEndControlRoutes() {
-  // 界面 loading 动画开始执�?
+  // 界面 loading 动画开始执行
   if (window.nextLoading === undefined) NextLoading.start()
-  // �?token 停止执行下一�?
+  // 无 token 停止执行下一步
   if (!useUserInfo().getToken()) return false
-  // 触发初始化用户信�?pinia
+  // 触发初始化用户信息 pinia
   await useUserInfo().setUserInfos()
   // 获取路由菜单数据
   const menus = await getBackEndControlRoutes()
   if (!(menus?.length > 0)) return Promise.resolve(true)
   // 存储接口原始路由（未处理component），根据需求选择使用
   useRequestOldRoutes().setRequestOldRoutes(JSON.parse(JSON.stringify(menus)))
-  // 处理路由（component），替换 dynamicRoutes�?@/router/route）第一个顶�?children 的路�?
+  // 处理路由（component），替换 dynamicRoutes（/@/router/route）第一个顶级 children 的路由
   const routes = await backEndComponent(menus)
   dynamicRoutes[0].children?.unshift(...routes, ...commonRoutes)
 
-  // 添加动态路�?
+  // 添加动态路由
   await setAddRoute()
-  // 设置路由�?pinia routesList 中（已处理成多级嵌套路由）及缓存多级嵌套数组处理后的一维数�?
+  // 设置路由到 pinia routesList 中（已处理成多级嵌套路由）及缓存多级嵌套数组处理后的一维数组
   setFilterMenuAndCacheTagsViewRoutes()
 }
 
 /**
- * 设置路由�?pinia routesList 中（已处理成多级嵌套路由）及缓存多级嵌套数组处理后的一维数�?
+ * 设置路由到 pinia routesList 中（已处理成多级嵌套路由）及缓存多级嵌套数组处理后的一维数组
  * @description 用于左侧菜单、横向菜单的显示
- * @description 用于 tagsView、菜单搜索中：未过滤隐藏�?isHide)
+ * @description 用于 tagsView、菜单搜索中：未过滤隐藏的(isHide)
  */
 export function setFilterMenuAndCacheTagsViewRoutes() {
   const storesRoutesList = useRoutesList(pinia)
@@ -67,8 +67,8 @@ export function setFilterMenuAndCacheTagsViewRoutes() {
 }
 
 /**
- * 缓存多级嵌套数组处理后的一维数�?
- * @description 用于 tagsView、菜单搜索中：未过滤隐藏�?isHide)
+ * 缓存多级嵌套数组处理后的一维数组
+ * @description 用于 tagsView、菜单搜索中：未过滤隐藏的(isHide)
  */
 export function setCacheTagsViewRoutes() {
   const storesTagsView = useTagsViewRoutes(pinia)
@@ -77,21 +77,21 @@ export function setCacheTagsViewRoutes() {
 
 /**
  * 处理路由格式及添加捕获所有路由或 404 Not found 路由
- * @description 替换 dynamicRoutes�?@/router/route）第一个顶�?children 的路�?
+ * @description 替换 dynamicRoutes（/@/router/route）第一个顶级 children 的路由
  * @returns 返回替换后的路由数组
  */
 export function setFilterRouteEnd() {
   let filterRouteEnd: any = formatTwoStageRoutes(formatFlatteningRoutes(dynamicRoutes))
-  // notFoundAndNoPower 防止 404�?01 不在 layout 布局中，不设置的话，404�?01 界面将全屏显�?
+  // notFoundAndNoPower 防止 404、401 不在 layout 布局中，不设置的话，404、401 界面将全屏显示
   // 关联问题 No match found for location with path 'xxx'
   filterRouteEnd[0].children = [...filterRouteEnd[0].children, ...notFoundAndNoPower]
   return filterRouteEnd
 }
 
 /**
- * 添加动态路�?
+ * 添加动态路由
  * @method router.addRoute
- * @description 此处循环�?dynamicRoutes�?@/router/route）第一个顶�?children 的路由一维数组，非多级嵌�?
+ * @description 此处循环为 dynamicRoutes（/@/router/route）第一个顶级 children 的路由一维数组，非多级嵌套
  * @link 参考：https://next.router.vuejs.org/zh/api/#addroute
  */
 export async function setAddRoute() {
@@ -102,7 +102,7 @@ export async function setAddRoute() {
 
 /**
  * 请求后端路由菜单接口
- * @description isRequestRoutes �?true，则开启后端控制路�?
+ * @description isRequestRoutes 为 true，则开启后端控制路由
  * @returns 返回后端路由菜单数据
  */
 export async function getBackEndControlRoutes() {
@@ -128,7 +128,7 @@ export async function getBackEndControlRoutes() {
           isLink: menu.link,
           status: 1,
           remark: null,
-          order: menu.sort,
+          // order: menu.sort,
           isDir: !menu.viewPath,
         },
       })
@@ -142,8 +142,8 @@ export async function getBackEndControlRoutes() {
 
 /**
  * 重新请求后端路由菜单接口
- * @description 用于菜单管理界面刷新菜单（未进行测试�?
- * @description 路径�?src/views/system/menu/component/addMenu.vue
+ * @description 用于菜单管理界面刷新菜单（未进行测试）
+ * @description 路径：/src/views/system/menu/component/addMenu.vue
  */
 export function setBackEndControlRefreshRoutes() {
   getBackEndControlRoutes()
@@ -152,7 +152,7 @@ export function setBackEndControlRefreshRoutes() {
 /**
  * 后端路由 component 转换
  * @param routes 后端返回的路由表数组
- * @returns 返回处理成函数后�?component
+ * @returns 返回处理成函数后的 component
  */
 export function backEndComponent(routes: any) {
   if (!routes) return
@@ -165,9 +165,9 @@ export function backEndComponent(routes: any) {
 
 /**
  * 后端路由 component 转换函数
- * @param dynamicViewsModules 获取目录下的 .vue�?tsx 全部文件
+ * @param dynamicViewsModules 获取目录下的 .vue、.tsx 全部文件
  * @param component 当前要处理项 component
- * @returns 返回处理成函数后�?component
+ * @returns 返回处理成函数后的 component
  */
 export function dynamicImport(dynamicViewsModules: Record<string, Function>, component: string) {
   const keys = Object.keys(dynamicViewsModules)

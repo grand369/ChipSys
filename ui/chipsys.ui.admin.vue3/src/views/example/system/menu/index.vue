@@ -2,7 +2,7 @@
   <div class="system-menu-container layout-pd">
     <el-card shadow="hover">
       <div class="system-menu-search mb15">
-        <el-input placeholder="请输入菜单名�? style="max-width: 180px"> </el-input>
+        <el-input placeholder="请输入菜单名称" style="max-width: 180px"> </el-input>
         <el-button type="primary" class="ml10">
           <el-icon>
             <ele-Search />
@@ -85,7 +85,7 @@ const state = reactive({
   },
 })
 
-// 获取路由数据，真实请从接口获�?
+// 获取路由数据，真实请从接口获取
 const getTableData = () => {
   state.tableData.loading = true
   state.tableData.data = routesList.value
@@ -101,9 +101,9 @@ const onOpenAddMenu = (type: string) => {
 const onOpenEditMenu = (type: string, row: RouteRecordRaw) => {
   menuDialogRef.value.openDialog(type, row)
 }
-// 删除当前�?
+// 删除当前行
 const onTabelRowDel = (row: RouteRecordRaw) => {
-  ElMessageBox.confirm(`此操作将永久删除路由�?{row.path}, 是否继续?`, '提示', {
+  ElMessageBox.confirm(`此操作将永久删除路由：${row.path}, 是否继续?`, '提示', {
     confirmButtonText: '删除',
     cancelButtonText: '取消',
     type: 'warning',
@@ -115,7 +115,7 @@ const onTabelRowDel = (row: RouteRecordRaw) => {
     })
     .catch(() => {})
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   getTableData()
 })

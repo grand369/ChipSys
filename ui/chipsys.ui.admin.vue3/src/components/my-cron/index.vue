@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-tabs type="border-card">
-      <el-tab-pane label="�? v-if="shouldHide('second')">
+      <el-tab-pane label="秒" v-if="shouldHide('second')">
         <CrontabSecond @update="updateCrontabValue" :check="checkNumber" :cron="crontabValueObj" ref="cronsecond" />
       </el-tab-pane>
 
@@ -13,25 +13,25 @@
         <CrontabHour @update="updateCrontabValue" :check="checkNumber" :cron="crontabValueObj" ref="cronhour" />
       </el-tab-pane>
 
-      <el-tab-pane label="�? v-if="shouldHide('day')">
+      <el-tab-pane label="日" v-if="shouldHide('day')">
         <CrontabDay @update="updateCrontabValue" :check="checkNumber" :cron="crontabValueObj" ref="cronday" />
       </el-tab-pane>
 
-      <el-tab-pane label="�? v-if="shouldHide('month')">
+      <el-tab-pane label="月" v-if="shouldHide('month')">
         <CrontabMonth @update="updateCrontabValue" :check="checkNumber" :cron="crontabValueObj" ref="cronmonth" />
       </el-tab-pane>
 
-      <el-tab-pane label="�? v-if="shouldHide('week')">
+      <el-tab-pane label="周" v-if="shouldHide('week')">
         <CrontabWeek @update="updateCrontabValue" :check="checkNumber" :cron="crontabValueObj" ref="cronweek" />
       </el-tab-pane>
 
-      <el-tab-pane label="�? v-if="shouldHide('year')">
+      <el-tab-pane label="年" v-if="shouldHide('year')">
         <CrontabYear @update="updateCrontabValue" :check="checkNumber" :cron="crontabValueObj" ref="cronyear" />
       </el-tab-pane>
     </el-tabs>
 
     <div class="popup-result">
-      <p class="title">时间表达�?/p>
+      <p class="title">时间表达式</p>
       <table>
         <thead>
           <th v-for="item of tabTitles" :key="item">{{ item }}</th>
@@ -103,8 +103,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch, defineAsyncComponent, onMounted } from 'vue'
-
 const CrontabSecond = defineAsyncComponent(() => import('./second.vue'))
 const CrontabMin = defineAsyncComponent(() => import('./min.vue'))
 const CrontabHour = defineAsyncComponent(() => import('./hour.vue'))
@@ -129,7 +127,7 @@ const props = defineProps({
     default: () => false,
   },
 })
-const tabTitles = ref(['�?, '分钟', '小时', '�?, '�?, '�?, '�?])
+const tabTitles = ref(['秒', '分钟', '小时', '日', '月', '周', '年'])
 const hideComponentRef = ref([]) as any
 const expressionRef = ref('') as any
 const crontabValueObj = ref({
@@ -150,11 +148,11 @@ const shouldHide = (key: any) => {
   return !(hideComponentRef.value && hideComponentRef.value.includes(key))
 }
 const resolveExp = () => {
-  // 反解�?表达�?
+  // 反解析 表达式
   if (expressionRef.value) {
     const arr = expressionRef.value.split(/\s+/)
     if (arr.length >= 6) {
-      //6 位以上是合法表达�?
+      //6 位以上是合法表达式
       let obj = {
         second: arr[0],
         min: arr[1],
@@ -169,12 +167,12 @@ const resolveExp = () => {
       }
     }
   } else {
-    // 没有传入的表达式 则还�?
+    // 没有传入的表达式 则还原
     clearCron()
   }
 }
 
-// 由子组件触发，更改表达式组成的字段�?
+// 由子组件触发，更改表达式组成的字段值
 const updateCrontabValue = (name: any, value: any) => {
   crontabValueObj.value[name] = value
 }
@@ -193,13 +191,13 @@ const checkNumber = (value: any, minLimit: any, maxLimit: any) => {
 const hidePopup = () => {
   emit('hide')
 }
-// 填充表达�?
+// 填充表达式
 const submitFill = () => {
   emit('fill', crontabValueString.value)
   hidePopup()
 }
 const clearCron = () => {
-  // 还原选择�?
+  // 还原选择项
   crontabValueObj.value = {
     second: '*',
     min: '*',
@@ -210,7 +208,7 @@ const clearCron = () => {
     year: '',
   }
 }
-// 获得表达�?
+// 获得表达式
 const getCron = () => {
   return crontabValueString.value
 }

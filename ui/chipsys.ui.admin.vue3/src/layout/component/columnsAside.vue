@@ -48,8 +48,6 @@
 </template>
 
 <script setup lang="ts" name="layoutColumnsAside">
-import { reactive, ref, onMounted, nextTick, watch, onUnmounted, computed } from 'vue'
-import { useRoute, useRouter, onBeforeRouteUpdate, RouteRecordRaw } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useRoutesList } from '/@/stores/routesList'
 import { useThemeConfig } from '/@/stores/themeConfig'
@@ -58,10 +56,11 @@ import mittBus from '/@/utils/mitt'
 import logoMini from '/@/assets/logo-mini.svg'
 import { treeToList, listToTree, filterList } from '/@/utils/tree'
 import { cloneDeep } from 'lodash-es'
+import { RouteRecordRaw } from 'vue-router'
 
 // 定义变量内容
 const columnsAsideOffsetTopRefs = ref<RefType>([])
-const columnsAsideActiveRef = ref()
+const columnsAsideActiveRef = useTemplateRef('columnsAsideActiveRef')
 const stores = useRoutesList()
 const storesThemeConfig = useThemeConfig()
 const storesTagsViewRoutes = useTagsViewRoutes()
@@ -90,7 +89,7 @@ const setShowLogo = computed(() => {
 const setColumnsAsideMove = (k: number) => {
   if (k === undefined) return false
   state.liIndex = k
-  columnsAsideActiveRef.value.style.top = `${columnsAsideOffsetTopRefs.value[k].offsetTop + state.difference}px`
+  columnsAsideActiveRef.value!.style.top = `${columnsAsideOffsetTopRefs.value[k].offsetTop + state.difference}px`
 }
 // 菜单高亮点击事件
 const onColumnsAsideMenuClick = async (v: RouteItem) => {
@@ -111,10 +110,10 @@ const onColumnsAsideMenuClick = async (v: RouteItem) => {
     }
   }
 
-  // 一个路由设置自动收起菜�?
+  // 一个路由设置自动收起菜单
   !v.children || v.children.length < 1 ? (themeConfig.value.isCollapse = true) : (themeConfig.value.isCollapse = false)
 }
-// 鼠标移入时，显示当前的子级菜�?
+// 鼠标移入时，显示当前的子级菜单
 const onColumnsAsideMenuMouseenter = (v: RouteRecordRaw, k: number) => {
   if (!themeConfig.value.isColumnsMenuHoverPreload) return false
   let { path } = v
@@ -125,22 +124,22 @@ const onColumnsAsideMenuMouseenter = (v: RouteRecordRaw, k: number) => {
   stores.setColumnsMenuHover(false)
   stores.setColumnsNavHover(true)
 }
-// 鼠标移走时，显示原来的子级菜�?
+// 鼠标移走时，显示原来的子级菜单
 const onColumnsAsideMenuMouseleave = async () => {
   if (!themeConfig.value.isColumnsMenuHoverPreload) return false
   await stores.setColumnsNavHover(false)
-  // 添加延时器，防止拿到�?store.state.routesList 值不是最新的
+  // 添加延时器，防止拿到的 store.state.routesList 值不是最新的
   setTimeout(() => {
     if (!isColumnsMenuHover && !isColumnsNavHover) mittBus.emit('restoreDefault')
   }, 100)
 }
-// 设置高亮动态位�?
+// 设置高亮动态位置
 const onColumnsAsideDown = (k: number) => {
   nextTick(() => {
     setColumnsAsideMove(k)
   })
 }
-// 设置/过滤路由（非静态路�?是否显示在菜单中�?
+// 设置/过滤路由（非静态路由/是否显示在菜单中）
 const setFilterRoutes = () => {
   state.columnsAsideList = filterRoutesFun(routesList.value)
   const resData: MittMenu = setSendChildren(route.path)
@@ -158,13 +157,13 @@ const setFilterRoutes = () => {
     }, 300)
   }
 }
-// 传送当前子级数据到菜单�?
+// 传送当前子级数据到菜单中
 const setSendChildren = (path: string) => {
   const currentPathSplit = path.split('/')
   let rootPath = `/${currentPathSplit[1]}`
-  //判断是否能够找到根节�?
+  //判断是否能够找到根节点
   if (!state.columnsAsideList.find((v) => v.path === rootPath)) {
-    //不存在则使用顶级的分�?
+    //不存在则使用顶级的分类
     let routeTree = listToTree(
       filterList(treeToList(cloneDeep(state.columnsAsideList)), path, {
         filterWhere: (item: any, filterword: string) => {
@@ -173,7 +172,7 @@ const setSendChildren = (path: string) => {
       })
     )
 
-    //找到根节点则使用根节�?
+    //找到根节点则使用根节点
     if (routeTree.length > 0 && routeTree[0]?.path) {
       rootPath = routeTree[0].path
     }
@@ -199,7 +198,7 @@ const filterRoutesFun = <T extends RouteItem>(arr: T[]): T[] => {
       return item
     })
 }
-// tagsView 点击时，根据路由查找下标 columnsAsideList，实现左侧菜单高�?
+// tagsView 点击时，根据路由查找下标 columnsAsideList，实现左侧菜单高亮
 const setColumnsMenuHighlight = (path: string) => {
   state.routeSplit = path.split('/')
   state.routeSplit.shift()
@@ -220,12 +219,12 @@ const setColumnsMenuHighlight = (path: string) => {
     }
   }
   if (!currentSplitRoute) return false
-  // 延迟拿值，防止取不�?
+  // 延迟拿值，防止取不到
   setTimeout(() => {
     onColumnsAsideDown(currentSplitRoute.k)
   }, 0)
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   setFilterRoutes()
   // 销毁变量，防止鼠标再次移入时，保留了上次的记录
@@ -234,16 +233,16 @@ onMounted(() => {
     state.liOldPath = null
   })
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   mittBus.off('restoreDefault', () => {})
 })
-// 路由更新�?
+// 路由更新时
 onBeforeRouteUpdate((to) => {
   setColumnsMenuHighlight(to.path)
   mittBus.emit('setSendColumnsChildren', setSendChildren(to.path))
 })
-// 监听布局配置信息的变化，动态增加菜单高亮位置移动像�?
+// 监听布局配置信息的变化，动态增加菜单高亮位置移动像素
 watch(
   [() => themeConfig.value.columnsAsideStyle, isColumnsMenuHover, isColumnsNavHover],
   () => {

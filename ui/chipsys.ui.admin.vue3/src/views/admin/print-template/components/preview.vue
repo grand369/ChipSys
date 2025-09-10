@@ -24,8 +24,8 @@
               </template>
               导出PDF
             </el-button>
-            <el-button type="primary" icon="ele-Printer" @click="onPrint">�?�?/el-button>
-            <el-button @click="onCancel">�?�?/el-button>
+            <el-button type="primary" icon="ele-Printer" @click="onPrint">打 印</el-button>
+            <el-button @click="onCancel">关 闭</el-button>
           </div>
         </div>
       </template>
@@ -53,7 +53,7 @@ const width = computed(() => {
 const hiprintTemplate = ref()
 const previewContainerRef = useTemplateRef<HTMLElement | null>('previewContainerRef') // 引用容器
 
-// 打开对话�?
+// 打开对话框
 const open = async (template: any, printData: {}, title = '打印模板') => {
   state.title = title
   state.template = template
@@ -73,7 +73,7 @@ const open = async (template: any, printData: {}, title = '打印模板') => {
     previewContainerRef.value.innerHTML = ''
   }
 
-  // �?HTML 元素对象插入到容器中
+  // 将 HTML 元素对象插入到容器中
   if (htmlElements?.length > 0 && previewContainerRef.value) {
     htmlElements.each((index: number, element: HTMLElement) => {
       previewContainerRef.value?.appendChild(element)

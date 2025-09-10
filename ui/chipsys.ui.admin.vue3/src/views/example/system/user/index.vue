@@ -2,7 +2,7 @@
   <div class="system-user-container layout-padding">
     <el-card shadow="hover" class="layout-padding-auto">
       <div class="system-user-search mb15">
-        <el-input placeholder="请输入用户名�? style="max-width: 180px"> </el-input>
+        <el-input placeholder="请输入用户名称" style="max-width: 180px"> </el-input>
         <el-button type="primary" class="ml10">
           <el-icon>
             <ele-Search />
@@ -22,9 +22,9 @@
         <el-table-column prop="userNickname" label="用户昵称" show-overflow-tooltip></el-table-column>
         <el-table-column prop="roleSign" label="关联角色" show-overflow-tooltip></el-table-column>
         <el-table-column prop="department" label="部门" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="phone" label="手机�? show-overflow-tooltip></el-table-column>
+        <el-table-column prop="phone" label="手机号" show-overflow-tooltip></el-table-column>
         <el-table-column prop="email" label="邮箱" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="status" label="用户状�? show-overflow-tooltip>
+        <el-table-column prop="status" label="用户状态" show-overflow-tooltip>
           <template #default="scope">
             <el-tag type="success" v-if="scope.row.status">启用</el-tag>
             <el-tag type="info" v-else>禁用</el-tag>
@@ -78,19 +78,19 @@ const state = reactive<SysUserState>({
   },
 })
 
-// 初始化表格数�?
+// 初始化表格数据
 const getTableData = () => {
   state.tableData.loading = true
   const data = []
   for (let i = 0; i < 2; i++) {
     data.push({
       userName: i === 0 ? 'admin' : 'test',
-      userNickname: i === 0 ? '我是管理�? : '我是普通用�?,
+      userNickname: i === 0 ? '我是管理员' : '我是普通用户',
       roleSign: i === 0 ? 'admin' : 'common',
       department: i === 0 ? ['vueNextAdmin', 'IT外包服务'] : ['vueNextAdmin', '资本控股'],
       phone: '12345678910',
       email: 'vueNextAdmin@123.com',
-      sex: '�?,
+      sex: '女',
       password: '123456',
       overdueTime: new Date(),
       status: true,
@@ -114,7 +114,7 @@ const onOpenEditUser = (type: string, row: RowUserType) => {
 }
 // 删除用户
 const onRowDel = (row: RowUserType) => {
-  ElMessageBox.confirm(`此操作将永久删除账户名称：�?{row.userName}”，是否继续?`, '提示', {
+  ElMessageBox.confirm(`此操作将永久删除账户名称：“${row.userName}”，是否继续?`, '提示', {
     confirmButtonText: '确认',
     cancelButtonText: '取消',
     type: 'warning',
@@ -135,7 +135,7 @@ const onHandleCurrentChange = (val: number) => {
   state.tableData.param.pageNum = val
   getTableData()
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   getTableData()
 })

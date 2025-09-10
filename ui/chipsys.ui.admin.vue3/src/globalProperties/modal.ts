@@ -94,13 +94,13 @@ export default {
       ...elMessageBoxOptions,
     })
   },
-  // 打开遮罩�?
+  // 打开遮罩层
   loading(content: any) {
     loadingInstance = ElLoading.service({
       text: content,
     })
   },
-  // 关闭遮罩�?
+  // 关闭遮罩层
   closeLoading() {
     loadingInstance.close()
   },

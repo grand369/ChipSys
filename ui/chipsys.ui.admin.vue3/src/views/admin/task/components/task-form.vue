@@ -12,7 +12,7 @@
       <el-form :model="form" ref="formRef" label-width="110px">
         <el-row :gutter="35">
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-form-item label="任务标题" prop="topic" :rules="[{ required: true, message: '请输入任务标�?, trigger: ['blur', 'change'] }]">
+            <el-form-item label="任务标题" prop="topic" :rules="[{ required: true, message: '请输入任务标题', trigger: ['blur', 'change'] }]">
               <el-input v-model="form.topic" clearable />
             </el-form-item>
           </el-col>
@@ -54,17 +54,17 @@
           <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
             <el-form-item prop="failRetryCount">
               <template #label>
-                <div class="my-flex-y-center">重试间隔（秒�?/div>
+                <div class="my-flex-y-center">重试间隔（秒）</div>
               </template>
               <el-input-number v-model="form.failRetryInterval" :min="0" />
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12">
-            <el-form-item prop="round" :rules="[{ required: true, message: '请输入执行轮�?, trigger: ['blur', 'change'] }]">
+            <el-form-item prop="round" :rules="[{ required: true, message: '请输入执行轮数', trigger: ['blur', 'change'] }]">
               <template #label>
                 <div class="my-flex-y-center">
                   执行轮次<el-tooltip effect="dark" placement="top" hide-after="0">
-                    <template #content>循环多少次，-1为无限循�?/template>
+                    <template #content>循环多少次，-1为无限循环</template>
                     <SvgIcon name="ele-InfoFilled" class="ml5" />
                   </el-tooltip>
                 </div>
@@ -84,7 +84,7 @@
               <el-form-item
                 label="定时参数"
                 prop="intervalArgument"
-                :rules="[{ required: true, message: '请输入定时参�?, trigger: ['blur', 'change'] }]"
+                :rules="[{ required: true, message: '请输入定时参数', trigger: ['blur', 'change'] }]"
               >
                 <el-input v-model="form.intervalArgument" clearable>
                   <template #append v-if="form.interval === 21">
@@ -93,31 +93,31 @@
                 </el-input>
               </el-form-item>
               <el-alert v-if="form.interval === 1" type="info" :closable="false">
-                设置 5 则每5秒触发，执行N�?
+                设置 5 则每5秒触发，执行N次
                 <br />
-                设置 5, 5, 10, 10, 60, 60 则每次按不同的间隔秒数触发，执行6�?
+                设置 5, 5, 10, 10, 60, 60 则每次按不同的间隔秒数触发，执行6次
               </el-alert>
-              <el-alert v-else-if="form.interval === 11" type="info" :closable="false"> 设置 08:00:00 则每�?08:00:00 触发，执行N�?</el-alert>
+              <el-alert v-else-if="form.interval === 11" type="info" :closable="false"> 设置 08:00:00 则每天 08:00:00 触发，执行N次 </el-alert>
               <el-alert v-else-if="form.interval === 12" type="info" :closable="false">
                 设置 1:08:00:00 则每周一 08:00:00 触发
                 <br />
                 设置 0:08:00:00 则每周日 08:00:00 触发
               </el-alert>
               <el-alert v-else-if="form.interval === 13" type="info" :closable="false">
-                设置 1:08:00:00 则每�?�?08:00:00 触发
+                设置 1:08:00:00 则每月1日 08:00:00 触发
                 <br />
-                设置 -1:08:00:00 则每月最后一�?08:00:00 触发
+                设置 -1:08:00:00 则每月最后一日 08:00:00 触发
               </el-alert>
               <el-alert v-else-if="form.interval === 21" type="info" :closable="false">
-                设置 0/10 * * * * ? 则从0秒开始每10秒执行一�?
+                设置 0/10 * * * * ? 则从0秒开始每10秒执行一次
                 <br />
                 <pre style="line-height: 20px">
 new FreeSchedulerBuilder()
 ...
 .UseCustomInterval(task =>
 {
-    //利用 cron 功能库解�?task.IntervalArgument 得到下一次执行时�?
-    //与当前时间相减，得到 TimeSpan，若返回 null 则任务完�?
+    //利用 cron 功能库解析 task.IntervalArgument 得到下一次执行时间
+    //与当前时间相减，得到 TimeSpan，若返回 null 则任务完成
     return TimeSpan.FromSeconds(5);
 })
 .Build();
@@ -130,8 +130,8 @@ new FreeSchedulerBuilder()
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -170,15 +170,15 @@ const state = reactive({
   intervals: [
     { label: '按秒触发', value: 1 },
     { label: '每天', value: 11 },
-    { label: '每周�?, value: 12 },
-    { label: '每月第几�?, value: 13 },
-    { label: 'Cron表达�?, value: 21 },
+    { label: '每周几', value: 12 },
+    { label: '每月第几日', value: 13 },
+    { label: 'Cron表达式', value: 21 },
   ],
 })
 
 const { form } = toRefs(state)
 
-//确定Cron表达�?
+//确定Cron表达式
 const onFillCron = (value: any) => {
   form.value.intervalArgument = value
 }
@@ -189,7 +189,7 @@ const onSureArgs = (task: any) => {
   form.value.body = task.body
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (row: TaskUpdateInput = { id: '' }) => {
   let formData = cloneDeep(row) as TaskUpdateInput
   if (row.id) {
@@ -204,12 +204,12 @@ const open = async (row: TaskUpdateInput = { id: '' }) => {
   state.showDialog = true
 }
 
-//打开Cron对话�?
+//打开Cron对话框
 const onOpenCronDialog = () => {
   myCronDialogRef.value?.open(state.form.intervalArgument as string)
 }
 
-//打开Json对话�?
+//打开Json对话框
 const onOpenJson = () => {
   jsonEditorDialogRef.value?.open(state.form)
 }

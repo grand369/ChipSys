@@ -4,16 +4,14 @@
       <MyCron ref="crontabRef" :expression="expression" :hide-component="['year']"></MyCron>
     </div>
     <template #footer>
-      <el-button @click="onReset">�?�?/el-button>
-      <el-button @click="onCancel">�?�?/el-button>
-      <el-button type="primary" @click="onSure">�?�?/el-button>
+      <el-button @click="onReset">重 置</el-button>
+      <el-button @click="onCancel">取 消</el-button>
+      <el-button type="primary" @click="onSure">确 定</el-button>
     </template>
   </el-drawer>
 </template>
 
 <script lang="ts" setup name="my-captcha-dialog">
-import { defineAsyncComponent, ref, reactive } from 'vue'
-
 defineProps({
   title: {
     type: String,
@@ -25,13 +23,13 @@ const MyCron = defineAsyncComponent(() => import('./index.vue'))
 const emits = defineEmits(['fill'])
 
 const expression = ref('')
-const crontabRef = ref()
+const crontabRef = useTemplateRef('crontabRef')
 
 const state = reactive({
   showDialog: false,
 })
 
-// 打开对话�?
+// 打开对话框
 const open = (intervalArgument: string) => {
   if (intervalArgument) expression.value = intervalArgument
   state.showDialog = true
@@ -39,13 +37,13 @@ const open = (intervalArgument: string) => {
 
 // 确定
 const onSure = () => {
-  emits('fill', crontabRef.value.getCron())
+  emits('fill', crontabRef.value!.getCron())
   onCancel()
 }
 
 // 重置
 const onReset = () => {
-  crontabRef.value.clearCron()
+  crontabRef.value!.clearCron()
 }
 
 // 取消

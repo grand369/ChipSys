@@ -68,7 +68,7 @@ const defaultTableConfig = {
   },
 }
 
-// 创建响应式模�?
+// 创建响应式模型
 const model = ref(cloneDeep(defaultTableConfig))
 
 const emit = defineEmits(['size-change', 'current-change'])
@@ -97,7 +97,7 @@ const paginatedData = computed(() => {
 // 处理每页条数变化
 const handleSizeChange = (size: number) => {
   model.value.pagination.pageSize = size
-  model.value.pagination.currentPage = 1 // 重置到第一�?
+  model.value.pagination.currentPage = 1 // 重置到第一页
   emit('size-change', size)
 }
 
@@ -107,7 +107,7 @@ const handleCurrentChange = (page: number) => {
   emit('current-change', page)
 }
 
-// 监听父组件传入的 model 变化，深度合�?
+// 监听父组件传入的 model 变化，深度合并
 watchEffect(() => {
   model.value = mergeWith(cloneDeep(defaultTableConfig), propsModel.value, (objValue, srcValue) => {
     // 特殊处理数组：直接替换而非合并

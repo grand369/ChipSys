@@ -1,5 +1,5 @@
 <template>
-  <el-tooltip effect="dark" content="列设�? placement="top">
+  <el-tooltip effect="dark" content="列设置" placement="top">
     <el-button ref="colSetRef" icon="ele-Setting" circle v-bind="$attrs" />
   </el-tooltip>
   <el-popover
@@ -16,7 +16,7 @@
     <div class="my-col-set-header-box">
       <div class="my-flex my-flex-between">
         <div class="my-flex my-flex-items-center">
-          <SvgIcon name="ele-Rank" title="点击并拖动进行排�? />
+          <SvgIcon name="ele-Rank" title="点击并拖动进行排序" />
           <el-checkbox v-model="checkAll" :indeterminate="checkIndeterminate" class="ml12" label="全部" @change="onCheckAllChange" />
         </div>
         <el-button type="primary" link @click="onResetDefault">恢复默认</el-button>
@@ -43,7 +43,7 @@
             </el-button>
             <el-button
               link
-              :title="isFixedLeft(item) ? '取消固定在左�? : '固定在左�?"
+              :title="isFixedLeft(item) ? '取消固定在左侧' : '固定在左侧'"
               :class="isFixedLeft(item) ? 'selected' : ''"
               @click="onFixedLeft(item)"
             >
@@ -55,7 +55,7 @@
             </el-button>
             <el-button
               link
-              :title="isFixedRight(item) ? '取消固定在右�? : '固定在右�?"
+              :title="isFixedRight(item) ? '取消固定在右侧' : '固定在右侧'"
               :class="isFixedRight(item) ? 'selected' : ''"
               @click="onFixedRight(item)"
             >
@@ -73,7 +73,6 @@
 </template>
 
 <script lang="ts" setup>
-import { useTemplateRef, computed, nextTick } from 'vue'
 import Sortable from 'sortablejs'
 import { cloneDeep } from 'lodash-es'
 
@@ -93,28 +92,28 @@ const colSetRef = useTemplateRef('colSetRef')
 useTemplateRef('colSetPopoverRef')
 const sortableRef = useTemplateRef('sortableRef')
 
-// 全�?
+// 全选
 const checkAll = computed(() => {
   const headers = colsModel.value.filter((v) => v.isShow).length
   return headers === colsModel.value.length
 })
 
-// 半�?
+// 半选
 const checkIndeterminate = computed(() => {
   const headers = colsModel.value.filter((v) => v.isShow).length
   return headers > 0 && headers < colsModel.value.length
 })
 
-// 全选变�?
+// 全选变更
 const onCheckAllChange = <T,>(val: T) => {
   if (val) colsModel.value.forEach((v) => (v.isShow = true))
   else colsModel.value.forEach((v) => (v.isShow = false))
 }
 
-// 列设�?
+// 列设置
 const onColSet = () => {
   nextTick(() => {
-    const sortable = Sortable.create(sortableRef.value, {
+    const sortable = Sortable.create(sortableRef.value!, {
       handle: '.handle',
       dataIdAttr: 'data-id',
       animation: 150,
@@ -145,23 +144,23 @@ const onMoveToTop = (item: any) => {
   }
 }
 
-// 判断是否固定在左�?
+// 判断是否固定在左侧
 const isFixedLeft = (item: any): boolean => {
   return item.attrs.fixed === true || item.attrs.fixed === 'left'
 }
 
-// 判断是否固定在右�?
+// 判断是否固定在右侧
 const isFixedRight = (item: any): boolean => {
   return item.attrs.fixed === 'right'
 }
 
-// 固定在左�?
+// 固定在左侧
 const onFixedLeft = (item: any) => {
   if (isFixedLeft(item)) item.attrs.fixed = false
   else item.attrs.fixed = 'left'
 }
 
-// 固定在右�?
+// 固定在右侧
 const onFixedRight = (item: any) => {
   if (isFixedRight(item)) item.attrs.fixed = false
   else item.attrs.fixed = 'right'

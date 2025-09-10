@@ -11,7 +11,7 @@
     >
       <el-text class="my-flex my-flex-items-center mb20">
         <SvgIcon name="ele-WarningFilled" size="24" color="#e6a23c" class="mr5" />
-        确定要给【{{ state.name }}】重置密�?
+        确定要给【{{ state.name }}】重置密码?
       </el-text>
 
       <el-form ref="formRef" :model="state.form" label-width="0px">
@@ -29,8 +29,8 @@
 
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -69,7 +69,7 @@ const onInputPwd = (val: string) => {
   state.form.password = verifyCnAndSpace(val)
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (row: UserGetPageOutput) => {
   state.form.password = ''
   state.showDialog = true
@@ -93,7 +93,7 @@ const onSure = async () => {
       state.sureLoading = false
     })
     if (res?.success) {
-      proxy.$modal.msgSuccess(`重置密码成功，密码为�?{res.data}`)
+      proxy.$modal.msgSuccess(`重置密码成功，密码为：${res.data}`)
     }
 
     state.sureLoading = false

@@ -87,11 +87,11 @@
                 v-model="state.checkListAll"
                 :indeterminate="state.checkListIndeterminate"
                 class="ml10 mr1"
-                label="列显�?
+                label="列显示"
                 @change="onCheckAllChange"
               />
               <el-checkbox v-model="getConfig.isSerialNo" class="ml12 mr1" label="序号" />
-              <el-checkbox v-model="getConfig.isSelection" class="ml12 mr1" label="多�? />
+              <el-checkbox v-model="getConfig.isSelection" class="ml12 mr1" label="多选" />
             </div>
             <el-scrollbar>
               <div ref="toolSetRef" class="tool-sortable">
@@ -110,16 +110,14 @@
 </template>
 
 <script setup lang="ts" name="netxTable">
-import { reactive, computed, nextTick, ref } from 'vue'
 import { ElMessage } from 'element-plus'
 import printJs from 'print-js'
 import table2excel from 'js-table2excel'
 import Sortable from 'sortablejs'
-import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import '/@/theme/tableTool.scss'
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   // 列表内容
   data: {
@@ -131,7 +129,7 @@ const props = defineProps({
     type: Array<EmptyObjectType>,
     default: () => [],
   },
-  // 配置�?
+  // 配置项
   config: {
     type: Object,
     default: () => {},
@@ -143,11 +141,12 @@ const props = defineProps({
   },
 })
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['delRow', 'pageChange', 'sortHeader'])
 
 // 定义变量内容
-const toolSetRef = ref()
+const toolSetRef = useTemplateRef('toolSetRef')
+
 const storesThemeConfig = useThemeConfig()
 const { themeConfig } = storeToRefs(storesThemeConfig)
 const state = reactive({
@@ -164,7 +163,7 @@ const state = reactive({
 const setBorder = computed(() => {
   return props.config.isBorder ? true : false
 })
-// 获取父组�?配置项（必传�?
+// 获取父组件 配置项（必传）
 const getConfig = computed(() => {
   return props.config
 })
@@ -178,17 +177,17 @@ const onCheckAllChange = <T,>(val: T) => {
   else props.header.forEach((v) => (v.isCheck = false))
   state.checkListIndeterminate = false
 }
-// tool 列显示当前项改变�?
+// tool 列显示当前项改变时
 const onCheckChange = () => {
   const headers = props.header.filter((v) => v.isCheck).length
   state.checkListAll = headers === props.header.length
   state.checkListIndeterminate = headers > 0 && headers < props.header.length
 }
-// 表格多选改变时，用于导�?
+// 表格多选改变时，用于导出
 const onSelectionChange = (val: EmptyObjectType[]) => {
   state.selectlist = val
 }
-// 删除当前�?
+// 删除当前项
 const onDelRow = (row: EmptyObjectType) => {
   emit('delRow', row)
 }
@@ -202,7 +201,7 @@ const onHandleCurrentChange = (val: number) => {
   state.page.pageNum = val
   emit('pageChange', state.page)
 }
-// 搜索时，分页还原成默�?
+// 搜索时，分页还原成默认
 const pageReset = () => {
   state.page.pageNum = 1
   state.page.pageSize = 10
@@ -211,7 +210,7 @@ const pageReset = () => {
 // 打印
 const onPrintTable = () => {
   // https://printjs.crabbly.com/#documentation
-  // 自定义打�?
+  // 自定义打印
   let tableTh = ''
   let tableTrTd = ''
   let tableTd: any = {}
@@ -251,7 +250,7 @@ const onRefreshTable = () => {
 // 设置
 const onSetTable = () => {
   nextTick(() => {
-    const sortable = Sortable.create(toolSetRef.value, {
+    const sortable = Sortable.create(toolSetRef.value!, {
       handle: '.handle',
       dataIdAttr: 'data-key',
       animation: 150,

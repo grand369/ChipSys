@@ -1,6 +1,6 @@
 <template>
   <div class="lazy-img-container layout-pd">
-    <el-card shadow="hover" header="图片懒加载演示（F12 切换�?Network Img下进行图片加载查看）">
+    <el-card shadow="hover" header="图片懒加载演示（F12 切换到 Network Img下进行图片加载查看）">
       <div class="flex-warp" v-if="state.tableData.data.length > 0">
         <el-row :gutter="15">
           <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4" class="mb15" v-for="(v, k) in state.tableData.data" :key="k" @click="onTableItemClick(v)">
@@ -19,10 +19,10 @@
                       </div>
                       <div class="item-txt-msg item-txt-price">
                         <span class="font-price">
-                          <span>�?/span>
+                          <span>￥</span>
                           <span class="font">{{ v.price }}</span>
                         </span>
-                        <span>月销{{ v.monSales }}�?/span>
+                        <span>月销{{ v.monSales }}笔</span>
                       </div>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ const state = reactive({
   },
 })
 
-// 当前列表项点�?
+// 当前列表项点击
 const onTableItemClick = (v: FilterListType) => {
   router.push({
     path: '/example/pages/filtering/details',
@@ -86,7 +86,7 @@ const onHandleSizeChange = (val: number) => {
 const onHandleCurrentChange = (val: number) => {
   state.tableData.param.pageNum = val
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   other.lazyImg('[data-lazy-img-list]', state.tableData.data)
 })

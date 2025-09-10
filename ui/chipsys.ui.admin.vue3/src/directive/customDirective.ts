@@ -54,7 +54,7 @@ export function wavesDirective(app: App) {
 }
 
 /**
- * 自定义拖动指�?
+ * 自定义拖动指令
  * @description  使用方式：v-drag="[dragDom,dragHeader]"，如 `<div v-drag="['.drag-container .el-dialog', '.drag-container .el-dialog__header']"></div>`
  * @description dragDom 要拖动的元素，dragHeader 要拖动的 Header 位置
  * @link 注意：https://github.com/element-plus/element-plus/issues/522
@@ -71,18 +71,18 @@ export function dragDirective(app: App) {
       dragHeader.onmouseover = () => (dragHeader.style.cursor = `move`)
 
       function down(e: any, type: string) {
-        // 鼠标按下，计算当前元素距离可视区的距�?
+        // 鼠标按下，计算当前元素距离可视区的距离
         const disX = type === 'pc' ? e.clientX - dragHeader.offsetLeft : e.touches[0].clientX - dragHeader.offsetLeft
         const disY = type === 'pc' ? e.clientY - dragHeader.offsetTop : e.touches[0].clientY - dragHeader.offsetTop
 
         // body当前宽度
         const screenWidth = document.body.clientWidth
-        // 可见区域高度(应为body高度，可某些环境下无法获�?
+        // 可见区域高度(应为body高度，可某些环境下无法获取)
         const screenHeight = document.documentElement.clientHeight
 
-        // 对话框宽�?
+        // 对话框宽度
         const dragDomWidth = dragDom.offsetWidth
-        // 对话框高�?
+        // 对话框高度
         const dragDomheight = dragDom.offsetHeight
 
         const minDragDomLeft = dragDom.offsetLeft
@@ -95,7 +95,7 @@ export function dragDirective(app: App) {
         let styL: any = getComputedStyle(dragDom).left
         let styT: any = getComputedStyle(dragDom).top
 
-        // 注意在ie�?第一次获取到的值为组件自带50% 移动之后赋值为px
+        // 注意在ie中 第一次获取到的值为组件自带50% 移动之后赋值为px
         if (styL.includes('%')) {
           styL = +document.body.clientWidth * (+styL.replace(/\%/g, '') / 100)
           styT = +document.body.clientHeight * (+styT.replace(/\%/g, '') / 100)
@@ -141,9 +141,9 @@ export function dragDirective(app: App) {
       }
 
       /**
-       * pc�?
+       * pc端
        * onmousedown 鼠标按下触发事件
-       * onmousemove 鼠标按下时持续触发事�?
+       * onmousemove 鼠标按下时持续触发事件
        * onmouseup 鼠标抬起触发事件
        */
       dragHeader.onmousedown = (e) => {
@@ -158,7 +158,7 @@ export function dragDirective(app: App) {
       }
 
       /**
-       * 移动�?
+       * 移动端
        * ontouchstart 当按下手指时，触发ontouchstart
        * ontouchmove 当移动手指时，触发ontouchmove
        * ontouchend 当移走手指时，触发ontouchend

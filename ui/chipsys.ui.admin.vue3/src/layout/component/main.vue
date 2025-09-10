@@ -14,9 +14,6 @@
 </template>
 
 <script setup lang="ts" name="layoutMain">
-import { defineAsyncComponent, onMounted, computed, ref } from 'vue'
-import { useRoute } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { useTagsViewRoutes } from '/@/stores/tagsViewRoutes'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import { NextLoading } from '/@/utils/loading'
@@ -26,7 +23,7 @@ const LayoutParentView = defineAsyncComponent(() => import('/@/layout/routerView
 const LayoutFooter = defineAsyncComponent(() => import('/@/layout/footer/index.vue'))
 
 // 定义变量内容
-const layoutMainScrollbarRef = ref()
+const layoutMainScrollbarRef = useTemplateRef('layoutMainScrollbarRef')
 const route = useRoute()
 const storesTagsViewRoutes = useTagsViewRoutes()
 const storesThemeConfig = useThemeConfig()
@@ -46,14 +43,14 @@ const setBacktopClass = computed(() => {
   if (themeConfig.value.isFixedHeader) return `.layout-backtop-header-fixed .el-scrollbar__wrap`
   else return `.layout-backtop .el-scrollbar__wrap`
 })
-// 设置主内容区的高�?
+// 设置主内容区的高度
 const setMainHeight = computed(() => {
   if (isTagsViewCurrenFull.value) return '0px'
   const { isTagsview, layout } = themeConfig.value
   if (isTagsview && layout !== 'classic') return '85px'
   else return '51px'
 })
-// 页面加载�?
+// 页面加载前
 onMounted(() => {
   NextLoading.done(600)
 })

@@ -36,7 +36,7 @@
           { validator: validatorPwd, trigger: ['blur', 'change'] },
         ]"
       >
-        <el-input v-model="form.newPassword" :placeholder="'输入新密�?" show-password autocomplete="off" clearable @input="onInputNewPassword">
+        <el-input v-model="form.newPassword" :placeholder="'输入新密码'" show-password autocomplete="off" clearable @input="onInputNewPassword">
           <template #prefix>
             <el-icon class="el-input__icon"><ele-Unlock /></el-icon>
           </template>
@@ -47,7 +47,7 @@
         class="login-animation4"
         prop="confirmPassword"
         :rules="[
-          { required: true, message: '请输入确认密�?, trigger: ['blur', 'change'] },
+          { required: true, message: '请输入确认密码', trigger: ['blur', 'change'] },
           { validator: testConfirmPassword, trigger: ['blur', 'change'] },
         ]"
       >
@@ -71,7 +71,7 @@
       </el-form-item>
       <div class="login-animation6 my-flex my-flex-center f12 mt10">
         <span class="login-remind">想起密码?</span>
-        <el-link underline="never" type="primary" class="f12" @click="isChangePassword = false">去登�?/el-link>
+        <el-link underline="never" type="primary" class="f12" @click="isChangePassword = false">去登录</el-link>
       </div>
     </el-form>
   </div>
@@ -105,7 +105,7 @@ const state = reactive({
 })
 const { form } = toRefs(state)
 
-//验证手机�?
+//验证手机号
 const validateMobile = (callback: Function) => {
   formRef.value.validateField('mobile', (isValid: boolean) => {
     if (!isValid) {
@@ -131,18 +131,18 @@ const testNewPassword = (rule: any, value: any, callback: any) => {
   }
 }
 
-// 确认密码验证�?
+// 确认密码验证器
 const testConfirmPassword = (rule: any, value: any, callback: any) => {
   if (value) {
     if (value !== state.form.newPassword) {
-      callback(new Error('确认密码和新密码不一�?))
+      callback(new Error('确认密码和新密码不一致'))
     } else {
       callback()
     }
   }
 }
 
-// 输入新密�?
+// 输入新密码
 const onInputNewPassword = (val: string) => {
   state.form.newPassword = verifyCnAndSpace(val)
 }
@@ -152,7 +152,7 @@ const onInputConfirmPassword = (val: string) => {
   state.form.confirmPassword = verifyCnAndSpace(val)
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async () => {
   state.showDialog = true
   state.form = {} as AuthChangePasswordByMobileInput

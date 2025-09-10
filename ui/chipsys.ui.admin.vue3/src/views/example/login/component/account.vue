@@ -97,17 +97,17 @@ const onSignIn = async () => {
   state.loading.signIn = true
   // 存储 token 到浏览器缓存
   useUserInfo().setToken(Math.random().toString(36).substr(0))
-  // 模拟数据，对接接口时，记得删除多余代码及对应依赖的引入。用�?`/src/stores/userInfo.ts` 中不同用户登录判断（模拟数据�?
+  // 模拟数据，对接接口时，记得删除多余代码及对应依赖的引入。用于 `/src/stores/userInfo.ts` 中不同用户登录判断（模拟数据）
   Cookies.set('userName', state.ruleForm.userName)
   if (!themeConfig.value.isRequestRoutes) {
-    // 前端控制路由�?、请注意执行顺序
+    // 前端控制路由，2、请注意执行顺序
     const isNoPower = await initFrontEndControlRoutes()
     signInSuccess(isNoPower)
   } else {
-    // 模拟后端控制路由，isRequestRoutes �?true，则开启后端控制路�?
-    // 添加完动态路由，再进�?router 跳转，否则可能报�?No match found for location with path "/"
+    // 模拟后端控制路由，isRequestRoutes 为 true，则开启后端控制路由
+    // 添加完动态路由，再进行 router 跳转，否则可能报错 No match found for location with path "/"
     const isNoPower = await initBackEndControlRoutes()
-    // 执行�?initBackEndControlRoutes，再执行 signInSuccess
+    // 执行完 initBackEndControlRoutes，再执行 signInSuccess
     signInSuccess(isNoPower)
   }
 }
@@ -120,7 +120,7 @@ const signInSuccess = (isNoPower: boolean | undefined) => {
     // 初始化登录成功时间问候语
     let currentTimeInfo = currentTime.value
     // 登录成功，跳到转首页
-    // 如果是复制粘贴的路径，非首页/登录页，那么登录成功后重定向到对应的路径�?
+    // 如果是复制粘贴的路径，非首页/登录页，那么登录成功后重定向到对应的路径中
     if (route.query?.redirect) {
       router.push({
         path: <string>route.query?.redirect,
@@ -131,7 +131,7 @@ const signInSuccess = (isNoPower: boolean | undefined) => {
     }
     // 登录成功提示
     const signInText = t('message.signInText')
-    ElMessage.success(`${currentTimeInfo}�?{signInText}`)
+    ElMessage.success(`${currentTimeInfo}，${signInText}`)
     // 添加 loading，防止第一次进入界面时出现短暂空白
     NextLoading.start()
   }

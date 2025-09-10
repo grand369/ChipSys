@@ -9,9 +9,7 @@
 </template>
 
 <script setup lang="ts" name="svgIcon">
-import { computed } from 'vue'
-
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   // svg 图标组件名字
   name: {
@@ -35,11 +33,11 @@ const linesString = ['https', 'http', '/src', '/assets', 'data:image', import.me
 const getIconName = computed(() => {
   return props?.name
 })
-// 用于判断 element plus 自带 svg 图标的显示、隐�?
+// 用于判断 element plus 自带 svg 图标的显示、隐藏
 const isShowIconSvg = computed(() => {
   return props?.name?.startsWith('ele-')
 })
-// 用于判断在线链接、本地引入等图标显示、隐�?
+// 用于判断在线链接、本地引入等图标显示、隐藏
 const isShowIconImg = computed(() => {
   return linesString.find((str) => props.name?.startsWith(str))
 })

@@ -84,7 +84,7 @@ export class PermissionApi<SecurityDataType = unknown> extends HttpClient<Securi
    *
    * @tags permission
    * @name GetDot
-   * @summary 查询权限�?
+   * @summary 查询权限点
    * @request GET:/api/admin/permission/get-dot
    * @secure
    */
@@ -215,7 +215,7 @@ export class PermissionApi<SecurityDataType = unknown> extends HttpClient<Securi
    *
    * @tags permission
    * @name AddDot
-   * @summary 新增权限�?
+   * @summary 新增权限点
    * @request POST:/api/admin/permission/add-dot
    * @secure
    */
@@ -270,7 +270,7 @@ export class PermissionApi<SecurityDataType = unknown> extends HttpClient<Securi
    *
    * @tags permission
    * @name UpdateDot
-   * @summary 修改权限�?
+   * @summary 修改权限点
    * @request PUT:/api/admin/permission/update-dot
    * @secure
    */

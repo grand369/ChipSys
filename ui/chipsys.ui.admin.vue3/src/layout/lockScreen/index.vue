@@ -33,7 +33,7 @@
             <div class="layout-lock-screen-login-box-name">Administrator</div>
             <div class="layout-lock-screen-login-box-value">
               <el-input
-                placeholder="请输入密�?
+                placeholder="请输入密码"
                 ref="layoutLockScreenInputRef"
                 v-model="state.lockScreenPassword"
                 @keyup.enter.native.stop="onLockScreenSubmit()"
@@ -60,10 +60,8 @@
 </template>
 
 <script setup lang="ts" name="layoutLockScreen">
-import { nextTick, onMounted, reactive, ref, onUnmounted } from 'vue'
 import { formatDate } from '/@/utils/formatTime'
 import { Local } from '/@/utils/storage'
-import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 
 // 定义变量内容
@@ -143,7 +141,7 @@ const initGetElement = () => {
     state.querySelectorEl = layoutLockScreenDateRef.value
   })
 }
-// 时间初始�?
+// 时间初始化
 const initTime = () => {
   state.time.hm = formatDate(new Date(), 'HH:MM')
   state.time.s = formatDate(new Date(), 'SS')
@@ -156,7 +154,7 @@ const initSetTime = () => {
     initTime()
   }, 1000)
 }
-// 锁屏时间定时�?
+// 锁屏时间定时器
 const initLockScreen = () => {
   if (themeConfig.value.isLockScreen) {
     state.isShowLockScreenIntervalTime = window.setInterval(() => {
@@ -182,13 +180,13 @@ const onLockScreenSubmit = () => {
   themeConfig.value.lockScreenTime = 30
   setLocalThemeConfig()
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initGetElement()
   initSetTime()
   initLockScreen()
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   window.clearInterval(state.setIntervalTime)
   window.clearInterval(state.isShowLockScreenIntervalTime)

@@ -12,7 +12,7 @@
               <el-input v-model="state.node.nodeId" placeholder="请输入节点id" clearable disabled></el-input>
             </el-form-item>
             <el-form-item label="类型" prop="type">
-              <el-input v-model="state.node.type" placeholder="请输入类�? clearable disabled></el-input>
+              <el-input v-model="state.node.type" placeholder="请输入类型" clearable disabled></el-input>
             </el-form-item>
             <el-form-item label="left坐标" prop="left">
               <el-input v-model="state.node.left" placeholder="请输入left坐标" clearable disabled></el-input>
@@ -24,7 +24,7 @@
               <el-input v-model="state.node.icon" placeholder="请输入icon图标" clearable></el-input>
             </el-form-item>
             <el-form-item label="名称" prop="name">
-              <el-input v-model="state.node.name" placeholder="请输入名�? clearable></el-input>
+              <el-input v-model="state.node.name" placeholder="请输入名称" clearable></el-input>
             </el-form-item>
             <el-form-item>
               <el-button class="mb15" @click="onNodeRefresh">
@@ -80,8 +80,8 @@
         </el-scrollbar>
       </el-tab-pane>
 
-      <!-- 图表可视�?-->
-      <el-tab-pane label="图表可视�? name="3">
+      <!-- 图表可视化 -->
+      <el-tab-pane label="图表可视化" name="3">
         <el-scrollbar>
           <div class="flex-content-right">
             <div style="height: 200px; width: 320px" ref="chartsMonitorRef"></div>
@@ -97,7 +97,7 @@ import { reactive, ref, nextTick } from 'vue'
 import { ElMessage } from 'element-plus'
 import * as echarts from 'echarts'
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['submit', 'close'])
 
 // 定义变量内容
@@ -109,11 +109,11 @@ const state = reactive<WorkflowDrawerNodeState>({
   nodeRules: {
     id: [{ required: true, message: '请输入数据id', trigger: 'blur' }],
     nodeId: [{ required: true, message: '请输入节点id', trigger: 'blur' }],
-    type: [{ required: true, message: '请输入类�?, trigger: 'blur' }],
+    type: [{ required: true, message: '请输入类型', trigger: 'blur' }],
     left: [{ required: true, message: '请输入left坐标', trigger: 'blur' }],
     top: [{ required: true, message: '请输入top坐标', trigger: 'blur' }],
     icon: [{ required: true, message: '请输入icon图标', trigger: 'blur' }],
-    name: [{ required: true, message: '请输入名�?, trigger: 'blur' }],
+    name: [{ required: true, message: '请输入名称', trigger: 'blur' }],
   },
   form: {
     module: [],
@@ -124,7 +124,7 @@ const state = reactive<WorkflowDrawerNodeState>({
   },
 })
 
-// 获取父组件数�?
+// 获取父组件数据
 const getParentData = (data: object) => {
   state.tabsActive = '1'
   state.node = data
@@ -165,7 +165,7 @@ const onExtendSubmit = () => {
     }
   })
 }
-// 图表可视�?初始�?
+// 图表可视化-初始化
 const initChartsMonitor = () => {
   const myChart = echarts.init(chartsMonitorRef.value)
   const numsOne = []

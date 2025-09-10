@@ -3,8 +3,6 @@
 </template>
 
 <script setup lang="ts" name="layout">
-import { onBeforeMount, onUnmounted, defineAsyncComponent } from 'vue'
-import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import { Local } from '/@/utils/storage'
 import mittBus from '/@/utils/mitt'
@@ -21,7 +19,7 @@ const layouts: any = {
 const storesThemeConfig = useThemeConfig()
 const { themeConfig } = storeToRefs(storesThemeConfig)
 
-// 窗口大小改变�?适配移动�?
+// 窗口大小改变时(适配移动端)
 const onLayoutResize = () => {
   if (!Local.get('oldLayout')) Local.set('oldLayout', themeConfig.value.layout)
   const clientWidth = document.body.clientWidth
@@ -38,12 +36,12 @@ const onLayoutResize = () => {
     })
   }
 }
-// 页面加载�?
+// 页面加载前
 onBeforeMount(() => {
   onLayoutResize()
   window.addEventListener('resize', onLayoutResize)
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   window.removeEventListener('resize', onLayoutResize)
 })

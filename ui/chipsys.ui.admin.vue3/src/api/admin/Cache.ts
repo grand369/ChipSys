@@ -43,7 +43,7 @@ export class CacheApi<SecurityDataType = unknown> extends HttpClient<SecurityDat
    */
   clear = (
     query?: {
-      /** 缓存�?*/
+      /** 缓存键 */
       cacheKey?: string
     },
     params: RequestParams = {}

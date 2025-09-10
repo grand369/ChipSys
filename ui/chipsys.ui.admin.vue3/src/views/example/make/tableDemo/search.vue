@@ -46,7 +46,7 @@
 import { reactive, ref, onMounted } from 'vue'
 import type { FormInstance } from 'element-plus'
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   // 搜索表单
   search: {
@@ -55,7 +55,7 @@ const props = defineProps({
   },
 })
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['search'])
 
 // 定义变量内容
@@ -82,12 +82,12 @@ const onReset = (formEl: FormInstance | undefined) => {
   formEl.resetFields()
   emit('search', state.form)
 }
-// 初始�?form 字段，取自父组件 search.prop
+// 初始化 form 字段，取自父组件 search.prop
 const initFormField = () => {
   if (props.search.length <= 0) return false
   props.search.forEach((v) => (state.form[v.prop] = ''))
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initFormField()
 })

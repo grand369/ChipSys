@@ -218,7 +218,7 @@ const onSetAllRead = () => {
 
       state.loadingSetAllRead = false
       if (res?.success) {
-        proxy.$modal.msgSuccess('标记所有已读成�?)
+        proxy.$modal.msgSuccess('标记所有已读成功')
         onQuery()
       }
     })
@@ -227,7 +227,7 @@ const onSetAllRead = () => {
 
 const onBatchDelete = () => {
   proxy.$modal
-    .confirmDelete(`确定要删除消�?`)
+    .confirmDelete(`确定要删除消息?`)
     .then(async () => {
       state.loadingBatchDelete = true
       const res = await new SiteMsgApi().batchSoftDelete(selectionIds.value!).catch(() => {

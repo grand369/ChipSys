@@ -4,7 +4,7 @@
     :value-format="timeFormat"
     format="YYYY-MM-DD"
     type="daterange"
-    start-placeholder="开始时�?
+    start-placeholder="开始时间"
     end-placeholder="结束时间"
     :shortcuts="state.shortcuts"
     @change="change"
@@ -13,9 +13,6 @@
 
 <script lang="ts" setup>
 import dayjs from 'dayjs'
-import { reactive, ref } from 'vue'
-
-const emit = defineEmits(['update:startDate', 'update:endDate'])
 
 const startDate = defineModel<string | null | undefined>('startDate', { default: '' })
 const endDate = defineModel<string | null | undefined>('endDate', { default: '' })
@@ -26,7 +23,7 @@ const state = reactive({
   dateRange: [startDate, endDate],
   shortcuts: [
     {
-      text: '最近一�?,
+      text: '最近一年',
       value: () => {
         const end = dayjs().endOf('day').format(timeFormat)
         const start = dayjs().subtract(1, 'years').startOf('day').format(timeFormat)
@@ -34,7 +31,7 @@ const state = reactive({
       },
     },
     {
-      text: '最近半�?,
+      text: '最近半年',
       value: () => {
         const end = dayjs().endOf('day').format(timeFormat)
         const start = dayjs().subtract(6, 'months').startOf('day').format(timeFormat)
@@ -42,7 +39,7 @@ const state = reactive({
       },
     },
     {
-      text: '最近三�?,
+      text: '最近三月',
       value: () => {
         const end = dayjs().endOf('day').format(timeFormat)
         const start = dayjs().subtract(3, 'months').startOf('day').format(timeFormat)
@@ -50,7 +47,7 @@ const state = reactive({
       },
     },
     {
-      text: '最近一�?,
+      text: '最近一月',
       value: () => {
         const end = dayjs().endOf('day').format(timeFormat)
         const start = dayjs().subtract(1, 'months').startOf('day').format(timeFormat)
@@ -58,7 +55,7 @@ const state = reactive({
       },
     },
     {
-      text: '最近七�?,
+      text: '最近七天',
       value: () => {
         const end = dayjs().endOf('day').format(timeFormat)
         const start = dayjs().subtract(7, 'days').startOf('day').format(timeFormat)
@@ -66,7 +63,7 @@ const state = reactive({
       },
     },
     {
-      text: '最近三�?,
+      text: '最近三天',
       value: () => {
         const end = dayjs().endOf('day').format(timeFormat)
         const start = dayjs().subtract(3, 'days').startOf('day').format(timeFormat)

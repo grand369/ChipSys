@@ -7,7 +7,7 @@
             <el-input v-model="state.fileDirectory" placeholder="文件目录" clearable />
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-            <el-switch v-model="state.fileReName" active-text="文件自动重命�? />
+            <el-switch v-model="state.fileReName" active-text="文件自动重命名" />
           </el-col>
         </el-row>
         <div class="mt5">
@@ -33,7 +33,7 @@
           :on-error="onError"
         >
           <el-icon class="el-icon--upload"><ele-UploadFilled /></el-icon>
-          <div class="el-upload__text">拖拽上传�?em>点击上传</em></div>
+          <div class="el-upload__text">拖拽上传或<em>点击上传</em></div>
           <!-- <template #tip>
             <div class="el-upload__tip"></div>
           </template> -->
@@ -41,9 +41,9 @@
       </div>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onClear">清空已上�?/el-button>
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onClear">清空已上传</el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -84,7 +84,7 @@ const uploadHeaders = computed(() => {
   return { Authorization: 'Bearer ' + state.token }
 })
 
-// 打开对话�?
+// 打开对话框
 const open = async () => {
   state.showDialog = true
 }
@@ -113,7 +113,7 @@ const onSuccess: UploadProps['onSuccess'] = (response) => {
   }
 }
 
-// 清空已上�?
+// 清空已上传
 const onClear = async () => {
   uploadRef.value!.clearFiles(['success', 'fail'])
 }

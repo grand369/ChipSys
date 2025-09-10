@@ -13,7 +13,7 @@
       <div class="my-header">
         <div :id="titleId" :class="titleClass">
           设置{{ innerTitle }}
-          <el-select v-model="state.platform" placeholder="请选择所属平�? style="width: 100px" @change="onQuery">
+          <el-select v-model="state.platform" placeholder="请选择所属平台" style="width: 100px" @change="onQuery">
             <el-option v-for="item in state.dictData[DictType.PlatForm.name]" :key="item.code" :label="item.name" :value="item.code" />
           </el-select>
           菜单权限
@@ -36,8 +36,8 @@
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="onCancel">�?�?/el-button>
-        <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+        <el-button @click="onCancel">取 消</el-button>
+        <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
       </span>
     </template>
   </el-dialog>
@@ -64,7 +64,7 @@ const props = defineProps({
 })
 
 const innerTitle = computed(() => {
-  return props.title ? props.title : state.pkgName ? `设置�?{state.pkgName}】菜单权限` : '设置菜单权限'
+  return props.title ? props.title : state.pkgName ? `设置【${state.pkgName}】菜单权限` : '设置菜单权限'
 })
 
 const state = reactive({
@@ -96,7 +96,7 @@ const getPkgPermissionList = async () => {
   state.checkedKeys = res?.success ? (res.data as never[]) : []
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (pkg: PkgGetListOutput) => {
   await getDictList()
   state.pkgId = pkg.id
@@ -108,7 +108,7 @@ const open = async (pkg: PkgGetListOutput) => {
   state.showDialog = true
 }
 
-// 关闭对话�?
+// 关闭对话框
 const close = () => {
   state.showDialog = false
 }

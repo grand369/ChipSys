@@ -38,7 +38,6 @@
 </template>
 
 <script setup lang="ts" name="coms/my-search">
-import { reactive, ref, computed, PropType } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
 import { cloneDeep, isInteger, mergeWith } from 'lodash-es'
 
@@ -58,7 +57,7 @@ type ColConfigType = {
   [key in BreakpointKey]?: number
 }
 
-// 默认�?colConfig
+// 默认的 colConfig
 const defaultColConfig = {
   xs: 24,
   sm: 12,
@@ -70,7 +69,7 @@ const defaultColConfig = {
 // 默认显示数量
 const DEFAULT_VISIBLE_COUNT = 3
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   // 查询条件列表
   searchItems: {
@@ -82,7 +81,7 @@ const props = defineProps({
     type: Number,
     default: () => 3,
   },
-  // 是否过滤空�?
+  // 是否过滤空值
   isFilterEmptyValue: {
     type: Boolean,
     default: () => true,
@@ -97,11 +96,11 @@ const props = defineProps({
     validator: (value: ColConfigType) => {
       const invalidEntries = Object.entries(value).filter(([k, v]) => {
         if (!['xs', 'sm', 'md', 'lg', 'xl'].includes(k)) {
-          console.warn(`无效的断点配�? ${k}`)
+          console.warn(`无效的断点配置: ${k}`)
           return true
         }
         if (!isInteger(v)) {
-          console.warn(`非整数�? ${k}=${v} (类型: ${typeof v})`)
+          console.warn(`非整数值: ${k}=${v} (类型: ${typeof v})`)
           return true
         }
         if (v < 1 || v > 24) {
@@ -116,13 +115,13 @@ const props = defineProps({
   },
 })
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['search'])
 
 const isExpanded = ref(false)
-const formRef = ref<FormInstance>()
+const formRef = useTemplateRef<FormInstance>('formRef')
 
-// 表单初始�?
+// 表单初始值
 const formState = reactive<EmptyObjectType>(
   props.searchItems.reduce((acc: EmptyObjectType, item) => {
     acc[item.field] = item.defaultValue ?? ''
@@ -136,18 +135,18 @@ const col = computed(() => {
 
 // 处理可见数量配置
 const displayCount = computed(() => {
-  // 验证配置有效�?
+  // 验证配置有效性
   const count = props.displayCount ?? DEFAULT_VISIBLE_COUNT
   return Math.max(1, Math.min(count, props.searchItems.length))
 })
 
-// 计算剩余项数�?
+// 计算剩余项数量
 const remainingCount = computed(() => props.searchItems.length - displayCount.value)
 
 // 是否需要显示展开按钮
 const showToggle = computed(() => props.searchItems.length > displayCount.value && remainingCount.value > 0)
 
-// 空值判断函�?
+// 空值判断函数
 const isEmptyValue = (value: any) => {
   return value === '' || value === null || value === undefined
 }
@@ -157,7 +156,7 @@ const onSearch = async () => {
   try {
     await formRef.value?.validate()
     const filters = Object.entries(formState)
-      // 根据配置过滤空�?
+      // 根据配置过滤空值
       .filter(([_, value]) => !props.isFilterEmptyValue || !isEmptyValue(value))
       .map(([field, value]) => ({
         field,
@@ -180,7 +179,7 @@ const onReset = () => {
   if (props.isResetSearch) onSearch()
 }
 
-// 切换展开状�?
+// 切换展开状态
 const onToggleExpanded = () => {
   isExpanded.value = !isExpanded.value
 }

@@ -37,7 +37,7 @@
           <el-table-column type="selection" width="55" />
           <el-table-column prop="userName" label="账号" min-width="180" show-overflow-tooltip />
           <el-table-column prop="name" label="姓名" min-width="82" show-overflow-tooltip />
-          <el-table-column prop="mobile" label="手机�? min-width="120" show-overflow-tooltip />
+          <el-table-column prop="mobile" label="手机号" min-width="120" show-overflow-tooltip />
           <el-table-column prop="orgPaths" label="部门" min-width="200" show-overflow-tooltip />
           <el-table-column prop="orgPath" label="主属部门" min-width="180" show-overflow-tooltip />
           <el-table-column prop="roleNames" label="角色" min-width="180" show-overflow-tooltip />
@@ -59,8 +59,8 @@
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="onCancel">�?�?/el-button>
-        <el-button type="primary" @click="onSure" :loading="sureLoading">�?�?/el-button>
+        <el-button @click="onCancel">取 消</el-button>
+        <el-button type="primary" @click="onSure" :loading="sureLoading">恢 复</el-button>
       </span>
     </template>
   </el-dialog>
@@ -75,7 +75,7 @@ import eventBus from '/@/utils/mitt'
 defineProps({
   title: {
     type: String,
-    default: '用户回收�?,
+    default: '用户回收站',
   },
   sureLoading: {
     type: Boolean,
@@ -103,14 +103,14 @@ const state = reactive({
   userListData: [] as Array<UserGetDeletedUserPageOutput>,
 })
 
-// 打开对话�?
+// 打开对话框
 const open = () => {
   state.showDialog = true
 
   onQuery()
 }
 
-// 关闭对话�?
+// 关闭对话框
 const close = () => {
   state.showDialog = false
 }
@@ -160,12 +160,12 @@ const onCancel = () => {
 const onSure = () => {
   const selectionRows = userTableRef.value!.getSelectionRows() as UserGetDeletedUserPageOutput[]
   if (!(selectionRows?.length > 0)) {
-    proxy.$modal.msgWarning('请勾选用�?)
+    proxy.$modal.msgWarning('请勾选用户')
     return
   }
 
   proxy.$modal
-    .confirm(`确定要恢�?`)
+    .confirm(`确定要恢复?`)
     .then(async () => {
       const userIds = selectionRows.map((a) => a.id) as number[]
       await new UserApi().restore({ userIds: userIds }, { loading: true, showSuccessMessage: true })

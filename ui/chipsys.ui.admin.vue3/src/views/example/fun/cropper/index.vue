@@ -2,7 +2,7 @@
   <div class="croppers-container layout-pd">
     <el-card shadow="hover" header="cropper 图片裁剪">
       <el-alert
-        title="感谢优秀�?`cropperjs`，项目地址：https://github.com/fengyuanchen/cropperjs"
+        title="感谢优秀的 `cropperjs`，项目地址：https://github.com/fengyuanchen/cropperjs"
         type="success"
         :closable="false"
         class="mb15"

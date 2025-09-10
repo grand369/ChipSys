@@ -41,7 +41,7 @@ export const skyList: Array<object> = [
     v3: '20°/26°',
     v4: '80%',
     v5: '50%',
-    v6: '东南�?,
+    v6: '东南风',
     v7: '13m/s',
   },
   {
@@ -50,7 +50,7 @@ export const skyList: Array<object> = [
     v3: '20°/26°',
     v4: '80%',
     v5: '50%',
-    v6: '东南�?,
+    v6: '东南风',
     v7: '13m/s',
   },
   {
@@ -59,23 +59,23 @@ export const skyList: Array<object> = [
     v3: '20°/26°',
     v4: '80%',
     v5: '50%',
-    v6: '东南�?,
+    v6: '东南风',
     v7: '13m/s',
   },
 ]
 
-// 当前设置状�?
+// 当前设置状态
 export const dBtnList: Array<object> = [
   {
     v1: '地块A-灌溉',
     v2: '阳光玫瑰种植',
-    v3: '126�?,
+    v3: '126天',
     v4: '设备在线',
   },
   {
     v1: '地块B-收割',
     v2: '阳光玫瑰种植',
-    v3: '360�?,
+    v3: '360天',
     v4: '设备预警',
   },
 ]
@@ -102,7 +102,7 @@ export const chartData4List: Array<object> = [
   },
 ]
 
-// 3DEarth 地图周围按钮�?
+// 3DEarth 地图周围按钮组
 export const earth3DBtnList: Array<object> = [
   {
     topLevelClass: 'fixed-top',

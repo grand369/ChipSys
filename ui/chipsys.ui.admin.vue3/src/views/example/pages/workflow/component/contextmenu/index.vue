@@ -19,7 +19,7 @@
           @click="onCurrentClick(v.contextMenuClickId)"
         >
           <SvgIcon :name="v.icon" />
-          <span>{{ v.txt }}{{ state.item.type === 'line' ? '�? : '节点' }}</span>
+          <span>{{ v.txt }}{{ state.item.type === 'line' ? '线' : '节点' }}</span>
         </li>
       </ul>
       <div class="el-popper__arrow" style="left: 10px"></div>
@@ -30,7 +30,7 @@
 <script setup lang="ts" name="example/pagesWorkflowContextmenu">
 import { computed, reactive, onMounted, onUnmounted, ref } from 'vue'
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   dropdown: {
     type: Object,
@@ -40,7 +40,7 @@ const props = defineProps({
   },
 })
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['current'])
 
 // 定义变量内容
@@ -57,11 +57,11 @@ const state = reactive({
   conn: {},
 })
 
-// 父级传过来的坐标 x,y �?
+// 父级传过来的坐标 x,y 值
 const dropdowns = computed(() => {
   return props.dropdown
 })
-// 当前项菜单点�?
+// 当前项菜单点击
 const onCurrentClick = (contextMenuClickId: number) => {
   emit('current', Object.assign({}, { contextMenuClickId }, state.item), state.conn)
 }
@@ -78,7 +78,7 @@ const openContextmenu = (item: WorkflowDrawerLabelType, conn = {}) => {
 const closeContextmenu = () => {
   state.isShow = false
 }
-// 监听页面监听进行右键菜单的关�?
+// 监听页面监听进行右键菜单的关闭
 onMounted(() => {
   document.body.addEventListener('click', closeContextmenu)
   document.body.addEventListener('contextmenu', closeContextmenu)

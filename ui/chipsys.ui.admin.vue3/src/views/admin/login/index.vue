@@ -130,14 +130,14 @@ const { themeConfig } = storeToRefs(storesThemeConfig)
 
 const state = reactive({
   loginComponentName: accountComponentName, //默认账号登录
-  accountType: AccountType.UserName.value, //默认用户名账�?
+  accountType: AccountType.UserName.value, //默认用户名账号
   isScan: false,
   isChangePassword: false,
   isReg: false,
   changePasswordComponentName: emailComponentName, //默认邮箱更改密码
   regComponentName: emailComponentName, //默认邮箱注册
-  hasPassword: true, //默认不用填密�?
-  hasConfirmPassword: false, //默认不用填确认密�?
+  hasPassword: true, //默认不用填密码
+  hasConfirmPassword: false, //默认不用填确认密码
 })
 
 //是否显示
@@ -164,7 +164,7 @@ const getThemeConfig = computed(() => {
   return themeConfig.value
 })
 
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   NextLoading.done()
 })

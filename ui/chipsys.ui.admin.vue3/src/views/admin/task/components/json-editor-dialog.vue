@@ -14,8 +14,8 @@
     </div>
     <template #footer>
       <div style="flex: auto; padding: 20px !important">
-        <el-button @click="onCancel">�?�?/el-button>
-        <el-button type="primary" @click="onSure">�?�?/el-button>
+        <el-button @click="onCancel">取 消</el-button>
+        <el-button type="primary" @click="onSure">确 定</el-button>
       </div>
     </template>
   </el-drawer>
@@ -27,7 +27,7 @@ import MyJsonEditor from '/@/components/my-json-editor/index.vue'
 defineProps({
   title: {
     type: String,
-    default: 'Json编辑�?,
+    default: 'Json编辑器',
   },
 })
 
@@ -70,7 +70,7 @@ const onJsonHttp = () => {
   jsonEditorRef.value?.jsonEditor.set(JSON.parse(state.content))
 }
 
-// 打开对话�?
+// 打开对话框
 const open = (task: any) => {
   if (task) {
     state.topic = task.topic || ''

@@ -27,7 +27,7 @@
 <script setup lang="ts" name="example/pagesWorkflowDrawerLine">
 import { reactive } from 'vue'
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['change', 'close'])
 
 // 定义变量内容
@@ -35,7 +35,7 @@ const state = reactive<EmptyObjectType>({
   line: {},
 })
 
-// 获取父组件数�?
+// 获取父组件数据
 const getParentData = (data: object) => {
   state.line = data
 }

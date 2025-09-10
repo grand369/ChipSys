@@ -3,7 +3,7 @@
     <el-card class="my-query-box mt8" shadow="never" :body-style="{ paddingBottom: '0' }">
       <el-form :model="state.filterModel" :inline="true" @submit.stop.prevent>
         <el-form-item prop="name">
-          <el-input v-model="state.filterModel.fileName" placeholder="文件�? @keyup.enter="onQuery" />
+          <el-input v-model="state.filterModel.fileName" placeholder="文件名" @keyup.enter="onQuery" />
         </el-form-item>
         <el-form-item>
           <el-button type="primary" icon="ele-Search" @click="onQuery"> 查询 </el-button>
@@ -14,7 +14,7 @@
 
     <el-card class="my-fill mt8" shadow="never">
       <el-table v-loading="state.loading" :data="state.fileListData" row-key="id" style="width: 100%" border>
-        <el-table-column prop="fileName" label="文件�? min-width="220">
+        <el-table-column prop="fileName" label="文件名" min-width="220">
           <template #default="{ row }">
             <div class="my-flex">
               <el-image
@@ -35,7 +35,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="sizeFormat" label="大小" width="120" />
-        <el-table-column prop="createdUserName" label="上传�? width="82">
+        <el-table-column prop="createdUserName" label="上传者" width="82">
           <template #default="{ row }">
             {{ row.modifiedUserName || row.createdUserName || '' }}
           </template>
@@ -45,8 +45,8 @@
             {{ formatterTime(row.modifiedTime || row.createdTime || '') }}
           </template>
         </el-table-column>
-        <el-table-column prop="providerName" label="供应�? width="82" />
-        <el-table-column prop="bucketName" label="存储�? min-width="120" />
+        <el-table-column prop="providerName" label="供应商" width="82" />
+        <el-table-column prop="bucketName" label="存储桶" min-width="120" />
         <el-table-column prop="fileDirectory" label="目录" min-width="120" />
         <el-table-column label="操作" width="180" fixed="right" header-align="center" align="center">
           <template #default="{ row }">
@@ -174,7 +174,7 @@ const onUpload = () => {
 
 const onDelete = (row: FileGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除文件�?{row.fileName}${row.extension}�?`)
+    .confirmDelete(`确定要删除文件【${row.fileName}${row.extension}】?`)
     .then(async () => {
       await new FileApi().delete({ id: row.id as number }, { loading: true, showSuccessMessage: true })
       onQuery()

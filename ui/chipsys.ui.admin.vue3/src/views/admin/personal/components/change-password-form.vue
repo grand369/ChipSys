@@ -12,13 +12,13 @@
       <el-form ref="formRef" :model="form" label-width="80px" label-position="left">
         <el-row :gutter="35">
           <el-col :span="24">
-            <el-form-item label="旧密�? prop="oldPassword" :rules="[{ required: true, message: '请输入旧密码', trigger: ['blur', 'change'] }]">
+            <el-form-item label="旧密码" prop="oldPassword" :rules="[{ required: true, message: '请输入旧密码', trigger: ['blur', 'change'] }]">
               <el-input v-model="form.oldPassword" show-password autocomplete="off" clearable />
             </el-form-item>
           </el-col>
           <el-col :span="24">
             <el-form-item
-              label="新密�?
+              label="新密码"
               prop="newPassword"
               :rules="[
                 { required: true, message: '请输入新密码', trigger: ['blur', 'change'] },
@@ -34,7 +34,7 @@
               label="确认密码"
               prop="confirmPassword"
               :rules="[
-                { required: true, message: '请输入确认密�?, trigger: ['blur', 'change'] },
+                { required: true, message: '请输入确认密码', trigger: ['blur', 'change'] },
                 { validator: testConfirmPassword, trigger: ['blur', 'change'] },
               ]"
             >
@@ -45,8 +45,8 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -85,18 +85,18 @@ const testNewPassword = (rule: any, value: any, callback: any) => {
   }
 }
 
-// 确认密码验证�?
+// 确认密码验证器
 const testConfirmPassword = (rule: any, value: any, callback: any) => {
   if (value) {
     if (value !== state.form.newPassword) {
-      callback(new Error('确认密码和新密码不一�?))
+      callback(new Error('确认密码和新密码不一致'))
     } else {
       callback()
     }
   }
 }
 
-// 输入新密�?
+// 输入新密码
 const onInputNewPassword = (val: string) => {
   state.form.newPassword = verifyCnAndSpace(val)
 }
@@ -106,7 +106,7 @@ const onInputConfirmPassword = (val: string) => {
   state.form.confirmPassword = verifyCnAndSpace(val)
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async () => {
   state.showDialog = true
   state.form = {} as UserChangePasswordInput

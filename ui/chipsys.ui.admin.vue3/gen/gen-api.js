@@ -21,8 +21,8 @@ const apis = [
 ]
 
 const genEnums = async (api) => {
-  console.log(`âœ?  try to get enums by URL "${api.enumUrl}"`)
-  console.log(`â­?  start generating your typescript api`)
+  console.log(`âœ¨   try to get enums by URL "${api.enumUrl}"`)
+  console.log(`â­   start generating your typescript api`)
   const res = await axios.get(api.enumUrl).catch((error) => {
     console.error(error)
   })
@@ -30,7 +30,7 @@ const genEnums = async (api) => {
   if (res?.data?.data?.length > 0) {
     ejs.renderFile(path.resolve(projectPath, './gen/templates/enum-contracts.ejs'), res.data, {}, function (err, content) {
       fs.writeFile(path.resolve(api.output + '/enum-contracts.ts'), content, (err) => {})
-      console.log(`âœ?  api file "enum-contracts.ts" created in ${api.output}\n`)
+      console.log(`âœ…   api file "enum-contracts.ts" created in ${api.output}\n`)
     })
   }
 }

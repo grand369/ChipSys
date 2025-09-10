@@ -1,7 +1,7 @@
 import Cookies from 'js-cookie'
 
 /**
- * window.localStorage 浏览器永久缓�?
+ * window.localStorage 浏览器永久缓存
  * @method set 设置永久缓存
  * @method get 获取永久缓存
  * @method remove 移除永久缓存
@@ -32,7 +32,7 @@ export const Local = {
 }
 
 /**
- * window.sessionStorage 浏览器临时缓�?
+ * window.sessionStorage 浏览器临时缓存
  * @method set 设置临时缓存
  * @method get 获取临时缓存
  * @method remove 移除临时缓存

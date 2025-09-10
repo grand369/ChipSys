@@ -8,9 +8,6 @@
 </template>
 
 <script setup lang="ts" name="layoutBreadcrumbIndex">
-import { defineAsyncComponent, computed, reactive, onMounted, onUnmounted } from 'vue'
-import { useRoute } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { useRoutesList } from '/@/stores/routesList'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import mittBus from '/@/utils/mitt'
@@ -47,7 +44,7 @@ const isLayoutTransverse = computed(() => {
   let { layout, isClassicSplitMenu } = themeConfig.value
   return layout === 'transverse' || (isClassicSplitMenu && layout === 'classic')
 })
-// 设置/过滤路由（非静态路�?是否显示在菜单中�?
+// 设置/过滤路由（非静态路由/是否显示在菜单中）
 const setFilterRoutes = () => {
   let { layout, isClassicSplitMenu } = themeConfig.value
   if (layout === 'classic' && isClassicSplitMenu) {
@@ -58,7 +55,7 @@ const setFilterRoutes = () => {
     state.menuList = filterRoutesFun(routesList.value)
   }
 }
-// 设置了分割菜单时，删除底�?children
+// 设置了分割菜单时，删除底下 children
 const delClassicChildren = <T extends ChilType>(arr: T[]): T[] => {
   arr.map((v: T) => {
     if (v.children) delete v.children
@@ -75,7 +72,7 @@ const filterRoutesFun = <T extends RouteItem>(arr: T[]): T[] => {
       return item
     })
 }
-// 传送当前子级数据到菜单�?
+// 传送当前子级数据到菜单中
 const setSendClassicChildren = (path: string) => {
   const currentPathSplit = path.split('/')
   let currentData: MittMenu = { children: [] }
@@ -89,14 +86,14 @@ const setSendClassicChildren = (path: string) => {
   })
   return currentData
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   setFilterRoutes()
   mittBus.on('getBreadcrumbIndexSetFilterRoutes', () => {
     setFilterRoutes()
   })
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   mittBus.off('getBreadcrumbIndexSetFilterRoutes', () => {})
 })

@@ -19,10 +19,10 @@
                       </div>
                       <div class="item-txt-msg item-txt-price">
                         <span class="font-price">
-                          <span>�?/span>
+                          <span>￥</span>
                           <span class="font">{{ v.price }}</span>
                         </span>
-                        <span>月销{{ v.monSales }}�?/span>
+                        <span>月销{{ v.monSales }}笔</span>
                       </div>
                     </div>
                   </div>
@@ -70,7 +70,7 @@ const state = reactive({
   },
 })
 
-// 当前列表项点�?
+// 当前列表项点击
 const onTableItemClick = (v: FilterListType) => {
   router.push({
     path: '/example/pages/filtering/details',

@@ -35,7 +35,7 @@
               <el-tooltip effect="dark" content="高级查询" placement="top">
                 <el-button icon="ele-Filter" circle @click="onFilter"> </el-button>
               </el-tooltip>
-              <el-tooltip effect="dark" content="回收�? placement="top">
+              <el-tooltip effect="dark" content="回收站" placement="top">
                 <el-button v-auth="'api:admin:user:restore'" circle @click="onRecycle">
                   <template #icon>
                     <el-icon>
@@ -69,7 +69,7 @@
               </div>
             </template>
 
-            <!-- 状态列自定义插�?-->
+            <!-- 状态列自定义插槽 -->
             <template #enabled="{ row }">
               <el-switch
                 v-if="auth('api:admin:user:set-enable')"
@@ -101,7 +101,7 @@
                     >
                     <el-dropdown-item v-if="auth('api:admin:user:reset-password')" @click="onResetPwd(row)">重置密码</el-dropdown-item>
                     <el-dropdown-item v-if="auth('api:admin:user:delete')" @click="onDelete(row)">删除用户</el-dropdown-item>
-                    <el-dropdown-item v-if="auth('api:admin:user:one-click-login')" @click="onOneClickLogin(row)">一键登�?/el-dropdown-item>
+                    <el-dropdown-item v-if="auth('api:admin:user:one-click-login')" @click="onOneClickLogin(row)">一键登录</el-dropdown-item>
                     <el-dropdown-item v-if="auth('api:admin:user:force-offline')" @click="onForceOffline(row)">强制下线</el-dropdown-item>
                   </el-dropdown-menu>
                 </template>
@@ -178,7 +178,7 @@ const state = reactive({
   // 表格模型
   tableModel: {
     columns: [
-      { attrs: { type: 'selection', prop: '_multiCheck', label: '多�? }, isShow: true },
+      { attrs: { type: 'selection', prop: '_multiCheck', label: '多选' }, isShow: true },
       {
         attrs: {
           prop: 'userName',
@@ -199,7 +199,7 @@ const state = reactive({
         slot: 'name',
         isShow: true,
       },
-      { attrs: { prop: 'mobile', label: '手机�?, width: 120, showOverflowTooltip: true }, isShow: true },
+      { attrs: { prop: 'mobile', label: '手机号', width: 120, showOverflowTooltip: true }, isShow: true },
       { attrs: { prop: 'orgPaths', label: '部门', minWidth: 200, showOverflowTooltip: true }, isShow: true },
       { attrs: { prop: 'orgPath', label: '主属部门', minWidth: 180, showOverflowTooltip: true }, isShow: true },
       { attrs: { prop: 'roleNames', label: '角色', minWidth: 180, showOverflowTooltip: true }, isShow: true },
@@ -207,7 +207,7 @@ const state = reactive({
       {
         attrs: {
           prop: 'enabled',
-          label: '状�?,
+          label: '状态',
           width: 88,
           align: 'center',
           fixed: 'right',
@@ -243,11 +243,11 @@ const state = reactive({
       operator: Operator.contains.value,
       componentName: 'el-input',
       attrs: {
-        placeholder: '请输入姓�?,
+        placeholder: '请输入姓名',
       },
     },
     {
-      label: '状�?,
+      label: '状态',
       field: 'enabled',
       operator: Operator.equal.value,
       componentName: 'el-select',
@@ -267,7 +267,7 @@ const state = reactive({
       },
     },
     {
-      label: '手机�?,
+      label: '手机号',
       field: 'mobile',
       operator: Operator.contains.value,
       componentName: 'el-input',
@@ -281,7 +281,7 @@ const state = reactive({
       operator: Operator.contains.value,
       componentName: 'el-input',
       attrs: {
-        placeholder: '请输入邮�?,
+        placeholder: '请输入邮箱',
       },
     },
     {
@@ -306,7 +306,7 @@ const state = reactive({
         format: 'YYYY-MM-DD',
         valueFormat: 'YYYY-MM-DD',
         unlinkPanels: true,
-        startPlaceholder: '开始时�?,
+        startPlaceholder: '开始时间',
         endPlaceholder: '结束时间',
         disabledDate: (time: any) => {
           return time.getTime() > Date.now()
@@ -319,7 +319,7 @@ const state = reactive({
       operator: Operator.contains.value,
       componentName: 'el-input',
       attrs: {
-        placeholder: '请输入账�?,
+        placeholder: '请输入账号',
       },
     },
   ],
@@ -391,7 +391,7 @@ const onAdd = () => {
   userFormRef.value?.open({} as any)
 }
 
-//回收�?
+//回收站
 const onRecycle = () => {
   userRecycleDialogRef.value?.open()
 }
@@ -405,7 +405,7 @@ const onEdit = (row: UserGetPageOutput) => {
 //删除
 const onDelete = (row: UserGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除�?{row.name}�?`)
+    .confirmDelete(`确定要删除【${row.name}】?`)
     .then(async () => {
       await new UserApi().softDelete({ id: row.id }, { loading: true, showSuccessMessage: true })
       onQuery()
@@ -418,14 +418,14 @@ const onResetPwd = (row: UserGetPageOutput) => {
   userRestPwdRef.value?.open(row)
 }
 
-//设置或取消主�?
+//设置或取消主管
 const onSetManager = (row: UserGetPageOutput) => {
   if (!((state.pageInput.filter?.orgId as number) > 0)) {
     proxy.$modal.msgWarning('请选择部门')
     return
   }
 
-  const title = row.isManager ? `确定要取消�?{row.name}】的主管?` : `确定要设置�?{row.name}】为主管?`
+  const title = row.isManager ? `确定要取消【${row.name}】的主管?` : `确定要设置【${row.name}】为主管?`
   proxy.$modal
     .confirm(title)
     .then(async () => {
@@ -436,11 +436,11 @@ const onSetManager = (row: UserGetPageOutput) => {
     .catch(() => {})
 }
 
-//启用或禁�?
+//启用或禁用
 const onSetEnable = (row: UserGetPageOutput & { loading: boolean }) => {
   return new Promise((resolve, reject) => {
     proxy.$modal
-      .confirm(`确定�?{row.enabled ? '禁用' : '启用'}�?{row.name}�?`)
+      .confirm(`确定要${row.enabled ? '禁用' : '启用'}【${row.name}】?`)
       .then(async () => {
         row.loading = true
         const res = await new UserApi()
@@ -463,14 +463,14 @@ const onSetEnable = (row: UserGetPageOutput & { loading: boolean }) => {
   })
 }
 
-//一键登�?
+//一键登录
 const onOneClickLogin = (row: UserGetPageOutput) => {
   proxy.$modal
-    .confirm(`确定要一键登录�?{row.name}�?`)
+    .confirm(`确定要一键登录【${row.name}】?`)
     .then(async () => {
       const res = await new UserApi().oneClickLogin({ userName: row.userName || '' }, { loading: true })
       if (res?.success) {
-        proxy.$modal.msgSuccess('一键登录成�?)
+        proxy.$modal.msgSuccess('一键登录成功')
         window.requests = []
         Session.remove('tagsViewList')
         storesUseUserInfo.setTokenInfo(res.data)
@@ -483,7 +483,7 @@ const onOneClickLogin = (row: UserGetPageOutput) => {
 //强制下线
 const onForceOffline = (row: UserGetPageOutput) => {
   proxy.$modal
-    .confirm(`确定要强制下线�?{row.name}�?`)
+    .confirm(`确定要强制下线【${row.name}】?`)
     .then(async () => {
       const res = await new UserApi().forceOffline({ id: row.id }, { loading: true })
       if (res?.success) {

@@ -8,7 +8,7 @@
         v-if="state.ruleForm.accountType == AccountType.UserName.value"
         class="login-animation1"
         prop="userName"
-        :rules="[{ required: true, message: '请输入账�?, trigger: ['blur', 'change'] }]"
+        :rules="[{ required: true, message: '请输入账号', trigger: ['blur', 'change'] }]"
       >
         <el-input
           text
@@ -70,7 +70,7 @@
           </template>
         </el-input>
       </el-form-item>
-      <el-form-item class="login-animation2" prop="password" :rules="[{ required: true, message: '请输入密�?, trigger: ['blur', 'change'] }]">
+      <el-form-item class="login-animation2" prop="password" :rules="[{ required: true, message: '请输入密码', trigger: ['blur', 'change'] }]">
         <el-input
           :placeholder="$t('message.account.accountPlaceholder2')"
           v-model="state.ruleForm.password"
@@ -106,7 +106,7 @@
           type="primary"
           class="f12"
           @click="loginComponentName = ComponentType.Mobile.name"
-          >手机验证码登�?/el-link
+          >手机验证码登录</el-link
         >
         <el-link
           v-if="state.ruleForm.accountType == AccountType.Email.value"
@@ -114,7 +114,7 @@
           type="primary"
           class="f12"
           @click="loginComponentName = ComponentType.Email.name"
-          >邮箱验证码登�?/el-link
+          >邮箱验证码登录</el-link
         >
         <el-link underline="never" type="primary" class="f12" @click="onForgotPassword">忘记密码</el-link>
       </div>
@@ -187,7 +187,7 @@ const onForgotPassword = () => {
 //验证通过
 const onOk = (data: any) => {
   state.showDialog = false
-  //开始登�?
+  //开始登录
   state.ruleForm.captchaId = data.captchaId
   state.ruleForm.captchaData = JSON.stringify(data.track)
   login()
@@ -218,9 +218,9 @@ const login = async () => {
   }
 
   useUserInfo().setTokenInfo(res.data)
-  // 添加完动态路由，再进�?router 跳转，否则可能报�?No match found for location with path "/"
+  // 添加完动态路由，再进行 router 跳转，否则可能报错 No match found for location with path "/"
   const isNoPower = await initBackEndControlRoutes()
-  // 执行�?initBackEndControlRoutes，再执行 signInSuccess
+  // 执行完 initBackEndControlRoutes，再执行 signInSuccess
   signInSuccess(isNoPower)
 }
 
@@ -250,14 +250,14 @@ const onSignIn = async () => {
 // 登录成功后的跳转
 const signInSuccess = (isNoPower: boolean | undefined) => {
   if (isNoPower) {
-    ElMessage.warning('抱歉，您没有分配权限，请联系管理�?)
+    ElMessage.warning('抱歉，您没有分配权限，请联系管理员')
     useUserInfo().removeTokenInfo()
     Session.clear()
   } else {
     // 初始化登录成功时间问候语
     let currentTimeInfo = currentTime.value
     // 登录成功，跳到转首页
-    // 如果是复制粘贴的路径，非首页/登录页，那么登录成功后重定向到对应的路径�?
+    // 如果是复制粘贴的路径，非首页/登录页，那么登录成功后重定向到对应的路径中
     if (route.query?.redirect) {
       router.push({
         path: <string>route.query?.redirect,
@@ -268,7 +268,7 @@ const signInSuccess = (isNoPower: boolean | undefined) => {
     }
     // 登录成功提示
     const signInText = t('message.signInText')
-    ElMessage.success(`${currentTimeInfo}�?{signInText}`)
+    ElMessage.success(`${currentTimeInfo}，${signInText}`)
     // 添加 loading，防止第一次进入界面时出现短暂空白
     NextLoading.start()
   }

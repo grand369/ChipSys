@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-drawer :title="`${state.nodeData.type === 'line' ? '�? : '节点'}操作`" v-model="state.isOpen" size="320px">
+    <el-drawer :title="`${state.nodeData.type === 'line' ? '线' : '节点'}操作`" v-model="state.isOpen" size="320px">
       <el-scrollbar>
         <Lines v-if="state.nodeData.type === 'line'" @change="onLineChange" @close="close" ref="lineRef" />
         <Nodes v-else @submit="onNodeSubmit" @close="close" ref="nodeRef" />
@@ -12,7 +12,7 @@
 <script setup lang="ts" name="example/pagesWorkflowDrawer">
 import { defineAsyncComponent, reactive, ref, nextTick } from 'vue'
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['label', 'node'])
 
 // 引入组件
@@ -46,12 +46,12 @@ const open = (item: WorkflowDrawerLabelType, conn: EmptyObjectType) => {
 const close = () => {
   state.isOpen = false
 }
-// �?label 内容改变�?
+// 线 label 内容改变时
 const onLineChange = (label: string) => {
   state.jsplumbConn.label = label
   emit('label', state.jsplumbConn)
 }
-// 节点内容改变�?
+// 节点内容改变时
 const onNodeSubmit = (data: object) => {
   emit('node', data)
 }

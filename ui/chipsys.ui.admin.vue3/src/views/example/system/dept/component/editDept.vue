@@ -22,45 +22,45 @@
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="部门名称">
-              <el-input v-model="state.ruleForm.deptName" placeholder="请输入部门名�? clearable></el-input>
+              <el-input v-model="state.ruleForm.deptName" placeholder="请输入部门名称" clearable></el-input>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
-            <el-form-item label="负责�?>
+            <el-form-item label="负责人">
               <el-input v-model="state.ruleForm.person" placeholder="请输入负责人" clearable></el-input>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
-            <el-form-item label="手机�?>
+            <el-form-item label="手机号">
               <el-input v-model="state.ruleForm.phone" placeholder="请输入手机号" clearable></el-input>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="邮箱">
-              <el-input v-model="state.ruleForm.email" placeholder="请输�? clearable></el-input>
+              <el-input v-model="state.ruleForm.email" placeholder="请输入" clearable></el-input>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="排序">
-              <el-input-number v-model="state.ruleForm.sort" :min="0" :max="999" controls-position="right" placeholder="请输入排�? class="w100" />
+              <el-input-number v-model="state.ruleForm.sort" :min="0" :max="999" controls-position="right" placeholder="请输入排序" class="w100" />
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
-            <el-form-item label="部门状�?>
-              <el-switch v-model="state.ruleForm.status" inline-prompt active-text="�? inactive-text="�?></el-switch>
+            <el-form-item label="部门状态">
+              <el-switch v-model="state.ruleForm.status" inline-prompt active-text="启" inactive-text="禁"></el-switch>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" class="mb20">
             <el-form-item label="部门描述">
-              <el-input v-model="state.ruleForm.describe" type="textarea" placeholder="请输入部门描�? maxlength="150"></el-input>
+              <el-input v-model="state.ruleForm.describe" type="textarea" placeholder="请输入部门描述" maxlength="150"></el-input>
             </el-form-item>
           </el-col>
         </el-row>
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSubmit">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSubmit">修 改</el-button>
         </span>
       </template>
     </el-dialog>
@@ -76,11 +76,11 @@ const state = reactive({
   ruleForm: {
     deptLevel: [] as string[], // 上级部门
     deptName: '', // 部门名称
-    person: '', // 负责�?
-    phone: '', // 手机�?
+    person: '', // 负责人
+    phone: '', // 手机号
     email: '', // 邮箱
     sort: 0, // 排序
-    status: true, // 部门状�?
+    status: true, // 部门状态
     describe: '', // 部门描述
   },
   deptData: [] as DeptTreeType[], // 部门数据
@@ -107,7 +107,7 @@ const onCancel = () => {
 const onSubmit = () => {
   closeDialog()
 }
-// 初始化部门数�?
+// 初始化部门数据
 const initTableData = () => {
   state.deptData.push({
     deptName: 'vueNextAdmin',
@@ -136,7 +136,7 @@ const initTableData = () => {
     ],
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initTableData()
 })

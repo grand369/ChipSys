@@ -5,7 +5,7 @@
         <el-form-item label="操作账号" prop="createdUserName">
           <el-input v-model="state.filter.createdUserName" placeholder="操作账号" @keyup.enter="onQuery" />
         </el-form-item>
-        <el-form-item label="操作状�? prop="status">
+        <el-form-item label="操作状态" prop="status">
           <el-select v-model="state.filter.status" :empty-values="[null]" style="width: 120px" @change="onQuery">
             <el-option v-for="status in state.statusList" :key="status.name" :label="status.name" :value="status.value" />
           </el-select>

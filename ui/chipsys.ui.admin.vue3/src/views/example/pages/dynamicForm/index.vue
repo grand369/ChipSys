@@ -1,6 +1,6 @@
 <template>
   <div class="dynamic-form-container layout-pd">
-    <el-card shadow="hover" header="动态复杂表�?>
+    <el-card shadow="hover" header="动态复杂表单">
       <el-form :model="state.form" ref="formRulesOneRef" label-width="100px" class="mt35">
         <el-row :gutter="35">
           <el-col
@@ -75,17 +75,17 @@
                       </el-button>
                       <span class="ml10">年度</span>
                     </template>
-                    <el-input v-model="state.form.list[k].year" style="width: 100%" placeholder="请输�?> </el-input>
+                    <el-input v-model="state.form.list[k].year" style="width: 100%" placeholder="请输入"> </el-input>
                   </el-form-item>
                 </el-col>
                 <el-col :xs="24" :sm="12" :md="8" :lg="8" :xl="6" class="mb20">
                   <el-form-item label="月度" :prop="`list[${k}].month`" :rules="[{ required: true, message: `月度不能为空`, trigger: 'blur' }]">
-                    <el-input v-model="state.form.list[k].month" style="width: 100%" placeholder="请输�?> </el-input>
+                    <el-input v-model="state.form.list[k].month" style="width: 100%" placeholder="请输入"> </el-input>
                   </el-form-item>
                 </el-col>
                 <el-col :xs="24" :sm="12" :md="8" :lg="8" :xl="6" class="mb20">
                   <el-form-item label="日度" :prop="`list[${k}].day`" :rules="[{ required: true, message: `日度不能为空`, trigger: 'blur' }]">
-                    <el-input v-model="state.form.list[k].day" style="width: 100%" placeholder="请输�?> </el-input>
+                    <el-input v-model="state.form.list[k].day" style="width: 100%" placeholder="请输入"> </el-input>
                   </el-form-item>
                 </el-col>
               </el-row>
@@ -137,7 +137,7 @@ const state = reactive({
   },
 })
 
-// 新增�?
+// 新增行
 const onAddRow = () => {
   state.form.list.push({
     year: '',
@@ -145,7 +145,7 @@ const onAddRow = () => {
     day: '',
   })
 }
-// 删除�?
+// 删除行
 const onDelRow = (k: number) => {
   state.form.list.splice(k, 1)
 }

@@ -82,7 +82,7 @@ export class FileApi<SecurityDataType = unknown> extends HttpClient<SecurityData
        */
       fileDirectory?: string
       /**
-       * 文件重命�?
+       * 文件重命名
        * @default true
        */
       fileReName?: boolean
@@ -104,7 +104,7 @@ export class FileApi<SecurityDataType = unknown> extends HttpClient<SecurityData
    *
    * @tags file
    * @name UploadFiles
-   * @summary 上传多文�?
+   * @summary 上传多文件
    * @request POST:/api/admin/file/upload-files
    * @secure
    */
@@ -120,7 +120,7 @@ export class FileApi<SecurityDataType = unknown> extends HttpClient<SecurityData
        */
       fileDirectory?: string
       /**
-       * 文件重命�?
+       * 文件重命名
        * @default true
        */
       fileReName?: boolean

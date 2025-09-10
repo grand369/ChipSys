@@ -38,7 +38,7 @@
                   value: 'And',
                 },
                 {
-                  label: '或�?,
+                  label: '或者',
                   value: 'Or',
                 },
               ]"
@@ -53,7 +53,7 @@
             <el-select placeholder="请选择字段" v-model="data.field" style="width: 130px; margin-right: 5px" @change="onChangeField(data)">
               <el-option v-for="(f, index) in props.fields" :key="index" :label="f.label" :value="f.field" />
             </el-select>
-            <el-select placeholder="请选择操作�? v-model="data.operator" style="width: 130px; margin-right: 5px" @change="onChangeOperator(data)">
+            <el-select placeholder="请选择操作符" v-model="data.operator" style="width: 130px; margin-right: 5px" @change="onChangeOperator(data)">
               <el-option v-for="(op, index) in getOperators(data.type)" :key="index" :label="op.label" :value="op.value" />
             </el-select>
             <component
@@ -73,13 +73,11 @@
 </template>
 
 <script lang="ts" setup>
-import { reactive, onMounted } from 'vue'
 import { cloneDeep, mergeWith } from 'lodash-es'
 import { Operator } from '/@/api/admin.extend/enum-contracts'
 import { SearchTemplateSaveInput, SearchTemplateGetListOutput } from '/@/api/admin/data-contracts'
 import { SearchTemplateApi } from '/@/api/admin/SearchTemplate'
 import { ElMessageBox, ElMessage } from 'element-plus'
-import { useRoute } from 'vue-router'
 
 const route = useRoute()
 
@@ -128,7 +126,7 @@ if (props.fields && props.fields.length > 0) {
   }
 }
 
-// 创建默认的过滤条件对�?
+// 创建默认的过滤条件对象
 const createDefaultFilter = () => ({
   field: '',
   operator: '',
@@ -136,11 +134,11 @@ const createDefaultFilter = () => ({
   type: '',
   componentName: 'el-input',
   attrs: {
-    placeholder: '请输入字段�?,
+    placeholder: '请输入字段值',
   },
 })
 
-// 创建默认的分组对�?
+// 创建默认的分组对象
 const createDefaultGroup = (isRoot = false) => ({
   ...(isRoot ? { root: true } : {}),
   logic: 'And',
@@ -191,7 +189,7 @@ const onTemplateChange = async (templateId: number) => {
 // 保存查询方案
 const onSaveTemplate = async () => {
   try {
-    const name = await ElMessageBox.prompt('请输入查询方案名�?, '保存查询方案', {
+    const name = await ElMessageBox.prompt('请输入查询方案名称', '保存查询方案', {
       confirmButtonText: '确定',
       cancelButtonText: '取消',
     })
@@ -240,12 +238,12 @@ const onDeleteTemplate = async (id: number) => {
   }
 }
 
-// 组件挂载时加载查询方案列�?
+// 组件挂载时加载查询方案列表
 onMounted(() => {
   loadTemplates()
 })
 
-// 获得操作符列�?
+// 获得操作符列表
 const getOperators = (type: any) => {
   const ops = state.operatorGroups[type || 'string']
   return ops && ops.length > 0 ? ops : ops['string']
@@ -285,7 +283,7 @@ const onChangeField = (data: any) => {
   }
 }
 
-// 更改操作�?
+// 更改操作符
 const onChangeOperator = (data: any) => {
   data.value = null
   if (data.type === 'date') {
@@ -328,21 +326,21 @@ const onAddCondition = (data: any) => {
   return newFilter
 }
 
-// 监听值变�?
+// 监听值变化
 const onValueChange = (data: any, value: any) => {
   if (value === '') {
     data.value = null
   }
 }
 
-// 删除分组或条�?
+// 删除分组或条件
 const onDelete = (node: any, data: any) => {
   const parent = node.parent
   const filters = parent.data.filters || parent.data
   const index = filters.findIndex((d: any) => d === data)
   filters.splice(index, 1)
 
-  // 如果删除后父节点没有任何条件，则删除父节�?
+  // 如果删除后父节点没有任何条件，则删除父节点
   if (filters.length === 0 && parent.parent) {
     const grandParent = parent.parent
     const parentFilters = grandParent.data.filters || grandParent.data
@@ -357,7 +355,7 @@ const reset = () => {
   state.dataTree = []
 }
 
-// 获取动态过滤条�?
+// 获取动态过滤条件
 const getDynamicFilter = () => {
   return state.dataTree.length > 0 ? cloneDeep(state.dataTree[0]) : null
 }

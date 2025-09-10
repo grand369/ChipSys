@@ -107,7 +107,7 @@ export class PkgApi<SecurityDataType = unknown> extends HttpClient<SecurityDataT
    */
   getPkgTenantList = (
     query?: {
-      /** 租户�?*/
+      /** 租户名 */
       TenantName?: string
       /**
        * 套餐Id

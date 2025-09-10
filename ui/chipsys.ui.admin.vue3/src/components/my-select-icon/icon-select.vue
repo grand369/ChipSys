@@ -2,7 +2,7 @@
   <el-dialog v-model="state.showDialog" destroy-on-close :title="title" append-to-body draggable width="780px">
     <div style="padding: 0px 0px 8px 8px; background-color: var(--ba-bg-color)">
       <div>
-        <el-input v-model="state.fontIconSearch" placeholder="筛选图�? clearable />
+        <el-input v-model="state.fontIconSearch" placeholder="筛选图标" clearable />
       </div>
       <div class="icon-selector-popper">
         <div class="icon-selector-warp">
@@ -40,18 +40,17 @@
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="onCancel">�?�?/el-button>
-        <el-button type="primary" @click="onSure" :loading="sureLoading">�?�?/el-button>
+        <el-button @click="onCancel">取 消</el-button>
+        <el-button type="primary" @click="onSure" :loading="sureLoading">确 定</el-button>
       </span>
     </template>
   </el-dialog>
 </template>
 
 <script lang="ts" setup>
-import { reactive, onMounted, computed, PropType } from 'vue'
 import initIconfont from '/@/utils/getStyleSheets'
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   title: {
     type: String,
@@ -66,10 +65,10 @@ const props = defineProps({
     type: String,
     default: () => 'all',
   },
-  // 自定义空状态描述文�?
+  // 自定义空状态描述文字
   emptyDescription: {
     type: String,
-    default: () => '无相关图�?,
+    default: () => '无相关图标',
   },
   modelValue: {
     type: String as PropType<string | undefined | null>,
@@ -77,7 +76,7 @@ const props = defineProps({
   },
 })
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emits = defineEmits(['update:modelValue', 'get', 'clear', 'sure'])
 
 const state = reactive({
@@ -89,7 +88,7 @@ const state = reactive({
   fontIconType: 'ele',
 })
 
-// 处理 icon type 类型�?all 时，类型 ali、ele、awe 回显问题
+// 处理 icon type 类型为 all 时，类型 ali、ele、awe 回显问题
 const initFontIconTypeEcho = () => {
   if (props.modelValue && props.modelValue.indexOf('iconfont') > -1) onIconChange('ali')
   else if (props.modelValue && props.modelValue.indexOf('ele-') > -1) onIconChange('ele')
@@ -97,7 +96,7 @@ const initFontIconTypeEcho = () => {
   else onIconChange('ele')
 }
 
-// 图标搜索及图标数据显�?
+// 图标搜索及图标数据显示
 const fontIconSheetsFilterList = computed(() => {
   if (!state.fontIconSearch) return state.fontIconSheetsList
   let search = state.fontIconSearch.trim().toLowerCase()
@@ -106,7 +105,7 @@ const fontIconSheetsFilterList = computed(() => {
   })
 })
 
-// 初始化数�?
+// 初始化数据
 const initFontIconData = async (type: string) => {
   state.fontIconSheetsList = []
   if (type === 'ali') {
@@ -132,23 +131,23 @@ const onIconChange = (type: string) => {
   initFontIconData(type)
 }
 
-// 获取当前点击�?icon 图标
+// 获取当前点击的 icon 图标
 const onColClick = (v: string) => {
   state.fontIconPrefix = v
   // emits('get', state.fontIconPrefix)
   // emits('update:modelValue', state.fontIconPrefix)
 }
 
-// 页面加载�?
+// 页面加载时
 onMounted(() => {})
 
-// 打开对话�?
+// 打开对话框
 const open = async () => {
   await initFontIconTypeEcho()
   state.showDialog = true
 }
 
-// 关闭对话�?
+// 关闭对话框
 const close = () => {
   state.showDialog = false
 }

@@ -8,7 +8,7 @@
         <el-form-item>
           <el-button type="primary" icon="ele-Search" @click="onQuery"> 查询 </el-button>
           <el-button v-auth="'api:admin:api:add'" type="primary" icon="ele-Plus" @click="onAdd"> 新增 </el-button>
-          <el-popconfirm title="确定要同步接�? hide-icon width="180" hide-after="0" @confirm="onSync">
+          <el-popconfirm title="确定要同步接口" hide-icon width="180" hide-after="0" @confirm="onSync">
             <template #reference>
               <el-button v-auth="'api:admin:api:sync'" :loading="state.syncLoading" type="primary" icon="ele-Refresh"> 同步 </el-button>
             </template>
@@ -80,7 +80,7 @@
           </template>
         </el-table-column>
         <el-table-column prop="sort" label="排序" width="82" align="center" show-overflow-tooltip />
-        <el-table-column label="状�? width="82" align="center">
+        <el-table-column label="状态" width="82" align="center">
           <template #default="{ row }">
             <el-tag type="success" v-if="row.enabled">启用</el-tag>
             <el-tag type="danger" v-else>禁用</el-tag>
@@ -155,11 +155,11 @@ const getTagTypeByHttpMethod = (httpMethods: string) => {
 
   return 'primary'
 }
-//启用或禁用请求日�?
+//启用或禁用请求日志
 const onSetEnableLog = (row: ApiGetListOutput & { loadingEnabledLog: boolean; loadingEnabledParams: boolean; loadingEnabledResult: boolean }) => {
   return new Promise((resolve, reject) => {
     proxy.$modal
-      .confirm(`确定�?{row.enabledLog ? '禁用' : '启用'}�?{row.label}】请求参�?`)
+      .confirm(`确定要${row.enabledLog ? '禁用' : '启用'}【${row.label}】请求参数?`)
       .then(async () => {
         row.loadingEnabledLog = true
         const res = await new ApiApi()
@@ -181,11 +181,11 @@ const onSetEnableLog = (row: ApiGetListOutput & { loadingEnabledLog: boolean; lo
       })
   })
 }
-//启用或禁用请求参�?
+//启用或禁用请求参数
 const onSetEnableParams = (row: ApiGetListOutput & { loadingEnabledLog: boolean; loadingEnabledParams: boolean; loadingEnabledResult: boolean }) => {
   return new Promise((resolve, reject) => {
     proxy.$modal
-      .confirm(`确定�?{row.enabledParams ? '禁用' : '启用'}�?{row.label}】请求参�?`)
+      .confirm(`确定要${row.enabledParams ? '禁用' : '启用'}【${row.label}】请求参数?`)
       .then(async () => {
         row.loadingEnabledParams = true
         const res = await new ApiApi()
@@ -208,11 +208,11 @@ const onSetEnableParams = (row: ApiGetListOutput & { loadingEnabledLog: boolean;
   })
 }
 
-//启用或禁用响应结�?
+//启用或禁用响应结果
 const onSetEnableResult = (row: ApiGetListOutput & { loadingEnabledLog: boolean; loadingEnabledParams: boolean; loadingEnabledResult: boolean }) => {
   return new Promise((resolve, reject) => {
     proxy.$modal
-      .confirm(`确定�?{row.enabledResult ? '禁用' : '启用'}�?{row.label}】响应结�?`)
+      .confirm(`确定要${row.enabledResult ? '禁用' : '启用'}【${row.label}】响应结果?`)
       .then(async () => {
         row.loadingEnabledResult = true
         const res = await new ApiApi()
@@ -274,7 +274,7 @@ const onEdit = (row: ApiGetListOutput) => {
 
 const onDelete = (row: ApiGetListOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除接口�?{row.label}�?`)
+    .confirmDelete(`确定要删除接口【${row.label}】?`)
     .then(async () => {
       await new ApiApi().delete({ id: row.id }, { loading: true })
       onQuery()

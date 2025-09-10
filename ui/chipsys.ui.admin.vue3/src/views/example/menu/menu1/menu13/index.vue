@@ -10,7 +10,7 @@ import { ref, onActivated, onMounted } from 'vue'
 // 定义变量内容
 const val = ref('')
 
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   window.console.log(2222)
 })

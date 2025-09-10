@@ -12,8 +12,8 @@
     <div style="padding: 0px 0px 8px 8px; background-color: var(--ba-bg-color)">
       <el-card shadow="never" :body-style="{ paddingBottom: '0' }" style="margin-top: 8px">
         <el-form :model="state.filter" :inline="true" @submit.stop.prevent>
-          <el-form-item label="企业�? prop="name">
-            <el-input v-model="state.filter.name" placeholder="企业�? @keyup.enter="onQuery" />
+          <el-form-item label="企业名" prop="name">
+            <el-input v-model="state.filter.name" placeholder="企业名" @keyup.enter="onQuery" />
           </el-form-item>
           <el-form-item>
             <el-button type="primary" icon="ele-Search" @click="onQuery"> 查询 </el-button>
@@ -35,7 +35,7 @@
           @row-dblclick="onRowDbClick"
         >
           <el-table-column v-if="multiple" type="selection" width="55" />
-          <el-table-column prop="name" label="企业�? min-width="82" show-overflow-tooltip />
+          <el-table-column prop="name" label="企业名" min-width="82" show-overflow-tooltip />
           <el-table-column prop="code" label="企业编码" min-width="120" show-overflow-tooltip />
           <!-- <el-table-column prop="email" label="邮箱" min-width="120" show-overflow-tooltip /> -->
         </el-table>
@@ -55,8 +55,8 @@
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="onCancel">�?�?/el-button>
-        <el-button type="primary" @click="onSure" :loading="sureLoading">�?�?/el-button>
+        <el-button @click="onCancel">取 消</el-button>
+        <el-button type="primary" @click="onSure" :loading="sureLoading">确 定</el-button>
       </span>
     </template>
   </el-dialog>
@@ -103,14 +103,14 @@ const state = reactive({
   tenantListData: [] as Array<TenantGetPageOutput>,
 })
 
-// 打开对话�?
+// 打开对话框
 const open = () => {
   state.showDialog = true
 
   onQuery()
 }
 
-// 关闭对话�?
+// 关闭对话框
 const close = () => {
   state.showDialog = false
 }

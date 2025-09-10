@@ -1,4 +1,4 @@
-let _boundaryCheckingState = true // 是否进行越界检查的全局开�?
+let _boundaryCheckingState = true // 是否进行越界检查的全局开关
 
 /**
  * 把错误的数据转正
@@ -22,9 +22,9 @@ function digitLength(num: number | string) {
 }
 
 /**
- * 把小数转成整�?如果是小数则放大成整�?
+ * 把小数转成整数,如果是小数则放大成整数
  * @private
- * @param {*number} num 输入�?
+ * @param {*number} num 输入数
  */
 function float2Fixed(num: number | string) {
   if (num.toString().indexOf('e') === -1) {
@@ -37,7 +37,7 @@ function float2Fixed(num: number | string) {
 /**
  * 检测数字是否越界，如果越界给出提示
  * @private
- * @param {*number} num 输入�?
+ * @param {*number} num 输入数
  */
 function checkBoundary(num: number | string) {
   if (_boundaryCheckingState) {
@@ -48,7 +48,7 @@ function checkBoundary(num: number | string) {
 }
 
 /**
- * 把递归操作扁平迭代�?
+ * 把递归操作扁平迭代化
  * @param {number[]} arr 要操作的数字数组
  * @param {function} operation 迭代操作
  * @private
@@ -65,7 +65,7 @@ function iteratorOperation(arr: number[], operation: Function) {
 }
 
 /**
- * 高精度乘�?
+ * 高精度乘法
  * @export
  */
 export function times(...nums: any) {
@@ -85,7 +85,7 @@ export function times(...nums: any) {
 }
 
 /**
- * 高精度加�?
+ * 高精度加法
  * @export
  */
 export function plus(...nums: any) {
@@ -94,14 +94,14 @@ export function plus(...nums: any) {
   }
 
   const [num1, num2] = nums
-  // 取最大的小数�?
+  // 取最大的小数位
   const baseNum = Math.pow(10, Math.max(digitLength(num1), digitLength(num2)))
-  // 把小数都转为整数然后再计�?
+  // 把小数都转为整数然后再计算
   return (times(num1, baseNum) + times(num2, baseNum)) / baseNum
 }
 
 /**
- * 高精度减�?
+ * 高精度减法
  * @export
  */
 export function minus(...nums: any) {
@@ -115,7 +115,7 @@ export function minus(...nums: any) {
 }
 
 /**
- * 高精度除�?
+ * 高精度除法
  * @export
  */
 export function divide(...nums: any) {
@@ -147,8 +147,8 @@ export function round(num: number, ratio: number) {
 }
 
 /**
- * 是否进行边界检查，默认开�?
- * @param flag 标记开关，true 为开启，false 为关闭，默认�?true
+ * 是否进行边界检查，默认开启
+ * @param flag 标记开关，true 为开启，false 为关闭，默认为 true
  * @export
  */
 export function enableBoundaryChecking(flag = true) {

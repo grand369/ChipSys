@@ -45,7 +45,7 @@
             >
               <el-table-column v-if="multiple" type="selection" width="55" />
               <el-table-column prop="name" label="姓名" min-width="82" show-overflow-tooltip />
-              <el-table-column prop="mobile" label="手机�? min-width="120" show-overflow-tooltip />
+              <el-table-column prop="mobile" label="手机号" min-width="120" show-overflow-tooltip />
               <el-table-column prop="email" label="邮箱" min-width="180" show-overflow-tooltip />
             </el-table>
             <div class="my-flex my-flex-end" style="margin-top: 20px">
@@ -66,8 +66,8 @@
     </div>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="onCancel">�?�?/el-button>
-        <el-button type="primary" @click="onSure" :loading="sureLoading">�?�?/el-button>
+        <el-button @click="onCancel">取 消</el-button>
+        <el-button type="primary" @click="onSure" :loading="sureLoading">确 定</el-button>
       </span>
     </template>
   </el-dialog>
@@ -117,7 +117,7 @@ const state = reactive({
   userListData: [] as Array<UserGetPageOutput>,
 })
 
-// 打开对话�?
+// 打开对话框
 const open = () => {
   state.showDialog = true
   if (state.pageInput.filter) {
@@ -127,7 +127,7 @@ const open = () => {
   onQuery()
 }
 
-// 关闭对话�?
+// 关闭对话框
 const close = () => {
   state.showDialog = false
 }

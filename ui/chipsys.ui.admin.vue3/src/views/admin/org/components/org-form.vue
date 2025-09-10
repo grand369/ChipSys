@@ -28,7 +28,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-form-item label="部门名称" prop="name" :rules="[{ required: true, message: '请输入部门名�?, trigger: ['blur', 'change'] }]">
+            <el-form-item label="部门名称" prop="name" :rules="[{ required: true, message: '请输入部门名称', trigger: ['blur', 'change'] }]">
               <el-input v-model="form.name" clearable />
             </el-form-item>
           </el-col>
@@ -38,7 +38,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-form-item label="部门�? prop="value">
+            <el-form-item label="部门值" prop="value">
               <el-input v-model="form.value" clearable />
             </el-form-item>
           </el-col>
@@ -61,8 +61,8 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -106,7 +106,7 @@ const query = async () => {
   }
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (row: any = {}) => {
   proxy.$modal.loading()
   await query()

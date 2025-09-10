@@ -19,7 +19,7 @@ export type AccountType = 1 | 2 | 3
 /** 添加 */
 export interface ApiAddInput {
   /**
-   * 所属模�?
+   * 所属模块
    * @format int64
    */
   parentId?: number | null
@@ -58,7 +58,7 @@ export interface ApiEntity {
    */
   createdUserName?: string | null
   /**
-   * 创建者姓�?
+   * 创建者姓名
    * @maxLength 60
    */
   createdUserRealName?: string | null
@@ -78,7 +78,7 @@ export interface ApiEntity {
    */
   modifiedUserName?: string | null
   /**
-   * 修改者姓�?
+   * 修改者姓名
    * @maxLength 60
    */
   modifiedUserRealName?: string | null
@@ -90,7 +90,7 @@ export interface ApiEntity {
   /** 是否删除 */
   isDeleted?: boolean
   /**
-   * 所属模�?
+   * 所属模块
    * @format int64
    */
   parentId?: number
@@ -161,7 +161,7 @@ export interface ApiGetListOutput {
 /** 接口 */
 export interface ApiGetOutput {
   /**
-   * 所属模�?
+   * 所属模块
    * @format int64
    */
   parentId?: number | null
@@ -255,7 +255,7 @@ export interface ApiSyncModel {
 /** 修改 */
 export interface ApiUpdateInput {
   /**
-   * 所属模�?
+   * 所属模块
    * @format int64
    */
   parentId?: number | null
@@ -289,7 +289,7 @@ export interface AuthChangePasswordByEmailInput {
    */
   email: string
   /**
-   * 验证�?
+   * 验证码
    * @minLength 1
    */
   code: string
@@ -299,23 +299,23 @@ export interface AuthChangePasswordByEmailInput {
    */
   codeId: string
   /**
-   * 新密�?
+   * 新密码
    * @minLength 1
    */
   newPassword: string
-  /** 确认新密�?*/
+  /** 确认新密码 */
   confirmPassword?: string | null
 }
 
 /** 手机更改密码 */
 export interface AuthChangePasswordByMobileInput {
   /**
-   * 手机�?
+   * 手机号
    * @minLength 1
    */
   mobile: string
   /**
-   * 验证�?
+   * 验证码
    * @minLength 1
    */
   code: string
@@ -325,11 +325,11 @@ export interface AuthChangePasswordByMobileInput {
    */
   codeId: string
   /**
-   * 新密�?
+   * 新密码
    * @minLength 1
    */
   newPassword: string
-  /** 确认新密�?*/
+  /** 确认新密码 */
   confirmPassword?: string | null
 }
 
@@ -341,7 +341,7 @@ export interface AuthEmailLoginInput {
    */
   email: string
   /**
-   * 验证�?
+   * 验证码
    * @minLength 1
    */
   code: string
@@ -354,7 +354,7 @@ export interface AuthEmailLoginInput {
 
 /** 查询密钥 */
 export interface AuthGetPasswordEncryptKeyOutput {
-  /** 缓存�?*/
+  /** 缓存键 */
   key?: string | null
   /** 密码加密密钥 */
   encryptKey?: string | null
@@ -380,9 +380,9 @@ export interface AuthGetUserPermissionsOutput {
 
 /** 登录信息 */
 export interface AuthLoginInput {
-  /** 用户�?*/
+  /** 用户名 */
   userName?: string | null
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱地址 */
   email?: string | null
@@ -393,23 +393,23 @@ export interface AuthLoginInput {
    * @minLength 1
    */
   password: string
-  /** 密码�?*/
+  /** 密码键 */
   passwordKey?: string | null
   /** 验证码Id */
   captchaId?: string | null
-  /** 验证码数�?*/
+  /** 验证码数据 */
   captchaData?: string | null
 }
 
-/** 手机号登录信�?*/
+/** 手机号登录信息 */
 export interface AuthMobileLoginInput {
   /**
-   * 手机�?
+   * 手机号
    * @minLength 1
    */
   mobile: string
   /**
-   * 验证�?
+   * 验证码
    * @minLength 1
    */
   code: string
@@ -428,7 +428,7 @@ export interface AuthRegByEmailInput {
    */
   email: string
   /**
-   * 验证�?
+   * 验证码
    * @minLength 1
    */
   code: string
@@ -449,15 +449,15 @@ export interface AuthRegByEmailInput {
   corpName: string
 }
 
-/** 手机号注�?*/
+/** 手机号注册 */
 export interface AuthRegByMobileInput {
   /**
-   * 手机�?
+   * 手机号
    * @minLength 1
    */
   mobile: string
   /**
-   * 验证�?
+   * 验证码
    * @minLength 1
    */
   code: string
@@ -506,7 +506,7 @@ export interface AuthUserMenuOutput {
   opened?: boolean | null
   /** 隐藏 */
   hidden?: boolean
-  /** 打开新窗�?*/
+  /** 打开新窗口 */
   newWindow?: boolean | null
   /** 链接外显 */
   external?: boolean | null
@@ -543,7 +543,7 @@ export interface AuthUserProfileOutput {
 export interface CaptchaData {
   /** id */
   id?: string | null
-  /** 背景�?含凹�? */
+  /** 背景图(含凹槽) */
   backgroundImage?: string | null
   /** 滑动块图 */
   sliderImage?: string | null
@@ -580,7 +580,7 @@ export interface DictAddInput {
   name: string
   /** 字典编码 */
   code?: string | null
-  /** 字典�?*/
+  /** 字典值 */
   value?: string | null
   /** 说明 */
   description?: string | null
@@ -623,7 +623,7 @@ export interface DictGetAllOutput {
   name?: string | null
   /** 字典编码 */
   code?: string | null
-  /** 字典�?*/
+  /** 字典值 */
   value?: string | null
   /** 启用 */
   enabled?: boolean
@@ -650,7 +650,7 @@ export interface DictGetListOutput {
   name?: string | null
   /** 字典编码 */
   code?: string | null
-  /** 字典�?*/
+  /** 字典值 */
   value?: string | null
 }
 
@@ -673,7 +673,7 @@ export interface DictGetOutput {
   name: string
   /** 字典编码 */
   code?: string | null
-  /** 字典�?*/
+  /** 字典值 */
   value?: string | null
   /** 说明 */
   description?: string | null
@@ -713,7 +713,7 @@ export interface DictGetPageOutput {
   name?: string | null
   /** 字典编码 */
   code?: string | null
-  /** 字典�?*/
+  /** 字典值 */
   value?: string | null
   /** 启用 */
   enabled?: boolean
@@ -896,7 +896,7 @@ export interface DictUpdateInput {
   name: string
   /** 字典编码 */
   code?: string | null
-  /** 字典�?*/
+  /** 字典值 */
   value?: string | null
   /** 说明 */
   description?: string | null
@@ -1132,7 +1132,7 @@ export interface ExportInput {
   dynamicFilter?: DynamicFilterInfo
   /** 排序列表 */
   sortList?: SortInput[] | null
-  /** 文件�?*/
+  /** 文件名 */
   fileName?: string | null
 }
 
@@ -1163,7 +1163,7 @@ export interface FileEntity {
    */
   createdUserName?: string | null
   /**
-   * 创建者姓�?
+   * 创建者姓名
    * @maxLength 60
    */
   createdUserRealName?: string | null
@@ -1183,7 +1183,7 @@ export interface FileEntity {
    */
   modifiedUserName?: string | null
   /**
-   * 修改者姓�?
+   * 修改者姓名
    * @maxLength 60
    */
   modifiedUserRealName?: string | null
@@ -1196,7 +1196,7 @@ export interface FileEntity {
   isDeleted?: boolean
   /** Invalid=0,Minio=1,Aliyun=2,QCloud=3,Qiniu=4,HuaweiCloud=5,BaiduCloud=6,Ctyun=7 */
   provider?: OSSProvider
-  /** 存储桶名�?*/
+  /** 存储桶名称 */
   bucketName?: string | null
   /** 文件目录 */
   fileDirectory?: string | null
@@ -1205,18 +1205,18 @@ export interface FileEntity {
    * @format uuid
    */
   fileGuid?: string
-  /** 保存文件�?*/
+  /** 保存文件名 */
   saveFileName?: string | null
-  /** 文件�?*/
+  /** 文件名 */
   fileName?: string | null
-  /** 文件扩展�?*/
+  /** 文件扩展名 */
   extension?: string | null
   /**
    * 文件字节长度
    * @format int64
    */
   size?: number
-  /** 文件大小格式�?*/
+  /** 文件大小格式化 */
   sizeFormat?: string | null
   /** 链接地址 */
   linkUrl?: string | null
@@ -1226,7 +1226,7 @@ export interface FileEntity {
 
 /** 文件分页请求 */
 export interface FileGetPageInput {
-  /** 文件�?*/
+  /** 文件名 */
   fileName?: string | null
 }
 
@@ -1237,9 +1237,9 @@ export interface FileGetPageOutput {
    * @format int64
    */
   id?: number
-  /** OSS供应�?*/
+  /** OSS供应商 */
   providerName?: string | null
-  /** 存储桶名�?*/
+  /** 存储桶名称 */
   bucketName?: string | null
   /** 文件目录 */
   fileDirectory?: string | null
@@ -1248,22 +1248,22 @@ export interface FileGetPageOutput {
    * @format uuid
    */
   fileGuid?: string
-  /** 文件�?*/
+  /** 文件名 */
   fileName?: string | null
-  /** 文件扩展�?*/
+  /** 文件扩展名 */
   extension?: string | null
-  /** 文件大小格式�?*/
+  /** 文件大小格式化 */
   sizeFormat?: string | null
   /** 链接地址 */
   linkUrl?: string | null
-  /** 创建�?*/
+  /** 创建者 */
   createdUserName?: string | null
   /**
    * 创建时间
    * @format date-time
    */
   createdTime?: string | null
-  /** 修改�?*/
+  /** 修改者 */
   modifiedUserName?: string | null
   /**
    * 修改时间
@@ -1280,12 +1280,12 @@ export interface ImportOutput {
    */
   total?: number
   /**
-   * 新增�?
+   * 新增数
    * @format int64
    */
   insertCount?: number
   /**
-   * 更新�?
+   * 更新数
    * @format int64
    */
   updateCount?: number
@@ -1308,22 +1308,22 @@ export interface LoginLogAddInput {
   province?: string | null
   /** 城市 */
   city?: string | null
-  /** 网络服务�?*/
+  /** 网络服务商 */
   isp?: string | null
-  /** 浏览�?*/
+  /** 浏览器 */
   browser?: string | null
   /** 操作系统 */
   os?: string | null
   /** 设备 */
   device?: string | null
-  /** 浏览器信�?*/
+  /** 浏览器信息 */
   browserInfo?: string | null
   /**
    * 耗时（毫秒）
    * @format int64
    */
   elapsedMilliseconds?: number
-  /** 操作状�?*/
+  /** 操作状态 */
   status?: boolean | null
   /** 操作消息 */
   msg?: string | null
@@ -1334,20 +1334,20 @@ export interface LoginLogAddInput {
   createdUserId?: number | null
   /** 创建者用户名 */
   createdUserName?: string | null
-  /** 创建者姓�?*/
+  /** 创建者姓名 */
   createdUserRealName?: string | null
 }
 
 /** 分页请求 */
 export interface LoginLogGetPageInput {
-  /** 创建�?*/
+  /** 创建者 */
   createdUserName?: string | null
-  /** 操作状�?*/
+  /** 操作状态 */
   status?: boolean | null
   /** IP */
   ip?: string | null
   /**
-   * 创建开始时�?
+   * 创建开始时间
    * @format date-time
    */
   addStartTime?: string | null
@@ -1367,7 +1367,7 @@ export interface LoginLogGetPageOutput {
   id?: number
   /** 昵称 */
   nickName?: string | null
-  /** 创建�?*/
+  /** 创建者 */
   createdUserName?: string | null
   /** IP */
   ip?: string | null
@@ -1377,9 +1377,9 @@ export interface LoginLogGetPageOutput {
   province?: string | null
   /** 城市 */
   city?: string | null
-  /** 网络服务�?*/
+  /** 网络服务商 */
   isp?: string | null
-  /** 浏览�?*/
+  /** 浏览器 */
   browser?: string | null
   /** 操作系统 */
   os?: string | null
@@ -1390,7 +1390,7 @@ export interface LoginLogGetPageOutput {
    * @format int64
    */
   elapsedMilliseconds?: number
-  /** 操作状�?*/
+  /** 操作状态 */
   status?: boolean
   /** 操作消息 */
   msg?: string | null
@@ -1414,7 +1414,7 @@ export interface MsgAddInput {
   typeId?: number
   /** 类型名称 */
   typeName?: string | null
-  /** 消息状�?Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5 */
+  /** 消息状态:Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5 */
   status?: MsgStatusEnum
 }
 
@@ -1438,7 +1438,7 @@ export interface MsgGetMsgUserListOutput {
   id?: number
   /** 姓名 */
   name?: string | null
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -1464,7 +1464,7 @@ export interface MsgGetOutput {
   typeId?: number
   /** 类型名称 */
   typeName?: string | null
-  /** 消息状�?Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5 */
+  /** 消息状态:Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5 */
   status?: MsgStatusEnum
   /**
    * 消息Id
@@ -1495,7 +1495,7 @@ export interface MsgGetPageOutput {
   typeId?: number
   /** 类型名称 */
   typeName?: string | null
-  /** 消息状�?Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5 */
+  /** 消息状态:Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5 */
   status?: MsgStatusEnum
   /**
    * 创建时间
@@ -1505,7 +1505,7 @@ export interface MsgGetPageOutput {
 }
 
 /**
- * 消息状�?Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5
+ * 消息状态:Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5
  * @format int32
  */
 export type MsgStatusEnum = 1 | 2 | 3 | 4 | 5
@@ -1626,7 +1626,7 @@ export interface MsgUpdateInput {
   typeId?: number
   /** 类型名称 */
   typeName?: string | null
-  /** 消息状�?Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5 */
+  /** 消息状态:Draft=1,Published=2,Scheduled=3,Revoked=4,Archived=5 */
   status?: MsgStatusEnum
   /**
    * 消息Id
@@ -1664,22 +1664,22 @@ export interface OperationLogAddInput {
   province?: string | null
   /** 城市 */
   city?: string | null
-  /** 网络服务�?*/
+  /** 网络服务商 */
   isp?: string | null
-  /** 浏览�?*/
+  /** 浏览器 */
   browser?: string | null
   /** 操作系统 */
   os?: string | null
   /** 设备 */
   device?: string | null
-  /** 浏览器信�?*/
+  /** 浏览器信息 */
   browserInfo?: string | null
   /**
    * 耗时（毫秒）
    * @format int64
    */
   elapsedMilliseconds?: number
-  /** 操作状�?*/
+  /** 操作状态 */
   status?: boolean | null
   /** 操作消息 */
   msg?: string | null
@@ -1699,22 +1699,22 @@ export interface OperationLogAddInput {
   createdUserId?: number | null
   /** 创建者用户名 */
   createdUserName?: string | null
-  /** 创建者姓�?*/
+  /** 创建者姓名 */
   createdUserRealName?: string | null
 }
 
 /** 查询分页请求 */
 export interface OperationLogGetPageInput {
-  /** 创建�?*/
+  /** 创建者 */
   createdUserName?: string | null
-  /** 操作状�?*/
+  /** 操作状态 */
   status?: boolean | null
   /** 操作接口 */
   api?: string | null
   /** IP */
   ip?: string | null
   /**
-   * 创建开始时�?
+   * 创建开始时间
    * @format date-time
    */
   addStartTime?: string | null
@@ -1748,9 +1748,9 @@ export interface OperationLogGetPageOutput {
   province?: string | null
   /** 城市 */
   city?: string | null
-  /** 网络服务�?*/
+  /** 网络服务商 */
   isp?: string | null
-  /** 浏览�?*/
+  /** 浏览器 */
   browser?: string | null
   /** 操作系统 */
   os?: string | null
@@ -1761,7 +1761,7 @@ export interface OperationLogGetPageOutput {
    * @format int64
    */
   elapsedMilliseconds?: number
-  /** 操作状�?*/
+  /** 操作状态 */
   status?: boolean
   /**
    * 状态码
@@ -1774,9 +1774,9 @@ export interface OperationLogGetPageOutput {
   params?: string | null
   /** 响应结果 */
   result?: string | null
-  /** 创建�?*/
+  /** 创建者 */
   createdUserName?: string | null
-  /** 创建者姓�?*/
+  /** 创建者姓名 */
   createdUserRealName?: string | null
   /**
    * 创建时间
@@ -1796,7 +1796,7 @@ export interface OrgAddInput {
   name?: string | null
   /** 编码 */
   code?: string | null
-  /** �?*/
+  /** 值 */
   value?: string | null
   /** 启用 */
   enabled?: boolean
@@ -1825,7 +1825,7 @@ export interface OrgGetListOutput {
   name?: string | null
   /** 编码 */
   code?: string | null
-  /** �?*/
+  /** 值 */
   value?: string | null
   /** 启用 */
   enabled?: boolean
@@ -1854,7 +1854,7 @@ export interface OrgGetOutput {
   name?: string | null
   /** 编码 */
   code?: string | null
-  /** �?*/
+  /** 值 */
   value?: string | null
   /** 启用 */
   enabled?: boolean
@@ -1894,7 +1894,7 @@ export interface OrgUpdateInput {
   name?: string | null
   /** 编码 */
   code?: string | null
-  /** �?*/
+  /** 值 */
   value?: string | null
   /** 启用 */
   enabled?: boolean
@@ -2450,7 +2450,7 @@ export interface PageOutputUserGetPageOutput {
   list?: UserGetPageOutput[] | null
 }
 
-/** 添加权限�?*/
+/** 添加权限点 */
 export interface PermissionAddDotInput {
   /** 平台 */
   platform?: string | null
@@ -2541,7 +2541,7 @@ export interface PermissionAddMenuInput {
   hidden?: boolean
   /** 图标 */
   icon?: string | null
-  /** 打开新窗�?*/
+  /** 打开新窗口 */
   newWindow?: boolean
   /** 链接外显 */
   external?: boolean
@@ -2591,7 +2591,7 @@ export interface PermissionEntity {
    */
   createdUserName?: string | null
   /**
-   * 创建者姓�?
+   * 创建者姓名
    * @maxLength 60
    */
   createdUserRealName?: string | null
@@ -2611,7 +2611,7 @@ export interface PermissionEntity {
    */
   modifiedUserName?: string | null
   /**
-   * 修改者姓�?
+   * 修改者姓名
    * @maxLength 60
    */
   modifiedUserRealName?: string | null
@@ -2654,7 +2654,7 @@ export interface PermissionEntity {
   hidden?: boolean
   /** 展开分组 */
   opened?: boolean
-  /** 打开新窗�?*/
+  /** 打开新窗口 */
   newWindow?: boolean
   /** 链接外显 */
   external?: boolean
@@ -2681,7 +2681,7 @@ export interface PermissionEntity {
   childs?: PermissionEntity[] | null
 }
 
-/** 权限�?*/
+/** 权限点 */
 export interface PermissionGetDotOutput {
   /** 平台 */
   platform?: string | null
@@ -2835,7 +2835,7 @@ export interface PermissionGetMenuOutput {
   hidden?: boolean
   /** 图标 */
   icon?: string | null
-  /** 打开新窗�?*/
+  /** 打开新窗口 */
   newWindow?: boolean
   /** 链接外显 */
   external?: boolean
@@ -2877,7 +2877,7 @@ export interface PermissionGetPermissionListOutput {
   parentId?: number
   /** 权限名称 */
   label?: string | null
-  /** 行显�?*/
+  /** 行显示 */
   row?: boolean
   /** 权限列表 */
   children?: PermissionGetPermissionListOutput[] | null
@@ -2889,7 +2889,7 @@ export interface PermissionGetPermissionListOutput {
  */
 export type PermissionType = 1 | 2 | 3
 
-/** 修改权限�?*/
+/** 修改权限点 */
 export interface PermissionUpdateDotInput {
   /** 平台 */
   platform?: string | null
@@ -2990,7 +2990,7 @@ export interface PermissionUpdateMenuInput {
   hidden?: boolean
   /** 图标 */
   icon?: string | null
-  /** 打开新窗�?*/
+  /** 打开新窗口 */
   newWindow?: boolean
   /** 链接外显 */
   external?: boolean
@@ -3145,7 +3145,7 @@ export interface PkgGetPageOutput {
 
 /** 套餐租户列表请求 */
 export interface PkgGetPkgTenantListInput {
-  /** 租户�?*/
+  /** 租户名 */
   tenantName?: string | null
   /**
    * 套餐Id
@@ -3161,7 +3161,7 @@ export interface PkgGetPkgTenantListOutput {
    * @format int64
    */
   id?: number
-  /** 租户�?*/
+  /** 租户名 */
   name?: string | null
   /** 租户编码 */
   code?: string | null
@@ -3377,9 +3377,9 @@ export interface RegionAddInput {
   parentId?: number
   /** 名称 */
   name?: string | null
-  /** 简�?*/
+  /** 简称 */
   shortName?: string | null
-  /** 地区级别:Province=1,City=2,County=3,Town(�?�?=4,Vilage(�?社区)=5 */
+  /** 地区级别:Province=1,City=2,County=3,Town(镇/乡)=4,Vilage(村/社区)=5 */
   level?: RegionLevel
   /** 代码 */
   code?: string | null
@@ -3419,11 +3419,11 @@ export interface RegionGetChildListOutput {
   id?: number
   /** 名称 */
   name?: string | null
-  /** 地区级别:Province=1,City=2,County=3,Town(�?�?=4,Vilage(�?社区)=5 */
+  /** 地区级别:Province=1,City=2,County=3,Town(镇/乡)=4,Vilage(村/社区)=5 */
   level?: RegionLevel
   /** 拼音 */
   pinyin?: string | null
-  /** 拼音首字�?*/
+  /** 拼音首字母 */
   pinyinFirst?: string | null
   /** 启用 */
   enabled?: boolean
@@ -3455,9 +3455,9 @@ export interface RegionGetOutput {
   parentId?: number
   /** 名称 */
   name?: string | null
-  /** 简�?*/
+  /** 简称 */
   shortName?: string | null
-  /** 地区级别:Province=1,City=2,County=3,Town(�?�?=4,Vilage(�?社区)=5 */
+  /** 地区级别:Province=1,City=2,County=3,Town(镇/乡)=4,Vilage(村/社区)=5 */
   level?: RegionLevel
   /** 代码 */
   code?: string | null
@@ -3504,7 +3504,7 @@ export interface RegionGetPageInput {
   parentId?: number | null
   /** 名称 */
   name?: string | null
-  /** 地区级别:Province=1,City=2,County=3,Town(�?�?=4,Vilage(�?社区)=5 */
+  /** 地区级别:Province=1,City=2,County=3,Town(镇/乡)=4,Vilage(村/社区)=5 */
   level?: RegionLevel
   /** 热门 */
   hot?: boolean | null
@@ -3526,15 +3526,15 @@ export interface RegionGetPageOutput {
   parentId?: number
   /** 名称 */
   name?: string | null
-  /** 简�?*/
+  /** 简称 */
   shortName?: string | null
-  /** 地区级别:Province=1,City=2,County=3,Town(�?�?=4,Vilage(�?社区)=5 */
+  /** 地区级别:Province=1,City=2,County=3,Town(镇/乡)=4,Vilage(村/社区)=5 */
   level?: RegionLevel
   /** 代码 */
   code?: string | null
   /** 拼音 */
   pinyin?: string | null
-  /** 拼音首字�?*/
+  /** 拼音首字母 */
   pinyinFirst?: string | null
   /** 驻地 */
   capital?: string | null
@@ -3564,7 +3564,7 @@ export interface RegionGetPageOutput {
 }
 
 /**
- * 地区级别:Province=1,City=2,County=3,Town(�?�?=4,Vilage(�?社区)=5
+ * 地区级别:Province=1,City=2,County=3,Town(镇/乡)=4,Vilage(村/社区)=5
  * @format int32
  */
 export type RegionLevel = 1 | 2 | 3 | 4 | 5
@@ -3600,9 +3600,9 @@ export interface RegionUpdateInput {
   parentId?: number
   /** 名称 */
   name?: string | null
-  /** 简�?*/
+  /** 简称 */
   shortName?: string | null
-  /** 地区级别:Province=1,City=2,County=3,Town(�?�?=4,Vilage(�?社区)=5 */
+  /** 地区级别:Province=1,City=2,County=3,Town(镇/乡)=4,Vilage(村/社区)=5 */
   level?: RegionLevel
   /** 代码 */
   code?: string | null
@@ -4392,7 +4392,7 @@ export interface ResultOutputPermissionGetDotOutput {
   code?: string | null
   /** 消息 */
   msg?: string | null
-  /** 权限�?*/
+  /** 权限点 */
   data?: PermissionGetDotOutput
 }
 
@@ -4742,7 +4742,7 @@ export interface RoleGetRoleUserListOutput {
   id?: number
   /** 姓名 */
   name?: string | null
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -4866,7 +4866,7 @@ export interface SendEmailCodeInput {
 /** 发送短信验证码 */
 export interface SendSmsCodeInput {
   /**
-   * 手机�?
+   * 手机号
    * @minLength 1
    */
   mobile: string
@@ -4882,7 +4882,7 @@ export interface SendSmsCodeInput {
 }
 
 /**
- * 性别:Unknown(未知)=0,Male(�?=1,Female(�?=2
+ * 性别:Unknown(未知)=0,Male(男)=1,Female(女)=2
  * @format int32
  */
 export type Sex = 0 | 1 | 2
@@ -4955,27 +4955,27 @@ export interface SiteMsgGetPageOutput {
 /** 滑动轨迹 */
 export interface SlideTrack {
   /**
-   * 背景图片宽度(可能经过缩放，不是原始图片宽�?
+   * 背景图片宽度(可能经过缩放，不是原始图片宽高)
    * @format int32
    */
   backgroundImageWidth?: number
   /**
-   * 背景图片高度(可能经过缩放，不是原始图片宽�?
+   * 背景图片高度(可能经过缩放，不是原始图片宽高)
    * @format int32
    */
   backgroundImageHeight?: number
   /**
-   * 滑块图片宽度(可能经过缩放，不是原始图片宽�?
+   * 滑块图片宽度(可能经过缩放，不是原始图片宽高)
    * @format int32
    */
   sliderImageWidth?: number
   /**
-   * 滑块图片高度(可能经过缩放，不是原始图片宽�?
+   * 滑块图片高度(可能经过缩放，不是原始图片宽高)
    * @format int32
    */
   sliderImageHeight?: number
   /**
-   * 滑动开始时�?可能经过缩放，不是原始图片宽�?
+   * 滑动开始时间(可能经过缩放，不是原始图片宽高)
    * @format date-time
    */
   startTime?: string
@@ -4995,7 +4995,7 @@ export interface SlideTrack {
 
 /** 排序 */
 export interface SortInput {
-  /** 属性名�?*/
+  /** 属性名称 */
   propName?: string | null
   /** 排序方式:Asc=0,Desc=1 */
   order?: SortOrder
@@ -5015,7 +5015,7 @@ export interface StaffAddInput {
   jobNumber?: string | null
   /** 职位 */
   position?: string | null
-  /** 性别:Unknown(未知)=0,Male(�?=1,Female(�?=2 */
+  /** 性别:Unknown(未知)=0,Male(男)=1,Female(女)=2 */
   sex?: Sex
   /**
    * 入职时间
@@ -5024,7 +5024,7 @@ export interface StaffAddInput {
   entryTime?: string | null
   /** 企业微信名片 */
   workWeChatCard?: string | null
-  /** 个人简�?*/
+  /** 个人简介 */
   introduce?: string | null
 }
 
@@ -5035,7 +5035,7 @@ export interface TaskAddInput {
   /** 任务参数 */
   body?: string | null
   /**
-   * 任务执行多少轮，-1为永久循�?
+   * 任务执行多少轮，-1为永久循环
    * @format int32
    */
   round?: number
@@ -5051,7 +5051,7 @@ export interface TaskAddInput {
    */
   failRetryCount?: number | null
   /**
-   * 失败重试间隔（秒�?
+   * 失败重试间隔（秒）
    * @format int32
    */
   failRetryInterval?: number | null
@@ -5064,7 +5064,7 @@ export interface TaskGetOutput {
   /** 任务参数 */
   body?: string | null
   /**
-   * 任务执行多少轮，-1为永久循�?
+   * 任务执行多少轮，-1为永久循环
    * @format int32
    */
   round?: number
@@ -5080,7 +5080,7 @@ export interface TaskGetOutput {
    */
   failRetryCount?: number | null
   /**
-   * 失败重试间隔（秒�?
+   * 失败重试间隔（秒）
    * @format int32
    */
   failRetryInterval?: number | null
@@ -5102,7 +5102,7 @@ export interface TaskGetPageInput {
   /** Running=0,Paused=1,Completed=2 */
   taskStatus?: TaskStatus
   /**
-   * 创建开始时�?
+   * 创建开始时间
    * @format date-time
    */
   startAddTime?: string | null
@@ -5122,13 +5122,13 @@ export interface TaskGetPageOutput {
   /** 任务数据 */
   body?: string | null
   /**
-   * 任务执行多少�?
+   * 任务执行多少轮
    * @format int32
    */
   round?: number
   /** SEC=1,RunOnDay=11,RunOnWeek=12,RunOnMonth=13,Custom=21 */
   interval?: TaskInterval
-  /** 定时参数�?*/
+  /** 定时参数值 */
   intervalArgument?: string | null
   /** Running=0,Paused=1,Completed=2 */
   status?: TaskStatus
@@ -5138,7 +5138,7 @@ export interface TaskGetPageOutput {
    */
   createTime?: string
   /**
-   * 最后运行时�?
+   * 最后运行时间
    * @format date-time
    */
   lastRunTime?: string
@@ -5148,7 +5148,7 @@ export interface TaskGetPageOutput {
    */
   currentRound?: number
   /**
-   * 错次�?
+   * 错次数
    * @format int32
    */
   errorTimes?: number
@@ -5192,7 +5192,7 @@ export interface TaskUpdateInput {
   /** 任务参数 */
   body?: string | null
   /**
-   * 任务执行多少轮，-1为永久循�?
+   * 任务执行多少轮，-1为永久循环
    * @format int32
    */
   round?: number
@@ -5208,7 +5208,7 @@ export interface TaskUpdateInput {
    */
   failRetryCount?: number | null
   /**
-   * 失败重试间隔（秒�?
+   * 失败重试间隔（秒）
    * @format int32
    */
   failRetryInterval?: number | null
@@ -5254,7 +5254,7 @@ export interface TenantAddInput {
   dbKey?: string | null
   /** MySql=0,SqlServer=1,PostgreSQL=2,Oracle=3,Sqlite=4,OdbcOracle=5,OdbcSqlServer=6,OdbcMySql=7,OdbcPostgreSQL=8,Odbc=9,MsAccess=11,Dameng=12,ShenTong=14,KingbaseES=15,Firebird=16,Custom=17,ClickHouse=18,GBase=19,QuestDb=20,Xugu=21,CustomOracle=22,CustomSqlServer=23,CustomMySql=24,CustomPostgreSQL=25,DuckDB=26,TDengine=27 */
   dbType?: DataType
-  /** 连接字符�?*/
+  /** 连接字符串 */
   connectionString?: string | null
   /** 启用 */
   enabled?: boolean
@@ -5289,7 +5289,7 @@ export interface TenantGetOutput {
   dbKey?: string | null
   /** MySql=0,SqlServer=1,PostgreSQL=2,Oracle=3,Sqlite=4,OdbcOracle=5,OdbcSqlServer=6,OdbcMySql=7,OdbcPostgreSQL=8,Odbc=9,MsAccess=11,Dameng=12,ShenTong=14,KingbaseES=15,Firebird=16,Custom=17,ClickHouse=18,GBase=19,QuestDb=20,Xugu=21,CustomOracle=22,CustomSqlServer=23,CustomMySql=24,CustomPostgreSQL=25,DuckDB=26,TDengine=27 */
   dbType?: DataType
-  /** 连接字符�?*/
+  /** 连接字符串 */
   connectionString?: string | null
   /** 启用 */
   enabled?: boolean
@@ -5331,7 +5331,7 @@ export interface TenantGetPageOutput {
   phone?: string | null
   /** 邮箱地址 */
   email?: string | null
-  /** 数据库名�?*/
+  /** 数据库名称 */
   dbTypeName?: string | null
   /** 启用 */
   enabled?: boolean
@@ -5385,7 +5385,7 @@ export interface TenantUpdateInput {
   dbKey?: string | null
   /** MySql=0,SqlServer=1,PostgreSQL=2,Oracle=3,Sqlite=4,OdbcOracle=5,OdbcSqlServer=6,OdbcMySql=7,OdbcPostgreSQL=8,Odbc=9,MsAccess=11,Dameng=12,ShenTong=14,KingbaseES=15,Firebird=16,Custom=17,ClickHouse=18,GBase=19,QuestDb=20,Xugu=21,CustomOracle=22,CustomSqlServer=23,CustomMySql=24,CustomPostgreSQL=25,DuckDB=26,TDengine=27 */
   dbType?: DataType
-  /** 连接字符�?*/
+  /** 连接字符串 */
   connectionString?: string | null
   /** 启用 */
   enabled?: boolean
@@ -5403,7 +5403,7 @@ export interface TokenInfo {
   /** 访问令牌 */
   accessToken?: string | null
   /**
-   * 访问令牌的过期时�?
+   * 访问令牌的过期时间
    * @format date-time
    */
   accessTokenExpiresAt?: string
@@ -5415,7 +5415,7 @@ export interface TokenInfo {
   /** 刷新令牌 */
   refreshToken?: string | null
   /**
-   * 刷新令牌的过期时�?
+   * 刷新令牌的过期时间
    * @format date-time
    */
   refreshTokenExpiresAt?: string
@@ -5425,7 +5425,7 @@ export interface TokenInfo {
    */
   refreshTokenLifeTime?: number
   /**
-   * 创建令牌信息时间�?
+   * 创建令牌信息时间戳
    * @format int64
    */
   timestamp?: number
@@ -5457,7 +5457,7 @@ export interface UserAddInput {
    * @minLength 1
    */
   name: string
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -5499,7 +5499,7 @@ export interface UserAddMemberInput {
   userName: string
   /** 姓名 */
   name?: string | null
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -5508,7 +5508,7 @@ export interface UserAddMemberInput {
    * @minLength 1
    */
   password: string
-  /** 用户状�?WaitChangePasssword=2,WaitActive=3 */
+  /** 用户状态:WaitChangePasssword=2,WaitActive=3 */
   status?: UserStatus
 }
 
@@ -5528,17 +5528,17 @@ export interface UserBatchSetOrgInput {
 /** 修改密码 */
 export interface UserChangePasswordInput {
   /**
-   * 旧密�?
+   * 旧密码
    * @minLength 1
    */
   oldPassword: string
   /**
-   * 新密�?
+   * 新密码
    * @minLength 1
    */
   newPassword: string
   /**
-   * 确认新密�?
+   * 确认新密码
    * @minLength 1
    */
   confirmPassword: string
@@ -5552,26 +5552,26 @@ export interface UserGetBasicOutput {
   name?: string | null
   /** 昵称 */
   nickName?: string | null
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
   /**
-   * 最后登录时�?
+   * 最后登录时间
    * @format date-time
    */
   lastLoginTime?: string | null
   /** 最后登录IP */
   lastLoginIP?: string | null
-  /** 最后登录国�?*/
+  /** 最后登录国家 */
   lastLoginCountry?: string | null
-  /** 最后登录省�?*/
+  /** 最后登录省份 */
   lastLoginProvince?: string | null
-  /** 最后登录城�?*/
+  /** 最后登录城市 */
   lastLoginCity?: string | null
 }
 
-/** 已删除用户分页查询响�?*/
+/** 已删除用户分页查询响应 */
 export interface UserGetDeletedUserPageOutput {
   /**
    * 主键Id
@@ -5582,7 +5582,7 @@ export interface UserGetDeletedUserPageOutput {
   userName?: string | null
   /** 姓名 */
   name?: string | null
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -5592,15 +5592,15 @@ export interface UserGetDeletedUserPageOutput {
   roleNames?: string | null
   /** 启用 */
   enabled?: boolean
-  /** 性别:Unknown(未知)=0,Male(�?=1,Female(�?=2 */
+  /** 性别:Unknown(未知)=0,Male(男)=1,Female(女)=2 */
   sex?: Sex
   /** 主属部门 */
   orgPath?: string | null
-  /** 所属部�?*/
+  /** 所属部门 */
   orgPaths?: string | null
   /** 创建者用户名 */
   createdUserName?: string | null
-  /** 创建者姓�?*/
+  /** 创建者姓名 */
   createdUserRealName?: string | null
   /**
    * 创建时间
@@ -5609,7 +5609,7 @@ export interface UserGetDeletedUserPageOutput {
   createdTime?: string | null
   /** 修改者用户名 */
   modifiedUserName?: string | null
-  /** 修改者姓�?*/
+  /** 修改者姓名 */
   modifiedUserRealName?: string | null
   /**
    * 修改时间
@@ -5630,7 +5630,7 @@ export interface UserGetOutput {
    * @minLength 1
    */
   name: string
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -5672,7 +5672,7 @@ export interface UserGetPageOutput {
   userName?: string | null
   /** 姓名 */
   name?: string | null
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -5686,15 +5686,15 @@ export interface UserGetPageOutput {
   enabled?: boolean
   /** 在线 */
   online?: boolean
-  /** 性别:Unknown(未知)=0,Male(�?=1,Female(�?=2 */
+  /** 性别:Unknown(未知)=0,Male(男)=1,Female(女)=2 */
   sex?: Sex
   /** 主属部门 */
   orgPath?: string | null
-  /** 所属部�?*/
+  /** 所属部门 */
   orgPaths?: string | null
   /** 创建者用户名 */
   createdUserName?: string | null
-  /** 创建者姓�?*/
+  /** 创建者姓名 */
   createdUserRealName?: string | null
   /**
    * 创建时间
@@ -5703,7 +5703,7 @@ export interface UserGetPageOutput {
   createdTime?: string | null
   /** 修改者用户名 */
   modifiedUserName?: string | null
-  /** 修改者姓�?*/
+  /** 修改者姓名 */
   modifiedUserRealName?: string | null
   /**
    * 修改时间
@@ -5716,7 +5716,7 @@ export interface UserGetPageOutput {
 export interface UserGetPermissionOutput {
   /** 接口列表 */
   apis?: ApiModel[] | null
-  /** 权限点编码列�?*/
+  /** 权限点编码列表 */
   codes?: string[] | null
 }
 
@@ -5765,7 +5765,7 @@ export interface UserSetManagerInput {
 }
 
 /**
- * 用户状�?WaitChangePasssword=2,WaitActive=3
+ * 用户状态:WaitChangePasssword=2,WaitActive=3
  * @format int32
  */
 export type UserStatus = 2 | 3
@@ -5799,7 +5799,7 @@ export interface UserUpdateInput {
    * @minLength 1
    */
   name: string
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -5830,7 +5830,7 @@ export interface UserUpdateMemberInput {
   userName: string
   /** 姓名 */
   name?: string | null
-  /** 手机�?*/
+  /** 手机号 */
   mobile?: string | null
   /** 邮箱 */
   email?: string | null
@@ -5858,7 +5858,7 @@ export interface ViewAddInput {
   /** 平台 */
   platform?: string | null
   /**
-   * 所属节�?
+   * 所属节点
    * @format int64
    */
   parentId?: number
@@ -5899,7 +5899,7 @@ export interface ViewEntity {
    */
   createdUserName?: string | null
   /**
-   * 创建者姓�?
+   * 创建者姓名
    * @maxLength 60
    */
   createdUserRealName?: string | null
@@ -5919,7 +5919,7 @@ export interface ViewEntity {
    */
   modifiedUserName?: string | null
   /**
-   * 修改者姓�?
+   * 修改者姓名
    * @maxLength 60
    */
   modifiedUserRealName?: string | null
@@ -5933,7 +5933,7 @@ export interface ViewEntity {
   /** 平台 */
   platform?: string | null
   /**
-   * 所属节�?
+   * 所属节点
    * @format int64
    */
   parentId?: number
@@ -6007,7 +6007,7 @@ export interface ViewGetOutput {
   /** 平台 */
   platform?: string | null
   /**
-   * 所属节�?
+   * 所属节点
    * @format int64
    */
   parentId?: number
@@ -6060,7 +6060,7 @@ export interface ViewUpdateInput {
   /** 平台 */
   platform?: string | null
   /**
-   * 所属节�?
+   * 所属节点
    * @format int64
    */
   parentId?: number

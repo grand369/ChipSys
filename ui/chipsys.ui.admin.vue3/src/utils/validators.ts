@@ -8,7 +8,7 @@ export const validatorPwd = (rule: any, value: any, callback: any) => {
     callback()
   }
   if (!verifyPasswordHybrid(value)) {
-    callback(new Error('字母+数字+可选特殊字符，长度�?-16之间'))
+    callback(new Error('字母+数字+可选特殊字符，长度在6-16之间'))
   } else {
     callback()
   }
@@ -21,6 +21,6 @@ export const validatorAgree = (rule: any, value: any, callback: any) => {
   if (value) {
     callback()
   } else {
-    callback(new Error('请勾选同意协�?))
+    callback(new Error('请勾选同意协议'))
   }
 }

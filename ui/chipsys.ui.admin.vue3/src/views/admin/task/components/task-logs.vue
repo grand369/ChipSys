@@ -8,7 +8,7 @@
     <div class="my-fill h100">
       <el-table v-loading="state.loading" :data="state.taskLogListData" row-key="id" style="width: 100%">
         <el-table-column prop="round" label="当前次数" width="90" />
-        <el-table-column prop="success" label="状�? width="90">
+        <el-table-column prop="success" label="状态" width="90">
           <template #default="{ row }">
             <el-tag v-if="!row.success" type="danger" disable-transitions>失败</el-tag>
             <el-tag v-else type="success" disable-transitions>成功</el-tag>
@@ -35,8 +35,8 @@
     </div>
     <template #footer>
       <div style="flex: auto; padding: 20px !important">
-        <el-button @click="onQuery" type="primary">�?�?/el-button>
-        <el-button @click="onCancel">�?�?/el-button>
+        <el-button @click="onQuery" type="primary">刷 新</el-button>
+        <el-button @click="onCancel">取 消</el-button>
       </div>
     </template>
   </el-drawer>
@@ -100,7 +100,7 @@ const onCurrentChange = (val: number) => {
   onQuery()
 }
 
-// 打开对话�?
+// 打开对话框
 const open = (row: TaskGetPageOutput) => {
   if (state.pageInput.filter) state.pageInput.filter.taskId = row.id
   onQuery()

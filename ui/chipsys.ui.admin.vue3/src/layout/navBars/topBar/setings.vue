@@ -286,7 +286,7 @@
           <div class="layout-breadcrumb-seting-bar-flex-value">
             <el-select v-model="getThemeConfig.tagsStyle" placeholder="请选择" style="width: 110px" @change="setLocalThemeConfig">
               <el-option label="卡片" value="tags-style-one"></el-option>
-              <el-option label="简�? value="tags-style-four"></el-option>
+              <el-option label="简约" value="tags-style-four"></el-option>
               <el-option label="圆滑" value="tags-style-five"></el-option>
             </el-select>
           </div>
@@ -301,8 +301,8 @@
               style="width: 110px"
               @change="setLocalThemeConfig"
             >
-              <el-option label="右滑�? value="slide-right"></el-option>
-              <el-option label="左滑�? value="slide-left"></el-option>
+              <el-option label="右滑动" value="slide-right"></el-option>
+              <el-option label="左滑动" value="slide-left"></el-option>
               <el-option label="淡入淡出" value="opacitys"></el-option>
             </el-select>
           </div>
@@ -427,10 +427,8 @@
 </template>
 
 <script setup lang="ts" name="layoutBreadcrumbSeting">
-import { ref, nextTick, onUnmounted, onMounted, computed, reactive } from 'vue'
 import { ElMessage } from 'element-plus'
 import { useI18n } from 'vue-i18n'
-import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import { useChangeColor } from '/@/utils/theme'
 import { verifyAndSpace } from '/@/utils/toolsValidate'
@@ -442,35 +440,35 @@ import mittBus from '/@/utils/mitt'
 import { useUserInfo } from '/@/stores/userInfo'
 
 // 定义变量内容
-// 预定义主要颜�?
+// 预定义主要颜色
 const predefinePrimaryColors = ref([
   '#F34D37', //红色
   '#409eff', //蓝色
   '#6954f0', //紫色
   '#41b584', //绿色
 ])
-// 预定义顶栏背景颜�?
+// 预定义顶栏背景颜色
 const predefineTopBarBgColors = ref([
   '#ffffff', //白色
   '#323233', //黑色
 ])
-// 预定义菜单背景颜�?
+// 预定义菜单背景颜色
 const predefineMenuBarBgColors = ref([
   '#ffffff', //白色
   '#252526', //黑色
 ])
-// 预定义分栏背景颜�?
+// 预定义分栏背景颜色
 const predefineColumnsMenuBarBgColors = ref([
   '#ffffff', //白色
   '#333333', //黑色
 ])
 
-const grayWhiteColor = '#eaeaea' //灰白�?
-const grayBlackColor = '#606266' //灰黑�?
-// 预定义字体颜�?
+const grayWhiteColor = '#eaeaea' //灰白色
+const grayBlackColor = '#606266' //灰黑色
+// 预定义字体颜色
 const predefineFontColors = ref([
-  grayWhiteColor, //灰白�?
-  grayBlackColor, //灰黑�?
+  grayWhiteColor, //灰白色
+  grayBlackColor, //灰黑色
 ])
 
 const { locale } = useI18n()
@@ -483,13 +481,13 @@ const state = reactive({
 })
 
 const GrayWhiteBgColor = 'rgba(0, 0, 0, 0.2)' //浅灰黑色
-// 预定义高亮背景颜�?
+// 预定义高亮背景颜色
 const predefineActiveBgColors = ref([
   GrayWhiteBgColor, //浅灰黑色
-  getLightColor(predefinePrimaryColors.value[0], 9 / 10), //浅红�?
-  getLightColor(predefinePrimaryColors.value[1], 9 / 10), //浅蓝�?
-  getLightColor(predefinePrimaryColors.value[2], 9 / 10), //浅紫�?
-  getLightColor(predefinePrimaryColors.value[3], 9 / 10), //浅绿�?
+  getLightColor(predefinePrimaryColors.value[0], 9 / 10), //浅红色
+  getLightColor(predefinePrimaryColors.value[1], 9 / 10), //浅蓝色
+  getLightColor(predefinePrimaryColors.value[2], 9 / 10), //浅紫色
+  getLightColor(predefinePrimaryColors.value[3], 9 / 10), //浅绿色
 ])
 
 // 获取布局配置信息
@@ -498,7 +496,7 @@ const getThemeConfig = computed(() => {
 })
 // 1、全局主题
 const onColorPickerChange = () => {
-  if (!getThemeConfig.value.primary) return ElMessage.warning('全局主题 primary 颜色值不能为�?)
+  if (!getThemeConfig.value.primary) return ElMessage.warning('全局主题 primary 颜色值不能为空')
   document.documentElement.style.setProperty('--el-color-primary', getThemeConfig.value.primary)
   if (getThemeConfig.value.isDark) {
     // 颜色加深
@@ -517,8 +515,10 @@ const onColorPickerChange = () => {
 
   onBgColorPickerChange('menuBar')
 }
-// 2、菜�?/ 顶栏
-const onBgColorPickerChange = (bg: string) => {
+// 2、菜单 / 顶栏
+const onBgColorPickerChange = (
+  bg: 'menuBar' | 'topBar' | 'columnsMenuBar' | 'menuBarActiveColor' | 'menuBarColor' | 'topBarColor' | 'columnsMenuBarColor'
+) => {
   const bgColor = themeConfig.value[bg]
   document.documentElement.style.setProperty(`--next-bg-${bg}`, bgColor)
   if (bg === 'menuBar') {
@@ -531,17 +531,17 @@ const onBgColorPickerChange = (bg: string) => {
 
   if (bg === 'topBar' || bg === 'menuBar' || bg === 'columnsMenuBar') {
     const whiteTheme = ['#FFFFFF', '#FFF', '#fff', '#ffffff']
-    const colorName = bg + 'Color'
+    const colorName = (bg + 'Color') as 'topBarColor' | 'menuBarColor' | 'columnsMenuBarColor'
     if (whiteTheme.includes(bgColor)) {
       if (bg === 'menuBar') {
-        const activeColorName = bg + 'ActiveColor'
+        const activeColorName = (bg + 'ActiveColor') as 'menuBarActiveColor'
         getThemeConfig.value[activeColorName] = getLightColor(getThemeConfig.value.primary, 9 / 10)
         onBgColorPickerChange(activeColorName)
       }
       getThemeConfig.value[colorName] = grayBlackColor
     } else {
       if (bg === 'menuBar') {
-        const activeColorName = bg + 'ActiveColor'
+        const activeColorName = (bg + 'ActiveColor') as 'menuBarActiveColor'
         getThemeConfig.value[activeColorName] = GrayWhiteBgColor
         onBgColorPickerChange(activeColorName)
       }
@@ -550,23 +550,23 @@ const onBgColorPickerChange = (bg: string) => {
     onBgColorPickerChange(colorName)
   }
 }
-// 设置激活颜�?
-const onActiveColorPickerChange = (name: string) => {
+// 设置激活颜色
+const onActiveColorPickerChange = (name: 'columnsMenuBarActiveColor') => {
   document.documentElement.style.setProperty(`--next-color-${name}`, themeConfig.value[name])
 }
-// 2、菜�?/ 顶栏 --> 顶栏背景渐变
+// 2、菜单 / 顶栏 --> 顶栏背景渐变
 const onTopBarGradualChange = () => {
   setGraduaFun('.layout-navbars-breadcrumb-index', getThemeConfig.value.isTopBarColorGradual, getThemeConfig.value.topBar)
 }
-// 2、菜�?/ 顶栏 --> 菜单背景渐变
+// 2、菜单 / 顶栏 --> 菜单背景渐变
 const onMenuBarGradualChange = () => {
   setGraduaFun('.layout-container .el-aside', getThemeConfig.value.isMenuBarColorGradual, getThemeConfig.value.menuBar)
 }
-// 2、菜�?/ 顶栏 --> 分栏菜单背景渐变
+// 2、菜单 / 顶栏 --> 分栏菜单背景渐变
 const onColumnsMenuBarGradualChange = () => {
   setGraduaFun('.layout-container .layout-columns-aside', getThemeConfig.value.isColumnsMenuBarColorGradual, getThemeConfig.value.columnsMenuBar)
 }
-// 2、菜�?/ 顶栏 --> 背景渐变函数
+// 2、菜单 / 顶栏 --> 背景渐变函数
 const setGraduaFun = (el: string, bool: boolean, color: string) => {
   nextTick(() => {
     setTimeout(() => {
@@ -579,48 +579,48 @@ const setGraduaFun = (el: string, bool: boolean, color: string) => {
     }, 300)
   })
 }
-// 2、分栏设�?->
+// 2、分栏设置 ->
 const onColumnsMenuHoverPreloadChange = () => {
   setLocalThemeConfig()
 }
-// 3、界面设�?--> 菜单水平折叠
+// 3、界面设置 --> 菜单水平折叠
 const onThemeConfigChange = () => {
   setDispatchThemeConfig()
 }
-// 3、界面设�?--> 固定 Header
+// 3、界面设置 --> 固定 Header
 const onIsFixedHeaderChange = () => {
   getThemeConfig.value.isFixedHeaderChange = getThemeConfig.value.isFixedHeader ? false : true
   setLocalThemeConfig()
 }
-// 3、界面设�?--> 经典布局分割菜单
+// 3、界面设置 --> 经典布局分割菜单
 const onClassicSplitMenuChange = () => {
   // getThemeConfig.value.isBreadcrumb = false
   setLocalThemeConfig()
   mittBus.emit('getBreadcrumbIndexSetFilterRoutes')
 }
-// 4、界面显�?--> 侧边�?Logo
+// 4、界面显示 --> 侧边栏 Logo
 const onIsShowLogoChange = () => {
   getThemeConfig.value.isShowLogoChange = getThemeConfig.value.isShowLogo ? false : true
   setLocalThemeConfig()
 }
-// 4、界面显�?--> 面包�?Breadcrumb
+// 4、界面显示 --> 面包屑 Breadcrumb
 const onIsBreadcrumbChange = () => {
   if (getThemeConfig.value.layout === 'classic') {
     getThemeConfig.value.isClassicSplitMenu = false
   }
   setLocalThemeConfig()
 }
-// 4、界面显�?--> 开�?TagsView 拖拽
+// 4、界面显示 --> 开启 TagsView 拖拽
 const onSortableTagsViewChange = () => {
   mittBus.emit('openOrCloseSortable')
   setLocalThemeConfig()
 }
-// 4、界面显�?--> 开�?TagsView 共用
+// 4、界面显示 --> 开启 TagsView 共用
 const onShareTagsViewChange = () => {
   mittBus.emit('openShareTagsView')
   setLocalThemeConfig()
 }
-// 4、界面显�?--> 灰色模式/色弱模式
+// 4、界面显示 --> 灰色模式/色弱模式
 const onAddFilterChange = (attr: string) => {
   if (attr === 'grayscale') {
     if (getThemeConfig.value.isGrayscale) getThemeConfig.value.isInvert = false
@@ -633,7 +633,7 @@ const onAddFilterChange = (attr: string) => {
   appEle.setAttribute('style', `filter: ${cssAttr}`)
   setLocalThemeConfig()
 }
-// 4、界面显�?--> 深色模式
+// 4、界面显示 --> 深色模式
 const onAddDarkChange = () => {
   const html = document.documentElement as HTMLElement
   if (getThemeConfig.value.isDark) {
@@ -645,12 +645,12 @@ const onAddDarkChange = () => {
   }
   onColorPickerChange()
 }
-// 4、界面显�?--> 开启水�?
+// 4、界面显示 --> 开启水印
 const onWatermarkChange = () => {
   getThemeConfig.value.isWatermark ? Watermark.set(getThemeConfig.value.watermarkText) : Watermark.del()
   setLocalThemeConfig()
 }
-// 4、界面显�?--> 水印文案
+// 4、界面显示 --> 水印文案
 const onWatermarkTextInput = (val: string) => {
   getThemeConfig.value.watermarkText = verifyAndSpace(val)
   if (getThemeConfig.value.watermarkText === '') return false
@@ -677,7 +677,7 @@ const initLayoutChangeFun = () => {
   onBgColorPickerChange('columnsMenuBarColor')
   onActiveColorPickerChange('columnsMenuBarActiveColor')
 }
-// 关闭弹窗时，初始化变量。变量用于处�?layoutScrollbarRef.value.update() 更新滚动条高�?
+// 关闭弹窗时，初始化变量。变量用于处理 layoutScrollbarRef.value.update() 更新滚动条高度
 const onDrawerClose = () => {
   getThemeConfig.value.isFixedHeaderChange = false
   getThemeConfig.value.isShowLogoChange = false
@@ -702,7 +702,7 @@ const setLocalThemeConfig = () => {
 const setLocalThemeConfigStyle = () => {
   Local.set('themeConfigStyle', document.documentElement.style.cssText)
 }
-// 一键复制配�?
+// 一键复制配置
 const onCopyConfigClick = () => {
   let copyThemeConfig = Local.get('themeConfig')
   copyThemeConfig.isDrawer = false
@@ -710,7 +710,7 @@ const onCopyConfigClick = () => {
     getThemeConfig.value.isDrawer = false
   })
 }
-// 一键恢复默�?
+// 一键恢复默认
 const onResetConfigClick = () => {
   const storesUseUserInfo = useUserInfo()
   const tokenInfo = storesUseUserInfo.getTokenInfo()
@@ -722,11 +722,11 @@ const onResetConfigClick = () => {
 }
 // 初始化菜单样式等
 const initSetStyle = () => {
-  // 2、菜�?/ 顶栏 --> 顶栏背景渐变
+  // 2、菜单 / 顶栏 --> 顶栏背景渐变
   onTopBarGradualChange()
-  // 2、菜�?/ 顶栏 --> 菜单背景渐变
+  // 2、菜单 / 顶栏 --> 菜单背景渐变
   onMenuBarGradualChange()
-  // 2、菜�?/ 顶栏 --> 分栏菜单背景渐变
+  // 2、菜单 / 顶栏 --> 分栏菜单背景渐变
   onColumnsMenuBarGradualChange()
 }
 onMounted(() => {
@@ -750,9 +750,9 @@ onMounted(() => {
       if (getThemeConfig.value.isInvert) onAddFilterChange('invert')
       // 深色模式
       if (getThemeConfig.value.isDark) onAddDarkChange()
-      // 开启水�?
+      // 开启水印
       onWatermarkChange()
-      // 语言国际�?
+      // 语言国际化
       if (Local.get('themeConfig')) locale.value = Local.get('themeConfig').globalI18n
       // 初始化菜单样式等
       initSetStyle()

@@ -6,7 +6,7 @@ type EnumType = {
   }
 }
 
-// 下拉选项的接�?
+// 下拉选项的接口
 interface DropdownOption {
   label: string
   value: string | number
@@ -27,7 +27,7 @@ export function getDescByValue<T extends EnumType>(enumObj: T, value: T[keyof T]
   return ''
 }
 
-/** 枚举转换为下拉选项列表（使用值作为value�?*/
+/** 枚举转换为下拉选项列表（使用值作为value） */
 export function toOptionsByValue<T extends EnumType>(enumObj: T, includeUnknown: boolean = false): DropdownOption[] {
   return Object.values(enumObj).reduce((options, item) => {
     if (includeUnknown || item.name !== 'Unknown') {
@@ -37,7 +37,7 @@ export function toOptionsByValue<T extends EnumType>(enumObj: T, includeUnknown:
   }, [] as DropdownOption[])
 }
 
-/** 转换为下拉选项列表（使用名称作为value�?*/
+/** 转换为下拉选项列表（使用名称作为value） */
 export function toOptionsByName<T extends EnumType>(enumObj: T, includeUnknown: boolean = false): DropdownOption[] {
   return Object.values(enumObj).reduce((options, item) => {
     if (includeUnknown || item.name !== 'Unknown') {

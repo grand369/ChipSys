@@ -20,7 +20,7 @@ export const filterList = [
   },
   {
     img: 'http://news.sznews.com/pic/2021-03/09/1faf3c6e-1250-4e6b-b072-4a331553e027.jpg',
-    title: '粤桂协作“背水一战�?解决广西大化�?.7万人饮水难题',
+    title: '粤桂协作“背水一战” 解决广西大化县3.7万人饮水难题',
     evaluate: (Math.random() * 10).toFixed(2),
     collection: (Math.random() * 100).toFixed(2),
     price: (Math.random() * 10).toFixed(2),
@@ -29,7 +29,7 @@ export const filterList = [
   },
   {
     img: 'https://news.sznews.com/pic/2021-03/09/9fcf6dd4-1e80-4497-bdc9-83dc7246d170.jpg.2',
-    title: '城镇就业女性平均薪�?847�?女性职场渗透率提升',
+    title: '城镇就业女性平均薪酬6847元 女性职场渗透率提升',
     evaluate: (Math.random() * 10).toFixed(2),
     collection: (Math.random() * 100).toFixed(2),
     price: (Math.random() * 10).toFixed(2),
@@ -38,7 +38,7 @@ export const filterList = [
   },
   {
     img: 'https://news.sznews.com/pic/2021-03/09/1bd78227-4126-4a43-bdf6-48ead6edd1bf.jpg.2',
-    title: '深圳：实现“从0�?”源头创新，推进大湾区综合性国家科学中心建设！',
+    title: '深圳：实现“从0到1”源头创新，推进大湾区综合性国家科学中心建设！',
     evaluate: (Math.random() * 10).toFixed(2),
     collection: (Math.random() * 100).toFixed(2),
     price: (Math.random() * 10).toFixed(2),
@@ -65,7 +65,7 @@ export const filterList = [
   },
   {
     img: 'http://news.sznews.com/pic/2021-03/08/76816bf0-3899-4c7e-bc6e-079b5ba8725e.jpg',
-    title: '民生小事 | 手机遗落出租�?热心民警帮找�?,
+    title: '民生小事 | 手机遗落出租车 热心民警帮找回',
     evaluate: (Math.random() * 10).toFixed(2),
     collection: (Math.random() * 100).toFixed(2),
     price: (Math.random() * 10).toFixed(2),
@@ -83,7 +83,7 @@ export const filterList = [
   },
   {
     img: 'http://news.sznews.com/pic/2021-03/05/d13ae31f-fd45-431a-b48e-c5895bbc193e.png',
-    title: '深圳湾公园一女子落水，三名男子接力及时施�?,
+    title: '深圳湾公园一女子落水，三名男子接力及时施救',
     evaluate: (Math.random() * 10).toFixed(2),
     collection: (Math.random() * 100).toFixed(2),
     price: (Math.random() * 10).toFixed(2),

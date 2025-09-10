@@ -13,13 +13,13 @@
       <el-form ref="formRef" :model="form" label-width="80px">
         <el-row :gutter="35">
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-            <el-form-item label="姓名" prop="name" :rules="[{ required: true, message: '请输入姓�?, trigger: ['blur', 'change'] }]">
+            <el-form-item label="姓名" prop="name" :rules="[{ required: true, message: '请输入姓名', trigger: ['blur', 'change'] }]">
               <el-input v-model="form.name" autocomplete="off" />
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
             <el-form-item
-              label="手机�?
+              label="手机号"
               prop="mobile"
               :rules="[
                 { required: true, message: '请输入手机号', trigger: ['blur', 'change'] },
@@ -59,7 +59,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12">
-            <el-form-item label="账号" prop="userName" :rules="[{ required: true, message: '请输入账�?, trigger: ['blur', 'change'] }]">
+            <el-form-item label="账号" prop="userName" :rules="[{ required: true, message: '请输入账号', trigger: ['blur', 'change'] }]">
               <el-input v-model="form.userName" autocomplete="off" />
             </el-form-item>
           </el-col>
@@ -68,7 +68,7 @@
               <template #label>
                 <div class="my-flex-y-center">
                   密码<el-tooltip effect="dark" placement="top" hide-after="0">
-                    <template #content>选填，不填则使用系统默认密码<br />字母+数字+可选特殊字符，长度�?-16之间</template>
+                    <template #content>选填，不填则使用系统默认密码<br />字母+数字+可选特殊字符，长度在6-16之间</template>
                     <SvgIcon name="ele-InfoFilled" class="ml5" />
                   </el-tooltip>
                 </div>
@@ -130,8 +130,8 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -246,7 +246,7 @@ const getRoles = async () => {
   }
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (row: UserUpdateInput & UserUpdateInput) => {
   proxy.$modal.loading()
 
@@ -277,7 +277,7 @@ const onInputPwd = (val: string) => {
   state.form.password = verifyCnAndSpace(val)
 }
 
-//手机号失去焦�?
+//手机号失去焦点
 const onBlurMobile = () => {
   if (!state.form.userName && state.form.mobile && isMobile(state.form.mobile)) {
     state.form.userName = state.form.mobile

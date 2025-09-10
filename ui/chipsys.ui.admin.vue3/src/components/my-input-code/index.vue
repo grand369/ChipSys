@@ -28,7 +28,6 @@
 </template>
 
 <script lang="ts" setup name="my-input-code">
-import { reactive, defineAsyncComponent, ref, computed } from 'vue'
 import { isMobile } from '/@/utils/test'
 import { verifyEmail } from '/@/utils/toolsValidate'
 import { ElMessage } from 'element-plus'
@@ -49,7 +48,7 @@ const props = defineProps({
   },
   startText: {
     type: String,
-    default: '获取验证�?,
+    default: '获取验证码',
   },
   changeText: {
     type: String,
@@ -73,7 +72,7 @@ const props = defineProps({
   },
 })
 
-const myCaptchaDialogRef = ref()
+const myCaptchaDialogRef = useTemplateRef('myCaptchaDialogRef')
 const countdown = Date.now()
 
 const state = reactive({
@@ -90,18 +89,18 @@ const state = reactive({
   },
 })
 
-//获取验证码文�?
+//获取验证码文本
 const text = computed(() => {
   return state.status === 'ready' ? state.startText : state.endText
 })
 
-//开始倒计�?
+//开始倒计时
 const startCountdown = () => {
   state.status = 'countdown'
   state.countdown = Date.now() + (props.seconds + 1) * 1000
 }
 
-//点击获取验证�?
+//点击获取验证码
 const onGetCode = () => {
   if (state.status !== 'countdown') {
     if (props.validate) {
@@ -112,7 +111,7 @@ const onGetCode = () => {
   }
 }
 
-//监听倒计�?
+//监听倒计时
 const onChange = (value: number) => {
   if (state.countdown != countdown && value < 1000) state.status = 'finish'
 }
@@ -150,10 +149,10 @@ const onOk = async (data: any) => {
   }
 }
 
-//获得验证�?
+//获得验证码
 const getCode = () => {
   if (props.mobile) {
-    //验证手机�?
+    //验证手机号
     if (!isMobile(props.mobile)) {
       ElMessage.warning({ message: '请输入正确的手机号码', grouping: true })
       return

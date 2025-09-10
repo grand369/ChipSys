@@ -25,7 +25,7 @@
               </div>
             </el-scrollbar>
           </el-tab-pane>
-          <el-tab-pane label="数据�?>
+          <el-tab-pane label="数据源">
             <MyJsonEditor
               v-model="printData"
               :options="{
@@ -40,7 +40,7 @@
         </el-tabs>
       </div>
       <div class="my-fill" style="overflow: hidden; min-width: 520px">
-        <!-- 操作�?-->
+        <!-- 操作栏 -->
         <div style="padding: 10px 10px 0px 10px; border-bottom: 1px solid var(--el-border-color)">
           <div class="my-flex my-flex-wrap">
             <div>
@@ -48,8 +48,8 @@
               <el-select v-model="state.curPaper.type" placeholder="纸张" class="mr2 mb10" style="width: 70px" @change="onSetPaper">
                 <el-option v-for="item in state.paperTypes" :key="item.type" :label="item.type" :value="item.type" />
               </el-select>
-              <!-- 自定义纸�?-->
-              <el-tooltip content="自定义纸�? placement="top">
+              <!-- 自定义纸张 -->
+              <el-tooltip content="自定义纸张" placement="top">
                 <el-button ref="paperRef" :type="state.curPaper.type === '' ? 'primary' : ''" class="mr10 mb10">
                   <el-icon>
                     <my-icon name="customSize" color="var(--color)"></my-icon>
@@ -60,7 +60,7 @@
                 <p class="my-flex my-flex-items-center my-flex-between">
                   <el-input-number
                     v-model="state.customPaper.width"
-                    placeholder="�?
+                    placeholder="宽"
                     :precision="1"
                     :step="1"
                     min="0"
@@ -72,7 +72,7 @@
                   ~
                   <el-input-number
                     v-model="state.customPaper.height"
-                    placeholder="�?
+                    placeholder="高"
                     :precision="1"
                     :step="1"
                     min="0"
@@ -109,7 +109,7 @@
 
             <!-- 排版 -->
             <el-button-group class="my-flex mr10 mb10">
-              <el-tooltip content="左对�? placement="top">
+              <el-tooltip content="左对齐" placement="top">
                 <el-button @click="onSetElsAlign('left')">
                   <el-icon>
                     <my-icon name="left" color="var(--color)"></my-icon>
@@ -123,14 +123,14 @@
                   </el-icon>
                 </el-button>
               </el-tooltip>
-              <el-tooltip content="右对�? placement="top">
+              <el-tooltip content="右对齐" placement="top">
                 <el-button @click="onSetElsAlign('right')">
                   <el-icon>
                     <my-icon name="right" color="var(--color)"></my-icon>
                   </el-icon>
                 </el-button>
               </el-tooltip>
-              <el-tooltip content="顶对�? placement="top">
+              <el-tooltip content="顶对齐" placement="top">
                 <el-button @click="onSetElsAlign('top')">
                   <el-icon>
                     <my-icon name="top" color="var(--color)"></my-icon>
@@ -144,7 +144,7 @@
                   </el-icon>
                 </el-button>
               </el-tooltip>
-              <el-tooltip content="底对�? placement="top">
+              <el-tooltip content="底对齐" placement="top">
                 <el-button @click="onSetElsAlign('bottom')">
                   <el-icon>
                     <my-icon name="bottom" color="var(--color)"></my-icon>
@@ -248,7 +248,7 @@ const state = reactive({
     width: 210,
     height: 296.6,
   } as IPaperType,
-  // 自定义纸�?
+  // 自定义纸张
   customPaper: {
     type: '',
     width: 220,
@@ -313,7 +313,7 @@ const buildProvider = () => {
   hiprint.PrintElementTypeManager.buildByHtml($('.ep-draggable-item'))
 }
 
-// 构建设计�?
+// 构建设计器
 const buildDesigner = (template = {} as any) => {
   if (designRef.value) {
     designRef.value.innerHTML = ''
@@ -377,7 +377,7 @@ const onSetPaper = (type: string, value?: { width: number; height: number }) => 
   }
 }
 
-//自定义纸�?
+//自定义纸张
 const onCustomPaper = () => {
   popoverRef.value?.hide?.()
   onSetPaper('', { width: state.customPaper.width, height: state.customPaper.height })
@@ -391,7 +391,7 @@ const onSetElsAlign = (e: any) => {
 // 缩放
 const onChangeScale = () => {
   if (hiprintTemplate.value) {
-    // scaleVal: 放大缩小�? false: 不保�?不传也一�?, 如果�?true, 打印时也会放�?
+    // scaleVal: 放大缩小值, false: 不保存(不传也一样), 如果传 true, 打印时也会放大
     hiprintTemplate.value.zoom(state.scaleValue)
   }
 }

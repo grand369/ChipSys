@@ -3,10 +3,10 @@
     <div class="workflow-mask" v-if="state.isShow"></div>
     <div class="layout-padding-auto layout-padding-view workflow-warp">
       <div class="workflow">
-        <!-- 顶部工具�?-->
+        <!-- 顶部工具栏 -->
         <Tool @tool="onToolClick" />
 
-        <!-- 左侧导航�?-->
+        <!-- 左侧导航区 -->
         <div class="workflow-content">
           <div class="workflow-left">
             <el-scrollbar>
@@ -31,7 +31,7 @@
             </el-scrollbar>
           </div>
 
-          <!-- 右侧绘画�?-->
+          <!-- 右侧绘画区 -->
           <div class="workflow-right" ref="workflowRightRef">
             <div
               v-for="(v, k) in state.jsplumbData.nodeList"
@@ -57,12 +57,12 @@
 
     <!-- 节点右键菜单 -->
     <Contextmenu :dropdown="state.dropdownNode" ref="contextmenuNodeRef" @current="onCurrentNodeClick" />
-    <!-- 线右键菜�?-->
+    <!-- 线右键菜单 -->
     <Contextmenu :dropdown="state.dropdownLine" ref="contextmenuLineRef" @current="onCurrentLineClick" />
     <!-- 抽屉表单、线 -->
     <Drawer ref="drawerRef" @label="setLineLabel" @node="setNodeContent" />
 
-    <!-- 顶部工具�?帮助弹窗 -->
+    <!-- 顶部工具栏-帮助弹窗 -->
     <Help ref="helpRef" />
   </div>
 </template>
@@ -113,12 +113,12 @@ const state = reactive<WorkflowState>({
   },
 })
 
-// 设置 宽度小于 768，不支持�?
+// 设置 宽度小于 768，不支持操
 const setClientWidth = () => {
   const clientWidth = document.body.clientWidth
   clientWidth < 768 ? (state.isShow = true) : (state.isShow = false)
 }
-// 左侧导航-数据初始�?
+// 左侧导航-数据初始化
 const initLeftNavList = () => {
   state.leftNavList = leftNavList
   state.jsplumbData = {
@@ -144,12 +144,12 @@ const initLeftNavList = () => {
       },
     ],
     lineList: [
-      { sourceId: 'huej738hbji', targetId: '52kcszzyxrd', label: '传�? },
+      { sourceId: 'huej738hbji', targetId: '52kcszzyxrd', label: '传送' },
       { sourceId: 'huej738hbji', targetId: 'nltskl6k4me', label: '' },
     ],
   }
 }
-// 左侧导航-初始化拖�?
+// 左侧导航-初始化拖动
 const initSortable = () => {
   leftNavRefs.value.forEach((v) => {
     Sortable.create(v as HTMLDivElement, {
@@ -170,7 +170,7 @@ const initSortable = () => {
         if (clientX < x || clientX > width + x || clientY < y || y > y + height) {
           ElMessage.warning('请把节点拖入到画布中')
         } else {
-          // 节点id（唯一�?
+          // 节点id（唯一）
           const nodeId = Math.random().toString(36).substr(2, 12)
           // 处理节点数据
           const node = {
@@ -184,13 +184,13 @@ const initSortable = () => {
           }
           // 右侧视图内容数组
           state.jsplumbData.nodeList.push(node)
-          // 元素加载完毕�?
+          // 元素加载完毕时
           nextTick(() => {
             // 整个节点作为source或者target
             state.jsPlumb.makeSource(nodeId, state.jsplumbMakeSource)
             // // 整个节点作为source或者target
             state.jsPlumb.makeTarget(nodeId, state.jsplumbMakeTarget, jsplumbConnect)
-            // 设置节点可以拖拽（此处为id值，非class�?
+            // 设置节点可以拖拽（此处为id值，非class）
             state.jsPlumb.draggable(nodeId, {
               containment: 'parent',
               stop: (el: any) => {
@@ -209,7 +209,7 @@ const initSortable = () => {
     })
   })
 }
-// 初始�?jsPlumb
+// 初始化 jsPlumb
 const initJsPlumb = () => {
   ;(<any>jsPlumb).ready(() => {
     state.jsPlumb = (<any>jsPlumb).getInstance({
@@ -219,11 +219,11 @@ const initJsPlumb = () => {
     state.jsPlumb.fire('jsPlumbDemoLoaded', state.jsPlumb)
     // 导入默认配置
     state.jsPlumb.importDefaults(state.jsplumbDefaults)
-    // 会使整个jsPlumb立即重绘�?
+    // 会使整个jsPlumb立即重绘。
     state.jsPlumb.setSuspendDrawing(false, true)
-    // 初始化节点、线的链�?
+    // 初始化节点、线的链接
     initJsPlumbConnection()
-    // 点击线弹出右键菜�?
+    // 点击线弹出右键菜单
     state.jsPlumb.bind('contextmenu', (conn: any, originalEvent: MouseEvent) => {
       originalEvent.preventDefault()
       const { sourceId, targetId } = conn
@@ -247,7 +247,7 @@ const initJsPlumb = () => {
         return true
       }
     })
-    // 连线�?
+    // 连线时
     state.jsPlumb.bind('connection', (conn: any) => {
       const { sourceId, targetId } = conn
       state.jsplumbData.lineList.push({
@@ -256,7 +256,7 @@ const initJsPlumb = () => {
         label: '',
       })
     })
-    // 删除连线时回调函�?
+    // 删除连线时回调函数
     state.jsPlumb.bind('connectionDetached', (conn: any) => {
       const { sourceId, targetId } = conn
       state.jsplumbData.lineList = state.jsplumbData.lineList.filter((line) => {
@@ -268,7 +268,7 @@ const initJsPlumb = () => {
     })
   })
 }
-// 初始化节点、线的链�?
+// 初始化节点、线的链接
 const initJsPlumbConnection = () => {
   // 节点
   state.jsplumbData.nodeList.forEach((v) => {
@@ -276,7 +276,7 @@ const initJsPlumbConnection = () => {
     state.jsPlumb.makeSource(v.nodeId, state.jsplumbMakeSource)
     // 整个节点作为source或者target
     state.jsPlumb.makeTarget(v.nodeId, state.jsplumbMakeTarget, jsplumbConnect)
-    // 设置节点可以拖拽（此处为id值，非class�?
+    // 设置节点可以拖拽（此处为id值，非class）
     state.jsPlumb.draggable(v.nodeId, {
       containment: 'parent',
       stop: (el: any) => {
@@ -290,7 +290,7 @@ const initJsPlumbConnection = () => {
       },
     })
   })
-  // �?
+  // 线
   state.jsplumbData.lineList.forEach((v) => {
     state.jsPlumb.connect(
       {
@@ -306,11 +306,11 @@ const initJsPlumbConnection = () => {
 const onTitleClick = (val: any) => {
   val.isOpen = !val.isOpen
 }
-// 右侧内容�?当前项点�?
+// 右侧内容区-当前项点击
 const onItemCloneClick = (k: number) => {
   state.jsPlumbNodeIndex = k
 }
-// 右侧内容�?当前项右键菜单点�?
+// 右侧内容区-当前项右键菜单点击
 const onContextmenu = (v: any, k: number, e: MouseEvent) => {
   state.jsPlumbNodeIndex = k
   const { clientX, clientY } = e
@@ -325,7 +325,7 @@ const onContextmenu = (v: any, k: number, e: MouseEvent) => {
   v.from = item.form
   contextmenuNodeRef.value.openContextmenu(v)
 }
-// 右侧内容�?当前项右键菜单点击回�?节点)
+// 右侧内容区-当前项右键菜单点击回调(节点)
 const onCurrentNodeClick = (item: any) => {
   const { contextMenuClickId, nodeId } = item
   if (contextMenuClickId === 0) {
@@ -337,7 +337,7 @@ const onCurrentNodeClick = (item: any) => {
     drawerRef.value.open(item)
   }
 }
-// 右侧内容�?当前项右键菜单点击回�?�?
+// 右侧内容区-当前项右键菜单点击回调(线)
 const onCurrentLineClick = (item: any, conn: any) => {
   const { contextMenuClickId } = item
   const { endpoints } = conn
@@ -373,7 +373,7 @@ const setLineLabel = (obj: any) => {
 // 设置节点内容
 const setNodeContent = (obj: any) => {
   const { nodeId, name, icon } = obj
-  // 设置节点 name �?icon
+  // 设置节点 name 与 icon
   state.jsplumbData.nodeList.forEach((v) => {
     if (v.nodeId === nodeId) {
       v.name = name
@@ -385,7 +385,7 @@ const setNodeContent = (obj: any) => {
     state.jsPlumb.setSuspendDrawing(false, true)
   })
 }
-// 顶部工具�?当前项点�?
+// 顶部工具栏-当前项点击
 const onToolClick = (fnName: String) => {
   switch (fnName) {
     case 'help':
@@ -408,33 +408,33 @@ const onToolClick = (fnName: String) => {
       break
   }
 }
-// 顶部工具�?帮助
+// 顶部工具栏-帮助
 const onToolHelp = () => {
   nextTick(() => {
     helpRef.value.open()
   })
 }
-// 顶部工具�?下载
+// 顶部工具栏-下载
 const onToolDownload = () => {
   const { globalTitle } = themeConfig.value
   const href = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(state.jsplumbData, null, '\t'))
   const aLink = document.createElement('a')
   aLink.setAttribute('href', href)
-  aLink.setAttribute('download', `${globalTitle}工作�?json`)
+  aLink.setAttribute('download', `${globalTitle}工作流.json`)
   aLink.click()
   aLink.remove()
   ElMessage.success('下载成功')
 }
-// 顶部工具�?提交
+// 顶部工具栏-提交
 const onToolSubmit = () => {
   // console.log(state.jsplumbData);
   ElMessage.success('数据提交成功')
 }
-// 顶部工具�?复制
+// 顶部工具栏-复制
 const onToolCopy = () => {
   copyText(JSON.stringify(state.jsplumbData))
 }
-// 顶部工具�?删除
+// 顶部工具栏-删除
 const onToolDel = () => {
   ElMessageBox.confirm('此操作将清空画布，是否继续？', '提示', {
     confirmButtonText: '清空',
@@ -454,11 +454,11 @@ const onToolDel = () => {
     })
     .catch(() => {})
 }
-// 顶部工具�?全屏
+// 顶部工具栏-全屏
 const onToolFullscreen = () => {
   stores.setCurrenFullscreen(true)
 }
-// 页面加载�?
+// 页面加载时
 onMounted(async () => {
   await initLeftNavList()
   initSortable()
@@ -466,7 +466,7 @@ onMounted(async () => {
   setClientWidth()
   window.addEventListener('resize', setClientWidth)
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   window.removeEventListener('resize', setClientWidth)
 })

@@ -5,12 +5,12 @@
     </el-form-item>
 
     <el-form-item>
-      <el-radio v-model="radioValue" :label="2"> 不指�?</el-radio>
+      <el-radio v-model="radioValue" :label="2"> 不指定 </el-radio>
     </el-form-item>
 
     <el-form-item>
       <el-radio v-model="radioValue" :label="3">
-        周期�?
+        周期从
         <el-select clearable v-model="cycle01">
           <el-option v-for="(item, index) of weekList" :key="index" :label="item.value" :value="item.key" :disabled="item.key === 7">{{
             item.value
@@ -27,7 +27,7 @@
 
     <el-form-item>
       <el-radio v-model="radioValue" :label="4">
-        �?
+        第
         <el-input-number v-model="average01" :min="1" :max="4" /> 周的
         <el-select clearable v-model="average02">
           <el-option v-for="item in weekList" :key="item.key" :label="item.value" :value="item.key" />
@@ -37,7 +37,7 @@
 
     <el-form-item>
       <el-radio v-model="radioValue" :label="5">
-        本月最后一�?
+        本月最后一个
         <el-select clearable v-model="weekday">
           <el-option v-for="item in weekList" :key="item.key" :label="item.value" :value="item.key" />
         </el-select>
@@ -46,7 +46,7 @@
 
     <el-form-item>
       <el-radio v-model="radioValue" :label="6"> 指定 </el-radio>
-      <el-select class="multiselect" clearable v-model="checkboxList" placeholder="可多�? multiple :multiple-limit="6">
+      <el-select class="multiselect" clearable v-model="checkboxList" placeholder="可多选" multiple :multiple-limit="6">
         <el-option v-for="item in weekList" :key="item.key" :label="item.value" :value="item.key" />
       </el-select>
     </el-form-item>
@@ -54,7 +54,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, watch, nextTick } from 'vue'
 const emit = defineEmits(['update'])
 const props = defineProps({
   cron: {
@@ -85,13 +84,13 @@ const weekday = ref(2)
 const checkboxList = ref([])
 const checkCopy = ref([2])
 const weekList = ref([
-  { key: 1, value: '星期�? },
+  { key: 1, value: '星期日' },
   { key: 2, value: '星期一' },
-  { key: 3, value: '星期�? },
-  { key: 4, value: '星期�? },
-  { key: 5, value: '星期�? },
-  { key: 6, value: '星期�? },
-  { key: 7, value: '星期�? },
+  { key: 3, value: '星期二' },
+  { key: 4, value: '星期三' },
+  { key: 5, value: '星期四' },
+  { key: 6, value: '星期五' },
+  { key: 7, value: '星期六' },
 ])
 const cycleTotal = computed(() => {
   return cycle01.value + '-' + cycle02.value

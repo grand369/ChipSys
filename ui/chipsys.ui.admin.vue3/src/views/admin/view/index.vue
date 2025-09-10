@@ -35,7 +35,7 @@
         <el-table-column prop="path" label="视图地址" min-width="120" show-overflow-tooltip />
         <el-table-column prop="sort" label="排序" width="82" align="center" show-overflow-tooltip />
         <!-- <el-table-column prop="description" label="视图描述" min-width="120" show-overflow-tooltip /> -->
-        <el-table-column label="状�? width="82" align="center" show-overflow-tooltip>
+        <el-table-column label="状态" width="82" align="center" show-overflow-tooltip>
           <template #default="{ row }">
             <el-tag type="success" v-if="row.enabled">启用</el-tag>
             <el-tag type="danger" v-else>禁用</el-tag>
@@ -151,7 +151,7 @@ const onEdit = (row: ViewGetListOutput) => {
 
 const onDelete = (row: ViewGetListOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除视图�?{row.label}�?`)
+    .confirmDelete(`确定要删除视图【${row.label}】?`)
     .then(async () => {
       await new ViewApi().delete({ id: row.id }, { loading: true })
       onQuery()

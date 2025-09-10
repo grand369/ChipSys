@@ -49,18 +49,18 @@ export function useTitle() {
 }
 
 /**
- * 设置 自定�?tagsView 名称�?自定�?tagsView 名称国际�?
+ * 设置 自定义 tagsView 名称、 自定义 tagsView 名称国际化
  * @param params 路由 query、params 中的 tagsViewName
  * @returns 返回当前 tagsViewName 名称
  */
 export function setTagsViewNameI18n(item: any) {
   let tagsViewName: string = ''
   const { query, params, meta } = item
-  // 修复tagsViewName匹配到其他含下列单词的路�?
+  // 修复tagsViewName匹配到其他含下列单词的路由
   const pattern = /^\{("(zh-cn|en|zh-tw)":"[^,]+",?){1,3}}$/
   if (query?.tagsViewName || params?.tagsViewName) {
     if (pattern.test(query?.tagsViewName) || pattern.test(params?.tagsViewName)) {
-      // 国际�?
+      // 国际化
       const urlTagsParams = (query?.tagsViewName && JSON.parse(query?.tagsViewName)) || (params?.tagsViewName && JSON.parse(params?.tagsViewName))
       tagsViewName = urlTagsParams[i18n.global.locale.value]
     } else {
@@ -75,7 +75,7 @@ export function setTagsViewNameI18n(item: any) {
 }
 
 /**
- * 图片懒加�?
+ * 图片懒加载
  * @param el dom 目标元素
  * @param arr 列表数据
  * @description data-xxx 属性用于存储页面或应用程序的私有自定义数据
@@ -100,7 +100,7 @@ export const lazyImg = (el: string, arr: EmptyArrayType) => {
 
 /**
  * 全局组件大小
- * @returns 返回 `window.localStorage` 中读取的缓存�?`globalComponentSize`
+ * @returns 返回 `window.localStorage` 中读取的缓存值 `globalComponentSize`
  */
 export const globalComponentSize = (): string => {
   const stores = useThemeConfig(pinia)
@@ -109,8 +109,8 @@ export const globalComponentSize = (): string => {
 }
 
 /**
- * 对象深克�?
- * @param obj 源对�?
+ * 对象深克隆
+ * @param obj 源对象
  * @returns 克隆后的对象
  */
 export function deepClone(obj: EmptyObjectType) {
@@ -149,7 +149,7 @@ export function isMobile() {
  * 判断数组对象中所有属性是否为空，为空则删除当前行对象
  * @description @感谢大黄
  * @param list 数组对象
- * @returns 删除空值后的数组对�?
+ * @returns 删除空值后的数组对象
  */
 export function handleEmpty(list: EmptyArrayType) {
   const arr = []
@@ -168,7 +168,7 @@ export function handleEmpty(list: EmptyArrayType) {
 
 /**
  * 打开外部链接
- * @param val 当前点击项菜�?
+ * @param val 当前点击项菜单
  */
 export function handleOpenLink(val: RouteItem) {
   const stores = useThemeConfig(pinia)
@@ -184,10 +184,10 @@ export function handleOpenLink(val: RouteItem) {
  * 统一批量导出
  * @method elSvg 导出全局注册 element plus svg 图标
  * @method useTitle 设置浏览器标题国际化
- * @method setTagsViewNameI18n 设置 自定�?tagsView 名称�?自定�?tagsView 名称国际�?
- * @method lazyImg 图片懒加�?
+ * @method setTagsViewNameI18n 设置 自定义 tagsView 名称、 自定义 tagsView 名称国际化
+ * @method lazyImg 图片懒加载
  * @method globalComponentSize() element plus 全局组件大小
- * @method deepClone 对象深克�?
+ * @method deepClone 对象深克隆
  * @method isMobile 判断是否是移动端
  * @method handleEmpty 判断数组对象中所有属性是否为空，为空则删除当前行对象
  * @method handleOpenLink 打开外部链接

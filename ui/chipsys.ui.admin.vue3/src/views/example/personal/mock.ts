@@ -4,9 +4,9 @@
  */
 export const newsInfoList = [
   {
-    title: '[发布] 2022�?2�?1日发布基�?vue3.x + vite v1.0.0 版本',
+    title: '[发布] 2022年12月21日发布基于 vue3.x + vite v1.0.0 版本',
     date: '21/21',
-    link: 'https://gitee.com/chipsys/admin.ui.plus',
+    link: 'https://gitee.com/zhontai/admin.ui.plus',
   },
 ]
 
@@ -16,7 +16,7 @@ export const newsInfoList = [
  */
 export const recommendList = [
   {
-    title: '优惠�?,
+    title: '优惠券',
     msg: '现金券、折扣券、营销必备',
     icon: 'ele-Food',
     bg: '#48D18D',
@@ -24,7 +24,7 @@ export const recommendList = [
   },
   {
     title: '多人拼团',
-    msg: '社交电商、开辟流�?,
+    msg: '社交电商、开辟流量',
     icon: 'ele-ShoppingCart',
     bg: '#F95959',
     iconColor: '#F86C6B',
@@ -38,7 +38,7 @@ export const recommendList = [
   },
   {
     title: '秒杀',
-    msg: '超低价抢购引导更多销�?,
+    msg: '超低价抢购引导更多销量',
     icon: 'ele-AlarmClock',
     bg: '#FEBB50',
     iconColor: '#FDC566',

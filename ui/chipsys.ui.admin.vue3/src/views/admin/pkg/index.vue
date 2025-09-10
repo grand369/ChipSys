@@ -4,8 +4,8 @@
       <div class="my-flex-column w100 h100">
         <el-card class="my-query-box mt8" shadow="never" :body-style="{ paddingBottom: '0' }">
           <el-form :inline="true" @submit.stop.prevent>
-            <el-form-item label="套餐�?>
-              <el-input v-model="state.filter.pkgName" placeholder="套餐�? @keyup.enter="onQuery" />
+            <el-form-item label="套餐名">
+              <el-input v-model="state.filter.pkgName" placeholder="套餐名" @keyup.enter="onQuery" />
             </el-form-item>
             <el-form-item>
               <el-button type="primary" icon="ele-Search" @click="onQuery"> 查询 </el-button>
@@ -25,7 +25,7 @@
             border
             @current-change="onTableCurrentChange"
           >
-            <el-table-column prop="name" label="套餐�? min-width="120" show-overflow-tooltip />
+            <el-table-column prop="name" label="套餐名" min-width="120" show-overflow-tooltip />
             <el-table-column prop="sort" label="排序" width="82" align="center" show-overflow-tooltip />
             <el-table-column label="操作" width="100" fixed="right" header-align="center" align="center">
               <template #default="{ row }">
@@ -63,8 +63,8 @@
       <div class="my-flex-column w100 h100">
         <el-card class="my-query-box mt8" shadow="never" :body-style="{ paddingBottom: '0' }">
           <el-form :inline="true" @submit.stop.prevent>
-            <el-form-item label="企业�?>
-              <el-input v-model="state.filter.name" placeholder="企业�? @keyup.enter="onGetPkgTenantList" />
+            <el-form-item label="企业名">
+              <el-input v-model="state.filter.name" placeholder="企业名" @keyup.enter="onGetPkgTenantList" />
             </el-form-item>
             <el-form-item>
               <el-button type="primary" icon="ele-Search" @click="onGetPkgTenantList"> 查询 </el-button>
@@ -85,7 +85,7 @@
             @row-click="onTenantRowClick"
           >
             <el-table-column type="selection" width="55" />
-            <el-table-column prop="name" label="企业�? min-width="120" show-overflow-tooltip />
+            <el-table-column prop="name" label="企业名" min-width="120" show-overflow-tooltip />
             <el-table-column prop="code" label="企业编码" min-width="120" show-overflow-tooltip />
           </el-table>
           <div class="my-flex my-flex-end" style="margin-top: 10px">
@@ -107,7 +107,7 @@
     <pkg-form ref="pkgFormRef" :title="state.pkgFormTitle"></pkg-form>
     <tenant-select
       ref="tenantSelectRef"
-      :title="`添加�?{state.pkgName}】企业`"
+      :title="`添加【${state.pkgName}】企业`"
       multiple
       :sure-loading="state.sureLoading"
       @sure="onSureTenant"
@@ -241,7 +241,7 @@ const onEdit = (row: PkgGetPageOutput) => {
 
 const onDelete = (row: PkgGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除套餐�?{row.name}�?`)
+    .confirmDelete(`确定要删除套餐【${row.name}】?`)
     .then(async () => {
       await new PkgApi().delete({ id: row.id }, { loading: true })
       onQuery()

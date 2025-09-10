@@ -27,7 +27,7 @@
           >
             <el-table-column prop="title" label="标题" min-width="120" show-overflow-tooltip />
             <el-table-column prop="typeName" label="消息分类" min-width="120" show-overflow-tooltip />
-            <el-table-column prop="status" label="状�? min-width="90" show-overflow-tooltip :formatter="formatterMsgStatusEnum" />
+            <el-table-column prop="status" label="状态" min-width="90" show-overflow-tooltip :formatter="formatterMsgStatusEnum" />
             <el-table-column prop="createdTime" label="创建时间" :formatter="formatterTime" min-width="160" show-overflow-tooltip />
             <el-table-column label="操作" width="100" fixed="right" header-align="center" align="center">
               <template #default="{ row }">
@@ -91,7 +91,7 @@
               </template>
             </el-table-column>
             <el-table-column prop="readTime" label="已读时间" :formatter="formatterTime" min-width="160" show-overflow-tooltip />
-            <!-- <el-table-column prop="mobile" label="手机�? min-width="120" show-overflow-tooltip />
+            <!-- <el-table-column prop="mobile" label="手机号" min-width="120" show-overflow-tooltip />
             <el-table-column prop="email" label="邮箱" min-width="180" show-overflow-tooltip /> -->
           </el-table>
         </el-card>
@@ -101,7 +101,7 @@
     <msg-form ref="msgFormRef" :title="state.msgFormTitle"></msg-form>
     <user-select
       ref="userSelectRef"
-      :title="`添加�?{state.msgName}】员工`"
+      :title="`添加【${state.msgName}】员工`"
       multiple
       :sure-loading="state.sureLoading"
       @sure="onSureUser"
@@ -227,7 +227,7 @@ const onEdit = (row: MsgGetPageOutput) => {
 
 const onDelete = (row: MsgGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除消息�?{row.title}�?`)
+    .confirmDelete(`确定要删除消息【${row.title}】?`)
     .then(async () => {
       await new MsgApi().delete({ id: row.id }, { loading: true, showSuccessMessage: true })
       onQuery()

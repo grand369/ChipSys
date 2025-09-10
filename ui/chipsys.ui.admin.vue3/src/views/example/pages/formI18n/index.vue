@@ -1,9 +1,9 @@
 <template>
   <div class="form-i18n-container layout-pd">
-    <el-card shadow="hover" header="表单国际化演�?不适用于动态项 form-item)">
+    <el-card shadow="hover" header="表单国际化演示(不适用于动态项 form-item)">
       <div style="text-align: center; margin-top: 15px">
         <el-radio-group v-model="state.radio" @change="onRadioChange">
-          <el-radio-button label="zh-cn">中文简�?/el-radio-button>
+          <el-radio-button label="zh-cn">中文简体</el-radio-button>
           <el-radio-button label="en">英文</el-radio-button>
           <el-radio-button label="zh-tw">中文繁体</el-radio-button>
         </el-radio-group>
@@ -46,7 +46,7 @@ const state = reactive({
   },
 })
 
-// 单选框改变�?
+// 单选框改变时
 const onRadioChange = () => {
   locale.value = state.radio
 }

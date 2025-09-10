@@ -11,17 +11,17 @@ export const PasswordEncryptType = {
   PasswordHasher: { name: 'PasswordHasher', value: 1, desc: '标准标识密码哈希' },
 }
 
-/** 用户状�?*/
+/** 用户状态 */
 export const UserStatus = {
-  WaitChangePasssword: { name: 'WaitChangePasssword', value: 2, desc: '待修改密�? },
-  WaitActive: { name: 'WaitActive', value: 3, desc: '待激�? },
+  WaitChangePasssword: { name: 'WaitChangePasssword', value: 2, desc: '待修改密码' },
+  WaitActive: { name: 'WaitActive', value: 3, desc: '待激活' },
 }
 
 /** 性别 */
 export const Sex = {
   Unknown: { name: 'Unknown', value: 0, desc: '未知' },
-  Male: { name: 'Male', value: 1, desc: '�? },
-  Female: { name: 'Female', value: 2, desc: '�? },
+  Male: { name: 'Male', value: 1, desc: '男' },
+  Female: { name: 'Female', value: 2, desc: '女' },
 }
 
 /** 角色类型 */
@@ -34,25 +34,25 @@ export const RoleType = {
 export const RegionLevel = {
   Province: { name: 'Province', value: 1, desc: '省份' },
   City: { name: 'City', value: 2, desc: '城市' },
-  County: { name: 'County', value: 3, desc: '�?�? },
-  Town: { name: 'Town', value: 4, desc: '�?�? },
-  Vilage: { name: 'Vilage', value: 5, desc: '�?社区' },
+  County: { name: 'County', value: 3, desc: '县/区' },
+  Town: { name: 'Town', value: 4, desc: '镇/乡' },
+  Vilage: { name: 'Vilage', value: 5, desc: '村/社区' },
 }
 
 /** 权限类型 */
 export const PermissionType = {
   Group: { name: 'Group', value: 1, desc: '分组' },
   Menu: { name: 'Menu', value: 2, desc: '菜单' },
-  Dot: { name: 'Dot', value: 3, desc: '权限�? },
+  Dot: { name: 'Dot', value: 3, desc: '权限点' },
 }
 
-/** 消息状�?*/
+/** 消息状态 */
 export const MsgStatusEnum = {
   Draft: { name: 'Draft', value: 1, desc: '草稿' },
-  Published: { name: 'Published', value: 2, desc: '已发�? },
+  Published: { name: 'Published', value: 2, desc: '已发布' },
   Scheduled: { name: 'Scheduled', value: 3, desc: '定时发布' },
   Revoked: { name: 'Revoked', value: 4, desc: '已撤销' },
-  Archived: { name: 'Archived', value: 5, desc: '已归�? },
+  Archived: { name: 'Archived', value: 5, desc: '已归档' },
 }
 
 /** 文档类型 */
@@ -77,7 +77,7 @@ export const TenantType = {
 export const DataScope = {
   All: { name: 'All', value: 1, desc: '全部' },
   DeptWithChild: { name: 'DeptWithChild', value: 2, desc: '本部门和下级部门' },
-  Dept: { name: 'Dept', value: 3, desc: '本部�? },
+  Dept: { name: 'Dept', value: 3, desc: '本部门' },
   Self: { name: 'Self', value: 4, desc: '本人数据' },
   Custom: { name: 'Custom', value: 5, desc: '指定部门' },
 }
@@ -85,9 +85,9 @@ export const DataScope = {
 /** 用户类型 */
 export const UserType = {
   Member: { name: 'Member', value: 0, desc: '会员' },
-  DefaultUser: { name: 'DefaultUser', value: 1, desc: '普通用�? },
-  TenantAdmin: { name: 'TenantAdmin', value: 10, desc: '租户管理�? },
-  PlatformAdmin: { name: 'PlatformAdmin', value: 100, desc: '平台管理�? },
+  DefaultUser: { name: 'DefaultUser', value: 1, desc: '普通用户' },
+  TenantAdmin: { name: 'TenantAdmin', value: 10, desc: '租户管理员' },
+  PlatformAdmin: { name: 'PlatformAdmin', value: 100, desc: '平台管理员' },
 }
 
 /** 接口版本 */
@@ -106,9 +106,9 @@ export const ContentTypeEnum = {
 export const StatusCodes = {
   Status0NotOk: { name: 'Status0NotOk', value: 0, desc: '操作失败' },
   Status1Ok: { name: 'Status1Ok', value: 1, desc: '操作成功' },
-  Status401Unauthorized: { name: 'Status401Unauthorized', value: 401, desc: '未登�? },
+  Status401Unauthorized: { name: 'Status401Unauthorized', value: 401, desc: '未登录' },
   Status403Forbidden: { name: 'Status403Forbidden', value: 403, desc: '权限不足' },
-  Status404NotFound: { name: 'Status404NotFound', value: 404, desc: '资源不存�? },
+  Status404NotFound: { name: 'Status404NotFound', value: 404, desc: '资源不存在' },
   Status500InternalServerError: { name: 'Status500InternalServerError', value: 500, desc: '系统内部错误' },
 }
 

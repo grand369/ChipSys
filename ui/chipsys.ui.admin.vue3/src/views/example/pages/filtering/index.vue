@@ -4,7 +4,7 @@
       shadow="hover"
       class="filtering-list br-top-no"
       v-loading="state.tableData.loading"
-      element-loading-text="加载�?.."
+      element-loading-text="加载中..."
       element-loading-background="rgba(255, 255, 255, 0.1)"
       :class="{ 'min-h-360': state.tableData.data.length <= 0 }"
     >
@@ -38,10 +38,10 @@
                       </div>
                       <div class="item-txt-msg item-txt-price">
                         <span class="font-price">
-                          <span>�?/span>
+                          <span>￥</span>
                           <span class="font">{{ v.price }}</span>
                         </span>
-                        <span>月销{{ v.monSales }}�?/span>
+                        <span>月销{{ v.monSales }}笔</span>
                       </div>
                     </div>
                   </div>
@@ -96,14 +96,14 @@ const state = reactive({
   },
 })
 
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initBtnToggle()
   window.onresize = () => {
     initBtnToggle()
   }
 })
-// 初始�?`收起、展开` 按钮
+// 初始化 `收起、展开` 按钮
 const initBtnToggle = () => {
   nextTick(() => {
     const els = dlRefs.value
@@ -112,7 +112,7 @@ const initBtnToggle = () => {
     })
   })
 }
-// 过滤当前选中的数�?
+// 过滤当前选中的数据
 const onSelItem = (val: FilteringRowType, v: FilteringChilType) => {
   val.children.map((v: FilteringChilType) => (v.active = false))
   v.active = true
@@ -132,7 +132,7 @@ const onSelItem = (val: FilteringRowType, v: FilteringChilType) => {
     state.tableData.loading = false
   }, 500)
 }
-// 当前列表项点�?
+// 当前列表项点击
 const onTableItemClick = (v: FilterListType) => {
   if (v.id === 1) {
     router.push({

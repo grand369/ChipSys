@@ -3,7 +3,7 @@ export const formData = [
   {
     label: '姓名',
     prop: 'name',
-    placeholder: '请输入姓�?,
+    placeholder: '请输入姓名',
     clearable: true,
     disabled: false,
     required: true,
@@ -20,7 +20,7 @@ export const formData = [
   {
     label: '邮箱',
     prop: 'email',
-    placeholder: '请输入用户邮�?,
+    placeholder: '请输入用户邮箱',
     clearable: true,
     disabled: false,
     required: true,
@@ -63,11 +63,11 @@ export const formData = [
     i18nText: '',
     options: [
       {
-        label: '计算�?/ 互联�?/ 通信',
+        label: '计算机 / 互联网 / 通信',
         value: '1',
       },
       {
-        label: '生产 / 工艺 / 制�?,
+        label: '生产 / 工艺 / 制造',
         value: '2',
       },
       {
@@ -102,7 +102,7 @@ export const formData = [
   {
     label: '备注',
     prop: 'remarks',
-    placeholder: '请输�?,
+    placeholder: '请输入',
     clearable: true,
     disabled: false,
     required: true,

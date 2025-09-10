@@ -12,8 +12,8 @@
       <el-form :model="form" ref="formRef" label-width="80px">
         <el-row :gutter="35">
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-form-item label="所属平�?>
-              <el-select v-model="form.platform" disabled placeholder="请选择所属平�? class="w100">
+            <el-form-item label="所属平台">
+              <el-select v-model="form.platform" disabled placeholder="请选择所属平台" class="w100">
                 <el-option v-for="item in state.dictData[DictType.PlatForm.name]" :key="item.code" :label="item.name" :value="item.code" />
               </el-select>
             </el-form-item>
@@ -34,7 +34,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-form-item label="视图名称" prop="label" :rules="[{ required: true, message: '请输入视图名�?, trigger: ['blur', 'change'] }]">
+            <el-form-item label="视图名称" prop="label" :rules="[{ required: true, message: '请输入视图名称', trigger: ['blur', 'change'] }]">
               <el-input v-model="form.label" clearable />
             </el-form-item>
           </el-col>
@@ -75,8 +75,8 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -132,7 +132,7 @@ const getDictList = async () => {
   }
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (row: ViewUpdateInput = { id: 0, enabled: true, cache: true }) => {
   await getDictList()
 

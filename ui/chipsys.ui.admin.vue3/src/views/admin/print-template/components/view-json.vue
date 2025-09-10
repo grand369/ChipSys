@@ -39,7 +39,7 @@ const size = computed(() => {
   return state.isMobile ? '100%' : state.isFull ? '100%' : '45%'
 })
 
-// 打开对话�?
+// 打开对话框
 const open = (templateJson: any) => {
   state.templateJson = templateJson
   state.showDialog = true

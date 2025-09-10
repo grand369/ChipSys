@@ -44,8 +44,8 @@
       </el-form>
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">�?�?/el-button>
-          <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+          <el-button @click="onCancel">取 消</el-button>
+          <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
         </span>
       </template>
     </el-dialog>
@@ -131,7 +131,7 @@ const getOrgs = async () => {
   }
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async () => {
   proxy.$modal.loading()
   state.form.orgId = undefined

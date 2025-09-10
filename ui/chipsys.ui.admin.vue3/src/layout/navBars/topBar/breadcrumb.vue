@@ -19,16 +19,14 @@
 </template>
 
 <script setup lang="ts" name="layoutBreadcrumb">
-import { reactive, computed, onMounted, watch, ref, onBeforeMount } from 'vue'
-import { onBeforeRouteUpdate, useRoute, useRouter, RouteLocationNormalized } from 'vue-router'
 import { Local } from '/@/utils/storage'
 import other from '/@/utils/other'
-import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import { useRoutesList } from '/@/stores/routesList'
 import { treeToList, listToTree, filterList } from '/@/utils/tree'
 import { cloneDeep } from 'lodash-es'
 import mittBus from '/@/utils/mitt'
+import { RouteLocationNormalized } from 'vue-router'
 
 // 定义变量内容
 const stores = useRoutesList()
@@ -54,7 +52,7 @@ const getIconName = computed(() => {
   }
 })
 
-// 动态设置经典、横向布局不显�?
+// 动态设置经典、横向布局不显示
 const isShowBreadcrumb = computed(() => {
   const { layout, isBreadcrumb } = themeConfig.value
   if (layout === 'classic' || layout === 'transverse') return false
@@ -75,10 +73,10 @@ const setLocalThemeConfig = () => {
   Local.remove('themeConfig')
   Local.set('themeConfig', themeConfig.value)
 }
-// 处理面包屑数�?
+// 处理面包屑数据
 const getBreadcrumbList = (arr: RouteItems, path: string) => {
   path = path?.toLocaleLowerCase()
-  //第一次初始化时执行时,避免使用路由查找时重复执�?
+  //第一次初始化时执行时,避免使用路由查找时重复执行
   if (state.routeSplitIndex == 1) {
     //优先使用菜单判断面包屑显示，如果找不到匹配的路由菜单，则执行旧的逻辑使用地址判断
     let routeTree = listToTree(
@@ -90,7 +88,7 @@ const getBreadcrumbList = (arr: RouteItems, path: string) => {
     )
 
     if (routeTree.length > 0) {
-      //查找第一个匹配的路由，将其展开添加到面包屑�?
+      //查找第一个匹配的路由，将其展开添加到面包屑中
       const routeArr = treeToList([routeTree[0]])
       if (routeArr.length > 0) {
         routeArr.forEach((item: RouteItem, k: number) => {
@@ -101,7 +99,7 @@ const getBreadcrumbList = (arr: RouteItems, path: string) => {
       }
     }
   }
-  //不存在则使用顶级的分�?
+  //不存在则使用顶级的分类
   arr.forEach((item: RouteItem) => {
     state.routeSplit.forEach((v: string, k: number, arrs: string[]) => {
       if (state.routeSplitFirst === item.path) {
@@ -127,19 +125,19 @@ const initRouteSplit = (toRoute: RouteLocationNormalized) => {
     state.breadcrumbList[state.breadcrumbList.length - 1].meta.tagsViewName = other.setTagsViewNameI18n(<RouteToFrom>route)
 }
 
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initRouteSplit(route)
 })
 
-// 路由更新�?
+// 路由更新时
 onBeforeRouteUpdate((to) => {
   initRouteSplit(to)
 })
 
-// 页面加载�?
+// 页面加载前
 onBeforeMount(() => {
-  // 监听窗口大小改变�?适配移动�?
+  // 监听窗口大小改变时(适配移动端)
   mittBus.on('layoutMobileResize', (res: LayoutMobileResize) => {
     // 判断是否是手机端
     isMobile.value = res.clientWidth < 1000

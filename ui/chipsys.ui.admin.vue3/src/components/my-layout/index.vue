@@ -5,16 +5,15 @@
 </template>
 
 <script lang="ts" setup name="my-layout">
-import { reactive, onBeforeMount } from 'vue'
 import mittBus from '/@/utils/mitt'
 
 const state = reactive({
   isMobile: document.body.clientWidth < 1000,
 })
 
-// 页面加载�?
+// 页面加载前
 onBeforeMount(() => {
-  // 监听窗口大小改变�?适配移动�?
+  // 监听窗口大小改变时(适配移动端)
   mittBus.on('layoutMobileResize', (res: LayoutMobileResize) => {
     // 判断是否是手机端
     state.isMobile = res.clientWidth < 1000

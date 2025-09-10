@@ -14,9 +14,6 @@
 </template>
 
 <script setup lang="ts" name="layoutParentView">
-import { defineAsyncComponent, computed, reactive, onBeforeMount, onUnmounted, nextTick, watch, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { useKeepALiveNames } from '/@/stores/keepAliveNames'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import { Session } from '/@/utils/storage'
@@ -33,17 +30,17 @@ const storesThemeConfig = useThemeConfig()
 const { keepAliveNames, cachedViews } = storeToRefs(storesKeepAliveNames)
 const { themeConfig } = storeToRefs(storesThemeConfig)
 const state = reactive<ParentViewState>({
-  refreshRouterViewKey: '', // �?iframe tagsview 右键菜单刷新�?
-  iframeRefreshKey: '', // iframe tagsview 右键菜单刷新�?
+  refreshRouterViewKey: '', // 非 iframe tagsview 右键菜单刷新时
+  iframeRefreshKey: '', // iframe tagsview 右键菜单刷新时
   keepAliveNameList: [],
   iframeList: [],
 })
 
-// 设置主界面切换动�?
+// 设置主界面切换动画
 const setTransitionName = computed(() => {
   return themeConfig.value.animation
 })
-// 获取组件缓存列表(name�?
+// 获取组件缓存列表(name值)
 const getKeepAliveNames = computed(() => {
   return themeConfig.value.isTagsview ? cachedViews.value : state.keepAliveNameList
 })
@@ -51,7 +48,7 @@ const getKeepAliveNames = computed(() => {
 const isIframePage = computed(() => {
   return route.meta.isIframe
 })
-// 获取 iframe 组件列表(未进行渲�?
+// 获取 iframe 组件列表(未进行渲染)
 const getIframeListRoutes = async () => {
   router.getRoutes().forEach((v) => {
     if (v.meta.isIframe) {
@@ -75,7 +72,7 @@ onBeforeMount(() => {
     })
   })
 })
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   getIframeListRoutes()
   nextTick(() => {
@@ -87,11 +84,11 @@ onMounted(() => {
     }, 0)
   })
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   mittBus.off('onTagsViewRefreshRouterView', () => {})
 })
-// 监听路由变化，防�?tagsView 多标签时，切换动画消�?
+// 监听路由变化，防止 tagsView 多标签时，切换动画消失
 watch(
   () => route.fullPath,
   () => {

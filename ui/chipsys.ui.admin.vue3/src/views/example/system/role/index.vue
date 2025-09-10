@@ -2,7 +2,7 @@
   <div class="system-role-container layout-padding">
     <div class="system-role-padding layout-padding-auto layout-padding-view">
       <div class="system-user-search mb15">
-        <el-input v-model="state.tableData.param.search" placeholder="请输入角色名�? style="max-width: 180px"> </el-input>
+        <el-input v-model="state.tableData.param.search" placeholder="请输入角色名称" style="max-width: 180px"> </el-input>
         <el-button type="primary" class="ml10">
           <el-icon>
             <ele-Search />
@@ -21,7 +21,7 @@
         <el-table-column prop="roleName" label="角色名称" show-overflow-tooltip></el-table-column>
         <el-table-column prop="roleSign" label="角色标识" show-overflow-tooltip></el-table-column>
         <el-table-column prop="sort" label="排序" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="status" label="角色状�? show-overflow-tooltip>
+        <el-table-column prop="status" label="角色状态" show-overflow-tooltip>
           <template #default="scope">
             <el-tag type="success" v-if="scope.row.status">启用</el-tag>
             <el-tag type="info" v-else>禁用</el-tag>
@@ -31,8 +31,8 @@
         <el-table-column prop="createTime" label="创建时间" show-overflow-tooltip></el-table-column>
         <el-table-column label="操作" width="100">
           <template #default="scope">
-            <el-button :disabled="scope.row.roleName === '超级管理�?" text type="primary" @click="onOpenEditRole('edit', scope.row)">修改</el-button>
-            <el-button :disabled="scope.row.roleName === '超级管理�?" text type="primary" @click="onRowDel(scope.row)">删除</el-button>
+            <el-button :disabled="scope.row.roleName === '超级管理员'" text type="primary" @click="onOpenEditRole('edit', scope.row)">修改</el-button>
+            <el-button :disabled="scope.row.roleName === '超级管理员'" text type="primary" @click="onRowDel(scope.row)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -75,13 +75,13 @@ const state = reactive<SysRoleState>({
     },
   },
 })
-// 初始化表格数�?
+// 初始化表格数据
 const getTableData = () => {
   state.tableData.loading = true
   const data = []
   for (let i = 0; i < 20; i++) {
     data.push({
-      roleName: i === 0 ? '超级管理�? : '普通用�?,
+      roleName: i === 0 ? '超级管理员' : '普通用户',
       roleSign: i === 0 ? 'admin' : 'common',
       describe: `测试角色${i + 1}`,
       sort: i,
@@ -105,7 +105,7 @@ const onOpenEditRole = (type: string, row: Object) => {
 }
 // 删除角色
 const onRowDel = (row: RowRoleType) => {
-  ElMessageBox.confirm(`此操作将永久删除角色名称：�?{row.roleName}”，是否继续?`, '提示', {
+  ElMessageBox.confirm(`此操作将永久删除角色名称：“${row.roleName}”，是否继续?`, '提示', {
     confirmButtonText: '确认',
     cancelButtonText: '取消',
     type: 'warning',
@@ -126,7 +126,7 @@ const onHandleCurrentChange = (val: number) => {
   state.tableData.param.pageNum = val
   getTableData()
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   getTableData()
 })

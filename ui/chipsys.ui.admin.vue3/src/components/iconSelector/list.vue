@@ -14,17 +14,17 @@
 </template>
 
 <script setup lang="ts" name="iconSelectorList">
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   // 图标列表数据
   list: {
     type: Array,
     default: () => [],
   },
-  // 自定义空状态描述文�?
+  // 自定义空状态描述文字
   empty: {
     type: String,
-    default: () => '无相关图�?,
+    default: () => '无相关图标',
   },
   // 高亮当前选中图标
   prefix: {
@@ -33,10 +33,10 @@ const props = defineProps({
   },
 })
 
-// 定义子组件向父组件传�?事件
+// 定义子组件向父组件传值/事件
 const emit = defineEmits(['get-icon'])
 
-// 当前 icon 图标点击�?
+// 当前 icon 图标点击时
 const onColClick = (v: unknown | string) => {
   emit('get-icon', v)
 }

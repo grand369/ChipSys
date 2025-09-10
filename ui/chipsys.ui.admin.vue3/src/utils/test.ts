@@ -1,6 +1,6 @@
 import { verifyEmail } from '/@/utils/toolsValidate'
 /**
- * 是否手机�?
+ * 是否手机号
  */
 export function isMobile(value: string) {
   return /^1([3589]\d|4[5-9]|6[1-2,4-7]|7[0-8])\d{8}$/.test(value)
@@ -21,7 +21,7 @@ export const testMobile = (rule: any, value: any, callback: any) => {
 }
 
 /**
- * 邮箱验证�?
+ * 邮箱验证器
  */
 export const testEmail = (rule: any, value: any, callback: any) => {
   if (!value) {

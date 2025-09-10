@@ -29,22 +29,20 @@
 </template>
 
 <script setup lang="ts" name="navMenuHorizontal">
-import { defineAsyncComponent, reactive, computed, onBeforeMount } from 'vue'
-import { useRoute, onBeforeRouteUpdate, RouteRecordRaw, useRouter } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { useRoutesList } from '/@/stores/routesList'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import other from '/@/utils/other'
 import mittBus from '/@/utils/mitt'
 import { treeToList, listToTree, filterList } from '/@/utils/tree'
 import { cloneDeep } from 'lodash-es'
+import { RouteRecordRaw } from 'vue-router'
 
 const router = useRouter()
 
 // 引入组件
 const SubItem = defineAsyncComponent(() => import('/@/layout/navMenu/subItem.vue'))
 
-// 定义父组件传过来的�?
+// 定义父组件传过来的值
 const props = defineProps({
   // 菜单列表
   menuList: {
@@ -78,7 +76,7 @@ const filterRoutesFun = <T extends RouteItem>(arr: T[]): T[] => {
     })
 }
 
-// 获得根菜单路�?
+// 获得根菜单路径
 const getRootPath = (path: string) => {
   let rootPath = ''
   let routeTree = listToTree(
@@ -94,7 +92,7 @@ const getRootPath = (path: string) => {
   return rootPath
 }
 
-// 传送当前子级数据到菜单�?
+// 传送当前子级数据到菜单中
 const setSendClassicChildren = (path: string) => {
   let rootPath = getRootPath(path)
   rootPath = rootPath || path
@@ -129,11 +127,11 @@ const setCurrentRouterHighlight = (currentRoute: RouteToFrom) => {
 const onALinkClick = (val: RouteItem) => {
   other.handleOpenLink(val)
 }
-// 页面加载�?
+// 页面加载前
 onBeforeMount(() => {
   setCurrentRouterHighlight(route)
 })
-// 路由更新�?
+// 路由更新时
 onBeforeRouteUpdate((to) => {
   // 修复：https://gitee.com/lyt-top/vue-next-admin/issues/I3YX6G
   setCurrentRouterHighlight(to)

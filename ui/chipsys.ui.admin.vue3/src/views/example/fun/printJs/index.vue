@@ -2,7 +2,7 @@
   <div ref="printRef" class="layout-pd">
     <el-card shadow="hover" header="打印演示">
       <el-alert
-        title="感谢优秀�?`print-js`，项目地址：https://github.com/crabbly/Print.js。请在打印弹�?`更多设置` 中开�?`背景图形。`"
+        title="感谢优秀的 `print-js`，项目地址：https://github.com/crabbly/Print.js。请在打印弹窗 `更多设置` 中开启 `背景图形。`"
         type="success"
         :closable="false"
         class="mb15"

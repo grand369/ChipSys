@@ -20,7 +20,7 @@ const state = reactive({
   echartsMapData,
 })
 
-// echartsMap 将坐标信息和对应物理量的值合在一�?
+// echartsMap 将坐标信息和对应物理量的值合在一起
 const convertData = (data: EmptyObjectType[]) => {
   let res = []
   for (let i = 0; i < data.length; i++) {
@@ -34,7 +34,7 @@ const convertData = (data: EmptyObjectType[]) => {
   }
   return res
 }
-// 初始�?echartsMap
+// 初始化 echartsMap
 const initEchartsMap = () => {
   const myChart = echarts.init(echartsMapRef.value)
   const option = {
@@ -111,7 +111,7 @@ const initEchartsMap = () => {
     myChart.resize()
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initEchartsMap()
 })

@@ -1,6 +1,6 @@
 <template>
   <div class="element-container layout-pd">
-    <el-card shadow="hover" :header="`element plus 字体图标(自动载入，增加了 ele- 前缀，使用时：ele-Aim)�?{state.sheetsIconList.length}个`">
+    <el-card shadow="hover" :header="`element plus 字体图标(自动载入，增加了 ele- 前缀，使用时：ele-Aim)：${state.sheetsIconList.length}个`">
       <el-row class="iconfont-row">
         <el-col :xs="12" :sm="8" :md="6" :lg="4" :xl="2" v-for="(v, k) in state.sheetsIconList" :key="k">
           <div class="iconfont-warp">
@@ -26,13 +26,13 @@ const state = reactive({
   sheetsIconList: [],
 })
 
-// 初始化获�?css 样式，获�?element plus 自带 svg 图标，增加了 ele- 前缀，使用时：ele-Aim
+// 初始化获取 css 样式，获取 element plus 自带 svg 图标，增加了 ele- 前缀，使用时：ele-Aim
 const initGetStyleSheets = () => {
   initIconfont.ele().then((res: any) => {
     state.sheetsIconList = res
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initGetStyleSheets()
 })

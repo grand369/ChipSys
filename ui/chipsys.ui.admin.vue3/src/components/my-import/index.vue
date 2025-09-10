@@ -17,16 +17,16 @@
       </el-steps>
       <div v-show="state.step === 1">
         <div class="my-import__step">
-          <div class="my-import__title mt20">一、请按照模板的格式准备要导入的数�?/div>
+          <div class="my-import__title mt20">一、请按照模板的格式准备要导入的数据</div>
           <div class="my-import__content">
             <div class="my-import__download">
               <el-button type="primary" link :loading="state.download.loadingTemplate" @click="onDownloadTemplate">下载模板</el-button>
             </div>
             <div class="my-import__notice">
               <div>注意事项:</div>
-              <div>1、表头名称不可更改，表头行不能删�?/div>
-              <div>2、表头列顺序可以调整，不需要的列可以删�?/div>
-              <div v-if="requiredColumns">3、其中{{ requiredColumns }}为必埴项，必须保�?/div>
+              <div>1、表头名称不可更改，表头行不能删除</div>
+              <div>2、表头列顺序可以调整，不需要的列可以删减</div>
+              <div v-if="requiredColumns">3、其中{{ requiredColumns }}为必埴项，必须保留</div>
               <div>{{ requiredColumns ? 4 : 3 }}、导入文件请不要超过 1 MB</div>
             </div>
           </div>
@@ -75,7 +75,7 @@
         <el-progress :text-inside="true" :stroke-width="26" :percentage="state.percent" :stroke-linecap="'square'" status="success" />
 
         <div v-if="state.step === 3 && state.uploadSuccess" class="mt10">
-          导入完成，共 {{ state.importResult.total }} �?<el-text type="warning">{{ result }}</el-text>
+          导入完成，共 {{ state.importResult.total }} 条 <el-text type="warning">{{ result }}</el-text>
         </div>
 
         <div class="mt10" v-if="state.showErrorMark">
@@ -85,8 +85,8 @@
 
       <template #footer>
         <span class="dialog-footer">
-          <el-button @click="onCancel">{{ state.step === 1 ? '�?�? : '关闭' }}</el-button>
-          <el-button v-if="state.step === 1" type="primary" @click="onUpload" :loading="state.uploading">开始导�?/el-button>
+          <el-button @click="onCancel">{{ state.step === 1 ? '取 消' : '关闭' }}</el-button>
+          <el-button v-if="state.step === 1" type="primary" @click="onUpload" :loading="state.uploading">开始导入</el-button>
         </span>
       </template>
     </el-dialog>
@@ -94,7 +94,6 @@
 </template>
 
 <script lang="ts" setup name="my-import">
-import { reactive, computed, ref } from 'vue'
 import eventBus from '/@/utils/mitt'
 import { useUserInfo } from '/@/stores/userInfo'
 import type { UploadProps, UploadInstance, UploadUserFile, UploadRawFile, UploadProgressEvent, UploadFile } from 'element-plus'
@@ -105,7 +104,7 @@ import { plus } from '/@/utils/digit'
 
 const model = defineModel({ type: Object })
 
-const fileUploadRef = ref<UploadInstance>()
+const fileUploadRef = useTemplateRef<UploadInstance>('fileUploadRef')
 
 const storesUserInfo = useUserInfo()
 
@@ -119,7 +118,7 @@ const initState = {
     //fileEncoding: model.value.fileEncoding,
   },
   duplicateActionList: [
-    { name: '不导�?, value: 0 },
+    { name: '不导入', value: 0 },
     { name: '直接覆盖', value: 1 },
   ],
   download: {
@@ -137,7 +136,7 @@ const initState = {
     insertCount: 0,
     updateCount: 0,
   },
-  // fileEncodingList: [{ name: 'GB18030(简体中�?', value: 0 }],
+  // fileEncodingList: [{ name: 'GB18030(简体中文)', value: 0 }],
 }
 const state = reactive(cloneDeep(initState))
 
@@ -146,7 +145,7 @@ const uploadHeaders = computed(() => {
 })
 
 const uniqueRules = computed(() => {
-  return model.value.uniqueRules?.map((rule: string) => '�? + rule + '�?)?.join('�?)
+  return model.value.uniqueRules?.map((rule: string) => '【' + rule + '】')?.join('、')
 })
 
 const result = computed(() => {
@@ -164,7 +163,7 @@ const result = computed(() => {
 })
 
 const requiredColumns = computed(() => {
-  return model.value.requiredColumns?.join('�?)
+  return model.value.requiredColumns?.join('、')
 })
 
 const getUploadData = () => {
@@ -209,7 +208,7 @@ const onError: UploadProps['onError'] = (error) => {
   state.uploading = false
 }
 
-// 上传�?
+// 上传中
 const onProgress: UploadProps['onProgress'] = (evt: UploadProgressEvent, uploadFile: UploadFile) => {
   state.percent = evt.percent
   //uploadFile.percentage
@@ -322,7 +321,7 @@ const onDownloadErrorMark = async () => {
         reader.readAsText(error.response.data)
       } else {
         ElMessage({
-          message: '请重新导入数据，再下载错误标记文�?,
+          message: '请重新导入数据，再下载错误标记文件',
           type: 'error',
         })
       }
@@ -332,7 +331,7 @@ const onDownloadErrorMark = async () => {
     })
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (row: any = {}) => {
   merge(state, cloneDeep(initState))
   state.showDialog = true
@@ -347,7 +346,7 @@ const onCancel = () => {
   state.showDialog = false
 }
 
-// 开始导�?
+// 开始导入
 const onUpload = () => {
   if (!(state.fileList?.length > 0)) {
     ElMessage({

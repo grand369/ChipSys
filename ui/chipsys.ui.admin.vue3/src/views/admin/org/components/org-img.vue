@@ -110,7 +110,7 @@ const onEdit = (row: OrgGetListOutput) => {
 
 const onDelete = (row: OrgGetListOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除部门�?{row.name}�?`)
+    .confirmDelete(`确定要删除部门【${row.name}】?`)
     .then(async () => {
       await new OrgApi().delete({ id: row.id }, { loading: true })
       onQuery()

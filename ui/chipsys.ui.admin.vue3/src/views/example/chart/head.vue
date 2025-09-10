@@ -22,18 +22,18 @@ const state = reactive({
   },
 })
 
-// 初始化时�?
+// 初始化时间
 const initTime = () => {
   state.time.txt = formatDate(new Date(), 'YYYY-mm-dd HH:MM:SS WWW QQQQ')
   state.time.fun = window.setInterval(() => {
     state.time.txt = formatDate(new Date(), 'YYYY-mm-dd HH:MM:SS WWW QQQQ')
   }, 1000)
 }
-// 页面加载�?
+// 页面加载前
 onBeforeMount(() => {
   initTime()
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   window.clearInterval(state.time.fun)
 })

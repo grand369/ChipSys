@@ -31,13 +31,13 @@ const stores = useTagsViewRoutes()
 const storesThemeConfig = useThemeConfig()
 const { themeConfig } = storeToRefs(storesThemeConfig)
 
-// 设置锁屏时组件显示隐�?
+// 设置锁屏时组件显示隐藏
 const getLockScreen = computed(() => {
-  // 防止锁屏后，刷新出现不相关界�?
+  // 防止锁屏后，刷新出现不相关界面
   return themeConfig.value.isLockScreen ? themeConfig.value.lockScreenTime > 1 : themeConfig.value.lockScreenTime >= 0
 })
 
-// 获取版本�?
+// 获取版本号
 const getVersion = computed(() => {
   let isVersion = false
   if (route.path !== '/login') {
@@ -60,17 +60,17 @@ const getGlobalComponentSize = computed(() => {
 const getGlobalI18n = computed(() => {
   return messages.value[locale.value]
 })
-// 设置初始化，防止刷新时恢复默�?
+// 设置初始化，防止刷新时恢复默认
 onBeforeMount(() => {
-  // 设置批量第三�?icon 图标
+  // 设置批量第三方 icon 图标
   setIntroduction.cssCdn()
-  // 设置批量第三�?js
+  // 设置批量第三方 js
   setIntroduction.jsCdn()
 })
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   nextTick(() => {
-    // 监听布局�?置弹窗点击打开
+    // 监听布局配'置弹窗点击打开
     mittBus.on('openSetingsDrawer', () => {
       setingsRef.value?.openDrawer()
     })

@@ -18,7 +18,7 @@
         </div>
         <div class="visualizing-container-head-right">
           <div class="visualizing-container-head-right-text">
-            <div class="visualizing-container-head-right-text-box">🌤 多云转晴东南�?26~30�?/div>
+            <div class="visualizing-container-head-right-text-box">🌤 多云转晴东南风 26~30℃</div>
           </div>
         </div>
       </div>
@@ -115,14 +115,14 @@ const state = reactive({
   myCharts: [] as EmptyArrayType,
 })
 
-// 初始化时�?
+// 初始化时间
 const initTime = () => {
   state.time.txt = formatDate(new Date(), 'YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ')
   state.time.fun = window.setInterval(() => {
     state.time.txt = formatDate(new Date(), 'YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ')
   }, 1000)
 }
-// echartsMap 将坐标信息和对应物理量的值合在一�?
+// echartsMap 将坐标信息和对应物理量的值合在一起
 const convertData = (data: any) => {
   let res = []
   for (let i = 0; i < data.length; i++) {
@@ -136,14 +136,14 @@ const convertData = (data: any) => {
   }
   return res
 }
-// 初始�?echartsMap（地图上的点�?
+// 初始化 echartsMap（地图上的点）
 const initEchartsMap = () => {
   const myChart = echarts.init(<HTMLElement>visualizingDemo1.value)
   const option = {
     tooltip: {
       trigger: 'item',
       formatter(params: any) {
-        // 自定义鼠标放入样�?
+        // 自定义鼠标放入样式
         let item = state.echartsMapImgs.find((v: any) => v.name === params.name)
         let html = `<div style="width: 240px">
 							<div style="display: flex; align-items: center">
@@ -164,11 +164,11 @@ const initEchartsMap = () => {
 								</div>
 							</div>
 							<div style="margin-top: 10px; font-size: 12px">
-								<div style="width: 61px"><i class="el-icon-location-information" style="margin-right: 5px"></i>地址�?/div>
+								<div style="width: 61px"><i class="el-icon-location-information" style="margin-right: 5px"></i>地址：</div>
 								<div style="flex: 1; white-space: pre-wrap; word-break: break-all; margin-top: 5px; color: #333">${item?.add}</div>
 							</div>
 							<div style="margin-top: 10px; font-size: 12px">
-								<div style="width: 61px"><i class="el-icon-chat-dot-round" style="margin-right: 5px"></i>概括�?/div>
+								<div style="width: 61px"><i class="el-icon-chat-dot-round" style="margin-right: 5px"></i>概括：</div>
 								<div style="flex: 1; white-space: pre-wrap; word-break: break-all; margin-top: 5px; color: #333">${item?.dec}</div>
 							</div>
 						</div>`
@@ -245,10 +245,10 @@ const initEchartsMap = () => {
 
   // 地图
   const map = (<any>myChart).getModel().getComponent('bmap').getBMap()
-  // BMAP_NORMAL_MAP ：此地图类型展示普通街道视�?
-  // BMAP_PERSPECTIVE_MAP ：此地图类型展示透视图像视图。（这个还不会用�?
-  // BMAP_SATELLITE_MAP：卫星地�?（没有坐标， 绿绿的一片的卫星地图�?
-  // BMAP_HYBRID_MAP：混合地�?（既有坐标，也是绿绿的一片的卫星地图�?
+  // BMAP_NORMAL_MAP ：此地图类型展示普通街道视图
+  // BMAP_PERSPECTIVE_MAP ：此地图类型展示透视图像视图。（这个还不会用）
+  // BMAP_SATELLITE_MAP：卫星地图 （没有坐标， 绿绿的一片的卫星地图）
+  // BMAP_HYBRID_MAP：混合地图 （既有坐标，也是绿绿的一片的卫星地图）
   // eslint-disable-next-line no-undef
   map.setMapType(window.BMAP_SATELLITE_MAP)
   // eslint-disable-next-line no-undef
@@ -260,25 +260,25 @@ const initEchartsMap = () => {
     for (let i = 0; i < count; i++) {
       // eslint-disable-next-line no-undef
       let ply = new window.BMap.Polygon(rs.boundaries[i], {
-        // 设置多边形边线线�?
+        // 设置多边形边线线粗
         strokeWeight: 4,
-        // 设置多边形边线透明�?-1
+        // 设置多边形边线透明度0-1
         strokeOpacity: 1,
-        // 设置多边形边线样式为实线或虚线，取�?solid �?dashed
+        // 设置多边形边线样式为实线或虚线，取值 solid 或 dashed
         StrokeStyle: 'dashed',
-        // 设置多边形边线颜�?
+        // 设置多边形边线颜色
         strokeColor: '#febb50',
-        // 设置多边形填充颜�?
+        // 设置多边形填充颜色
         fillColor: '',
       })
       // 建立多边形覆盖物
-      // 添加覆盖�?
+      // 添加覆盖物
       map.addOverlay(ply)
       // 调整视野
       map.setViewport(ply.getPath())
     }
     // 初始化地图，设置中心点坐标和地图级别
-    // new BMap.Point('深圳�?, 11)
+    // new BMap.Point('深圳市', 11)
     // eslint-disable-next-line no-undef
     map.centerAndZoom(new window.BMap.Point(114.064524, 22.549225), 11)
   })
@@ -297,7 +297,7 @@ const initVisualizingContentLeftTop = () => {
       trigger: 'axis',
     },
     xAxis: {
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?],
+      data: ['1月', '2月', '3月', '4月', '5月', '6月'],
       axisLine: {
         lineStyle: {
           color: 'rgba(22, 207, 208, 0.1)',
@@ -379,7 +379,7 @@ const initVisualizingContentLeftBottom = () => {
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?],
+      data: ['1月', '2月', '3月', '4月', '5月'],
       axisLine: {
         lineStyle: {
           color: 'rgba(22, 207, 208, 0.1)',
@@ -400,7 +400,7 @@ const initVisualizingContentLeftBottom = () => {
     yAxis: [
       {
         type: 'value',
-        name: '销�?,
+        name: '销量',
         axisLabel: {
           color: '#16cfd0',
         },
@@ -596,8 +596,8 @@ const initVisualizingContentCenterTop = () => {
             },
           },
           data: [
-            { name: '年最�?, value: min, xAxis: 0, yAxis: 100 },
-            { name: '年最�?, value: max, xAxis: 9, yAxis: 1000 },
+            { name: '年最低', value: min, xAxis: 0, yAxis: 100 },
+            { name: '年最高', value: max, xAxis: 9, yAxis: 1000 },
           ],
         },
         data: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000],
@@ -643,7 +643,7 @@ const initVisualizingContentCenterBottom = () => {
     },
     series: [
       {
-        name: '已完�?,
+        name: '已完成',
         type: 'bar',
         stack: 'total',
         label: {
@@ -667,7 +667,7 @@ const initVisualizingContentCenterBottom = () => {
         },
       },
       {
-        name: '进行�?,
+        name: '进行中',
         type: 'bar',
         stack: 'total',
         label: {
@@ -693,11 +693,11 @@ const initVisualizingContentCenterBottom = () => {
     ],
     dataset: {
       source: [
-        { status: '已签�?, value1: 33, value2: 93 },
+        { status: '已签收', value1: 33, value2: 93 },
         { status: '配送中', value1: 53, value2: 32 },
-        { status: '已出�?, value1: 78, value2: 65 },
-        { status: '采购�?, value1: 12, value2: 35 },
-        { status: '接单�?, value1: 90, value2: 52 },
+        { status: '已出库', value1: 78, value2: 65 },
+        { status: '采购中', value1: 12, value2: 35 },
+        { status: '接单中', value1: 90, value2: 52 },
       ],
     },
   }
@@ -721,7 +721,7 @@ const initVisualizingContentRightTop = () => {
       },
     },
     xAxis: {
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?],
+      data: ['1月', '2月', '3月', '4月', '5月', '6月'],
       axisLine: {
         lineStyle: {
           color: 'rgba(22, 207, 208, 0.5)',
@@ -797,7 +797,7 @@ const initVisualizingContentRightTop = () => {
     ],
     series: [
       {
-        name: '销售水�?,
+        name: '销售水量',
         type: 'line',
         yAxisIndex: 1,
         smooth: true,
@@ -853,7 +853,7 @@ const initVisualizingContentRightBottom = () => {
       trigger: 'axis',
     },
     xAxis: {
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?],
+      data: ['1月', '2月', '3月', '4月', '5月', '6月'],
       axisLine: {
         lineStyle: {
           color: 'rgba(22, 207, 208, 0.1)',
@@ -870,7 +870,7 @@ const initVisualizingContentRightBottom = () => {
     yAxis: [
       {
         type: 'value',
-        name: '人数(�?',
+        name: '人数(万)',
         axisLine: {
           show: true,
           lineStyle: {
@@ -929,7 +929,7 @@ const initEchartsResize = () => {
     }
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(async () => {
   NextLoading.done()
   initTime()
@@ -942,7 +942,7 @@ onMounted(async () => {
   await initVisualizingContentRightBottom()
   await initEchartsResize()
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   window.clearInterval(state.time.fun)
 })

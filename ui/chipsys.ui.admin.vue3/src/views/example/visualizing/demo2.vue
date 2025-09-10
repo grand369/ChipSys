@@ -48,10 +48,10 @@
                 <div class="sky-center">
                   <div class="mb2">
                     <span class="font">多云转晴</span>
-                    <span class="font">东南�?/span>
-                    <span>�?/span>
+                    <span class="font">东南风</span>
+                    <span>良</span>
                   </div>
-                  <div class="sky-tip">温馨提示：多云转晴，南风转北风风�?�?/div>
+                  <div class="sky-tip">温馨提示：多云转晴，南风转北风风力3级</div>
                 </div>
                 <div class="sky-right">
                   <span>25</span>
@@ -77,27 +77,27 @@
         </div>
         <div class="flex-warp-item">
           <div class="flex-warp-item-box">
-            <div class="flex-title">当前设备状�?/div>
+            <div class="flex-title">当前设备状态</div>
             <div class="flex-content flex-content-overflow">
               <div class="d-states">
                 <div class="d-states-item">
                   <SvgIcon name="ele-Odometer" class="i-bg1" />
                   <div class="d-states-flex">
-                    <div class="d-states-item-label">园区设备�?/div>
+                    <div class="d-states-item-label">园区设备数</div>
                     <div class="d-states-item-value">99</div>
                   </div>
                 </div>
                 <div class="d-states-item">
                   <SvgIcon name="ele-FirstAidKit" class="i-bg2" />
                   <div class="d-states-flex">
-                    <div class="d-states-item-label">预警设备�?/div>
+                    <div class="d-states-item-label">预警设备数</div>
                     <div class="d-states-item-value">10</div>
                   </div>
                 </div>
                 <div class="d-states-item">
                   <SvgIcon name="ele-VideoPlay" class="i-bg3" />
                   <div class="d-states-flex">
-                    <div class="d-states-item-label">运行设备�?/div>
+                    <div class="d-states-item-label">运行设备数</div>
                     <div class="d-states-item-value">20</div>
                   </div>
                 </div>
@@ -117,7 +117,7 @@
         </div>
         <div class="flex-warp-item">
           <div class="flex-warp-item-box">
-            <div class="flex-title">�?0天预警总数</div>
+            <div class="flex-title">近30天预警总数</div>
             <div class="flex-content" ref="rightChartData1"></div>
           </div>
         </div>
@@ -164,7 +164,7 @@
         <div class="flex-warp-item">
           <div class="flex-warp-item-box">
             <div class="flex-title">
-              <span>�?天产品追溯扫码统�?/span>
+              <span>近7天产品追溯扫码统计</span>
               <span class="flex-title-small">单位：次</span>
             </div>
             <div class="flex-content" ref="rightChartData3"></div>
@@ -217,7 +217,7 @@
         <div class="flex-warp-item">
           <div class="flex-warp-item-box">
             <div class="flex-title">
-              <span>�?天投入品记录</span>
+              <span>近7天投入品记录</span>
               <span class="flex-title-small">单位：件</span>
             </div>
             <div class="flex-content" ref="rightChartData2"></div>
@@ -259,14 +259,14 @@ const state = reactive<Demo2State>({
   myCharts: [],
 })
 
-// 初始化时�?
+// 初始化时间
 const initTime = () => {
   state.time.txt = formatDate(new Date(), 'YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ')
   state.time.fun = window.setInterval(() => {
     state.time.txt = formatDate(new Date(), 'YYYY-mm-dd HH:MM:SS WWW QQQQ ZZZ')
   }, 1000)
 }
-// �?0天预警总数
+// 近30天预警总数
 const initRightChartData1 = () => {
   const myChart = echarts.init(rightChartData1.value)
   const option = {
@@ -285,7 +285,7 @@ const initRightChartData1 = () => {
         },
         data: [
           { name: '天气预警', value: 100 },
-          { name: '病虫害预�?, value: 50 },
+          { name: '病虫害预警', value: 50 },
           { name: '任务预警', value: 130 },
           { name: '监测设备预警', value: 62 },
         ],
@@ -314,7 +314,7 @@ const initRightChartData4 = () => {
     xAxis: {
       type: 'category',
       boundaryGap: false,
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?],
+      data: ['1月', '2月', '3月', '4月', '5月', '6月'],
       axisLine: {
         lineStyle: {
           color: 'rgba(22, 207, 208, 0.1)',
@@ -386,7 +386,7 @@ const initRightChartData4 = () => {
   myChart.setOption(option)
   state.myCharts.push(myChart)
 }
-// �?天产品追溯扫码统�?
+// 近7天产品追溯扫码统计
 const initRightChartData3 = () => {
   const myChart = echarts.init(rightChartData3.value)
   const option = {
@@ -400,7 +400,7 @@ const initRightChartData3 = () => {
       trigger: 'axis',
     },
     xAxis: {
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?],
+      data: ['1月', '2月', '3月', '4月', '5月', '6月'],
       axisLine: {
         lineStyle: {
           color: 'rgba(22, 207, 208, 0.1)',
@@ -496,7 +496,7 @@ const initRightChartData6 = () => {
           show: false,
         },
         axisLine: {
-          //y�?
+          //y轴
           show: false,
         },
         type: 'category',
@@ -504,7 +504,7 @@ const initRightChartData6 = () => {
           show: false,
         },
         inverse: true,
-        data: ['施肥任务完成�?, '施药任务完成�?, '农事任务完成�?],
+        data: ['施肥任务完成率', '施药任务完成率', '农事任务完成率'],
         axisLabel: {
           color: '#A7D6F4',
           fontSize: 12,
@@ -513,7 +513,7 @@ const initRightChartData6 = () => {
     ],
     series: [
       {
-        name: '标准�?,
+        name: '标准化',
         type: 'bar',
         barWidth: 10, // 柱子宽度
         label: {
@@ -523,7 +523,7 @@ const initRightChartData6 = () => {
           fontSize: 12,
           distance: 15, // 距离
           formatter: '{c}%', // 这里是数据展示的时候显示的数据
-        }, // 柱子上方的数�?
+        }, // 柱子上方的数值
         itemStyle: {
           barBorderRadius: [0, 20, 20, 0], // 圆角（左上、右上、右下、左下）
 
@@ -552,7 +552,7 @@ const initRightChartData6 = () => {
   myChart.setOption(option)
   state.myCharts.push(myChart)
 }
-// �?天投入品记录
+// 近7天投入品记录
 const initRightChartData2 = () => {
   const myChart = echarts.init(rightChartData2.value)
   const option = {
@@ -569,7 +569,7 @@ const initRightChartData2 = () => {
       },
     },
     xAxis: {
-      data: ['1�?, '2�?, '3�?, '4�?, '5�?, '6�?],
+      data: ['1月', '2月', '3月', '4月', '5月', '6月'],
       axisLine: {
         lineStyle: {
           color: 'rgba(22, 207, 208, 0.5)',
@@ -643,7 +643,7 @@ const initRightChartData2 = () => {
     ],
     series: [
       {
-        name: '销售水�?,
+        name: '销售水量',
         type: 'line',
         yAxisIndex: 1,
         smooth: true,
@@ -726,7 +726,7 @@ const init3DEarth = (globeRadius: any) => {
       data: [],
     },
   }
-  // 随机模拟攻击�?
+  // 随机模拟攻击线
   let rodamData: any = function () {
     let longitude = 105.18
     let longitude2 = Math.random() * 360 - 180
@@ -766,7 +766,7 @@ const initEchartsResize = () => {
     initAddEventListener3DEarth()
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(async () => {
   NextLoading.done()
   initTime()
@@ -777,7 +777,7 @@ onMounted(async () => {
   await initRightChartData6()
   await initEchartsResize()
 })
-// 页面卸载�?
+// 页面卸载时
 onUnmounted(() => {
   window.clearInterval(state.time.fun)
 })

@@ -21,7 +21,7 @@
         <el-table-column prop="name" label="模板名称" min-width="120" show-overflow-tooltip />
         <el-table-column prop="code" label="模板编码" min-width="120" show-overflow-tooltip />
         <el-table-column prop="sort" label="排序" width="82" align="center" show-overflow-tooltip />
-        <el-table-column label="状�? width="88" align="center" fixed="right">
+        <el-table-column label="状态" width="88" align="center" fixed="right">
           <template #default="{ row }">
             <el-switch
               v-if="auth('api:admin:print-template:set-enable')"
@@ -160,7 +160,7 @@ const onDesign = (row: PrintTemplateGetPageOutput) => {
 
 const onDelete = (row: PrintTemplateGetPageOutput) => {
   proxy.$modal
-    .confirmDelete(`确定要删除打印模板�?{row.name}�?`)
+    .confirmDelete(`确定要删除打印模板【${row.name}】?`)
     .then(async () => {
       await new PrintTemplateApi().delete({ id: row.id }, { loading: true })
       onQuery()
@@ -168,11 +168,11 @@ const onDelete = (row: PrintTemplateGetPageOutput) => {
     .catch(() => {})
 }
 
-//启用或禁�?
+//启用或禁用
 const onSetEnable = (row: PrintTemplateGetPageOutput & { loading: boolean }) => {
   return new Promise((resolve, reject) => {
     proxy.$modal
-      .confirm(`确定�?{row.enabled ? '禁用' : '启用'}�?{row.name}�?`)
+      .confirm(`确定要${row.enabled ? '禁用' : '启用'}【${row.name}】?`)
       .then(async () => {
         row.loading = true
         const res = await new PrintTemplateApi()

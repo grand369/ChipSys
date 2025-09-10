@@ -1,6 +1,6 @@
 <template>
   <div class="awesome-container layout-pd">
-    <el-card shadow="hover" :header="`fontawesome 字体图标(自动载入)�?{state.sheetsIconList.length - 24}个`">
+    <el-card shadow="hover" :header="`fontawesome 字体图标(自动载入)：${state.sheetsIconList.length - 24}个`">
       <el-row class="iconfont-row">
         <el-col :xs="12" :sm="8" :md="6" :lg="4" :xl="2" v-for="(v, k) in state.sheetsIconList" :key="k">
           <div class="iconfont-warp">
@@ -26,11 +26,11 @@ const state = reactive({
   sheetsIconList: [],
 })
 
-// 初始化获�?css 样式，这里使用fontawesome的图�?记得加上前缀 `fa`)，其它第三方请自行做判断
+// 初始化获取 css 样式，这里使用fontawesome的图标(记得加上前缀 `fa`)，其它第三方请自行做判断
 const initGetStyleSheets = () => {
   initIconfont.awe().then((res: any) => (state.sheetsIconList = res))
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initGetStyleSheets()
 })

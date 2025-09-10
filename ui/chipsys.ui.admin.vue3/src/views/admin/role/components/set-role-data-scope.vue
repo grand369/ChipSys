@@ -32,8 +32,8 @@
     </el-form>
     <template #footer>
       <span class="dialog-footer">
-        <el-button @click="onCancel">�?�?/el-button>
-        <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+        <el-button @click="onCancel">取 消</el-button>
+        <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
       </span>
     </template>
   </el-dialog>
@@ -55,7 +55,7 @@ const props = defineProps({
 })
 
 const innerTitle = computed(() => {
-  return props.title ? props.title : state.roleName ? `设置�?{state.roleName}】数据权限` : '设置数据权限'
+  return props.title ? props.title : state.roleName ? `设置【${state.roleName}】数据权限` : '设置数据权限'
 })
 
 const state = reactive({
@@ -70,7 +70,7 @@ const state = reactive({
   dataScopeList: [
     { label: '全部', value: 1 },
     { label: '本部门和下级部门', value: 2 },
-    { label: '本部�?, value: 3 },
+    { label: '本部门', value: 3 },
     { label: '本人数据', value: 4 },
     { label: '指定部门', value: 5 },
   ],
@@ -78,7 +78,7 @@ const state = reactive({
 
 const { form } = toRefs(state)
 
-// 打开对话�?
+// 打开对话框
 const open = async (role: RoleGetListOutput) => {
   state.roleId = role.id
   state.roleName = role.name
@@ -95,7 +95,7 @@ const open = async (role: RoleGetListOutput) => {
   }
 }
 
-// 关闭对话�?
+// 关闭对话框
 const close = () => {
   state.showDialog = false
 }

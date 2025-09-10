@@ -4,7 +4,7 @@ interface JwtPayload {
 
 /**
  * jwt token解密
- * @param {String} token jwt token字符�?
+ * @param {String} token jwt token字符串
  */
 export function parseJwtToken(token: string): JwtPayload | null {
   const base64Url = token?.split('.')[1]
@@ -22,8 +22,8 @@ export function parseJwtToken(token: string): JwtPayload | null {
 }
 
 /**
- * 获得文件后缀�?
- * @param {String} filename 文件�?
+ * 获得文件后缀名
+ * @param {String} filename 文件名
  */
 export const getFileExtension = (filename: string): string => {
   const index = filename.lastIndexOf('.')

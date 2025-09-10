@@ -1,8 +1,8 @@
 <template>
   <div class="splitpanes-container layout-pd">
-    <el-card shadow="hover" header="splitpanes 窗格拆分�?>
+    <el-card shadow="hover" header="splitpanes 窗格拆分器">
       <el-alert
-        title="感谢优秀�?`splitpanes`，项目地址：https://github.com/antoniandre/splitpanes"
+        title="感谢优秀的 `splitpanes`，项目地址：https://github.com/antoniandre/splitpanes"
         type="success"
         :closable="false"
         class="mb15"

@@ -6,8 +6,6 @@
 </template>
 
 <script setup lang="ts" name="layoutTransverse">
-import { useRoute } from 'vue-router'
-import { storeToRefs } from 'pinia'
 import { useThemeConfig } from '/@/stores/themeConfig'
 
 // 引入组件
@@ -33,18 +31,18 @@ const initScrollBarHeight = () => {
     }, 500)
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initScrollBarHeight()
 })
-// 监听路由的变化，切换界面时，滚动条置�?
+// 监听路由的变化，切换界面时，滚动条置顶
 watch(
   () => route.path,
   () => {
     initScrollBarHeight()
   }
 )
-// 监听 themeConfig 配置文件的变化，更新菜单 el-scrollbar 的高�?
+// 监听 themeConfig 配置文件的变化，更新菜单 el-scrollbar 的高度
 watch(
   () => themeConfig.value.isTagsview,
   () => {

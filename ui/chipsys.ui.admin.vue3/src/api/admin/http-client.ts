@@ -35,7 +35,7 @@ export interface FullRequestParams extends Omit<AxiosRequestConfig, 'data' | 'pa
   showSuccessMessage?: boolean
   /** 登录访问 */
   login?: boolean
-  /** 加载�?*/
+  /** 加载中 */
   loading?: boolean
   /** 加载中选项 */
   loadingOptions?: LoadingOptions
@@ -135,45 +135,45 @@ export class HttpClient<SecurityDataType = unknown> {
     if (!error) {
       return
     }
-    if (axios.isCancel(error)) return console.error('请求重复已被自动取消�? + error.message)
+    if (axios.isCancel(error)) return console.error('请求重复已被自动取消：' + error.message)
     let message = ''
     if (error.response) {
       switch (error.response.status) {
         case 302:
-          message = '接口重定�?
+          message = '接口重定向'
           break
         case 400:
-          message = '参数不正�?
+          message = '参数不正确'
           break
         case 401:
           message = '您还没有登录'
           break
         case 403:
-          message = '您没有权限操�?
+          message = '您没有权限操作'
           break
         case 404:
-          message = '请求地址出错�? + error.response.config.url
+          message = '请求地址出错：' + error.response.config.url
           break
         case 408:
           message = '请求超时'
           break
         case 409:
-          message = '系统已存在相同数�?
+          message = '系统已存在相同数据'
           break
         case 429:
           message = '访问过于频繁'
           break
         case 500:
-          message = '服务器内部错�?
+          message = '服务器内部错误'
           break
         case 501:
-          message = '服务未实�?
+          message = '服务未实现'
           break
         case 502:
           message = '网关错误'
           break
         case 503:
-          message = '服务不可�?
+          message = '服务不可用'
           break
         case 504:
           message = '服务暂时无法访问，请稍后再试'
@@ -182,12 +182,12 @@ export class HttpClient<SecurityDataType = unknown> {
           message = 'HTTP版本不受支持'
           break
         default:
-          message = '异常问题，请联系网站管理�?
+          message = '异常问题，请联系网站管理员'
           break
       }
     }
     if (error.message.includes('timeout')) message = '请求超时'
-    if (error.message.includes('Network')) message = window.navigator.onLine ? '服务端异�? : '您已断网'
+    if (error.message.includes('Network')) message = window.navigator.onLine ? '服务端异常' : '您已断网'
 
     if (message) {
       ElMessage.error({ message, grouping: true })
@@ -258,7 +258,7 @@ export class HttpClient<SecurityDataType = unknown> {
   }
 
   /**
-   * 储存每个请求的唯一cancel回调, 以此为标�?
+   * 储存每个请求的唯一cancel回调, 以此为标识
    */
   protected addPending(config: AxiosRequestConfig) {
     const pendingKey = this.getPendingKey(config)
@@ -272,7 +272,7 @@ export class HttpClient<SecurityDataType = unknown> {
   }
 
   /**
-   * 删除重复的请�?
+   * 删除重复的请求
    */
   protected removePending(config: AxiosRequestConfig) {
     const pendingKey = this.getPendingKey(config)
@@ -295,7 +295,7 @@ export class HttpClient<SecurityDataType = unknown> {
   }
 
   /**
-   * 关闭Loading层实�?
+   * 关闭Loading层实例
    */
   protected closeLoading(loading: boolean = false) {
     if (loading && loadingInstance.count > 0) loadingInstance.count--
@@ -353,11 +353,11 @@ export class HttpClient<SecurityDataType = unknown> {
         const tokenInfo = storesUseUserInfo.getTokenInfo()
 
         if (tokenInfo && tokenInfo.accessToken) {
-          // 判断 accessToken 是否快失�?
+          // 判断 accessToken 是否快失效
           const now = new Date().getTime()
           const expiresAt = new Date(tokenInfo.accessTokenExpiresAt).getTime()
           const maxThreshold = tokenInfo.accessTokenLifeTime * 0.5
-          // 确保阈值不超过 5 分钟且不超过 accessTokenLifeTime 的一�?
+          // 确保阈值不超过 5 分钟且不超过 accessTokenLifeTime 的一半
           const threshold = Math.min(5 * 60 * 1000, maxThreshold)
           if (expiresAt - now < threshold) {
             //加锁
@@ -385,7 +385,7 @@ export class HttpClient<SecurityDataType = unknown> {
                 window.tokenRefreshing = false
               }
             } else {
-              // 如果正在刷新，则将当前请求加入等待队�?
+              // 如果正在刷新，则将当前请求加入等待队列
               if (config.url !== '/api/admin/auth/refresh') {
                 window.requests = window.requests ? window.requests : []
                 return new Promise((resolve) => {

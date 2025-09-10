@@ -18,7 +18,7 @@
       </div>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item command="zh-cn" :disabled="state.disabledI18n === 'zh-cn'">简体中�?/el-dropdown-item>
+          <el-dropdown-item command="zh-cn" :disabled="state.disabledI18n === 'zh-cn'">简体中文</el-dropdown-item>
           <el-dropdown-item command="en" :disabled="state.disabledI18n === 'en'">English</el-dropdown-item>
           <el-dropdown-item command="zh-tw" :disabled="state.disabledI18n === 'zh-tw'">繁體中文</el-dropdown-item>
         </el-dropdown-menu>
@@ -56,9 +56,9 @@
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item command="/platform/workbench">{{ $t('工作�?) }}</el-dropdown-item>
+          <el-dropdown-item command="/platform/workbench">{{ $t('工作台') }}</el-dropdown-item>
           <el-dropdown-item command="/personal">{{ $t('message.user.dropdown2') }}</el-dropdown-item>
-          <el-dropdown-item command="/site-msg">{{ $t('站内�?) }}</el-dropdown-item>
+          <el-dropdown-item command="/site-msg">{{ $t('站内信') }}</el-dropdown-item>
           <el-dropdown-item divided command="logOut">{{ $t('message.user.dropdown5') }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
@@ -69,12 +69,9 @@
 </template>
 
 <script setup lang="ts" name="layoutBreadcrumbUser">
-import { defineAsyncComponent, ref, computed, reactive, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
 import { ElMessageBox, ElMessage } from 'element-plus'
 import screenfull from 'screenfull'
 import { useI18n } from 'vue-i18n'
-import { storeToRefs } from 'pinia'
 import { useUserInfo } from '/@/stores/userInfo'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import other from '/@/utils/other'
@@ -94,8 +91,8 @@ const storesUseUserInfo = useUserInfo()
 const storesThemeConfig = useThemeConfig()
 const { userInfos } = storeToRefs(storesUseUserInfo)
 const { themeConfig } = storeToRefs(storesThemeConfig)
-const searchRef = ref()
-const msgRef = ref()
+const searchRef = useTemplateRef('searchRef')
+const msgRef = useTemplateRef('msgRef')
 const wsClient = ref<WebSocketClient | null>(null)
 
 const state = <any>reactive({
@@ -119,10 +116,10 @@ const layoutUserFlexNum = computed(() => {
   else num = ''
   return num
 })
-// 全屏点击�?
+// 全屏点击时
 const onScreenfullClick = () => {
   if (!screenfull.isEnabled) {
-    ElMessage.warning('暂不不支持全�?)
+    ElMessage.warning('暂不不支持全屏')
     return false
   }
   screenfull.toggle()
@@ -131,15 +128,15 @@ const onScreenfullClick = () => {
     else state.isScreenfull = false
   })
 }
-// 消息通知点击�?
+// 消息通知点击时
 const onMsgClick = () => {
-  msgRef.value.openDrawer()
+  msgRef.value!.openDrawer()
 }
-// 布局配置 icon 点击�?
+// 布局配置 icon 点击时
 const onLayoutSetingClick = () => {
   mittBus.emit('openSetingsDrawer')
 }
-// 下拉菜单点击�?
+// 下拉菜单点击时
 const onHandleCommandClick = (path: string) => {
   if (path === 'logOut') {
     ElMessageBox({
@@ -171,14 +168,14 @@ const onHandleCommandClick = (path: string) => {
       })
       .catch(() => {})
   } else if (path === 'wareHouse') {
-    window.open('https://gitee.com/chipsys/admin.ui.plus')
+    window.open('https://gitee.com/zhontai/admin.ui.plus')
   } else {
     router.push(path)
   }
 }
 // 菜单搜索点击
 const onSearchClick = () => {
-  searchRef.value.openSearch()
+  searchRef.value!.openSearch()
 }
 // 组件大小改变
 const onComponentSizeChange = (size: string) => {
@@ -197,7 +194,7 @@ const onLanguageChange = (lang: string) => {
   other.useTitle()
   initI18nOrSize('globalI18n', 'disabledI18n')
 }
-// 初始化组件大�?i18n
+// 初始化组件大小/i18n
 const initI18nOrSize = (value: string, attr: string) => {
   state[attr] = Local.get('themeConfig')[value]
 }
@@ -223,7 +220,7 @@ const initWebSocket = () => {
     },
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   if (Local.get('themeConfig')) {
     initI18nOrSize('globalComponentSize', 'disabledSize')

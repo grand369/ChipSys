@@ -28,7 +28,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-form-item label="名称" prop="name" :rules="[{ required: true, message: '请输入名�?, trigger: ['blur', 'change'] }]">
+            <el-form-item label="名称" prop="name" :rules="[{ required: true, message: '请输入名称', trigger: ['blur', 'change'] }]">
               <el-input v-model="form.name" autocomplete="off" />
             </el-form-item>
           </el-col>
@@ -38,7 +38,7 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
-            <el-form-item label="字典�? prop="value">
+            <el-form-item label="字典值" prop="value">
               <el-input v-model="form.value" autocomplete="off" />
             </el-form-item>
           </el-col>
@@ -65,8 +65,8 @@
             <el-checkbox v-if="!(state.form?.id > 0)" v-model="state.contiAdd">连续新增</el-checkbox>
           </div>
           <div>
-            <el-button @click="onCancel">�?�?/el-button>
-            <el-button type="primary" @click="onSure" :loading="state.sureLoading">�?�?/el-button>
+            <el-button @click="onCancel">取 消</el-button>
+            <el-button type="primary" @click="onSure" :loading="state.sureLoading">确 定</el-button>
           </div>
         </span>
       </template>
@@ -111,7 +111,7 @@ const query = async (dictTypeId: number) => {
   }
 }
 
-// 打开对话�?
+// 打开对话框
 const open = async (row: any = {}, dictType: DictTypeGetListOutput) => {
   proxy.$modal.loading()
   state.isTree = dictType.isTree as boolean

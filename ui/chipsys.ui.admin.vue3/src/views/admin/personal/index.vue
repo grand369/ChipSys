@@ -30,11 +30,11 @@
                 <el-col :span="24">
                   <el-row>
                     <el-col v-if="personalForm.nickName" :xs="24" :sm="8" class="personal-item mb6">
-                      <div class="personal-item-label">昵称�?/div>
+                      <div class="personal-item-label">昵称：</div>
                       <div class="personal-item-value">{{ personalInfo.nickName }}</div>
                     </el-col>
                     <el-col :xs="24" :sm="16" class="personal-item mb6">
-                      <div class="personal-item-label">登录地区�?/div>
+                      <div class="personal-item-label">登录地区：</div>
                       <div class="personal-item-value">
                         {{ personalInfo.lastLoginCountry }} {{ personalInfo.lastLoginProvince }} {{ personalInfo.lastLoginCity }}
                       </div>
@@ -44,11 +44,11 @@
                 <el-col :span="24">
                   <el-row>
                     <el-col :xs="24" :sm="8" class="personal-item mb6">
-                      <div class="personal-item-label">登录IP�?/div>
+                      <div class="personal-item-label">登录IP：</div>
                       <div class="personal-item-value">{{ personalInfo.lastLoginIP }}</div>
                     </el-col>
                     <el-col :xs="24" :sm="16" class="personal-item mb6">
-                      <div class="personal-item-label">登录时间�?/div>
+                      <div class="personal-item-label">登录时间：</div>
                       <div class="personal-item-value">{{ personalInfo.lastLoginTime }}</div>
                     </el-col>
                   </el-row>
@@ -83,18 +83,18 @@
           <el-form ref="formRef" :model="personalForm" label-width="60px" class="mt35 mb35">
             <el-row :gutter="35">
               <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
-                <el-form-item label="姓名" prop="name" :rules="[{ required: true, message: '请输入姓�?, trigger: ['blur', 'change'] }]">
-                  <el-input v-model="personalForm.name" placeholder="请输入姓�? clearable></el-input>
+                <el-form-item label="姓名" prop="name" :rules="[{ required: true, message: '请输入姓名', trigger: ['blur', 'change'] }]">
+                  <el-input v-model="personalForm.name" placeholder="请输入姓名" clearable></el-input>
                 </el-form-item>
               </el-col>
               <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
                 <el-form-item label="昵称">
-                  <el-input v-model="personalForm.nickName" placeholder="请输入昵�? clearable></el-input>
+                  <el-input v-model="personalForm.nickName" placeholder="请输入昵称" clearable></el-input>
                 </el-form-item>
               </el-col>
               <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24">
                 <el-form-item>
-                  <el-popconfirm title="确定要更新个人信息吗�? hide-icon hide-after="0" width="180" @confirm="onUpdateBasic">
+                  <el-popconfirm title="确定要更新个人信息吗？" hide-icon hide-after="0" width="180" @confirm="onUpdateBasic">
                     <template #reference>
                       <el-button :loading="state.updateLoading" type="primary">
                         <el-icon>
@@ -193,7 +193,7 @@ const state = reactive({
 
 const { personalInfo, personalForm } = toRefs(state)
 
-// 当前时间提示�?
+// 当前时间提示语
 const currentTime = computed(() => {
   return formatAxis(new Date())
 })
@@ -217,7 +217,7 @@ onMounted(() => {
   initData()
 })
 
-// 初始化数�?
+// 初始化数据
 const initData = async () => {
   state.loading = true
   const res = await new UserApi().getBasic().catch(() => {

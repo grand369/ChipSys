@@ -13,6 +13,6 @@ export function directive(app: App) {
   authDirective(app)
   // 按钮波浪指令
   wavesDirective(app)
-  // 自定义拖动指�?
+  // 自定义拖动指令
   dragDirective(app)
 }

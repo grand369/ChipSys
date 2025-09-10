@@ -13,7 +13,7 @@
       <el-descriptions class="margin-top" :column="1" border>
         <el-descriptions-item label="操作名称" label-class-name="label">{{ state.details.apiLabel }}</el-descriptions-item>
         <el-descriptions-item label="操作接口" label-class-name="label">{{ state.details.apiPath }}</el-descriptions-item>
-        <el-descriptions-item label="操作状�? label-class-name="label"
+        <el-descriptions-item label="操作状态" label-class-name="label"
           ><el-tag :type="state.details.status ? 'success' : 'danger'" disable-transitions>{{
             state.details.status ? '成功' : '失败'
           }}</el-tag></el-descriptions-item
@@ -24,7 +24,7 @@
         <el-descriptions-item label="IP所在地" label-class-name="label"
           >{{ state.details.country }} {{ state.details.province }} {{ state.details.city }}
         </el-descriptions-item>
-        <el-descriptions-item label="浏览器信�? label-class-name="label"
+        <el-descriptions-item label="浏览器信息" label-class-name="label"
           >{{ state.details.os }} {{ state.details.browser }} {{ state.details.device }}
         </el-descriptions-item>
         <el-descriptions-item label="耗时ms" label-class-name="label">{{ state.details.elapsedMilliseconds }}</el-descriptions-item>
@@ -76,7 +76,7 @@ const state = reactive({
   activeName: ['params', 'result'],
 })
 
-// 打开对话�?
+// 打开对话框
 const open = (row: OperationLogGetPageOutput) => {
   state.showDialog = true
   state.details = row

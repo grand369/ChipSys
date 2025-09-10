@@ -7,7 +7,6 @@
 </template>
 
 <script lang="ts" setup name="my-layout-split-panes">
-import { reactive, onBeforeMount, computed } from 'vue'
 import mittBus from '/@/utils/mitt'
 import MyLayout from './index.vue'
 
@@ -19,9 +18,9 @@ const layout = computed(() => {
   return state.isMobile ? 'vertical' : 'horizontal'
 })
 
-// 页面加载�?
+// 页面加载前
 onBeforeMount(() => {
-  // 监听窗口大小改变�?适配移动�?
+  // 监听窗口大小改变时(适配移动端)
   mittBus.on('layoutMobileResize', (res: LayoutMobileResize) => {
     // 判断是否是手机端
     state.isMobile = res.clientWidth < 1000

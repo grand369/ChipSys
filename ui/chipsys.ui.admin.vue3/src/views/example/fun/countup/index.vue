@@ -2,7 +2,7 @@
   <div class="layout-pd">
     <el-card shadow="hover" header="数字滚动演示">
       <el-alert
-        title="感谢优秀�?`countup.js`，项目地址：https://github.com/inorganik/countUp.js"
+        title="感谢优秀的 `countup.js`，项目地址：https://github.com/inorganik/countUp.js"
         type="success"
         :closable="false"
         class="mb15"
@@ -27,7 +27,7 @@
               <el-icon>
                 <ele-RefreshRight />
               </el-icon>
-              重置/刷新数�?
+              重置/刷新数值
             </el-button>
           </div>
         </div>
@@ -56,14 +56,14 @@ const state = reactive({
     {
       title: '实验室总数',
       titleNum: '123',
-      tip: '使用�?,
+      tip: '使用中',
       tipNum: '611',
       color: '--el-color-success',
       iconColor: '#70cf41',
       icon: 'iconfont icon-AIshiyanshi',
     },
     {
-      title: '申请人数（月�?,
+      title: '申请人数（月）',
       titleNum: '123',
       tip: '通过人数',
       tipNum: '911',
@@ -72,7 +72,7 @@ const state = reactive({
       icon: 'iconfont icon-shenqingkaiban',
     },
     {
-      title: '销售情�?,
+      title: '销售情况',
       titleNum: '123',
       tip: '销售数',
       tipNum: '911',
@@ -83,7 +83,7 @@ const state = reactive({
   ],
 })
 
-// 初始化数字滚�?
+// 初始化数字滚动
 const initNumCountUp = () => {
   nextTick(() => {
     topCardItemRefs.value.forEach((v: HTMLDivElement) => {
@@ -92,11 +92,11 @@ const initNumCountUp = () => {
     })
   })
 }
-// 重置/刷新数�?
+// 重置/刷新数值
 const refreshCurrent = () => {
   initNumCountUp()
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initNumCountUp()
 })

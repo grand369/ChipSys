@@ -28,10 +28,7 @@
 </template>
 
 <script setup lang="ts" name="layoutBreadcrumbSearch">
-import { reactive, ref, nextTick } from 'vue'
-import { useRouter } from 'vue-router'
 import { useI18n } from 'vue-i18n'
-import { storeToRefs } from 'pinia'
 import { useTagsViewRoutes } from '/@/stores/tagsViewRoutes'
 
 // 定义变量内容
@@ -76,14 +73,14 @@ const createFilter = (queryString: string) => {
     )
   }
 }
-// 初始化菜单数�?
+// 初始化菜单数据
 const initTageView = () => {
   if (state.tagsViewList.length > 0) return false
   tagsViewRoutes.value.map((v: RouteItem) => {
     if (!v.meta?.isHide) state.tagsViewList.push({ ...v })
   })
 }
-// 当前菜单选中�?
+// 当前菜单选中时
 const onHandleSelect = (item: RouteItem) => {
   let { path, redirect } = item
   if (item.meta?.isLink && !item.meta?.isIframe) window.open(item.meta?.isLink)

@@ -28,7 +28,7 @@ const initQrcode = () => {
     })
   })
 }
-// 页面加载�?
+// 页面加载时
 onMounted(() => {
   initQrcode()
 })
