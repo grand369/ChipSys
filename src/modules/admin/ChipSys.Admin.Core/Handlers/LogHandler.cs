@@ -1,0 +1,178 @@
+using System.Diagnostics;
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using Microsoft.Extensions.Logging;
+using ChipSys.Admin.Core.Exceptions;
+using ChipSys.Common.Helpers;
+using ChipSys.Admin.Core.Dto;
+using ChipSys.Admin.Core.Helpers;
+using DotNetCore.CAP;
+using ChipSys.Admin.Core.Consts;
+using ChipSys.Admin.Services.Api.Dto;
+using Microsoft.AspNetCore.Http;
+using IP2Region.Net.Abstractions;
+using LocationInfo = ChipSys.Admin.Core.Records.LocationInfo;
+using Microsoft.Extensions.Options;
+using ChipSys.Admin.Core.Configs;
+using ChipSys.Admin.Core.Auth;
+using ChipSys.Admin.Core.GrpcServices;
+using Mapster;
+using ChipSys.Admin.Core.GrpcServices.Dtos;
+
+namespace ChipSys.Admin.Core.Handlers;
+
+/// <summary>
+/// ������־����
+/// </summary>
+public class LogHandler : ILogHandler
+{
+    private readonly ICapPublisher _capPublisher;
+    private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly ILogger _logger;
+    private readonly IOptions<AppConfig> _appConfig;
+    private readonly IOprationLogGrpcService _oprationLogGrpcService;
+    private readonly IUser _user;
+    private readonly ApiHelper _apiHelper;
+
+    public LogHandler(
+        ICapPublisher capPublisher,
+        IHttpContextAccessor httpContextAccessor,
+        ILogger<LogHandler> logger,
+        IOptions<AppConfig> appConfig,
+        IOprationLogGrpcService oprationLogGrpcService,
+        IUser user,
+        ApiHelper apiHelper
+    )
+    {
+        _capPublisher = capPublisher;
+        _httpContextAccessor = httpContextAccessor;
+        _logger = logger;
+        _appConfig = appConfig;
+        _oprationLogGrpcService = oprationLogGrpcService;
+        _user = user;
+        _apiHelper = apiHelper;
+    }
+
+    /// <summary>
+    /// ���IP��ַ
+    /// </summary>
+    /// <param name="ip"></param>
+    /// <returns></returns>
+    private LocationInfo GetIpLocationInfo(string ip)
+    {
+        var locationInfo = new LocationInfo();
+        if (_appConfig.Value.IP2Region.Enable)
+        {
+            if (IPHelper.IsIP(ip))
+            {
+                var region = AppInfo.GetRequiredService<ISearcher>().Search(ip);
+                locationInfo = LocationInfo.Parse(region);
+            }
+        }
+
+        return locationInfo;
+    }
+
+    public async Task LogAsync(ActionExecutingContext context, ActionExecutionDelegate next)
+    {
+        var stopwatch = Stopwatch.StartNew();
+        var actionExecutedContext = await next();
+        stopwatch.Stop();
+
+        try
+        {
+            var input = new OperationLogAddInput
+            {
+                Status = true,
+                ApiMethod = context.HttpContext.Request.Method.ToLower(),
+                ApiPath = context.ActionDescriptor.AttributeRouteInfo.Template.ToLower(),
+                ElapsedMilliseconds = stopwatch.ElapsedMilliseconds,
+                StatusCode = context.HttpContext.Response.StatusCode
+            };
+
+            var api = (await _apiHelper.GetApiListAsync()).FirstOrDefault(a => a.Path == input.ApiPath);
+            //������־����
+            if ((api != null && api.EnabledLog))
+            {
+                var excepton = actionExecutedContext.Exception;
+
+                //��������
+                if ((api != null && api.EnabledParams && context.ActionArguments.Count > 0) || excepton != null)
+                {
+                    input.Params = JsonHelper.Serialize(context.ActionArguments);
+                }
+
+                //�������?
+                if (api != null && api.EnabledResult && actionExecutedContext.Result != null && actionExecutedContext.Result is JsonResult result)
+                {
+                    input.Result = JsonHelper.Serialize(result.Value);
+                }
+
+                if (excepton != null)
+                {
+                    input.Status = false;
+
+                    var code = "";
+                    if (excepton is AppException appException)
+                    {
+                        input.StatusCode = appException.StatusCode;
+                        code = appException.AppCode;
+                    }
+                    else
+                    {
+                        input.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    }
+
+                    input.Result = JsonHelper.Serialize(new ResultOutput<string>()
+                    {
+                        Code = code
+                    }.NotOk(excepton.Message));
+                }
+
+                input.ApiLabel = api?.Label;
+
+                if (input.IP.IsNull())
+                {
+                    input.IP = IPHelper.GetIP(_httpContextAccessor?.HttpContext?.Request);
+                    var locationInfo = GetIpLocationInfo(input.IP);
+                    input.Country = locationInfo?.Country;
+                    input.Province = locationInfo?.Province;
+                    input.City = locationInfo?.City;
+                    input.Isp = locationInfo?.Isp;
+                }
+
+                string ua = _httpContextAccessor?.HttpContext?.Request?.Headers?.UserAgent;
+                if (ua.NotNull())
+                {
+                    var client = UAParser.Parser.GetDefault().Parse(ua);
+                    var device = client.Device.Family;
+                    device = device.ToLower() == "other" ? "" : device;
+                    input.Browser = client.UA.Family;
+                    input.Os = client.OS.Family;
+                    input.Device = device;
+                    input.BrowserInfo = ua;
+                }
+
+                input.Name = _user.Name;
+                input.CreatedUserId = _user.Id;
+                input.CreatedUserName = _user.UserName;
+                input.CreatedUserRealName = _user.Name;
+                input.TenantId = _user.TenantId;
+
+                if(_appConfig.Value.Log.Method == LogMethod.Cap)
+                {
+                    await _capPublisher.PublishAsync(SubscribeNames.OperationLogAdd, input);
+                }
+                else
+                {
+                    await _oprationLogGrpcService.AddAsync(input.Adapt<OperationLogAddGrpcInput>());
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("������־�����쳣��{@ex}", ex);
+        }
+    }
+}

@@ -1,0 +1,2412 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ChipSys.Admin</name>
+    </assembly>
+    <members>
+        <member name="M:ChipSys.Admin.Core.Captcha.ISlideCaptcha.Validate(System.String,ChipSys.Plugin.Lazy.SlideCaptcha.Core.Validator.SlideTrack,System.Boolean)">
+            <summary>
+            校验
+            </summary>
+            <param name="captchaId">验证码id</param>
+            <param name="slideTrack">滑动轨迹</param>
+            <param name="removeIfSuccess">校验成功时是否移除缓存(用于多次验证)</param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Core.Extensions.FreeSqlExtensions">
+            <summary>
+            FreeSql扩展
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Extensions.FreeSqlExtensions.UseLogDb(IFreeSql,ChipSys.Admin.Core.Configs.DbConfig)">
+            <summary>
+            使用日志数据库
+            </summary>
+            <param name="that"></param>
+            <param name="dbConfig"></param>
+        </member>
+        <member name="T:ChipSys.Admin.Core.Extensions.SlideCaptchaServiceExtensions">
+            <summary>
+            滑块验证码服务扩展
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Extensions.SlideCaptchaServiceExtensions.AddSlideCaptcha(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            添加任务调度
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="T:ChipSys.Admin.Core.Extensions.TaskSchedulerServiceExtensions">
+            <summary>
+            任务调度服务扩展
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Extensions.TaskSchedulerServiceExtensions.AddTaskScheduler(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{ChipSys.Admin.Tools.TaskScheduler.TaskSchedulerOptions})">
+            <summary>
+            添加任务调度
+            </summary>
+            <param name="services"></param>
+            <param name="configureOptions"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Extensions.TaskSchedulerServiceExtensions.ExecuteGrpc(FreeScheduler.TaskInfo,System.String)">
+            <summary>
+            执行Grpc远程调用
+            </summary>
+            <param name="task"></param>
+            <param name="grpcAddress"></param>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Extensions.TaskSchedulerServiceExtensions.FailedRetry(ChipSys.Admin.Services.TaskScheduler.Dto.TaskGetOutput,FreeScheduler.TaskInfo,FreeScheduler.TaskLog,System.Action{FreeScheduler.TaskInfo})">
+            <summary>
+            失败重试
+            </summary>
+            <param name="taskInfo"></param>
+            <param name="task"></param>
+            <param name="taskLog"></param>
+            <param name="onExecuting"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Extensions.TaskSchedulerServiceExtensions.SendAlarmEmail(ChipSys.Admin.Services.TaskScheduler.Dto.TaskGetOutput,FreeScheduler.TaskInfo,FreeScheduler.TaskLog)">
+            <summary>
+            发送告警邮件
+            </summary>
+            <param name="taskInfo"></param>
+            <param name="task"></param>
+            <param name="taskLog"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Extensions.TaskSchedulerServiceExtensions.AddTaskScheduler(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String,System.Action{ChipSys.Admin.Tools.TaskScheduler.TaskSchedulerOptions})">
+            <summary>
+            添加任务调度
+            </summary>
+            <param name="services"></param>
+            <param name="dbKey"></param>
+            <param name="configureOptions"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Handlers.IApiDocumentHandler.SyncAsync">
+            <summary>
+            同步API文档数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.AdminRepositoryBase`1">
+            <summary>
+            权限库基础仓储
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.CustomGenerateData">
+            <summary>
+            生成数据
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.CustomSyncData">
+            <summary>
+            同步数据
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.CustomSyncData.UserRoleRecord">
+            <summary>
+            用户角色记录
+            </summary>
+            <param name="UserId"></param>
+            <param name="RoleId"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.UserRoleRecord.#ctor(System.Int64,System.Int64)">
+            <summary>
+            用户角色记录
+            </summary>
+            <param name="UserId"></param>
+            <param name="RoleId"></param>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.UserRoleRecord.UserId">
+            <summary></summary>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.UserRoleRecord.RoleId">
+            <summary></summary>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.InitUserRoleAsync(IFreeSql,FreeSql.IRepositoryUnitOfWork,ChipSys.Admin.Core.Configs.DbConfig)">
+            <summary>
+            初始化用户角色
+            </summary>
+            <param name="db"></param>
+            <param name="unitOfWork"></param>
+            <param name="dbConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.CustomSyncData.UserOrgRecord">
+            <summary>
+            用户部门记录
+            </summary>
+            <param name="UserId"></param>
+            <param name="OrgId"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.UserOrgRecord.#ctor(System.Int64,System.Int64)">
+            <summary>
+            用户部门记录
+            </summary>
+            <param name="UserId"></param>
+            <param name="OrgId"></param>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.UserOrgRecord.UserId">
+            <summary></summary>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.UserOrgRecord.OrgId">
+            <summary></summary>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.InitUserOrgAsync(IFreeSql,FreeSql.IRepositoryUnitOfWork,ChipSys.Admin.Core.Configs.DbConfig)">
+            <summary>
+            初始化用户部门
+            </summary>
+            <param name="db"></param>
+            <param name="unitOfWork"></param>
+            <param name="dbConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.CustomSyncData.RolePermissionRecord">
+            <summary>
+            角色权限记录
+            </summary>
+            <param name="RoleId"></param>
+            <param name="PermissionId"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.RolePermissionRecord.#ctor(System.Int64,System.Int64)">
+            <summary>
+            角色权限记录
+            </summary>
+            <param name="RoleId"></param>
+            <param name="PermissionId"></param>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.RolePermissionRecord.RoleId">
+            <summary></summary>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.RolePermissionRecord.PermissionId">
+            <summary></summary>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.InitRolePermissionAsync(IFreeSql,FreeSql.IRepositoryUnitOfWork,ChipSys.Admin.Core.Configs.DbConfig)">
+            <summary>
+            初始化角色权限
+            </summary>
+            <param name="db"></param>
+            <param name="unitOfWork"></param>
+            <param name="dbConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.CustomSyncData.TenantPermissionRecord">
+            <summary>
+            租户权限记录
+            </summary>
+            <param name="TenantId"></param>
+            <param name="PermissionId"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.TenantPermissionRecord.#ctor(System.Int64,System.Int64)">
+            <summary>
+            租户权限记录
+            </summary>
+            <param name="TenantId"></param>
+            <param name="PermissionId"></param>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.TenantPermissionRecord.TenantId">
+            <summary></summary>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.TenantPermissionRecord.PermissionId">
+            <summary></summary>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.CustomSyncData.PermissionApiRecord">
+            <summary>
+            权限接口记录
+            </summary>
+            <param name="PermissionId"></param>
+            <param name="ApiId"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.PermissionApiRecord.#ctor(System.Int64,System.Int64)">
+            <summary>
+            权限接口记录
+            </summary>
+            <param name="PermissionId"></param>
+            <param name="ApiId"></param>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.PermissionApiRecord.PermissionId">
+            <summary></summary>
+        </member>
+        <member name="P:ChipSys.Admin.Repositories.CustomSyncData.PermissionApiRecord.ApiId">
+            <summary></summary>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.InitPermissionApiAsync(IFreeSql,FreeSql.IRepositoryUnitOfWork,ChipSys.Admin.Core.Configs.DbConfig)">
+            <summary>
+            初始化权限接口
+            </summary>
+            <param name="db"></param>
+            <param name="unitOfWork"></param>
+            <param name="dbConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.CustomSyncData.SyncDataAsync(IFreeSql,ChipSys.Admin.Core.Configs.DbConfig,ChipSys.Admin.Core.Configs.AppConfig)">
+            <summary>
+            同步数据
+            </summary>
+            <param name="db"></param>
+            <param name="dbConfig"></param>
+            <param name="appConfig"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Repositories.LogRepositoryBase`1">
+            <summary>
+            日志库基础仓储
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.OrgRepository.GetChildIdListAsync(System.Int64)">
+            <summary>
+            获得本部门和下级部门Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.PkgRepository.GetChildIdListAsync(System.Int64)">
+            <summary>
+            获得本角色和下级角色Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.PkgRepository.GetChildIdListAsync(System.Int64[])">
+            <summary>
+            获得当前角色和下级角色Id
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.RoleRepository.GetChildIdListAsync(System.Int64)">
+            <summary>
+            获得本角色和下级角色Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.RoleRepository.GetChildIdListAsync(System.Int64[])">
+            <summary>
+            获得当前角色和下级角色Id
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.UserOrgRepository.HasUser(System.Int64)">
+            <summary>
+            本部门下是否有员工
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Repositories.UserOrgRepository.HasUser(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            部门列表下是否有员工
+            </summary>
+            <param name="idList"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Resources.AdminLocalizer">
+            <summary>
+            Admin国际化
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Api.ApiService">
+            <summary>
+            接口服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.GetListAsync(System.String)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Api.Dto.ApiGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.AddAsync(ChipSys.Admin.Services.Api.Dto.ApiAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.UpdateAsync(ChipSys.Admin.Services.Api.Dto.ApiUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.SetEnableLogAsync(ChipSys.Admin.Services.Api.Dto.ApiSetEnableLogInput)">
+            <summary>
+            设置启用接口日志
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.SetEnableParamsAsync(ChipSys.Admin.Services.Api.Dto.ApiSetEnableParamsInput)">
+            <summary>
+            设置启用请求参数
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.SetEnableResultAsync(ChipSys.Admin.Services.Api.Dto.ApiSetEnableResultInput)">
+            <summary>
+            设置启用响应结果
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.SyncAsync(ChipSys.Admin.Services.Api.Dto.ApiSyncInput)">
+            <summary>
+            同步
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Api.ApiService.GetProjects(System.String)">
+            <summary>
+            获得项目列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Auth.AuthService">
+            <summary>
+            ��֤��Ȩ����
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.AddLoginLogAsync(ChipSys.Admin.Services.LoginLog.Dto.LoginLogAddInput)">
+            <summary>
+            ���ӵ�¼��־
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetLoginLogAddInput(ChipSys.Admin.Services.Auth.Dto.AuthLoginOutput,ChipSys.Admin.Core.Records.LocationInfo,ChipSys.Admin.Domain.User.UserEntity,System.Diagnostics.Stopwatch)">
+            <summary>
+            ��õ�¼��־������Ϣ
+            </summary>
+            <param name="authLoginOutput"></param>
+            <param name="locationInfo"></param>
+            <param name="user"></param>
+            <param name="stopwatch"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetIpLocationInfo(System.String)">
+            <summary>
+            ���IP��ַ
+            </summary>
+            <param name="ip"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.UpdateLastLoginInfoAsync(System.Int64,System.String,ChipSys.Admin.Core.Records.LocationInfo)">
+            <summary>
+            ��������¼��Ϣ
+            </summary>
+            <param name="userId"></param>
+            <param name="ip"></param>
+            <param name="locationInfo"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetToken(ChipSys.Admin.Services.Auth.Dto.AuthLoginOutput)">
+            <summary>
+            ���token
+            </summary>
+            <param name="user">�û���Ϣ</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetTokenInfo(ChipSys.Admin.Services.Auth.Dto.AuthLoginOutput)">
+            <summary>
+            ���������Ϣ
+            </summary>
+            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetPasswordEncryptKeyAsync">
+            <summary>
+            ��ѯ��Կ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetUserProfileAsync">
+            <summary>
+            ��ѯ�û�������Ϣ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetUserMenusAsync(System.String)">
+            <summary>
+            ��ѯ�û��˵��б�
+            </summary>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetUserPermissionsAsync(System.String)">
+            <summary>
+            ��ѯ�û�Ȩ���б�
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetUserInfoAsync">
+            <summary>
+            ��ѯ�û���Ϣ
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.LoginAsync(ChipSys.Admin.Services.Auth.Dto.AuthLoginInput)">
+            <summary>
+            ��¼
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.MobileLoginAsync(ChipSys.Admin.Services.Auth.Dto.AuthMobileLoginInput)">
+            <summary>
+            �ֻ���¼
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.EmailLoginAsync(ChipSys.Admin.Services.Auth.Dto.AuthEmailLoginInput)">
+            <summary>
+            �����¼
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.ChangePasswordByEmailAsync(ChipSys.Admin.Services.Auth.Dto.AuthChangePasswordByEmailInput)">
+            <summary>
+            �����������
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.ChangePasswordByMobileAsync(ChipSys.Admin.Services.Auth.Dto.AuthChangePasswordByMobileInput)">
+            <summary>
+            �ֻ���������
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.RegByEmailAsync(ChipSys.Admin.Services.Auth.Dto.AuthRegByEmailInput)">
+            <summary>
+            ����ע��
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.RegByMobileAsync(ChipSys.Admin.Services.Auth.Dto.AuthRegByMobileInput)">
+            <summary>
+            �ֻ���ע��
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.Refresh(System.String)">
+            <summary>
+            ˢ��Token
+            �Ծɻ���
+            </summary>
+            <param name="token"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Auth.AuthService.IsCaptcha">
+            <summary>
+            �Ƿ�����֤��
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Cache.CacheService">
+            <summary>
+            缓存服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Cache.CacheService.GetList">
+            <summary>
+            查询列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Cache.CacheService.ClearAsync(System.String)">
+            <summary>
+            清除缓存
+            </summary>
+            <param name="cacheKey">缓存键</param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Cache.CaptchaService">
+            <summary>
+            ��֤�����
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Cache.CaptchaService.Generate(System.String)">
+            <summary>
+            ����
+            </summary>
+            <param name="captchaId">��֤��id</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Cache.CaptchaService.CheckAsync(System.String,ChipSys.Plugin.Lazy.SlideCaptcha.Core.Validator.SlideTrack)">
+            <summary>
+            ��֤
+            </summary>
+            <param name="captchaId">��֤��Id</param>
+            <param name="track">�����켣</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Cache.CaptchaService.SendSmsCodeAsync(ChipSys.Admin.Services.Captcha.Dto.SendSmsCodeInput)">
+            <summary>
+            ���Ͷ�����֤��
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Cache.CaptchaService.SendEmailCodeAsync(ChipSys.Admin.Services.Captcha.Dto.SendEmailCodeInput)">
+            <summary>
+            �����ʼ���֤��
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.DictType.DictTypeService">
+            <summary>
+            数据字典类型服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.DictType.Dto.DictTypeGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.GetListAsync(ChipSys.Admin.Services.DictType.Dto.DictTypeGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.AddAsync(ChipSys.Admin.Services.DictType.Dto.DictTypeAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.UpdateAsync(ChipSys.Admin.Services.DictType.Dto.DictTypeUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.DictType.DictTypeService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Dict.DictService">
+            <summary>
+            数据字典服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Domain.Dict.Dto.DictGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.GetAllAsync(ChipSys.Admin.Domain.Dict.Dto.DictGetAllInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.GetListAsync(System.String[])">
+            <summary>
+            通过类型编码查询列表
+            </summary>
+            <param name="codes">字典类型编码列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.GetListByNamesAsync(System.String[])">
+            <summary>
+            通过类型名称查询列表
+            </summary>
+            <param name="names">字典类型名称列表</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.AddAsync(ChipSys.Admin.Services.Dict.Dto.DictAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.UpdateAsync(ChipSys.Admin.Services.Dict.Dto.DictUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.DownloadTemplateAsync">
+            <summary>
+            下载导入模板
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.DownloadErrorMarkAsync(System.String,System.String)">
+            <summary>
+            下载错误标记文件
+            </summary>
+            <param name="fileId"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.ExportDataAsync(ChipSys.Admin.Core.Dto.ExportInput)">
+            <summary>
+            导出数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Dict.DictService.ImportDataAsync(Microsoft.AspNetCore.Http.IFormFile,System.Int32,System.String)">
+            <summary>
+            导入数据
+            </summary>
+            <param name="file"></param>
+            <param name="duplicateAction"></param>
+            <param name="fileId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Doc.DocService">
+            <summary>
+            文档服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.GetGroupAsync(System.Int64)">
+            <summary>
+            查询分组
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.GetMenuAsync(System.Int64)">
+            <summary>
+            查询菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.GetContentAsync(System.Int64)">
+            <summary>
+            查询文档内容
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.GetListAsync(System.String,System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            查询文档列表
+            </summary>
+            <param name="key"></param>
+            <param name="start"></param>
+            <param name="end"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.GetImageListAsync(System.Int64)">
+            <summary>
+            查询图片列表
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.AddGroupAsync(ChipSys.Admin.Services.Doc.Dto.DocAddGroupInput)">
+            <summary>
+            新增分组
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.AddMenuAsync(ChipSys.Admin.Services.Doc.Dto.DocAddMenuInput)">
+            <summary>
+            新增菜单
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.AddImageAsync(ChipSys.Admin.Services.Doc.Dto.DocAddImageInput)">
+            <summary>
+            新增图片
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.UpdateGroupAsync(ChipSys.Admin.Services.Doc.Dto.DocUpdateGroupInput)">
+            <summary>
+            修改分组
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.UpdateMenuAsync(ChipSys.Admin.Services.Doc.Dto.DocUpdateMenuInput)">
+            <summary>
+            修改菜单
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.UpdateContentAsync(ChipSys.Admin.Services.Doc.Dto.DocUpdateContentInput)">
+            <summary>
+            修改文档内容
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除文档
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.DeleteImageAsync(System.Int64,System.String)">
+            <summary>
+            彻底删除图片
+            </summary>
+            <param name="documentId"></param>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除文档
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.GetPlainListAsync">
+            <summary>
+            查询精简文档列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Doc.DocService.UploadImage(ChipSys.Admin.Services.Doc.Dto.DocUploadImageInput)">
+            <summary>
+            上传文档图片
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Email.EmailService.SingleSendAsync(ChipSys.Admin.Services.Email.Events.EmailSingleSendEvent)">
+            <summary>
+            邮件单发
+            </summary>
+            <param name="event"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Email.EmailService.SendCodeAsync(ChipSys.Admin.Services.Email.Events.EmailSendCodeEvent)">
+            <summary>
+            发送邮箱验证码
+            </summary>
+            <param name="event"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.FileService">
+            <summary>
+            文件服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.FileService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Domain.Dto.FileGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.FileService.DeleteAsync(ChipSys.Admin.Services.Dto.FileDeleteInput)">
+            <summary>
+            删除
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.FileService.UploadFileAsync(Microsoft.AspNetCore.Http.IFormFile,System.String,System.Boolean)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="file">文件</param>
+            <param name="fileDirectory">文件目录</param>
+            <param name="fileReName">文件重命名</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.FileService.UploadFilesAsync(Microsoft.AspNetCore.Http.IFormFileCollection,System.String,System.Boolean)">
+            <summary>
+            上传多文件
+            </summary>
+            <param name="files">文件列表</param>
+            <param name="fileDirectory">文件目录</param>
+            <param name="fileReName">文件重命名</param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.LoginLog.LoginLogService">
+            <summary>
+            登录日志服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.LoginLog.LoginLogService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.LoginLog.Dto.LoginLogGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.LoginLog.LoginLogService.AddAsync(ChipSys.Admin.Services.LoginLog.Dto.LoginLogAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.MsgType.MsgTypeService">
+            <summary>
+            消息分类服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.GetChildIdListAsync(System.Int64)">
+            <summary>
+            获得本级和下级Id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.GetChildIdListAsync(System.Int64[])">
+            <summary>
+            获得本级和下级Id
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.GetListAsync(ChipSys.Admin.Services.MsgType.Dto.MsgTypeGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.AddAsync(ChipSys.Admin.Services.MsgType.Dto.MsgTypeAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.UpdateAsync(ChipSys.Admin.Services.MsgType.Dto.MsgTypeUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.MsgType.MsgTypeService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Msg.MsgService">
+            <summary>
+            消息服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Msg.Dto.MsgGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.GetMsgUserListAsync(ChipSys.Admin.Services.Msg.Dto.MsgGetMsgUserListInput)">
+            <summary>
+            查询消息用户列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.AddMsgUserAsync(ChipSys.Admin.Services.Msg.Dto.MsgAddMsgUserListInput)">
+            <summary>
+            添加消息用户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.RemoveMsgUserAsync(ChipSys.Admin.Services.Msg.Dto.MsgAddMsgUserListInput)">
+            <summary>
+            移除消息用户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.AddAsync(ChipSys.Admin.Services.Msg.Dto.MsgAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.UpdateAsync(ChipSys.Admin.Services.Msg.Dto.MsgUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Msg.MsgService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.OperationLog.OperationLogService">
+            <summary>
+            操作日志服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.OperationLog.OperationLogService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.OperationLog.Dto.OperationLogGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.OperationLog.OperationLogService.AddAsync(ChipSys.Admin.Services.Api.Dto.OperationLogAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Org.OrgService">
+            <summary>
+            部门服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Org.OrgService.ClearCacheAsync">
+            <summary>
+            清除缓存
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Org.OrgService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Org.OrgService.GetListAsync(System.String)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Org.OrgService.GetSimpleListWithPathAsync">
+            <summary>
+            获取部门路径列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Org.OrgService.AddAsync(ChipSys.Admin.Services.Org.Input.OrgAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Org.OrgService.UpdateAsync(ChipSys.Admin.Services.Org.Input.OrgUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Org.OrgService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Org.OrgService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Permission.PermissionService">
+            <summary>
+            权限服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.ClearUserPermissionsAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            清除权限下关联的用户权限缓存
+            </summary>
+            <param name="permissionIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.GetGroupAsync(System.Int64)">
+            <summary>
+            查询分组
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.GetMenuAsync(System.Int64)">
+            <summary>
+            查询菜单
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.GetDotAsync(System.Int64)">
+            <summary>
+            查询权限点
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.GetListAsync(ChipSys.Admin.Services.Permission.Dto.PermissionGetListInput)">
+            <summary>
+            查询权限列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.GetPermissionListAsync(System.String)">
+            <summary>
+            查询授权权限列表
+            </summary>
+            <param name="platform"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.GetRolePermissionListAsync(System.Int64)">
+            <summary>
+            查询角色权限列表
+            </summary>
+            <param name="roleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.AddGroupAsync(ChipSys.Admin.Services.Permission.Dto.PermissionAddGroupInput)">
+            <summary>
+            新增分组
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.AddMenuAsync(ChipSys.Admin.Services.Permission.Dto.PermissionAddMenuInput)">
+            <summary>
+            新增菜单
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.AddDotAsync(ChipSys.Admin.Services.Permission.Dto.PermissionAddDotInput)">
+            <summary>
+            新增权限点
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.UpdateGroupAsync(ChipSys.Admin.Services.Permission.Dto.PermissionUpdateGroupInput)">
+            <summary>
+            修改分组
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.UpdateMenuAsync(ChipSys.Admin.Services.Permission.Dto.PermissionUpdateMenuInput)">
+            <summary>
+            修改菜单
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.UpdateDotAsync(ChipSys.Admin.Services.Permission.Dto.PermissionUpdateDotInput)">
+            <summary>
+            修改权限点
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Permission.PermissionService.AssignAsync(ChipSys.Admin.Services.Permission.Dto.PermissionAssignInput)">
+            <summary>
+            保存角色权限
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Admin.Permission.MapConfig">
+            <summary>
+            映射配置
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Pkg.PkgService">
+            <summary>
+            套餐服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.ClearUserPermissionsAsync(System.Collections.Generic.List{System.Int64})">
+            <summary>
+            清除租户下所有用户权限缓存
+            </summary>
+            <param name="tenantIds"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.GetListAsync(ChipSys.Admin.Services.Pkg.Dto.PkgGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Pkg.Dto.PkgGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.GetPkgTenantListAsync(ChipSys.Admin.Services.Pkg.Dto.PkgGetPkgTenantListInput)">
+            <summary>
+            查询套餐租户列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.GetPkgTenantPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Pkg.Dto.PkgGetPkgTenantListInput})">
+            <summary>
+            查询套餐租户分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.GetPkgPermissionListAsync(System.Int64)">
+            <summary>
+            查询套餐权限列表
+            </summary>
+            <param name="pkgId">套餐编号</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.SetPkgPermissionsAsync(ChipSys.Admin.Services.Pkg.Dto.PkgSetPkgPermissionsInput)">
+            <summary>
+            设置套餐权限
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.AddPkgTenantAsync(ChipSys.Admin.Services.Pkg.Dto.PkgAddPkgTenantListInput)">
+            <summary>
+            添加套餐租户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.RemovePkgTenantAsync(ChipSys.Admin.Services.Pkg.Dto.PkgAddPkgTenantListInput)">
+            <summary>
+            移除套餐租户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.AddAsync(ChipSys.Admin.Services.Pkg.Dto.PkgAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.UpdateAsync(ChipSys.Admin.Services.Pkg.Dto.PkgUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Pkg.PkgService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Pkg.MapConfig">
+            <summary>
+            映射配置
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService">
+            <summary>
+            打印模板服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.GetUpdateTemplateAsync(System.Int64)">
+            <summary>
+            查询修改模板
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.PrintTemplate.Inputs.PrintTemplateGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.AddAsync(ChipSys.Admin.Services.PrintTemplate.Inputs.PrintTemplateAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.UpdateAsync(ChipSys.Admin.Services.PrintTemplate.Inputs.PrintTemplateUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.UpdateTemplateAsync(ChipSys.Admin.Services.PrintTemplate.Inputs.PrintTemplateUpdateTemplateInput)">
+            <summary>
+            修改模板
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.SetEnableAsync(ChipSys.Admin.Services.PrintTemplate.Inputs.PrintTemplateSetEnableInput)">
+            <summary>
+            设置启用
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ProductCategory.CategoryService">
+            <summary>
+            产品分类服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.GetListAsync(ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.AddAsync(ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.UpdateAsync(ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Product.ProductService">
+            <summary>
+            产品服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Product.Dto.ProductGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.GetListAsync(ChipSys.Admin.Services.Product.Dto.ProductGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.AddAsync(ChipSys.Admin.Services.Product.Dto.ProductAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.UpdateAsync(ChipSys.Admin.Services.Product.Dto.ProductUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Product.ProductService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Region.RegionService">
+            <summary>
+            地区服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.GetChildListAsync(ChipSys.Admin.Services.Region.RegionGetListInput)">
+            <summary>
+            查询下级列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Region.RegionGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.AddAsync(ChipSys.Admin.Services.Region.RegionAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.UpdateAsync(ChipSys.Admin.Services.Region.RegionUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.SetEnableAsync(ChipSys.Admin.Services.Region.RegionSetEnableInput)">
+            <summary>
+            设置启用
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.SetHotAsync(ChipSys.Admin.Services.Region.RegionSetHotInput)">
+            <summary>
+            设置热门
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.GetProvinceList(System.String)">
+            <summary>
+            获得省份列表
+            </summary>
+            <param name="html"></param>
+            <returns></returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Region.RegionService.SyncDataAsync(ChipSys.Admin.Domain.Region.RegionLevel)">
+            <summary>
+            同步数据
+            </summary>
+            <param name="regionLevel">地区级别</param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Role.RoleService">
+            <summary>
+            角色服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.AddRoleOrgAsync(System.Int64,System.Int64[])">
+            <summary>
+            添加角色部门
+            </summary>
+            <param name="roleId"></param>
+            <param name="orgIds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.GetListAsync(ChipSys.Admin.Services.Role.Dto.RoleGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Role.Dto.RoleGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.GetRoleUserListAsync(ChipSys.Admin.Services.Role.Dto.RoleGetRoleUserListInput)">
+            <summary>
+            查询角色用户列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.AddRoleUserAsync(ChipSys.Admin.Services.Role.Dto.RoleAddRoleUserListInput)">
+            <summary>
+            添加角色用户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.RemoveRoleUserAsync(ChipSys.Admin.Services.Role.Dto.RoleAddRoleUserListInput)">
+            <summary>
+            移除角色用户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.AddAsync(ChipSys.Admin.Services.Role.Dto.RoleAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.UpdateAsync(ChipSys.Admin.Services.Role.Dto.RoleUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Role.RoleService.SetDataScopeAsync(ChipSys.Admin.Services.Role.Dto.RoleSetDataScopeInput)">
+            <summary>
+            设置数据权限
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Role.MapConfig">
+            <summary>
+            映射配置
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Services.SearchTemplate.SearchTemplateService">
+            <summary>
+            查询模板服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SearchTemplate.SearchTemplateService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SearchTemplate.SearchTemplateService.GetListAsync(System.Int64)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="moduleId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SearchTemplate.SearchTemplateService.SaveAsync(ChipSys.Admin.Services.SearchTemplate.Inputs.SearchTemplateSaveInput)">
+            <summary>
+            保存
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SearchTemplate.SearchTemplateService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.SiteMsg.SiteMsgService">
+            <summary>
+            站内信服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SiteMsg.SiteMsgService.GetContentAsync(System.Int64)">
+            <summary>
+            获得内容
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SiteMsg.SiteMsgService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.SiteMsg.Dto.SiteMsgGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SiteMsg.SiteMsgService.IsUnreadAsync">
+            <summary>
+            是否未读
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SiteMsg.SiteMsgService.SetAllReadAsync">
+            <summary>
+            全部标为已读
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SiteMsg.SiteMsgService.SetReadAsync(System.Int64)">
+            <summary>
+            标为已读
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SiteMsg.SiteMsgService.BatchSetReadAsync(System.Int64[])">
+            <summary>
+            批量标为已读
+            </summary>
+            <param name="idList"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SiteMsg.SiteMsgService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.SiteMsg.SiteMsgService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.TaskScheduler.TaskLogService">
+            <summary>
+            任务日志服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskLogService.GetPage(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Domain.Task.Dto.TaskLogGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskLogService.Add(FreeScheduler.TaskLog)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.TaskScheduler.TaskService">
+            <summary>
+            任务服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.GetAlerEmailAsync(System.String)">
+            <summary>
+            查询报警邮件
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.GetAsync(System.String)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.GetPage(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Domain.Task.Dto.TaskGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.Add(ChipSys.Admin.Services.TaskScheduler.Dto.TaskAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.UpdateAsync(ChipSys.Admin.Services.TaskScheduler.Dto.TaskUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.Pause(System.String)">
+            <summary>
+            暂停任务
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.Resume(System.String)">
+            <summary>
+            启动任务
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.Run(System.String)">
+            <summary>
+            执行任务
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.Delete(System.String)">
+            <summary>
+            删除任务
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.BatchRun(System.String[])">
+            <summary>
+            批量执行任务
+            </summary>
+            <param name="ids"></param>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.BatchPause(System.String[])">
+            <summary>
+            批量暂停任务
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.BatchResume(System.String[])">
+            <summary>
+            批量启动任务
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.TaskScheduler.TaskService.BatchDelete(System.String[])">
+            <summary>
+            批量删除任务
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Tenant.TenantService">
+            <summary>
+            租户服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Tenant.Dto.TenantGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.AddAsync(ChipSys.Admin.Services.Tenant.Dto.TenantAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.RegAsync(ChipSys.Admin.Services.Tenant.Dto.TenantRegInput)">
+            <summary>
+            注册
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.UpdateAsync(ChipSys.Admin.Services.Tenant.Dto.TenantUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.SetEnableAsync(ChipSys.Admin.Services.Tenant.Dto.TenantSetEnableInput)">
+            <summary>
+            设置启用
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Tenant.TenantService.OneClickLoginAsync(System.Int64)">
+            <summary>
+            一键登录
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Tenant.MapConfig">
+            <summary>
+            映射配置
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Services.User.UserService">
+            <summary>
+            用户服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.GetAsync(System.Int64)">
+            <summary>
+            查询用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.User.Dto.UserGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.GetDeletedPageAsync(ChipSys.Admin.Core.Dto.PageInput)">
+            <summary>
+            查询已删除分页列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.GetLoginUserAsync(System.Int64)">
+            <summary>
+            查询登录用户信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.GetDataPermissionAsync(System.String)">
+            <summary>
+            获得数据权限
+            </summary>
+            <param name="apiPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.GetBasicAsync">
+            <summary>
+            查询用户基本信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.GetPermissionAsync">
+            <summary>
+            查询用户权限信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.AddAsync(ChipSys.Admin.Services.User.Dto.UserAddInput)">
+            <summary>
+            新增用户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.UpdateAsync(ChipSys.Admin.Services.User.Dto.UserUpdateInput)">
+            <summary>
+            修改用户
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.AddMemberAsync(ChipSys.Admin.Services.User.Dto.UserAddMemberInput)">
+            <summary>
+            新增会员
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.UpdateMemberAsync(ChipSys.Admin.Services.User.Dto.UserUpdateMemberInput)">
+            <summary>
+            修改会员
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.UpdateBasicAsync(ChipSys.Admin.Services.User.Dto.UserUpdateBasicInput)">
+            <summary>
+            更新用户基本信息
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.ChangePasswordAsync(ChipSys.Admin.Services.User.Dto.UserChangePasswordInput)">
+            <summary>
+            修改用户密码
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.ResetPasswordAsync(ChipSys.Admin.Services.User.Dto.UserResetPasswordInput)">
+            <summary>
+            重置密码
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.SetManagerAsync(ChipSys.Admin.Services.User.Dto.UserSetManagerInput)">
+            <summary>
+            设置主管
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.SetEnableAsync(ChipSys.Admin.Services.User.Dto.UserSetEnableInput)">
+            <summary>
+            设置启用
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.RestoreAsync(ChipSys.Admin.Services.User.Dto.UserRestoreInput)">
+            <summary>
+            恢复
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.BatchSetOrgAsync(ChipSys.Admin.Services.User.Dto.UserBatchSetOrgInput)">
+            <summary>
+            批量设置部门
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除用户
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除用户
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除用户
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.AvatarUpload(Microsoft.AspNetCore.Http.IFormFile,System.Boolean)">
+            <summary>
+            上传头像
+            </summary>
+            <param name="file"></param>
+            <param name="autoUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.OneClickLoginAsync(System.String)">
+            <summary>
+            一键登录用户
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.User.UserService.ForceOfflineAsync(System.Int64)">
+            <summary>
+            强制用户下线
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.View.ViewService">
+            <summary>
+            视图服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.GetListAsync(ChipSys.Admin.Services.View.Dto.ViewGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.AddAsync(ChipSys.Admin.Services.View.Dto.ViewAddInput)">
+            <summary>
+            新增
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.UpdateAsync(ChipSys.Admin.Services.View.Dto.ViewUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.View.ViewService.SyncAsync(ChipSys.Admin.Services.View.Dto.ViewSyncInput)">
+            <summary>
+            同步
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.WebSocketService">
+            <summary>
+            WebSocket
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.WebSocketService.PreConnect(ChipSys.Admin.Services.WebSocket.Dto.WebSocketPreConnectInput)">
+            <summary>
+            获取websocket分区
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.WebSocketService.IsUseIm">
+            <summary>
+            是否使用im
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,8 @@
+namespace ChipSys.Admin.Services.DictType.Dto;
+
+/// <summary>
+/// ◊÷µ‰¿‡–Õ
+/// </summary>
+public class DictTypeGetOutput : DictTypeUpdateInput
+{
+}

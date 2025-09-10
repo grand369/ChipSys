@@ -1,0 +1,10 @@
+{
+  "请重新导入数据，再下载错误标记文�?: "Please re-import the data and then download the error mark file",
+  "错误标记文件{0}.xlsx": "Error mark file {0}.xlsx",
+  "数据列表{0}.xlsx": "Data list {0}.xlsx",
+  "错误信息�?: "Error message:",
+  "缺少数据列：": "Missing data column:",
+  "数据填写有误�?: "Data is filled in incorrectly:",
+  "第{0}�?- {1}：{2}": "Line {0} - {1}: {2}",
+  "密码为字�?数字+可选特殊字符，长度�?-16之间": "The password is a combination of letters + numbers + optional special characters, with a length between 6-16"
+}

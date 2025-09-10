@@ -1,0 +1,116 @@
+{
+	"easycom": {
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/tabbar/home/home",
+			"style": {
+				"navigationBarTitleText": "首页",
+				"navigationStyle": "custom", // 隐藏系统导航�?
+				"navigationBarTextStyle": "black" // 状态栏字体为白色，只能�?white-白色，black-黑色 二选一
+			}
+		},
+		{
+			"path": "pages/tabbar/my/my",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle": "custom", // 隐藏系统导航�?
+				"navigationBarTextStyle": "black" // 状态栏字体为白色，只能�?white-白色，black-黑色 二选一
+			}
+		},
+	    {
+            "path" : "pages/about/about",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "关于中台",
+                "enablePullDownRefresh": false
+            }
+        },
+		{
+		    "path" : "pages/about/version",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "功能介绍",
+		        "enablePullDownRefresh": false
+		    }
+		},
+		{
+		    "path" : "pages/about/version-function",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "功能介绍",
+		        "enablePullDownRefresh": false
+		    }
+		},
+		{
+		    "path" : "pages/account/login",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "登录",
+		        "enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"navigationBarTextStyle": "black"
+		    }
+		},
+		{
+		    "path" : "pages/account/account",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "账号管理"
+		    }
+		}
+		,{
+			"path" : "pages/account/change-password",
+			"style" :                                                                                    
+			{
+				"navigationBarTitleText": "修改密码",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom",
+				"navigationBarTextStyle": "black"
+			}
+		}
+        ,{
+            "path" : "pages/external-link/external-link",
+            "style" :                                                                                    
+            {
+				"navigationBarTitleText": ""
+            }
+        }
+        ,{
+            "path" : "pages/setting/setting",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "设置",
+                "enablePullDownRefresh": false
+            }
+        }
+        ,{
+            "path" : "pages/result/result",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "提交结果",
+                "enablePullDownRefresh": false,
+                "navigationStyle": "custom",
+                "navigationBarTextStyle": "black"
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "中台",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"tabBar": {
+		"list": [
+			{
+				"pagePath": "pages/tabbar/home/home"
+			},
+			{
+				"pagePath": "pages/tabbar/my/my"
+			}
+		]
+	}
+}

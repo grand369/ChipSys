@@ -1,0 +1,12 @@
+{
+  "ImConfig": {
+    //启用
+    "Enable": false,
+    //im服务器集群地址
+    "Servers": [ "127.0.0.1:17010" ],
+    //ws业务端地址
+    "Server": "ws://127.0.0.1:17010",
+    //Redis连接字符�?
+    "RedisConnectionString": "127.0.0.1:6379,password=,defaultDatabase=6"
+  }
+}

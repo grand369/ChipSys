@@ -1,0 +1,30 @@
+using ChipSys.Admin.Core.Dto;
+using ChipSys.Admin.Core.Exceptions;
+using ChipSys.Common.Helpers;
+
+namespace ChipSys.Admin.Core.Handlers;
+
+/// <summary>
+/// œÏ”¶¥¶¿Ì∆˜
+/// </summary>
+public class ResponseDelegatingHandler : DelegatingHandler
+{
+    protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+    {
+        var response = await base.SendAsync(request, cancellationToken);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var content = await response.Content.ReadAsStringAsync(cancellationToken);
+            var res = JsonHelper.Deserialize<ResultOutput<object>>(content);
+            if (!res.Success && res.Msg.NotNull())
+            {
+                throw new AppException(res.Msg);
+            }
+
+            response.Content = new StringContent(JsonHelper.Serialize(res.Data));
+        }
+
+        return response;
+    }
+}

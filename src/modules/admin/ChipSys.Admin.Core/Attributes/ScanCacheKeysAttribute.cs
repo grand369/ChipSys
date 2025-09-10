@@ -1,0 +1,9 @@
+namespace ChipSys.Admin.Core.Attributes;
+
+/// <summary>
+/// …®√Ëª∫¥ÊKeyÃÿ–‘
+/// </summary>
+[AttributeUsage(AttributeTargets.Class)]
+public class ScanCacheKeysAttribute : Attribute
+{
+}
