@@ -412,19 +412,19 @@
         </member>
         <member name="T:ChipSys.Admin.Services.Auth.AuthService">
             <summary>
-            ��֤��Ȩ����
+            认证授权服务
             </summary>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.AddLoginLogAsync(ChipSys.Admin.Services.LoginLog.Dto.LoginLogAddInput)">
             <summary>
-            ���ӵ�¼��־
+            添加登录日志
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetLoginLogAddInput(ChipSys.Admin.Services.Auth.Dto.AuthLoginOutput,ChipSys.Admin.Core.Records.LocationInfo,ChipSys.Admin.Domain.User.UserEntity,System.Diagnostics.Stopwatch)">
             <summary>
-            ��õ�¼��־������Ϣ
+            获得登录日志请求信息
             </summary>
             <param name="authLoginOutput"></param>
             <param name="locationInfo"></param>
@@ -434,14 +434,14 @@
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetIpLocationInfo(System.String)">
             <summary>
-            ���IP��ַ
+            获得IP地址
             </summary>
             <param name="ip"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.UpdateLastLoginInfoAsync(System.Int64,System.String,ChipSys.Admin.Core.Records.LocationInfo)">
             <summary>
-            ��������¼��Ϣ
+            更新最后登录信息
             </summary>
             <param name="userId"></param>
             <param name="ip"></param>
@@ -450,109 +450,109 @@
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetToken(ChipSys.Admin.Services.Auth.Dto.AuthLoginOutput)">
             <summary>
-            ���token
+            获得token
             </summary>
-            <param name="user">�û���Ϣ</param>
+            <param name="user">用户信息</param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetTokenInfo(ChipSys.Admin.Services.Auth.Dto.AuthLoginOutput)">
             <summary>
-            ���������Ϣ
+            获得令牌信息
             </summary>
             <param name="user"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetPasswordEncryptKeyAsync">
             <summary>
-            ��ѯ��Կ
+            查询密钥
             </summary>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetUserProfileAsync">
             <summary>
-            ��ѯ�û�������Ϣ
+            查询用户个人信息
             </summary>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetUserMenusAsync(System.String)">
             <summary>
-            ��ѯ�û��˵��б�
+            查询用户菜单列表
             </summary>
             <param name="platform"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetUserPermissionsAsync(System.String)">
             <summary>
-            ��ѯ�û�Ȩ���б�
+            查询用户权限列表
             </summary>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.GetUserInfoAsync">
             <summary>
-            ��ѯ�û���Ϣ
+            查询用户信息
             </summary>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.LoginAsync(ChipSys.Admin.Services.Auth.Dto.AuthLoginInput)">
             <summary>
-            ��¼
+            登录
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.MobileLoginAsync(ChipSys.Admin.Services.Auth.Dto.AuthMobileLoginInput)">
             <summary>
-            �ֻ���¼
+            手机登录
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.EmailLoginAsync(ChipSys.Admin.Services.Auth.Dto.AuthEmailLoginInput)">
             <summary>
-            �����¼
+            邮箱登录
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.ChangePasswordByEmailAsync(ChipSys.Admin.Services.Auth.Dto.AuthChangePasswordByEmailInput)">
             <summary>
-            �����������
+            邮箱更改密码
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.ChangePasswordByMobileAsync(ChipSys.Admin.Services.Auth.Dto.AuthChangePasswordByMobileInput)">
             <summary>
-            �ֻ���������
+            手机更改密码
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.RegByEmailAsync(ChipSys.Admin.Services.Auth.Dto.AuthRegByEmailInput)">
             <summary>
-            ����ע��
+            邮箱注册
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.RegByMobileAsync(ChipSys.Admin.Services.Auth.Dto.AuthRegByMobileInput)">
             <summary>
-            �ֻ���ע��
+            手机号注册
             </summary>
             <param name="input"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.Refresh(System.String)">
             <summary>
-            ˢ��Token
-            �Ծɻ���
+            刷新Token
+            以旧换新
             </summary>
             <param name="token"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Auth.AuthService.IsCaptcha">
             <summary>
-            �Ƿ�����֤��
+            是否开启验证码
             </summary>
             <returns></returns>
         </member>

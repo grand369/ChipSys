@@ -8,7 +8,7 @@ namespace ChipSys.Admin.Core.RegisterModules;
 public class ControllerModule : Module
 {
     /// <summary>
-    /// ¿ØÖÆÆ÷×¢Èë
+    /// æ§åˆ¶å™¨æ³¨å†Œ
     /// </summary>
     public ControllerModule()
     {
@@ -20,7 +20,7 @@ public class ControllerModule : Module
         .Where(a => typeof(ControllerBase).IsAssignableFrom(a) && !a.IsAbstract && !a.IsInterface && a.IsPublic)
         .ToArray();
 
-        // ÅäÖÃËùÓĞ¿ØÖÆÆ÷¾ùÖ§³ÖÊôĞÔ×¢Èë
+        // æ³¨å†Œæ‰€æœ‰æ§åˆ¶å™¨æ”¯æŒå±æ€§æ³¨å…¥
         builder.RegisterTypes(controllerTypes).PropertiesAutowired();
     }
 }

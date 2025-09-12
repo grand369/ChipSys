@@ -22,13 +22,25 @@ public partial class ProductEntity : EntityTenantWithData
     /// </summary>
     [NotGen]
     public CategoryEntity Category { get; set; }
-
+    /// <summary>
+    /// 产品名称
+    /// </summary>
+    [Column(StringLength = 50)]
+    public string Name { get; set; }
+    /// <summary>
+    /// 产品单位
+    /// </summary>
+    [Column(StringLength = 50)]
+    public string Unit { get; set; }
     /// <summary>
     /// 产品编码/型号
     /// </summary>
     [Column(StringLength = 50)]
     public string Code { get; set; }
-
+    /// <summary>
+    /// 状态
+    /// </summary>
+    public int Status { get; set; }
     /// <summary>
     /// 品牌
     /// </summary>
@@ -52,7 +64,11 @@ public partial class ProductEntity : EntityTenantWithData
     /// </summary>
     [Column(StringLength = 200)]
     public string Model { get; set; }
-
+    /// <summary>
+    /// 产品参数
+    /// </summary>
+    [Column(StringLength = 200)]
+    public string? Specification { get; set; }
     /// <summary>
     /// 是否启用
     /// </summary>

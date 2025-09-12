@@ -45,11 +45,11 @@
     //同步数据分批处理大小，默认每次处理500条，过大可能会导致内存溢出
     "syncDataBatchSize": 500,
     //同步数据，只新增数据不修改数据，想要修改数据需开启syncUpdateData
-    "syncData": true,
+    "syncData": false,
     //注意生产环境谨慎开启，确定要修改表数据是最新数据再开启。
     //如不想更新某些表的数据，可以先配置同步数据排除表syncDataExcludeTables，再执行数据更新操作
     //同步更新数据
-    "syncUpdateData": true,
+    "syncUpdateData": false,
     //同步数据地址
     //"SyncDataPath": "InitData/Admin",
     //同步所有表["base_dict_type", "base_dict", "base_user",  "base_user_staff", "base_org", "base_role", "base_api", "base_view", "base_permission", "base_permission_api", "base_user_role", "base_user_org", "base_role_permission", "base_tenant", "base_tenant_permission"]

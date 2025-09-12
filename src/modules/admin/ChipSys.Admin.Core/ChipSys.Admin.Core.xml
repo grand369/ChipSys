@@ -3357,40 +3357,40 @@
         </member>
         <member name="T:ChipSys.Admin.Core.HostApp">
             <summary>
-            ����Ӧ��
+            宿主应用
             </summary>
         </member>
         <member name="M:ChipSys.Admin.Core.HostApp.AddJsonFilesFromDirectory(Microsoft.Extensions.Configuration.ConfigurationManager,System.String,System.String,System.Boolean,System.Boolean)">
             <summary>
-            ���������ļ�
+            添加配置文件
             </summary>
-            <param name="configuration">����</param>
-            <param name="environmentName">������</param>
-            <param name="directory">Ŀ¼</param>
-            <param name="optional">��ѡ</param>
-            <param name="reloadOnChange">�ȸ���</param>
+            <param name="configuration">配置</param>
+            <param name="environmentName">环境名</param>
+            <param name="directory">目录</param>
+            <param name="optional">可选</param>
+            <param name="reloadOnChange">热更新</param>
         </member>
         <member name="M:ChipSys.Admin.Core.HostApp.#ctor">
             <summary>
-            ����Ӧ��
+            宿主应用
             </summary>
         </member>
         <member name="M:ChipSys.Admin.Core.HostApp.#ctor(ChipSys.Admin.Core.Startup.HostAppOptions)">
             <summary>
-            ����Ӧ��
+            宿主应用
             </summary>
             <param name="hostAppOptions"></param>
         </member>
         <member name="M:ChipSys.Admin.Core.HostApp.Run(System.String[],System.Reflection.Assembly)">
             <summary>
-            ����Ӧ��
+            运行应用
             </summary>
             <param name="args"></param>
             <param name="assembly"></param>
         </member>
         <member name="M:ChipSys.Admin.Core.HostApp.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration,ChipSys.Admin.Core.Configs.AppConfig)">
             <summary>
-            ���÷���
+            配置服务
             </summary>
             <param name="services"></param>
             <param name="env"></param>
@@ -3399,7 +3399,7 @@
         </member>
         <member name="M:ChipSys.Admin.Core.HostApp.ConfigureMiddleware(Microsoft.AspNetCore.Builder.WebApplication,Microsoft.AspNetCore.Hosting.IWebHostEnvironment,Microsoft.Extensions.Configuration.IConfiguration,ChipSys.Admin.Core.Configs.AppConfig)">
             <summary>
-            �����м��
+            配置中间件
             </summary>
             <param name="app"></param>
             <param name="env"></param>
@@ -3530,7 +3530,7 @@
         </member>
         <member name="M:ChipSys.Admin.Core.RegisterModules.ControllerModule.#ctor">
             <summary>
-            控制器注入
+            控制器注册
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Core.RegisterModules.IRegisterIOC">

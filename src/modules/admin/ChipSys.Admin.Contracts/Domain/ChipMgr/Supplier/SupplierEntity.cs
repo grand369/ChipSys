@@ -18,7 +18,11 @@ public partial class SupplierEntity : EntityTenantWithData
     /// </summary>
     [Column(StringLength = 100)]
     public string Name { get; set; }
-
+    /// <summary>
+    /// 编码
+    /// </summary>
+    [Column(StringLength = 50)]
+    public string? Code { get; set; }
     /// <summary>
     /// 联系人
     /// </summary>
@@ -47,6 +51,17 @@ public partial class SupplierEntity : EntityTenantWithData
     /// 评分
     /// </summary>
     public int Rating { get; set; }
+    [Column(StringLength = 100)]
+    public string? Website { get; set; }
+    /// <summary>
+    /// 状态
+    /// </summary>
+    public int Status { get; set; }
+    /// <summary>
+    /// 描述
+    /// </summary>
+    [Column(StringLength = 500)]
+    public string? Description { get; set; }
 
     /// <summary>
     /// 联系人列表

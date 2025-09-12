@@ -61,6 +61,18 @@ namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Product
         public string SupplierModel { get; set; }
 
         /// <summary>
+        /// 供应商产品编码
+        /// </summary>
+        [Column(StringLength = 200)]
+        public string SupplierProductCode { get; set; }
+
+        /// <summary>
+        /// 供应商产品名称
+        /// </summary>
+        [Column(StringLength = 200)]
+        public string SupplierProductName { get; set; }
+
+        /// <summary>
         /// 最小起订量
         /// </summary>
         public int MOQ { get; set; }
@@ -74,7 +86,10 @@ namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Product
         /// 库存数量
         /// </summary>
         public int StockQty { get; set; }
-
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public int Status { get; set; }
         /// <summary>
         /// 有效开始
         /// </summary>

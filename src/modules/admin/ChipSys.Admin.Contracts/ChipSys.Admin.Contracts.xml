@@ -106,9 +106,24 @@
             分类
             </summary>
         </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Name">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Unit">
+            <summary>
+            产品单位
+            </summary>
+        </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Code">
             <summary>
             产品编码/型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Status">
+            <summary>
+            状态
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Brand">
@@ -129,6 +144,11 @@
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Model">
             <summary>
             产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Specification">
+            <summary>
+            产品参数
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Enabled">
@@ -186,6 +206,16 @@
             供应商型号
             </summary>
         </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.SupplierProductCode">
+            <summary>
+            供应商产品编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.SupplierProductName">
+            <summary>
+            供应商产品名称
+            </summary>
+        </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.MOQ">
             <summary>
             最小起订量
@@ -199,6 +229,11 @@
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.StockQty">
             <summary>
             库存数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.Status">
+            <summary>
+            状态
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.ValidFrom">
@@ -311,6 +346,11 @@
             名称
             </summary>
         </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Code">
+            <summary>
+            编码
+            </summary>
+        </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.ContactPerson">
             <summary>
             联系人
@@ -334,6 +374,16 @@
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Rating">
             <summary>
             评分
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Description">
+            <summary>
+            描述
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Contacts">

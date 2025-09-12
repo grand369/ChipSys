@@ -8,7 +8,7 @@ name: chipsys
 services:
 - name: chipsys-admin-host
   project: modules/admin/ChipSys.Admin.Host/ChipSys.Admin.Host.csproj
-- name: chipsys-imserver-host
-  project: modules/im/ChipSys.IMServer.Host/ChipSys.IMServer.Host.csproj
+#- name: chipsys-imserver-host
+#  project: modules/im/ChipSys.IMServer.Host/ChipSys.IMServer.Host.csproj
 - name: chipsys-gateway-yarp-host
   project: gateways/ChipSys.Gateway.Yarp.Host/ChipSys.Gateway.Yarp.Host.csproj
