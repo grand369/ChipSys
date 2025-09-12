@@ -15,7 +15,7 @@ namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier
     /// 用户操作清单（关注/询价/采购）
     /// </summary>
     [Table(Name = DbConsts.ChipTableNamePrefix + "user_list", OldName = DbConsts.ChipTableOldNamePrefix + "user_list")]
-    public partial class UserListEntity : EntityBase
+    public partial class UserListEntity : EntityTenantWithData
     {
         /// <summary>
         /// 用户Id

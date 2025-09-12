@@ -3,14 +3,14 @@
     //数据库注册键
     "key": "admindb",
 
-    //程序集名称，自动获取实体表，为空则通过ConfigureFreeSql自定义配�?
+    //程序集名称，自动获取实体表，为空则通过ConfigureFreeSql自定义配置
     "assemblyNames": [ "ChipSys.Admin" ],
-    //指定实体数据库列表，不填同步所有数据库表实�?
+    //指定实体数据库列表，不填同步所有数据库表实体
     "includeEntityDbs": [],
-    //排除实体数据库列表，指定不同步数据库表实�?
+    //排除实体数据库列表，指定不同步数据库表实体
     "excludeEntityDbs": [ "Log" ],
 
-    //监听所有操�?
+    //监听所有操作
     "monitorCommand": false,
     //监听Curd操作
     "curd": true,
@@ -22,7 +22,7 @@
     //建库，Sqlite数据库不用配置建库，连接语句自动建库
     "createDb": false,
     //SqlServer,PostgreSQL,Oracle,OdbcOracle,OdbcSqlServer,OdbcMySql,OdbcPostgreSQL,Odbc,OdbcDameng,MsAccess
-    //建库连接字符�?
+    //建库连接字符串
     //default_authentication_plugin = caching_sha2_password 
     //MySql "Server=localhost; Port=3306; Database=mysql; Uid=root; Pwd=pwd; Charset=utf8mb4;Min pool size=1;Allow User Variables=True"
     //default_authentication_plugin = mysql_native_password
@@ -30,9 +30,9 @@
     //SqlServer "Data Source=.;Integrated Security=True;Initial Catalog=master;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1"
     //PostgreSQL "Host=localhost;Port=5432;Username=postgres;Password=; Database=postgres;Pooling=true;Minimum Pool Size=1",
     "createDbConnectionString": "Data Source=.;Integrated Security=True;Initial Catalog=master;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1",
-    //建库脚本，复杂建库脚本可放到createdbsql.txt�?
+    //建库脚本，复杂建库脚本可放到createdbsql.txt中
     //MySql "CREATE DATABASE `admindb` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci'"
-    //SqlServer "CREATE DATABASE [admindb]"
+    //SqlServer "CREATE DATABASE [chip_mgr_db]"
     //PostgreSQL "CREATE DATABASE \"admindb\" WITH ENCODING = 'UTF8'"
     "createDbSql": "CREATE DATABASE [chip_mgr_db]",
     //建库脚本文件
@@ -40,16 +40,16 @@
 
     //同步结构
     "syncStructure": true,
-    //同步结构批次实体�?
+    //同步结构批次实体数
     "syncStructureEntityBatchSize": 1,
-    //同步数据分批处理大小，默认每次处�?00条，过大可能会导致内存溢�?
+    //同步数据分批处理大小，默认每次处理500条，过大可能会导致内存溢出
     "syncDataBatchSize": 500,
     //同步数据，只新增数据不修改数据，想要修改数据需开启syncUpdateData
     "syncData": true,
-    //注意生产环境谨慎开启，确定要修改表数据是最新数据再开启�?
+    //注意生产环境谨慎开启，确定要修改表数据是最新数据再开启。
     //如不想更新某些表的数据，可以先配置同步数据排除表syncDataExcludeTables，再执行数据更新操作
     //同步更新数据
-    "syncUpdateData": false,
+    "syncUpdateData": true,
     //同步数据地址
     //"SyncDataPath": "InitData/Admin",
     //同步所有表["base_dict_type", "base_dict", "base_user",  "base_user_staff", "base_org", "base_role", "base_api", "base_view", "base_permission", "base_permission_api", "base_user_role", "base_user_org", "base_role_permission", "base_tenant", "base_tenant_permission"]
@@ -63,7 +63,7 @@
     "syncDataUser": {
       "id": 161223411986501,
       "userName": "admin",
-      "name": "管理�?,
+      "name": "管理员",
       "tenantId": 161223412138053
     },
 
@@ -72,13 +72,13 @@
     //生成数据，回写InitData/Admin/*.json
     "generateData": false,
 
-    //数据库配�?https://github.com/dotnetcore/FreeSql/wiki/入门
-    //数据库类�?MySql = 0, SqlServer = 1, PostgreSQL = 2, Oracle = 3, Sqlite = 4, OdbcOracle = 5, OdbcSqlServer = 6, OdbcMySql = 7, OdbcPostgreSQL = 8, Odbc = 9, OdbcDameng = 10, MsAccess = 11, Dameng = 12, OdbcKingbaseES = 13, ShenTong = 14, KingbaseES = 15, Firebird = 16
-    //切换数据库需要手动添加对应的数据库实现包�?
-    //1、单击Host项目文件直接更改FreeSql.Provider.Sqlite�?
-    //2、首先在管理Nuget程序包浏览选项卡中搜索FreeSql.Provider，选择对应包安装。其次在已安装选项卡中卸载FreeSql.Provider.Sqlite�?
+    //数据库配置 https://github.com/dotnetcore/FreeSql/wiki/入门
+    //数据库类型 MySql = 0, SqlServer = 1, PostgreSQL = 2, Oracle = 3, Sqlite = 4, OdbcOracle = 5, OdbcSqlServer = 6, OdbcMySql = 7, OdbcPostgreSQL = 8, Odbc = 9, OdbcDameng = 10, MsAccess = 11, Dameng = 12, OdbcKingbaseES = 13, ShenTong = 14, KingbaseES = 15, Firebird = 16
+    //切换数据库需要手动添加对应的数据库实现包：
+    //1、单击Host项目文件直接更改FreeSql.Provider.Sqlite包
+    //2、首先在管理Nuget程序包浏览选项卡中搜索FreeSql.Provider，选择对应包安装。其次在已安装选项卡中卸载FreeSql.Provider.Sqlite包
     "type": "SqlServer",
-    //连接字符�?
+    //连接字符串
     //default_authentication_plugin = caching_sha2_password 
     //MySql "Server=localhost; Port=3306; Database=admindb; Uid=root; Pwd=pwd; Charset=utf8mb4;Min pool size=1;Allow User Variables=True"
     //default_authentication_plugin = mysql_native_password
@@ -88,21 +88,21 @@
     //Sqlite "Data Source=|DataDirectory|\\admindb.db; Pooling=true;Min Pool Size=1"
     "connectionString": "Data Source=.;Integrated Security=True;Initial Catalog=chip_mgr_db;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1",
 
-    //指定程序�?
+    //指定程序集
     //FreeSql.MySql.MySqlProvider`1,FreeSql.Provider.MySqlConnector
     "providerType": "",
 
     //读写分离从库列表
     "slaveList": [
       //{
-      //  //连接字符�?
+      //  //连接字符串
       //  "ConnectionString": "Data Source=|DataDirectory|\\admindb.db; Pooling=true;Min Pool Size=1",
       //  //权重
       //  "Weight": 1
       //}
     ],
 
-    //空闲时间（分），设置idleTime=0则不自动回收, 设置1天不使用则自动回�?
+    //空闲时间（分），设置idleTime=0则不自动回收, 设置1天不使用则自动回收
     "idleTime": 1440,
 
     //新增时强制更新EntityUpdate数据
@@ -117,14 +117,14 @@
         //数据库注册键
         "key": "logdb",
 
-        //程序集名称，自动获取实体表，为空则通过ConfigureFreeSql自定义配�?
+        //程序集名称，自动获取实体表，为空则通过ConfigureFreeSql自定义配置
         "assemblyNames": [ "ChipSys.Admin" ],
-        //指定实体数据库列表，不填同步所有数据库表实�?
+        //指定实体数据库列表，不填同步所有数据库表实体
         "includeEntityDbs": [ "Log" ],
-        //排除实体数据库列表，指定不同步数据库表实�?
+        //排除实体数据库列表，指定不同步数据库表实体
         "excludeEntityDbs": [],
 
-        //监听所有操�?
+        //监听所有操作
         "monitorCommand": false,
         //监听Curd操作
         "curd": true,
@@ -134,17 +134,17 @@
         "syncDataCurd": false,
 
         //建库，Sqlite数据库不用配置建库，连接语句自动建库
-        "createDb": true,
+        "createDb": false,
         //SqlServer,PostgreSQL,Oracle,OdbcOracle,OdbcSqlServer,OdbcMySql,OdbcPostgreSQL,Odbc,OdbcDameng,MsAccess
-        //建库连接字符�?
+        //建库连接字符串
         //default_authentication_plugin = caching_sha2_password 
         //MySql "Server=localhost; Port=3306; Database=mysql; Uid=root; Pwd=pwd; Charset=utf8mb4;Min pool size=1;Allow User Variables=True"
         //default_authentication_plugin = mysql_native_password
         //MySql "Server=localhost; Port=3306; Database=mysql; Uid=root; Pwd=pwd; Charset=utf8mb4;SslMode=none;Min pool size=1;Allow User Variables=True"
         //SqlServer "Data Source=.;Integrated Security=True;Initial Catalog=master;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1"
         //PostgreSQL "Host=localhost;Port=5432;Username=postgres;Password=; Database=postgres;Pooling=true;Minimum Pool Size=1",
-        "createDbConnectionString": "Data Source=.;Integrated Security=True;Initial Catalog=chip_mgr_db;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1",
-        //建库脚本，复杂建库脚本可放到createdbsql.txt�?
+        "createDbConnectionString": "Data Source=.;Integrated Security=True;Initial Catalog=master;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1",
+        //建库脚本，复杂建库脚本可放到createdbsql.txt中
         //MySql "CREATE DATABASE `admindb` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci'"
         //SqlServer "CREATE DATABASE [chip_mgr_db]"
         //PostgreSQL "CREATE DATABASE \"admindb\" WITH ENCODING = 'UTF8'"
@@ -154,9 +154,9 @@
 
         //同步结构
         "syncStructure": true,
-        //同步结构批次实体�?
+        //同步结构批次实体数
         "syncStructureEntityBatchSize": 1,
-        //同步数据分批处理大小，默认每次处�?00条，过大可能会导致内存溢�?
+        //同步数据分批处理大小，默认每次处理500条，过大可能会导致内存溢出
         "syncDataBatchSize": 500,
         //同步数据，只新增数据不修改数据，想要修改数据需开启syncUpdateData
         "syncData": false,
@@ -168,13 +168,13 @@
         //生成数据，回写InitData/Admin/*.json
         "generateData": false,
 
-        //数据库配�?https://github.com/dotnetcore/FreeSql/wiki/入门
-        //数据库类�?MySql = 0, SqlServer = 1, PostgreSQL = 2, Oracle = 3, Sqlite = 4, OdbcOracle = 5, OdbcSqlServer = 6, OdbcMySql = 7, OdbcPostgreSQL = 8, Odbc = 9, OdbcDameng = 10, MsAccess = 11, Dameng = 12, OdbcKingbaseES = 13, ShenTong = 14, KingbaseES = 15, Firebird = 16
-        //切换数据库需要手动添加对应的数据库实现包�?
-        //1、单击Host项目文件直接更改FreeSql.Provider.Sqlite�?
-        //2、首先在管理Nuget程序包浏览选项卡中搜索FreeSql.Provider，选择对应包安装。其次在已安装选项卡中卸载FreeSql.Provider.Sqlite�?
-        "type": "Sqlite",
-        //连接字符�?
+        //数据库配置 https://github.com/dotnetcore/FreeSql/wiki/入门
+        //数据库类型 MySql = 0, SqlServer = 1, PostgreSQL = 2, Oracle = 3, Sqlite = 4, OdbcOracle = 5, OdbcSqlServer = 6, OdbcMySql = 7, OdbcPostgreSQL = 8, Odbc = 9, OdbcDameng = 10, MsAccess = 11, Dameng = 12, OdbcKingbaseES = 13, ShenTong = 14, KingbaseES = 15, Firebird = 16
+        //切换数据库需要手动添加对应的数据库实现包：
+        //1、单击Host项目文件直接更改FreeSql.Provider.Sqlite包
+        //2、首先在管理Nuget程序包浏览选项卡中搜索FreeSql.Provider，选择对应包安装。其次在已安装选项卡中卸载FreeSql.Provider.Sqlite包
+        "type": "SqlServer",
+        //连接字符串
         //default_authentication_plugin = caching_sha2_password 
         //MySql "Server=localhost; Port=3306; Database=admindb; Uid=root; Pwd=pwd; Charset=utf8mb4;Min pool size=1;Allow User Variables=True"
         //default_authentication_plugin = mysql_native_password
@@ -183,13 +183,13 @@
         //PostgreSQL "Host=localhost;Port=5432;Username=postgres;Password=; Database=admindb;Pooling=true;Minimum Pool Size=1"
         //Sqlite "Data Source=|DataDirectory|\\logdb.db; Pooling=true;Min Pool Size=1"
         //QuestDb "host=localhost;port=8812;username=admin;password=quest;database=qdb;ServerCompatibilityMode=NoTypeLoading;"
-        "connectionString": "Data Source=|DataDirectory|\\logdb.db; Pooling=true;Min Pool Size=1",
+        "connectionString": "Data Source=.;Integrated Security=True;Initial Catalog=chip_mgr_db;Encrypt=True;TrustServerCertificate=True;Pooling=true;Min Pool Size=1",
 
-        //指定程序�?
+        //指定程序集
         //FreeSql.MySql.MySqlProvider`1,FreeSql.Provider.MySqlConnector
         "providerType": "",
 
-        //空闲时间（分），设置idleTime=0则不自动回收, 设置1天不使用则自动回�?
+        //空闲时间（分），设置idleTime=0则不自动回收, 设置1天不使用则自动回收
         "idleTime": 1440
       }
     ]

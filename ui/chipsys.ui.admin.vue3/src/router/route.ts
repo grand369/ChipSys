@@ -1252,7 +1252,7 @@ export const dynamicRoutes: Array<RouteRecordRaw> = [
                 },
               },
             ],
-          },
+          }
         ],
   },
 ]

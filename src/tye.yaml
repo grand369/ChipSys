@@ -4,11 +4,11 @@
 # when you've given us a try, we'd love to know what you think:
 #    https://aka.ms/AA7q20u
 #
-name: zhontai
+name: chipsys
 services:
-- name: zhontai-admin-host
+- name: chipsys-admin-host
   project: modules/admin/ChipSys.Admin.Host/ChipSys.Admin.Host.csproj
-- name: zhontai-imserver-host
+- name: chipsys-imserver-host
   project: modules/im/ChipSys.IMServer.Host/ChipSys.IMServer.Host.csproj
-- name: zhontai-gateway-yarp-host
+- name: chipsys-gateway-yarp-host
   project: gateways/ChipSys.Gateway.Yarp.Host/ChipSys.Gateway.Yarp.Host.csproj

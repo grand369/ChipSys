@@ -6096,3 +6096,319 @@ export interface WebSocketPreConnectInput {
    */
   websocketId?: number | null
 }
+
+// ChipMgr 相关类型定义
+export interface CategoryAddInput {
+  parentId?: number
+  name: string
+  code?: string
+  description?: string
+  sort?: number
+  enabled?: boolean
+}
+
+export interface CategoryUpdateInput extends CategoryAddInput {
+  id: number
+}
+
+export interface CategoryGetOutput {
+  id: number
+  parentId?: number
+  name: string
+  code?: string
+  description?: string
+  sort?: number
+  enabled?: boolean
+}
+
+export interface CategoryGetListOutput extends CategoryGetOutput {
+  children?: CategoryGetListOutput[]
+}
+
+export interface CategoryGetListInput {
+  name?: string
+}
+
+export interface ProductAddInput {
+  categoryId: number
+  code: string
+  brand: string
+  description?: string
+  manufacturer?: string
+  sort?: number
+  enabled?: boolean
+}
+
+export interface ProductUpdateInput extends ProductAddInput {
+  id: number
+}
+
+export interface ProductGetOutput {
+  id: number
+  categoryId: number
+  code: string
+  brand: string
+  description?: string
+  manufacturer?: string
+  sort?: number
+  enabled?: boolean
+  categoryName?: string
+}
+
+export interface ProductGetPageOutput extends ProductGetOutput {}
+
+export interface ProductGetListOutput extends ProductGetOutput {}
+
+export interface ProductGetPageInput {
+  code?: string
+  brand?: string
+  manufacturer?: string
+  categoryId?: number
+  currentPage?: number
+  pageSize?: number
+  sortList?: any[]
+}
+
+export interface ProductGetListInput {
+  code?: string
+  brand?: string
+  manufacturer?: string
+  categoryId?: number
+}
+
+export interface SupplierAddInput {
+  name: string
+  contactPerson?: string
+  phone?: string
+  email?: string
+  address?: string
+  rating?: number
+}
+
+export interface SupplierUpdateInput extends SupplierAddInput {
+  id: number
+}
+
+export interface SupplierGetOutput {
+  id: number
+  name: string
+  contactPerson?: string
+  phone?: string
+  email?: string
+  address?: string
+  rating?: number
+}
+
+export interface SupplierGetListOutput extends SupplierGetOutput {}
+
+export interface SupplierGetListInput {
+  name?: string
+  contactPerson?: string
+  phone?: string
+  email?: string
+  rating?: number
+}
+
+export interface ContactAddInput {
+  supplierId: number
+  name: string
+  phone?: string
+  email?: string
+  position?: string
+}
+
+export interface ContactUpdateInput extends ContactAddInput {
+  id: number
+}
+
+export interface ContactGetOutput {
+  id: number
+  supplierId: number
+  name: string
+  phone?: string
+  email?: string
+  position?: string
+  supplierName?: string
+}
+
+export interface ContactGetListOutput extends ContactGetOutput {}
+
+export interface ContactGetListInput {
+  name?: string
+  phone?: string
+  email?: string
+  supplierId?: number
+}
+
+export interface ProductSupplierAddInput {
+  productId: number
+  supplierId: number
+  previousPrice?: number
+  currentPrice: number
+  currency?: string
+  condition?: string
+  usageDescription?: string
+  moq?: number
+  leadTimeDays?: number
+  stockQty?: number
+  validFrom?: Date
+  validTo?: Date
+}
+
+export interface ProductSupplierUpdateInput extends ProductSupplierAddInput {
+  id: number
+}
+
+export interface ProductSupplierGetOutput {
+  id: number
+  productId: number
+  supplierId: number
+  previousPrice?: number
+  currentPrice: number
+  currency?: string
+  condition?: string
+  usageDescription?: string
+  moq?: number
+  leadTimeDays?: number
+  stockQty?: number
+  validFrom?: Date
+  validTo?: Date
+  productCode?: string
+  productBrand?: string
+  supplierName?: string
+}
+
+export interface ProductSupplierGetListOutput extends ProductSupplierGetOutput {}
+
+export interface ProductSupplierGetListInput {
+  productId?: number
+  supplierId?: number
+  condition?: string
+  currency?: string
+}
+
+export interface UploadListAddInput {
+  fileName?: string
+  status?: string
+  createdAt?: Date
+  userId?: number
+}
+
+export interface UploadListUpdateInput extends UploadListAddInput {
+  id: number
+}
+
+export interface UploadListGetOutput {
+  id: number
+  fileName?: string
+  status?: string
+  createdAt?: Date
+  userId?: number
+}
+
+export interface UploadListGetListOutput extends UploadListGetOutput {}
+
+export interface UploadListGetListInput {
+  fileName?: string
+  status?: string
+  startDate?: Date
+  endDate?: Date
+}
+
+export interface UploadListItemAddInput {
+  listId: number
+  rawCode?: string
+  rawBrand?: string
+  rawDescription?: string
+  matchStatus?: string
+  matchedProductId?: number
+}
+
+export interface UploadListItemUpdateInput extends UploadListItemAddInput {
+  id: number
+}
+
+export interface UploadListItemGetOutput {
+  id: number
+  listId: number
+  rawCode?: string
+  rawBrand?: string
+  rawDescription?: string
+  matchStatus?: string
+  matchedProductId?: number
+  matchedProductCode?: string
+  matchedProductBrand?: string
+  createdAt?: Date
+}
+
+export interface UploadListItemGetListOutput extends UploadListItemGetOutput {}
+
+export interface UploadListItemGetListInput {
+  listId?: number
+  matchStatus?: string
+}
+
+export interface HitListAddInput {
+  itemId: number
+  productSupplierId: number
+  confidence?: number
+  createdAt?: Date
+  userId?: number
+}
+
+export interface HitListUpdateInput extends HitListAddInput {
+  id: number
+}
+
+export interface HitListGetOutput {
+  id: number
+  itemId: number
+  productSupplierId: number
+  confidence?: number
+  createdAt?: Date
+  userId?: number
+}
+
+export interface HitListGetListOutput extends HitListGetOutput {}
+
+export interface HitListGetListInput {
+  itemId?: number
+  productSupplierId?: number
+  minConfidence?: number
+  maxConfidence?: number
+  startDate?: Date
+  endDate?: Date
+}
+
+export interface UserListAddInput {
+  productSupplierId: number
+  listType: string
+  status?: string
+  createdAt?: Date
+  updatedAt?: Date
+  userId?: number
+}
+
+export interface UserListUpdateInput extends UserListAddInput {
+  id: number
+}
+
+export interface UserListGetOutput {
+  id: number
+  productSupplierId: number
+  listType: string
+  status?: string
+  createdAt?: Date
+  updatedAt?: Date
+  userId?: number
+}
+
+export interface UserListGetListOutput extends UserListGetOutput {}
+
+export interface UserListGetListInput {
+  productSupplierId?: number
+  listType?: string
+  status?: string
+  startDate?: Date
+  endDate?: Date
+}

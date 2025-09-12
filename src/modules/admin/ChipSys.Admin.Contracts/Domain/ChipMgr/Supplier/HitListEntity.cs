@@ -15,7 +15,7 @@ namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier
     /// 命中清单
     /// </summary>
     [Table(Name = DbConsts.ChipTableNamePrefix + "hit_list", OldName = DbConsts.ChipTableOldNamePrefix + "hit_list")]
-    public partial class HitListEntity : EntityBase
+    public partial class HitListEntity : EntityTenantWithData
     {
         /// <summary>
         /// 用户Id

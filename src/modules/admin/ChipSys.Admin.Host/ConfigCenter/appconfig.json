@@ -6,13 +6,13 @@
     "urls": [ "http://*:18010" ],
     //跨域地址
     "corUrls": [],
-    //程序集名�?
+    //程序集名称
     "assemblyNames": [ "ChipSys.Admin" ],
-    //枚举列表程序集名�?
+    //枚举列表程序集名称
     "EnumListAssemblyNames": [ "ChipSys.Admin" ],
     //租户
     "tenant": true,
-    //分布式事务唯一标识admin，为空则不生成分布式事务�?
+    //分布式事务唯一标识admin，为空则不生成分布式事务表
     "distributeKey": "",
     //验证
     "validate": {
@@ -29,9 +29,9 @@
     "swagger": {
       //启用
       "enable": true,
-      //启用枚举架构过滤�?
+      //启用枚举架构过滤器
       "enableEnumSchemaFilter": true,
-      //启用接口排序文档过滤�?
+      //启用接口排序文档过滤器
       "enableOrderTagsDocumentFilter": true,
       //启用枚举属性名
       "enableJsonStringEnumConverter": false,
@@ -63,17 +63,17 @@
       //页脚
       "footer": {
         "enable": false,
-        "content": "Copyright<a-icon type=\"copyright\" /> 2022-<a target=\"_blank\" href=\"https://www.zhontai.net\">中台Admin</a>"
+        "content": "Copyright<a-icon type=\"copyright\" /> 2022-<a target=\"_blank\" href=\"https://www.ChipSys.net\">中台Admin</a>"
       }
     },
-    //MiniProfiler性能分析�?
+    //MiniProfiler性能分析器
     "miniProfiler": false,
     //面向切面编程
     "aop": {
       //事务
       "transaction": true
     },
-    //数据库日�?
+    //数据库日志
     "log": {
       //操作日志
       "operation": true,
@@ -82,7 +82,7 @@
     },
     //限流
     "rateLimit": false,
-    //验证�?
+    //验证码
     "varifyCode": {
       //启用
       "enable": true,
@@ -93,12 +93,12 @@
     "defaultPassword": "123asd",
     //动态api
     "dynamicApi": {
-      //结果格式�?
+      //结果格式化
       "formatResult": true
     },
-    //实现标准标识密码哈希，启用后相同密码加密后各不相�?
+    //实现标准标识密码哈希，启用后相同密码加密后各不相同
     "passwordHasher": false,
-    //Kestrel服务器配�?
+    //Kestrel服务器配置
     "Kestrel": {
       //HTTP连接保活最长时间，单位秒，600 = 10 分钟
       "KeepAliveTimeout": 600,
@@ -107,29 +107,29 @@
       //最大请求大小，单位 bytes, 设置 null 不限制大小，104857600 = 100 MB
       "maxRequestBodySize": 104857600
     },
-    //健康检�?
+    //健康检查
     "healthChecks": {
       //启用
       "enable": true,
       //访问路径
       "path": "/health"
     },
-    //指定跨域访问时预检等待时间，以秒为单位，默�?0分钟
+    //指定跨域访问时预检等待时间，以秒为单位，默认30分钟
     "PreflightMaxAge": 1800,
-    //是否开启任务调度管理界�?
+    //是否开启任务调度管理界面
     "TaskSchedulerUI": {
       //启用
       "enable": false,
       //访问路径
       "path": "/task"
     },
-    //Id生成�?
+    //Id生成器
     "IdGenerator": {
-      "DataCenterId": 0, // 数据中心ID（机房ID，默�?�?请确保全局唯一
-      "WorkerId": 1, // 机器码，必须全局唯一（或相同 DataCenterId 内唯一），理论最大�?2^WorkerIdBitLength-1 = 63，最大�?524287
-      "WorkerIdBitLength": 6, // 机器码位长，决定 WorkerId 的最大值，默认�?，取值范�?[1, 19]
-      "SeqBitLength": 6, // 序列数位长，默认�?，取值范�?[3, 21]，决定每毫秒基础生成的ID个数。如果每秒请求数不超�?W，保持默认�?即可；如果超�?W，不超过50W，建议赋�?0或更大，以此类推�?
-      "CachePrefix": "zhontai:workerid" // 缓存前缀
+      "DataCenterId": 0, // 数据中心ID（机房ID，默认0） 请确保全局唯一
+      "WorkerId": 1, // 机器码，必须全局唯一（或相同 DataCenterId 内唯一），理论最大值 2^WorkerIdBitLength-1 = 63，最大值 524287
+      "WorkerIdBitLength": 6, // 机器码位长，决定 WorkerId 的最大值，默认值6，取值范围 [1, 19]
+      "SeqBitLength": 6, // 序列数位长，默认值6，取值范围 [3, 21]，决定每毫秒基础生成的ID个数。如果每秒请求数不超过5W，保持默认值6即可；如果超过5W，不超过50W，建议赋值10或更大，以此类推。
+      "CachePrefix": "ChipSys:workerid" // 缓存前缀
     },
     //语言配置
     "Lang": {

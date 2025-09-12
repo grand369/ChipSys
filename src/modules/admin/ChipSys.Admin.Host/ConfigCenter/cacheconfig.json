@@ -6,10 +6,10 @@
     "typeRateLimit": "0",
     //Redis配置
     "redis": {
-      //连接字符�?
-      "connectionString": "127.0.0.1:6379,password=,defaultDatabase=0",
-      //限流连接字符�?
-      "connectionStringRateLimit": "127.0.0.1:6379,password=,defaultDatabase=0"
+      //连接字符串
+      "connectionString": "127.0.0.1:6479,password=,defaultDatabase=0",
+      //限流连接字符串
+      "connectionStringRateLimit": "127.0.0.1:6479,password=,defaultDatabase=0"
     }
   }
 }

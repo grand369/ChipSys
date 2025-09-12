@@ -93,52 +93,57 @@
         </member>
         <member name="T:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity">
             <summary>
-            ��Ʒ
+            产品
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.CategoryId">
             <summary>
-            ����Id
+            分类Id
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Category">
             <summary>
-            ����
+            分类
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Code">
             <summary>
-            ��Ʒ����/�����
+            产品编码/型号
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Brand">
             <summary>
-            Ʒ��
+            品牌
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Description">
             <summary>
-            ����
+            描述
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Manufacturer">
             <summary>
-            ������
+            制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Model">
+            <summary>
+            产品型号
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Enabled">
             <summary>
-            �Ƿ�����
+            是否启用
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Sort">
             <summary>
-            ����
+            排序
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity">
             <summary>
-            产品供应商关系（含二手信息）
+            产品供应商关系（包含价格信息等）
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.ProductId">
@@ -153,7 +158,7 @@
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.PreviousPrice">
             <summary>
-            二手价格
+            之前价格
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.CurrentPrice">
@@ -176,6 +181,11 @@
             使用描述
             </summary>
         </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.SupplierModel">
+            <summary>
+            供应商型号
+            </summary>
+        </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.MOQ">
             <summary>
             最小起订量
@@ -193,12 +203,12 @@
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.ValidFrom">
             <summary>
-            有效期起
+            有效开始
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.ValidTo">
             <summary>
-            有效期止
+            有效截止
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity.Product">
@@ -464,6 +474,1501 @@
         <member name="T:ChipSys.Admin.Contracts.Resources.AdminContractsLocalizer">
             <summary>
             Admin契约库国际化
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryAddInput">
+            <summary>
+            产品分类添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryAddInput.ParentId">
+            <summary>
+            上级分类Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryAddInput.Name">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryAddInput.Code">
+            <summary>
+            分类编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryAddInput.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryAddInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryAddInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetListInput">
+            <summary>
+            产品分类列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetListInput.ParentId">
+            <summary>
+            上级分类Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetListInput.Name">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetListInput.Code">
+            <summary>
+            分类编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetListInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetListOutput">
+            <summary>
+            产品分类列表查询输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetListOutput.ParentName">
+            <summary>
+            上级分类名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetOutput">
+            <summary>
+            产品分类
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetPageInput">
+            <summary>
+            产品分类分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetPageInput.ParentId">
+            <summary>
+            上级分类Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetPageInput.Name">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetPageInput.Code">
+            <summary>
+            分类编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetPageInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetPageOutput">
+            <summary>
+            产品分类分页查询输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetPageOutput.ParentName">
+            <summary>
+            上级分类名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput">
+            <summary>
+            产品分类修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput.ParentId">
+            <summary>
+            上级分类Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput.Name">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput.Code">
+            <summary>
+            分类编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.ICategoryService">
+            <summary>
+            产品分类服务接口
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput">
+            <summary>
+            产品添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput.Code">
+            <summary>
+            产品编码/型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput.Brand">
+            <summary>
+            品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput.Manufacturer">
+            <summary>
+            制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput.Model">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListInput">
+            <summary>
+            产品列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListInput.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListInput.Code">
+            <summary>
+            产品编码/型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListInput.Brand">
+            <summary>
+            品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListInput.Manufacturer">
+            <summary>
+            制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListInput.Model">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListOutput">
+            <summary>
+            产品列表查询输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListOutput.CategoryName">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetOutput">
+            <summary>
+            产品
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageInput">
+            <summary>
+            产品分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageInput.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageInput.Code">
+            <summary>
+            产品编码/型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageInput.Brand">
+            <summary>
+            品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageInput.Manufacturer">
+            <summary>
+            制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageInput.Model">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageOutput">
+            <summary>
+            产品分页查询输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageOutput.CategoryName">
+            <summary>
+            分类名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput">
+            <summary>
+            产品供应商关系添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.ProductId">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.SupplierId">
+            <summary>
+            供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.PreviousPrice">
+            <summary>
+            之前价格
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.CurrentPrice">
+            <summary>
+            当前价格
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.Currency">
+            <summary>
+            货币
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.Condition">
+            <summary>
+            成色
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.UsageDescription">
+            <summary>
+            使用描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.SupplierModel">
+            <summary>
+            供应商型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.MOQ">
+            <summary>
+            最小起订量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.LeadTimeDays">
+            <summary>
+            交期天数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.StockQty">
+            <summary>
+            库存数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.ValidFrom">
+            <summary>
+            有效开始
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput.ValidTo">
+            <summary>
+            有效截止
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput">
+            <summary>
+            产品供应商关系列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput.ProductId">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput.SupplierId">
+            <summary>
+            供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput.ProductCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput.SupplierName">
+            <summary>
+            供应商名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput.SupplierModel">
+            <summary>
+            供应商型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput.Currency">
+            <summary>
+            货币
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListOutput">
+            <summary>
+            产品供应商关系列表查询输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListOutput.ProductCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListOutput.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListOutput.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListOutput.ProductDescription">
+            <summary>
+            产品描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListOutput.SupplierName">
+            <summary>
+            供应商名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetOutput">
+            <summary>
+            产品供应商关系
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput">
+            <summary>
+            产品供应商关系分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput.ProductId">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput.SupplierId">
+            <summary>
+            供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput.ProductCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput.SupplierName">
+            <summary>
+            供应商名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput.SupplierModel">
+            <summary>
+            供应商型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput.Currency">
+            <summary>
+            货币
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageOutput">
+            <summary>
+            产品供应商关系分页查询输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageOutput.ProductCode">
+            <summary>
+            产品编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageOutput.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageOutput.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageOutput.ProductDescription">
+            <summary>
+            产品描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageOutput.SupplierName">
+            <summary>
+            供应商名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput">
+            <summary>
+            产品供应商关系修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.ProductId">
+            <summary>
+            产品Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.SupplierId">
+            <summary>
+            供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.PreviousPrice">
+            <summary>
+            之前价格
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.CurrentPrice">
+            <summary>
+            当前价格
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.Currency">
+            <summary>
+            货币
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.Condition">
+            <summary>
+            成色
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.UsageDescription">
+            <summary>
+            使用描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.SupplierModel">
+            <summary>
+            供应商型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.MOQ">
+            <summary>
+            最小起订量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.LeadTimeDays">
+            <summary>
+            交期天数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.StockQty">
+            <summary>
+            库存数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.ValidFrom">
+            <summary>
+            有效开始
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput.ValidTo">
+            <summary>
+            有效截止
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput">
+            <summary>
+            产品修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.CategoryId">
+            <summary>
+            分类Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.Code">
+            <summary>
+            产品编码/型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.Brand">
+            <summary>
+            品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.Manufacturer">
+            <summary>
+            制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.Model">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.IProductService">
+            <summary>
+            产品服务接口
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Product.IProductSupplierService">
+            <summary>
+            产品供应商关系服务接口
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactAddInput">
+            <summary>
+            联系人添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactAddInput.SupplierId">
+            <summary>
+            供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactAddInput.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactAddInput.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactAddInput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactAddInput.Position">
+            <summary>
+            职位
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetListInput">
+            <summary>
+            联系人列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetListInput.SupplierId">
+            <summary>
+            供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetListInput.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetListInput.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetListInput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetListOutput">
+            <summary>
+            联系人列表查询输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetListOutput.SupplierName">
+            <summary>
+            供应商名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetOutput">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetPageInput">
+            <summary>
+            联系人分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetPageInput.SupplierId">
+            <summary>
+            供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetPageInput.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetPageInput.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetPageInput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetPageOutput">
+            <summary>
+            联系人分页查询输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetPageOutput.SupplierName">
+            <summary>
+            供应商名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactUpdateInput">
+            <summary>
+            联系人修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactUpdateInput.SupplierId">
+            <summary>
+            供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactUpdateInput.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactUpdateInput.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactUpdateInput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactUpdateInput.Position">
+            <summary>
+            职位
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListAddInput">
+            <summary>
+            命中清单添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListAddInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListAddInput.ItemId">
+            <summary>
+            清单项目Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListAddInput.ProductSupplierId">
+            <summary>
+            产品供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListAddInput.Confidence">
+            <summary>
+            置信度
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListAddInput.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetListInput">
+            <summary>
+            命中清单列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetListInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetListInput.ItemId">
+            <summary>
+            清单项目Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetListInput.ProductSupplierId">
+            <summary>
+            产品供应商Id
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetListOutput">
+            <summary>
+            命中清单列表查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetOutput">
+            <summary>
+            命中清单
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetPageInput">
+            <summary>
+            命中清单分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetPageInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetPageInput.ItemId">
+            <summary>
+            清单项目Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetPageInput.ProductSupplierId">
+            <summary>
+            产品供应商Id
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetPageOutput">
+            <summary>
+            命中清单分页查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListUpdateInput">
+            <summary>
+            命中清单修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListUpdateInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListUpdateInput.ItemId">
+            <summary>
+            清单项目Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListUpdateInput.ProductSupplierId">
+            <summary>
+            产品供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListUpdateInput.Confidence">
+            <summary>
+            置信度
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListUpdateInput.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierAddInput">
+            <summary>
+            供应商添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierAddInput.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierAddInput.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierAddInput.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierAddInput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierAddInput.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierAddInput.Rating">
+            <summary>
+            评级
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetListInput">
+            <summary>
+            供应商列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetListInput.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetListInput.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetListInput.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetListInput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetListInput.Rating">
+            <summary>
+            评级
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetListOutput">
+            <summary>
+            供应商列表查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetOutput">
+            <summary>
+            供应商
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetPageInput">
+            <summary>
+            供应商分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetPageInput.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetPageInput.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetPageInput.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetPageInput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetPageInput.Rating">
+            <summary>
+            评级
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetPageOutput">
+            <summary>
+            供应商分页查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput">
+            <summary>
+            供应商修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput.ContactPerson">
+            <summary>
+            联系人
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput.Phone">
+            <summary>
+            电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput.Rating">
+            <summary>
+            评级
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListAddInput">
+            <summary>
+            上传清单添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListAddInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListAddInput.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListAddInput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListAddInput.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetListInput">
+            <summary>
+            上传清单列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetListInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetListInput.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetListInput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetListOutput">
+            <summary>
+            上传清单列表查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetOutput">
+            <summary>
+            上传清单
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetPageInput">
+            <summary>
+            上传清单分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetPageInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetPageInput.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetPageInput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetPageOutput">
+            <summary>
+            上传清单分页查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput">
+            <summary>
+            上传清单项目添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput.ListId">
+            <summary>
+            清单Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput.RawCode">
+            <summary>
+            原始编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput.RawBrand">
+            <summary>
+            原始品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput.RawDescription">
+            <summary>
+            原始描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput.MatchStatus">
+            <summary>
+            匹配状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput.MatchedProductId">
+            <summary>
+            匹配到的产品Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetListInput">
+            <summary>
+            上传清单项目列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetListInput.ListId">
+            <summary>
+            清单Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetListInput.RawCode">
+            <summary>
+            原始编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetListInput.RawBrand">
+            <summary>
+            原始品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetListInput.MatchStatus">
+            <summary>
+            匹配状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetListInput.MatchedProductId">
+            <summary>
+            匹配到的产品Id
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetListOutput">
+            <summary>
+            上传清单项目列表查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetOutput">
+            <summary>
+            上传清单项目
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetPageInput">
+            <summary>
+            上传清单项目分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetPageInput.ListId">
+            <summary>
+            清单Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetPageInput.RawCode">
+            <summary>
+            原始编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetPageInput.RawBrand">
+            <summary>
+            原始品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetPageInput.MatchStatus">
+            <summary>
+            匹配状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetPageInput.MatchedProductId">
+            <summary>
+            匹配到的产品Id
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetPageOutput">
+            <summary>
+            上传清单项目分页查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput">
+            <summary>
+            上传清单项目修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput.ListId">
+            <summary>
+            清单Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput.RawCode">
+            <summary>
+            原始编码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput.RawBrand">
+            <summary>
+            原始品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput.RawDescription">
+            <summary>
+            原始描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput.MatchStatus">
+            <summary>
+            匹配状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput.MatchedProductId">
+            <summary>
+            匹配到的产品Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListUpdateInput">
+            <summary>
+            上传清单修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListUpdateInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListUpdateInput.FileName">
+            <summary>
+            文件名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListUpdateInput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListUpdateInput.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListAddInput">
+            <summary>
+            用户清单添加
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListAddInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListAddInput.ProductSupplierId">
+            <summary>
+            产品供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListAddInput.ListType">
+            <summary>
+            清单类型: Hit/Favorite/Inquiry/Buy
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListAddInput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListAddInput.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetListInput">
+            <summary>
+            用户清单列表查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetListInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetListInput.ProductSupplierId">
+            <summary>
+            产品供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetListInput.ListType">
+            <summary>
+            清单类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetListInput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetListOutput">
+            <summary>
+            用户清单列表查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetOutput">
+            <summary>
+            用户清单
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetPageInput">
+            <summary>
+            用户清单分页查询
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetPageInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetPageInput.ProductSupplierId">
+            <summary>
+            产品供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetPageInput.ListType">
+            <summary>
+            清单类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetPageInput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetPageOutput">
+            <summary>
+            用户清单分页查询输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListUpdateInput">
+            <summary>
+            用户清单修改
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListUpdateInput.Id">
+            <summary>
+            主键Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListUpdateInput.UserId">
+            <summary>
+            用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListUpdateInput.ProductSupplierId">
+            <summary>
+            产品供应商Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListUpdateInput.ListType">
+            <summary>
+            清单类型: Hit/Favorite/Inquiry/Buy
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListUpdateInput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListUpdateInput.CreatedAt">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.IContactService">
+            <summary>
+            联系人服务接口
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.IHitListService">
+            <summary>
+            命中清单服务接口
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.ISupplierService">
+            <summary>
+            供应商服务接口
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.IUploadListItemService">
+            <summary>
+            上传清单项目服务接口
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.IUploadListService">
+            <summary>
+            上传清单服务接口
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.IUserListService">
+            <summary>
+            用户清单服务接口
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Domain.Api.ApiEntity">
@@ -5263,601 +6768,6 @@
             修改模板响应
             </summary>
         </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput">
-            <summary>
-            产品分类添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput.ParentId">
-            <summary>
-            上级分类Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput.Name">
-            <summary>
-            分类名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput.Code">
-            <summary>
-            分类编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput.Description">
-            <summary>
-            描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput.Enabled">
-            <summary>
-            是否启用
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListInput">
-            <summary>
-            产品分类列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListInput.ParentId">
-            <summary>
-            上级分类Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListInput.Name">
-            <summary>
-            分类名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListInput.Code">
-            <summary>
-            分类编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListInput.Enabled">
-            <summary>
-            是否启用
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListOutput">
-            <summary>
-            产品分类列表查询输出
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListOutput.ParentName">
-            <summary>
-            上级分类名称
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetOutput">
-            <summary>
-            产品分类
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageInput">
-            <summary>
-            产品分类分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageInput.ParentId">
-            <summary>
-            上级分类Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageInput.Name">
-            <summary>
-            分类名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageInput.Code">
-            <summary>
-            分类编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageInput.Enabled">
-            <summary>
-            是否启用
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageOutput">
-            <summary>
-            产品分类分页查询输出
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageOutput.ParentName">
-            <summary>
-            上级分类名称
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput">
-            <summary>
-            产品分类修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput.ParentId">
-            <summary>
-            上级分类Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput.Name">
-            <summary>
-            分类名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput.Code">
-            <summary>
-            分类编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput.Description">
-            <summary>
-            描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput.Enabled">
-            <summary>
-            是否启用
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.ICategoryService">
-            <summary>
-            产品分类服务接口
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductAddInput">
-            <summary>
-            产品添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductAddInput.CategoryId">
-            <summary>
-            分类Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductAddInput.Code">
-            <summary>
-            产品编码/型号
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductAddInput.Brand">
-            <summary>
-            品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductAddInput.Description">
-            <summary>
-            描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductAddInput.Manufacturer">
-            <summary>
-            制造商
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductAddInput.Enabled">
-            <summary>
-            是否启用
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductAddInput.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductGetListInput">
-            <summary>
-            产品列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetListInput.CategoryId">
-            <summary>
-            分类Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetListInput.Code">
-            <summary>
-            产品编码/型号
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetListInput.Brand">
-            <summary>
-            品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetListInput.Manufacturer">
-            <summary>
-            制造商
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetListInput.Enabled">
-            <summary>
-            是否启用
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductGetListOutput">
-            <summary>
-            产品列表查询输出
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetListOutput.CategoryName">
-            <summary>
-            分类名称
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductGetOutput">
-            <summary>
-            产品
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductGetPageInput">
-            <summary>
-            产品分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetPageInput.CategoryId">
-            <summary>
-            分类Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetPageInput.Code">
-            <summary>
-            产品编码/型号
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetPageInput.Brand">
-            <summary>
-            品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetPageInput.Manufacturer">
-            <summary>
-            制造商
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetPageInput.Enabled">
-            <summary>
-            是否启用
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductGetPageOutput">
-            <summary>
-            产品分页查询输出
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductGetPageOutput.CategoryName">
-            <summary>
-            分类名称
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput">
-            <summary>
-            产品供应商关系添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.ProductId">
-            <summary>
-            产品Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.SupplierId">
-            <summary>
-            供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.PreviousPrice">
-            <summary>
-            之前价格
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.CurrentPrice">
-            <summary>
-            当前价格
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.Currency">
-            <summary>
-            货币
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.Condition">
-            <summary>
-            成色
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.UsageDescription">
-            <summary>
-            使用描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.MOQ">
-            <summary>
-            最小起订量
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.LeadTimeDays">
-            <summary>
-            交期天数
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.StockQty">
-            <summary>
-            库存数量
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.ValidFrom">
-            <summary>
-            有效开始
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierAddInput.ValidTo">
-            <summary>
-            有效截止
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListInput">
-            <summary>
-            产品供应商关系列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListInput.ProductId">
-            <summary>
-            产品Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListInput.SupplierId">
-            <summary>
-            供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListInput.ProductCode">
-            <summary>
-            产品编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListInput.ProductBrand">
-            <summary>
-            产品品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListInput.SupplierName">
-            <summary>
-            供应商名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListInput.Currency">
-            <summary>
-            货币
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListOutput">
-            <summary>
-            产品供应商关系列表查询输出
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListOutput.ProductCode">
-            <summary>
-            产品编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListOutput.ProductBrand">
-            <summary>
-            产品品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListOutput.ProductDescription">
-            <summary>
-            产品描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetListOutput.SupplierName">
-            <summary>
-            供应商名称
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetOutput">
-            <summary>
-            产品供应商关系
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageInput">
-            <summary>
-            产品供应商关系分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageInput.ProductId">
-            <summary>
-            产品Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageInput.SupplierId">
-            <summary>
-            供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageInput.ProductCode">
-            <summary>
-            产品编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageInput.ProductBrand">
-            <summary>
-            产品品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageInput.SupplierName">
-            <summary>
-            供应商名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageInput.Currency">
-            <summary>
-            货币
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageOutput">
-            <summary>
-            产品供应商关系分页查询输出
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageOutput.ProductCode">
-            <summary>
-            产品编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageOutput.ProductBrand">
-            <summary>
-            产品品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageOutput.ProductDescription">
-            <summary>
-            产品描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierGetPageOutput.SupplierName">
-            <summary>
-            供应商名称
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput">
-            <summary>
-            产品供应商关系修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.ProductId">
-            <summary>
-            产品Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.SupplierId">
-            <summary>
-            供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.PreviousPrice">
-            <summary>
-            之前价格
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.CurrentPrice">
-            <summary>
-            当前价格
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.Currency">
-            <summary>
-            货币
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.Condition">
-            <summary>
-            成色
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.UsageDescription">
-            <summary>
-            使用描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.MOQ">
-            <summary>
-            最小起订量
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.LeadTimeDays">
-            <summary>
-            交期天数
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.StockQty">
-            <summary>
-            库存数量
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.ValidFrom">
-            <summary>
-            有效开始
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductSupplierUpdateInput.ValidTo">
-            <summary>
-            有效截止
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput">
-            <summary>
-            产品修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput.CategoryId">
-            <summary>
-            分类Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput.Code">
-            <summary>
-            产品编码/型号
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput.Brand">
-            <summary>
-            品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput.Description">
-            <summary>
-            描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput.Manufacturer">
-            <summary>
-            制造商
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput.Enabled">
-            <summary>
-            是否启用
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Product.Dto.ProductUpdateInput.Sort">
-            <summary>
-            排序
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.IProductService">
-            <summary>
-            产品服务接口
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.IProductSupplierService">
-            <summary>
-            产品供应商关系服务接口
-            </summary>
-        </member>
         <member name="T:ChipSys.Admin.Services.Region.RegionAddInput">
             <summary>
             添加
@@ -6536,846 +7446,6 @@
         <member name="P:ChipSys.Admin.Services.SiteMsg.Dto.SiteMsgGetPageOutput.ReceivedTime">
             <summary>
             接收时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.ContactAddInput">
-            <summary>
-            联系人添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactAddInput.SupplierId">
-            <summary>
-            供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactAddInput.Name">
-            <summary>
-            姓名
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactAddInput.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactAddInput.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactAddInput.Position">
-            <summary>
-            职位
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.ContactGetListInput">
-            <summary>
-            联系人列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetListInput.SupplierId">
-            <summary>
-            供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetListInput.Name">
-            <summary>
-            姓名
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetListInput.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetListInput.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.ContactGetListOutput">
-            <summary>
-            联系人列表查询输出
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetListOutput.SupplierName">
-            <summary>
-            供应商名称
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.ContactGetOutput">
-            <summary>
-            联系人
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.ContactGetPageInput">
-            <summary>
-            联系人分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetPageInput.SupplierId">
-            <summary>
-            供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetPageInput.Name">
-            <summary>
-            姓名
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetPageInput.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetPageInput.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.ContactGetPageOutput">
-            <summary>
-            联系人分页查询输出
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactGetPageOutput.SupplierName">
-            <summary>
-            供应商名称
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.ContactUpdateInput">
-            <summary>
-            联系人修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactUpdateInput.SupplierId">
-            <summary>
-            供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactUpdateInput.Name">
-            <summary>
-            姓名
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactUpdateInput.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactUpdateInput.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.ContactUpdateInput.Position">
-            <summary>
-            职位
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.HitListAddInput">
-            <summary>
-            命中清单添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListAddInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListAddInput.ItemId">
-            <summary>
-            清单项目Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListAddInput.ProductSupplierId">
-            <summary>
-            产品供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListAddInput.Confidence">
-            <summary>
-            置信度
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListAddInput.CreatedAt">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.HitListGetListInput">
-            <summary>
-            命中清单列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListGetListInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListGetListInput.ItemId">
-            <summary>
-            清单项目Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListGetListInput.ProductSupplierId">
-            <summary>
-            产品供应商Id
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.HitListGetListOutput">
-            <summary>
-            命中清单列表查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.HitListGetOutput">
-            <summary>
-            命中清单
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.HitListGetPageInput">
-            <summary>
-            命中清单分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListGetPageInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListGetPageInput.ItemId">
-            <summary>
-            清单项目Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListGetPageInput.ProductSupplierId">
-            <summary>
-            产品供应商Id
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.HitListGetPageOutput">
-            <summary>
-            命中清单分页查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.HitListUpdateInput">
-            <summary>
-            命中清单修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListUpdateInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListUpdateInput.ItemId">
-            <summary>
-            清单项目Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListUpdateInput.ProductSupplierId">
-            <summary>
-            产品供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListUpdateInput.Confidence">
-            <summary>
-            置信度
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.HitListUpdateInput.CreatedAt">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.SupplierAddInput">
-            <summary>
-            供应商添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierAddInput.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierAddInput.ContactPerson">
-            <summary>
-            联系人
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierAddInput.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierAddInput.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierAddInput.Address">
-            <summary>
-            地址
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierAddInput.Rating">
-            <summary>
-            评级
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.SupplierGetListInput">
-            <summary>
-            供应商列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetListInput.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetListInput.ContactPerson">
-            <summary>
-            联系人
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetListInput.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetListInput.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetListInput.Rating">
-            <summary>
-            评级
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.SupplierGetListOutput">
-            <summary>
-            供应商列表查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.SupplierGetOutput">
-            <summary>
-            供应商
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.SupplierGetPageInput">
-            <summary>
-            供应商分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetPageInput.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetPageInput.ContactPerson">
-            <summary>
-            联系人
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetPageInput.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetPageInput.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierGetPageInput.Rating">
-            <summary>
-            评级
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.SupplierGetPageOutput">
-            <summary>
-            供应商分页查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.SupplierUpdateInput">
-            <summary>
-            供应商修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierUpdateInput.Name">
-            <summary>
-            名称
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierUpdateInput.ContactPerson">
-            <summary>
-            联系人
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierUpdateInput.Phone">
-            <summary>
-            电话
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierUpdateInput.Email">
-            <summary>
-            邮箱
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierUpdateInput.Address">
-            <summary>
-            地址
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.SupplierUpdateInput.Rating">
-            <summary>
-            评级
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListAddInput">
-            <summary>
-            上传清单添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListAddInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListAddInput.FileName">
-            <summary>
-            文件名
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListAddInput.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListAddInput.CreatedAt">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListGetListInput">
-            <summary>
-            上传清单列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListGetListInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListGetListInput.FileName">
-            <summary>
-            文件名
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListGetListInput.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListGetListOutput">
-            <summary>
-            上传清单列表查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListGetOutput">
-            <summary>
-            上传清单
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListGetPageInput">
-            <summary>
-            上传清单分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListGetPageInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListGetPageInput.FileName">
-            <summary>
-            文件名
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListGetPageInput.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListGetPageOutput">
-            <summary>
-            上传清单分页查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListItemAddInput">
-            <summary>
-            上传清单项目添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemAddInput.ListId">
-            <summary>
-            清单Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemAddInput.RawCode">
-            <summary>
-            原始编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemAddInput.RawBrand">
-            <summary>
-            原始品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemAddInput.RawDescription">
-            <summary>
-            原始描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemAddInput.MatchStatus">
-            <summary>
-            匹配状态
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemAddInput.MatchedProductId">
-            <summary>
-            匹配到的产品Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemAddInput.CreatedAt">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetListInput">
-            <summary>
-            上传清单项目列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetListInput.ListId">
-            <summary>
-            清单Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetListInput.RawCode">
-            <summary>
-            原始编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetListInput.RawBrand">
-            <summary>
-            原始品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetListInput.MatchStatus">
-            <summary>
-            匹配状态
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetListInput.MatchedProductId">
-            <summary>
-            匹配到的产品Id
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetListOutput">
-            <summary>
-            上传清单项目列表查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetOutput">
-            <summary>
-            上传清单项目
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetPageInput">
-            <summary>
-            上传清单项目分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetPageInput.ListId">
-            <summary>
-            清单Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetPageInput.RawCode">
-            <summary>
-            原始编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetPageInput.RawBrand">
-            <summary>
-            原始品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetPageInput.MatchStatus">
-            <summary>
-            匹配状态
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetPageInput.MatchedProductId">
-            <summary>
-            匹配到的产品Id
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListItemGetPageOutput">
-            <summary>
-            上传清单项目分页查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput">
-            <summary>
-            上传清单项目修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput.ListId">
-            <summary>
-            清单Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput.RawCode">
-            <summary>
-            原始编码
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput.RawBrand">
-            <summary>
-            原始品牌
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput.RawDescription">
-            <summary>
-            原始描述
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput.MatchStatus">
-            <summary>
-            匹配状态
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput.MatchedProductId">
-            <summary>
-            匹配到的产品Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListItemUpdateInput.CreatedAt">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UploadListUpdateInput">
-            <summary>
-            上传清单修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListUpdateInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListUpdateInput.FileName">
-            <summary>
-            文件名
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListUpdateInput.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UploadListUpdateInput.CreatedAt">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UserListAddInput">
-            <summary>
-            用户清单添加
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListAddInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListAddInput.ProductSupplierId">
-            <summary>
-            产品供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListAddInput.ListType">
-            <summary>
-            清单类型: Hit/Favorite/Inquiry/Buy
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListAddInput.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListAddInput.CreatedAt">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UserListGetListInput">
-            <summary>
-            用户清单列表查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListGetListInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListGetListInput.ProductSupplierId">
-            <summary>
-            产品供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListGetListInput.ListType">
-            <summary>
-            清单类型
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListGetListInput.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UserListGetListOutput">
-            <summary>
-            用户清单列表查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UserListGetOutput">
-            <summary>
-            用户清单
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UserListGetPageInput">
-            <summary>
-            用户清单分页查询
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListGetPageInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListGetPageInput.ProductSupplierId">
-            <summary>
-            产品供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListGetPageInput.ListType">
-            <summary>
-            清单类型
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListGetPageInput.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UserListGetPageOutput">
-            <summary>
-            用户清单分页查询输出
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.Dto.UserListUpdateInput">
-            <summary>
-            用户清单修改
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListUpdateInput.Id">
-            <summary>
-            主键Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListUpdateInput.UserId">
-            <summary>
-            用户Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListUpdateInput.ProductSupplierId">
-            <summary>
-            产品供应商Id
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListUpdateInput.ListType">
-            <summary>
-            清单类型: Hit/Favorite/Inquiry/Buy
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListUpdateInput.Status">
-            <summary>
-            状态
-            </summary>
-        </member>
-        <member name="P:ChipSys.Admin.Services.Supplier.Dto.UserListUpdateInput.CreatedAt">
-            <summary>
-            创建时间
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.IContactService">
-            <summary>
-            联系人服务接口
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.IHitListService">
-            <summary>
-            命中清单服务接口
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.ISupplierService">
-            <summary>
-            供应商服务接口
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.IUploadListItemService">
-            <summary>
-            上传清单项目服务接口
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.IUploadListService">
-            <summary>
-            上传清单服务接口
-            </summary>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Supplier.IUserListService">
-            <summary>
-            用户清单服务接口
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Services.TaskScheduler.Dto.TaskAddInput">

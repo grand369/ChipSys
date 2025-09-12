@@ -14,7 +14,7 @@ namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier
     /// 用户上传清单
     /// </summary>
     [Table(Name = DbConsts.ChipTableNamePrefix + "upload_list", OldName = DbConsts.ChipTableOldNamePrefix + "upload_list")]
-    public partial class UploadListEntity : EntityBase
+    public partial class UploadListEntity : EntityTenantWithData
     {
         /// <summary>
         /// 用户Id

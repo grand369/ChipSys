@@ -7,14 +7,14 @@
       //日期目录
       "DateTimeDirectory": "yyyy/MM/dd",
       "Md5": false,
-      //文件最大大�?
+      //文件最大大小
       "MaxSize": 104857600,
-      //包含文件拓展名列�?
+      //包含文件拓展名列表
       "IncludeExtension": [],
-      //排除文件拓展名列�?
+      //排除文件拓展名列表
       "ExcludeExtension": [ ".exe", ".dll", ".jar" ]
     },
-    //文件存储供应�?
+    //文件存储供应商
     "Provider": "Minio",
     //OSS配置列表
     "OSSConfigs": [
@@ -32,7 +32,7 @@
         "Md5": false,
         "Enable": false
       },
-      //阿里�?
+      //阿里云
       {
         "Provider": "Aliyun",
         "Endpoint": "oss-cn-shenzhen.aliyuncs.com",
@@ -46,7 +46,7 @@
         "Md5": false,
         "Enable": false
       },
-      //腾讯�?
+      //腾讯云
       {
         "Provider": "QCloud",
         "Endpoint": "", //AppId
@@ -74,7 +74,7 @@
         "Md5": false,
         "Enable": false
       },
-      //华为�?
+      //华为云
       {
         "Provider": "HuaweiCloud",
         "Endpoint": "",

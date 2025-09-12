@@ -65,20 +65,20 @@ using ChipSys.Admin.Core.GrpcServices;
 namespace ChipSys.Admin.Core;
 
 /// <summary>
-/// ËÞÖ÷Ó¦ÓÃ
+/// ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½
 /// </summary>
 public class HostApp
 {
     readonly HostAppOptions _hostAppOptions;
 
     /// <summary>
-    /// Ìí¼ÓÅäÖÃÎÄ¼þ
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
     /// </summary>
-    /// <param name="configuration">ÅäÖÃ</param>
-    /// <param name="environmentName">»·¾³Ãû</param>
+    /// <param name="configuration">ï¿½ï¿½ï¿½ï¿½</param>
+    /// <param name="environmentName">ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</param>
     /// <param name="directory">Ä¿Â¼</param>
-    /// <param name="optional">¿ÉÑ¡</param>
-    /// <param name="reloadOnChange">ÈÈ¸üÐÂ</param>
+    /// <param name="optional">ï¿½ï¿½Ñ¡</param>
+    /// <param name="reloadOnChange">ï¿½È¸ï¿½ï¿½ï¿½</param>
     private static void AddJsonFilesFromDirectory(
         ConfigurationManager configuration,
         string environmentName,
@@ -100,14 +100,14 @@ public class HostApp
     }
 
     /// <summary>
-    /// ËÞÖ÷Ó¦ÓÃ
+    /// ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½
     /// </summary>
     public HostApp()
     {
     }
 
     /// <summary>
-    /// ËÞÖ÷Ó¦ÓÃ
+    /// ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½
     /// </summary>
     /// <param name="hostAppOptions"></param>
     public HostApp(HostAppOptions hostAppOptions)
@@ -116,7 +116,7 @@ public class HostApp
     }
 
     /// <summary>
-    /// ÔËÐÐÓ¦ÓÃ
+    /// ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½
     /// </summary>
     /// <param name="args"></param>
     /// <param name="assembly"></param>
@@ -125,23 +125,23 @@ public class HostApp
         var logger = LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
         try
         {
-            //Ó¦ÓÃ³ÌÐòÆô¶¯
+            //Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             logger.Info("Application startup");
 
             var builder = WebApplication.CreateBuilder(args);
             _hostAppOptions?.ConfigurePreWebApplicationBuilder?.Invoke(builder);
 
             builder.ConfigureApplication(assembly ?? Assembly.GetCallingAssembly());
-            //Çå¿ÕÈÕÖ¾¹©Ó¦³ÌÐò£¬±ÜÃâ.net×Ô´øÈÕÖ¾Êä³öµ½ÃüÁîÌ¨
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ò£¬±ï¿½ï¿½ï¿½.netï¿½Ô´ï¿½ï¿½ï¿½Ö¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¨
             builder.Logging.ClearProviders();
-            //Ê¹ÓÃNLogÈÕÖ¾
+            //Ê¹ï¿½ï¿½NLogï¿½ï¿½Ö¾
             builder.Host.UseNLog();
 
             var services = builder.Services;
             var env = builder.Environment;
             var configuration = builder.Configuration;
 
-            //Ìí¼ÓÅäÖÃ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
             if (env.EnvironmentName.NotNull())
             {
@@ -163,19 +163,19 @@ public class HostApp
             }
             else
             {
-                //appÓ¦ÓÃÅäÖÃ
+                //appÓ¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 services.Configure<AppConfig>(ConfigHelper.Load("appconfig", env.EnvironmentName));
-                //jwtÅäÖÃ
+                //jwtï¿½ï¿½ï¿½ï¿½
                 services.Configure<JwtConfig>(ConfigHelper.Load("jwtconfig", env.EnvironmentName));
-                //Êý¾Ý¿âÅäÖÃ
+                //ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
                 services.Configure<DbConfig>(ConfigHelper.Load("dbconfig", env.EnvironmentName));
-                //»º´æÅäÖÃ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 services.Configure<CacheConfig>(ConfigHelper.Load("cacheconfig", env.EnvironmentName));
-                //ossÉÏ´«ÅäÖÃ
+                //ossï¿½Ï´ï¿½ï¿½ï¿½ï¿½ï¿½
                 services.Configure<OSSConfig>(ConfigHelper.Load("ossconfig", env.EnvironmentName));
-                //imÅäÖÃ
+                //imï¿½ï¿½ï¿½ï¿½
                 services.Configure<ImConfig>(ConfigHelper.Load("imconfig", env.EnvironmentName));
-                //ÏÞÁ÷ÅäÖÃ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 configuration.AddJsonFile("./Configs/ratelimitconfig.json", optional: true, reloadOnChange: true);
                 if (env.EnvironmentName.NotNull())
                 {
@@ -185,17 +185,17 @@ public class HostApp
 
             services.Configure<EmailConfig>(configuration.GetSection("Email"));
 
-            //appÓ¦ÓÃÅäÖÃ
+            //appÓ¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             var appConfig = AppInfo.GetOptions<AppConfig>();
             services.AddSingleton(appConfig);
 
-            //jwtÅäÖÃ
+            //jwtï¿½ï¿½ï¿½ï¿½
             services.AddSingleton(AppInfo.GetOptions<JwtConfig>());
 
-            //Êý¾Ý¿âÅäÖÃ
+            //ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½ï¿½
             services.AddSingleton(AppInfo.GetOptions<DbConfig>());
 
-            //»º´æÅäÖÃ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             services.AddSingleton(AppInfo.GetOptions<CacheConfig>());
 
             var hostAppContext = new HostAppContext()
@@ -205,24 +205,24 @@ public class HostApp
                 Configuration = configuration
             };
 
-            //Ê¹ÓÃAutofacÈÝÆ÷
+            //Ê¹ï¿½ï¿½Autofacï¿½ï¿½ï¿½ï¿½
             builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
-            //ÅäÖÃAutofacÈÝÆ÷
+            //ï¿½ï¿½ï¿½ï¿½Autofacï¿½ï¿½ï¿½ï¿½
             builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
             {
-                // ÉúÃüÖÜÆÚ×¢Èë
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
                 builder.RegisterModule(new LifecycleModule(appConfig));
 
-                // ¿ØÖÆÆ÷×¢Èë
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½
                 builder.RegisterModule(new ControllerModule());
 
-                // Ä£¿é×¢Èë
+                // Ä£ï¿½ï¿½×¢ï¿½ï¿½
                 builder.RegisterModule(new RegisterModule(appConfig));
 
                 _hostAppOptions?.ConfigureAutofacContainer?.Invoke(builder, hostAppContext);
             });
 
-            //ÅäÖÃKestrel·þÎñÆ÷
+            //ï¿½ï¿½ï¿½ï¿½Kestrelï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             builder.WebHost.ConfigureKestrel(options =>
             {
                 options.Limits.KeepAliveTimeout = TimeSpan.FromSeconds(appConfig.Kestrel.KeepAliveTimeout);
@@ -230,13 +230,13 @@ public class HostApp
                 options.Limits.MaxRequestBodySize = appConfig.Kestrel.MaxRequestBodySize;
             });
 
-            //·ÃÎÊµØÖ·
+            //ï¿½ï¿½ï¿½Êµï¿½Ö·
             if (appConfig.Urls?.Length > 0)
             {
                 builder.WebHost.UseUrls(appConfig.Urls);
             }
 
-            //ÅäÖÃ·þÎñ
+            //ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½
             ConfigureServices(services, env, configuration, appConfig);
 
             _hostAppOptions?.ConfigureWebApplicationBuilder?.Invoke(builder);
@@ -255,17 +255,17 @@ public class HostApp
                 AppInfo.IsRun = false;
             });
 
-            //ÅäÖÃÖÐ¼ä¼þ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½
             ConfigureMiddleware(app, env, configuration, appConfig);
 
             app.Run();
 
-            //Ó¦ÓÃ³ÌÐòÍ£Ö¹
+            //Ó¦ï¿½Ã³ï¿½ï¿½ï¿½Í£Ö¹
             logger.Info("Application shutdown");
         }
         catch (Exception exception)
         {
-            //Ó¦ÓÃ³ÌÐòÒì³£
+            //Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ì³£
             logger.Error(exception, "Application stopped because of exception");
             throw;
         }
@@ -276,7 +276,7 @@ public class HostApp
     }
 
     /// <summary>
-    /// ÅäÖÃ·þÎñ
+    /// ï¿½ï¿½ï¿½Ã·ï¿½ï¿½ï¿½
     /// </summary>
     /// <param name="services"></param>
     /// <param name="env"></param>
@@ -291,7 +291,7 @@ public class HostApp
             Configuration = configuration
         };
 
-        //¶àÓïÑÔ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (appConfig.Lang.EnableJson)
         {
             services.AddJsonLocalization(options => options.ResourcesPath = "Resources");
@@ -303,17 +303,17 @@ public class HostApp
 
         _hostAppOptions?.ConfigurePreServices?.Invoke(hostAppContext);
 
-        //½¡¿µ¼ì²é
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         services.AddHealthChecks();
 
         var cacheConfig = AppInfo.GetOptions<CacheConfig>();
 
-        #region »º´æ
-        //Ìí¼ÓÄÚ´æ»º´æ
+        #region ï¿½ï¿½ï¿½ï¿½
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ú´æ»ºï¿½ï¿½
         services.AddMemoryCache();
         if (cacheConfig.Type == CacheType.Redis)
         {
-            //FreeRedis¿Í»§¶Ë
+            //FreeRedisï¿½Í»ï¿½ï¿½ï¿½
             var redis = new RedisClient(cacheConfig.Redis.ConnectionString)
             {
                 Serialize = JsonHelper.Serialize,
@@ -321,9 +321,9 @@ public class HostApp
             };
             services.AddSingleton(redis);
             services.AddSingleton<IRedisClient>(redis);
-            //Redis»º´æ
+            //Redisï¿½ï¿½ï¿½ï¿½
             services.AddSingleton<ICacheTool, RedisCacheTool>();
-            //·Ö²¼Ê½Redis»º´æ
+            //ï¿½Ö²ï¿½Ê½Redisï¿½ï¿½ï¿½ï¿½
             services.AddSingleton<IDistributedCache>(new DistributedCache(redis));
             if(_hostAppOptions?.ConfigureIdGenerator != null)
             {
@@ -332,54 +332,54 @@ public class HostApp
             }
             else
             {
-                //·Ö²¼Ê½IdÉú³ÉÆ÷
+                //ï¿½Ö²ï¿½Ê½Idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 services.AddIdGenerator();
             }
         }
         else
         {
-            //ÄÚ´æ»º´æ
+            //ï¿½Ú´æ»ºï¿½ï¿½
             services.AddSingleton<ICacheTool, MemoryCacheTool>();
-            //·Ö²¼Ê½ÄÚ´æ»º´æ
+            //ï¿½Ö²ï¿½Ê½ï¿½Ú´æ»ºï¿½ï¿½
             services.AddDistributedMemoryCache();
-            //IdÉú³ÉÆ÷
+            //Idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             _hostAppOptions?.ConfigureIdGenerator?.Invoke(appConfig.IdGenerator);
             YitIdHelper.SetIdGenerator(appConfig.IdGenerator);
         }
 
-        #endregion »º´æ
+        #endregion ï¿½ï¿½ï¿½ï¿½
 
-        //È¨ÏÞ´¦Àí
+        //È¨ï¿½Þ´ï¿½ï¿½ï¿½
         services.AddScoped<IPermissionHandler, PermissionHandler>();
 
-        // ClaimType²»±»¸ü¸Ä
+        // ClaimTypeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-        //ÓÃ»§ÐÅÏ¢
+        //ï¿½Ã»ï¿½ï¿½ï¿½Ï¢
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         services.TryAddScoped<IUser, User>();
 
-        //Ìí¼ÓÊý¾Ý¿â
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½
         if (!_hostAppOptions.CustomInitDb)
         {
             services.AddDb(env, _hostAppOptions);
         }
 
-        //³ÌÐò¼¯
+        //ï¿½ï¿½ï¿½ï¿½
         Assembly[] assemblies = AssemblyHelper.GetAssemblyList(appConfig.AssemblyNames);
 
-        #region Mapster Ó³ÉäÅäÖÃ
+        #region Mapster Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         services.AddScoped<IMapper>(sp => new Mapper());
         if (assemblies?.Length > 0)
         {
             TypeAdapterConfig.GlobalSettings.Scan(assemblies);
         }
-        #endregion Mapster Ó³ÉäÅäÖÃ
+        #endregion Mapster Ó³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        #region Cors ¿çÓò
+        #region Cors ï¿½ï¿½ï¿½ï¿½
         services.AddCors(options =>
         {
-            //Ö¸¶¨¿çÓò·ÃÎÊÊ±Ô¤¼ìµÈ´ýÊ±¼ä
+            //Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±Ô¤ï¿½ï¿½È´ï¿½Ê±ï¿½ï¿½
             var preflightMaxAge = appConfig.PreflightMaxAge > 0 ? new TimeSpan(0, 0, appConfig.PreflightMaxAge) : new TimeSpan(0, 30, 0);
             options.AddDefaultPolicy(policy =>
             {
@@ -406,7 +406,7 @@ public class HostApp
                 policy.WithExposedHeaders("Content-Disposition");
             });
 
-            //ÔÊÐíÈÎºÎÔ´·ÃÎÊApi²ßÂÔ£¬Ê¹ÓÃÊ±ÔÚ¿ØÖÆÆ÷»òÕß½Ó¿ÚÉÏÔö¼ÓÌØÐÔ[EnableCors(AdminConsts.AllowAnyPolicyName)]
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½Ô´ï¿½ï¿½ï¿½ï¿½Apiï¿½ï¿½ï¿½Ô£ï¿½Ê¹ï¿½ï¿½Ê±ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[EnableCors(AdminConsts.AllowAnyPolicyName)]
             options.AddPolicy(AdminConsts.AllowAnyPolicyName, policy =>
             {
                 policy
@@ -416,9 +416,9 @@ public class HostApp
             });
         });
 
-        #endregion Cors ¿çÓò
+        #endregion Cors ï¿½ï¿½ï¿½ï¿½
 
-        #region Éí·ÝÈÏÖ¤ÊÚÈ¨
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½È¨
         services.AddAuthentication(options =>
         {
             options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -456,15 +456,15 @@ public class HostApp
         })
         .AddScheme<AuthenticationSchemeOptions, ResponseAuthenticationHandler>(nameof(ResponseAuthenticationHandler), o => { });
 
-        #endregion Éí·ÝÈÏÖ¤ÊÚÈ¨
+        #endregion ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¤ï¿½ï¿½È¨
 
-        #region ²Ù×÷ÈÕÖ¾
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
 
         services.AddScoped<ILogHandler, LogHandler>();
 
-        #endregion ²Ù×÷ÈÕÖ¾
+        #endregion ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¾
 
-        #region ¿ØÖÆÆ÷
+        #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         void mvcConfigure(MvcOptions options)
         {
             //options.Filters.Add<ControllerExceptionFilter>();
@@ -473,8 +473,8 @@ public class HostApp
             {
                 options.Filters.Add<ValidatePermissionAttribute>();
             }
-            //ÔÚ¾ßÓÐ½Ï¸ßµÄ Order ÖµµÄÉ¸Ñ¡Æ÷Ö®Ç°ÔËÐÐ before ´úÂë
-            //ÔÚ¾ßÓÐ½Ï¸ßµÄ Order ÖµµÄÉ¸Ñ¡Æ÷Ö®ºóÔËÐÐ after ´úÂë
+            //ï¿½Ú¾ï¿½ï¿½Ð½Ï¸ßµï¿½ Order Öµï¿½ï¿½É¸Ñ¡ï¿½ï¿½Ö®Ç°ï¿½ï¿½ï¿½ï¿½ before ï¿½ï¿½ï¿½ï¿½
+            //ï¿½Ú¾ï¿½ï¿½Ð½Ï¸ßµï¿½ Order Öµï¿½ï¿½É¸Ñ¡ï¿½ï¿½Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ after ï¿½ï¿½ï¿½ï¿½
             if (appConfig.DynamicApi.FormatResult)
             {
                 options.Filters.Add<FormatResultFilter>(20);
@@ -482,12 +482,12 @@ public class HostApp
 
             options.Filters.Add<ControllerLogFilter>(10);
 
-            //½ûÖ¹È¥³ýActionAsyncºó×º
+            //ï¿½ï¿½Ö¹È¥ï¿½ï¿½ActionAsyncï¿½ï¿½×º
             //options.SuppressAsyncSuffixInActionNames = false;
 
             if (env.IsDevelopment() || appConfig.Swagger.Enable)
             {
-                //API·Ö×éÔ¼¶¨
+                //APIï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½
                 options.Conventions.Add(new ApiGroupConvention());
             }
         }
@@ -522,7 +522,7 @@ public class HostApp
 
         if (appConfig.Lang.EnableJson)
         {
-            //¼ÓÔØÄ£¿éÐÅÏ¢
+            //ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Ï¢
             var modules = new List<ModuleInfo>();
             foreach (var assembly in assemblies)
             {
@@ -554,9 +554,9 @@ public class HostApp
             mvcBuilder.AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
         _hostAppOptions?.ConfigureMvcBuilder?.Invoke(mvcBuilder, hostAppContext);
-        #endregion ¿ØÖÆÆ÷
+        #endregion ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        #region Swagger ApiÎÄµµ
+        #region Swagger Apiï¿½Äµï¿½
 
         if (env.IsDevelopment() || appConfig.Swagger.Enable)
         {
@@ -633,7 +633,7 @@ public class HostApp
 
                 options.CustomSchemaIds(modelType => DefaultSchemaIdSelector(modelType));
 
-                //Ö§³Ö¶à·Ö×é
+                //Ö§ï¿½Ö¶ï¿½ï¿½ï¿½ï¿½
                 options.DocInclusionPredicate((docName, apiDescription) =>
                 {
                     var nonGroup = false;
@@ -705,11 +705,11 @@ public class HostApp
                     return (int.MaxValue - order).ToString().PadLeft(int.MaxValue.ToString().Length, '0');
                 });
 
-                #region Ìí¼ÓÉèÖÃTokenµÄ°´Å¥
+                #region ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Tokenï¿½Ä°ï¿½Å¥
 
                 if (appConfig.IdentityServer.Enable)
                 {
-                    //Ìí¼ÓJwtÑéÖ¤ÉèÖÃ
+                    //ï¿½ï¿½ï¿½ï¿½Jwtï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½
                     options.AddSecurityRequirement(new OpenApiSecurityRequirement()
                     {
                         {
@@ -725,11 +725,11 @@ public class HostApp
                         }
                     });
 
-                    //Í³Ò»ÈÏÖ¤
+                    //Í³Ò»ï¿½ï¿½Ö¤
                     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
                     {
                         Type = SecuritySchemeType.OAuth2,
-                        Description = "oauth2µÇÂ¼ÊÚÈ¨",
+                        Description = "oauth2ï¿½ï¿½Â¼ï¿½ï¿½È¨",
                         Flows = new OpenApiOAuthFlows
                         {
                             Implicit = new OpenApiOAuthFlow
@@ -738,7 +738,7 @@ public class HostApp
                                 TokenUrl = new Uri($"{appConfig.IdentityServer.Url}/connect/token", UriKind.Absolute),
                                 Scopes = new Dictionary<string, string>
                                 {
-                                    { "admin.server.api", "adminºó¶Ëapi" }
+                                    { "admin.server.api", "adminï¿½ï¿½ï¿½api" }
                                 }
                             }
                         }
@@ -746,7 +746,7 @@ public class HostApp
                 }
                 else
                 {
-                    //Ìí¼ÓJwtÑéÖ¤ÉèÖÃ
+                    //ï¿½ï¿½ï¿½ï¿½Jwtï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½
                     options.AddSecurityRequirement(new OpenApiSecurityRequirement()
                     {
                         {
@@ -771,35 +771,35 @@ public class HostApp
                     });
                 }
 
-                #endregion Ìí¼ÓÉèÖÃTokenµÄ°´Å¥
+                #endregion ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Tokenï¿½Ä°ï¿½Å¥
             });
         }
 
-        #endregion Swagger ApiÎÄµµ
+        #endregion Swagger Apiï¿½Äµï¿½
 
         services.AddHttpClient();
 
         _hostAppOptions?.ConfigureServices?.Invoke(hostAppContext);
 
-        #region IPÏÞÁ÷
+        #region IPï¿½ï¿½ï¿½ï¿½
 
         if (appConfig.RateLimit)
         {
             services.AddIpRateLimit(configuration, cacheConfig);
         }
 
-        #endregion IPÏÞÁ÷
+        #endregion IPï¿½ï¿½ï¿½ï¿½
 
-        //×èÖ¹NLog½ÓÊÕ×´Ì¬ÏûÏ¢
+        //ï¿½ï¿½Ö¹NLogï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½Ï¢
         services.Configure<ConsoleLifetimeOptions>(opts => opts.SuppressStatusMessages = true);
 
-        //ÐÔÄÜ·ÖÎö
+        //ï¿½ï¿½ï¿½Ü·ï¿½ï¿½ï¿½
         if (appConfig.MiniProfiler)
         {
             services.AddMiniProfiler();
         }
 
-        //¶¯Ì¬api
+        //ï¿½ï¿½Ì¬api
         services.AddDynamicApi(options =>
         {
             options.FormatResult = appConfig.DynamicApi.FormatResult;
@@ -808,23 +808,23 @@ public class HostApp
             _hostAppOptions?.ConfigureDynamicApi?.Invoke(options);
         });
 
-        //ossÎÄ¼þÉÏ´«
+        //ossï¿½Ä¼ï¿½ï¿½Ï´ï¿½
         services.AddOSS();
 
-        //IPµØÖ·¶¨Î»¿â
+        //IPï¿½ï¿½Ö·ï¿½ï¿½Î»ï¿½ï¿½
         if (appConfig.IP2Region.Enable)
         {
             services.AddSingleton<ISearcher>(new Searcher(CachePolicy.Content, Path.Combine(AppContext.BaseDirectory, "ip2region.xdb")));
         }
 
-        //im¼´Ê±Í¨Ñ¶
+        //imï¿½ï¿½Ê±Í¨Ñ¶
         var imConfig = AppInfo.GetOptions<ImConfig>();
         if (imConfig.Enable)
         {
             services.AddIm();
         }
 
-        // ApiÎÄµµ´¦Àí
+        // Apiï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½
         //services.AddSingleton<IApiDocumentHandler, ApiDocumentHandler>();
 
         //Grpc
@@ -850,7 +850,7 @@ public class HostApp
     }
 
     /// <summary>
-    /// ÅäÖÃÖÐ¼ä¼þ
+    /// ï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½
     /// </summary>
     /// <param name="app"></param>
     /// <param name="env"></param>
@@ -867,45 +867,45 @@ public class HostApp
 
         _hostAppOptions?.ConfigurePreMiddleware?.Invoke(hostAppMiddlewareContext);
 
-        //Òì³£´¦Àí
+        //ï¿½ì³£ï¿½ï¿½ï¿½ï¿½
         app.UseMiddleware<ExceptionMiddleware>();
 
         IdentityModelEventSource.ShowPII = true;
 
-        //¶àÓïÑÔ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         app.UseMyLocalization();
 
-        //IPÏÞÁ÷
+        //IPï¿½ï¿½ï¿½ï¿½
         if (appConfig.RateLimit)
         {
             app.UseIpRateLimiting();
         }
 
-        //ÐÔÄÜ·ÖÎö
+        //ï¿½ï¿½ï¿½Ü·ï¿½ï¿½ï¿½
         if (appConfig.MiniProfiler)
         {
             app.UseMiniProfiler();
         }
 
-        //¾²Ì¬ÎÄ¼þ
+        //ï¿½ï¿½Ì¬ï¿½Ä¼ï¿½
         app.UseDefaultFiles();
         app.UseStaticFiles();
 
-        //Â·ÓÉ
+        //Â·ï¿½ï¿½
         app.UseRouting();
 
-        //¿çÓò
+        //ï¿½ï¿½ï¿½ï¿½
         app.UseCors();
 
         //app.UseCookiePolicy(new CookiePolicyOptions { MinimumSameSitePolicy = SameSiteMode.Lax });
 
-        //ÈÏÖ¤
+        //ï¿½ï¿½Ö¤
         app.UseAuthentication();
 
-        //ÊÚÈ¨
+        //ï¿½ï¿½È¨
         app.UseAuthorization();
 
-        //µÇÂ¼ÓÃ»§³õÊ¼»¯Êý¾ÝÈ¨ÏÞ
+        //ï¿½ï¿½Â¼ï¿½Ã»ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¨ï¿½ï¿½
         if (appConfig.Validate.DataPermission)
         {
             app.Use(async (ctx, next) =>
@@ -913,7 +913,7 @@ public class HostApp
                 var user = ctx.RequestServices.GetRequiredService<IUser>();
                 if (user?.Id > 0)
                 {
-                    //ÅÅ³ýÄäÃû»òÕßµÇÂ¼½Ó¿Ú
+                    //ï¿½Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ßµï¿½Â¼ï¿½Ó¿ï¿½
                     var endpoint = ctx.GetEndpoint();
                     if (appConfig.Validate.ApiDataPermission && endpoint != null && !endpoint.Metadata.Any(m => m.GetType() == typeof(AllowAnonymousAttribute) || m.GetType() == typeof(LoginAttribute)))
                     {
@@ -930,10 +930,10 @@ public class HostApp
             });
         }
 
-        //ÅäÖÃ¶Ëµã
+        //ï¿½ï¿½ï¿½Ã¶Ëµï¿½
         app.MapControllers();
 
-        //»ñÈ¡Ã¶¾ÙÁÐ±í½Ó¿Ú
+        //ï¿½ï¿½È¡Ã¶ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ó¿ï¿½
         if (env.IsDevelopment())
         {
             foreach (var project in appConfig.Swagger?.Projects)
@@ -944,7 +944,7 @@ public class HostApp
 
         _hostAppOptions?.ConfigureMiddleware?.Invoke(hostAppMiddlewareContext);
 
-        #region Swagger ApiÎÄµµ
+        #region Swagger Apiï¿½Äµï¿½
         if (env.IsDevelopment() || appConfig.Swagger.Enable)
         {
             var routePrefix = appConfig.ApiUI.RoutePrefix;
@@ -967,8 +967,8 @@ public class HostApp
                     options.SwaggerEndpoint($"/{routePrefix}/swagger/{project.Code.ToLower()}/swagger.json", project.Name);
                 });
 
-                options.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);//ÕÛµþApi
-                //options.DefaultModelsExpandDepth(-1);//²»ÏÔÊ¾Models
+                options.DocExpansion(Swashbuckle.AspNetCore.SwaggerUI.DocExpansion.None);//ï¿½Ûµï¿½Api
+                //options.DefaultModelsExpandDepth(-1);//ï¿½ï¿½ï¿½ï¿½Ê¾Models
                 if (appConfig.MiniProfiler)
                 {
                     options.InjectJavascript("/swagger/mini-profiler.js?v=4.2.22+2.0");
@@ -978,9 +978,9 @@ public class HostApp
                 _hostAppOptions?.ConfigureSwaggerUI?.Invoke(options);
             });
         }
-        #endregion Swagger ApiÎÄµµ
+        #endregion Swagger Apiï¿½Äµï¿½
 
-        //Ê¹ÓÃ½¡¿µ¼ì²é
+        //Ê¹ï¿½Ã½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (appConfig.HealthChecks.Enable)
         {
             app.MapHealthChecks(appConfig.HealthChecks.Path, new HealthCheckOptions()
@@ -990,13 +990,13 @@ public class HostApp
             });
         }
 
-        //ÄÚÖÃÈÎÎñµ÷¶È¹ÜÀí½çÃæ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (appConfig.TaskSchedulerUI.Enable)
         {
             app.UseFreeSchedulerUI(appConfig.TaskSchedulerUI.Path.NotNull() ? appConfig.TaskSchedulerUI.Path : "/task");
         }
 
-        //×Ô¶¯Í¬²½½Ó¿ÚÊý¾Ý
+        //ï¿½Ô¶ï¿½Í¬ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½
         //if (appConfig.Swagger.EnableAutoSync)
         //{
         //    var apiDocumentHandler = app.Services.GetService<IApiDocumentHandler>();

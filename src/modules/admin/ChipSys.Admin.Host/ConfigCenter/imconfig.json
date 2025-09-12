@@ -6,7 +6,7 @@
     "Servers": [ "127.0.0.1:17010" ],
     //ws业务端地址
     "Server": "ws://127.0.0.1:17010",
-    //Redis连接字符�?
-    "RedisConnectionString": "127.0.0.1:6379,password=,defaultDatabase=6"
+    //Redis连接字符串
+    "RedisConnectionString": "127.0.0.1:6479,password=,defaultDatabase=6"
   }
 }

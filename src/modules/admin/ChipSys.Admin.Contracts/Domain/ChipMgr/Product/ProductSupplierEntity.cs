@@ -11,82 +11,88 @@ using ChipSys.Admin.Core.Entities;
 namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Product
 {
     /// <summary>
-    /// ²úÆ·¹©Ó¦ÉÌ¹ØÏµ£¨º¬¶şÊÖĞÅÏ¢£©
+    /// äº§å“ä¾›åº”å•†å…³ç³»ï¼ˆåŒ…å«ä»·æ ¼ä¿¡æ¯ç­‰ï¼‰
     /// </summary>
     [Table(Name = DbConsts.ChipTableNamePrefix + "product_supplier", OldName = DbConsts.ChipTableOldNamePrefix + "product_supplier")]
-    public partial class ProductSupplierEntity : EntityBase
+    public partial class ProductSupplierEntity : EntityTenantWithData
     {
         /// <summary>
-        /// ²úÆ·Id
+        /// äº§å“Id
         /// </summary>
         public long ProductId { get; set; }
 
         /// <summary>
-        /// ¹©Ó¦ÉÌId
+        /// ä¾›åº”å•†Id
         /// </summary>
         public long SupplierId { get; set; }
 
         /// <summary>
-        /// ¶şÊÖ¼Û¸ñ
+        /// ä¹‹å‰ä»·æ ¼
         /// </summary>
         public decimal? PreviousPrice { get; set; }
 
         /// <summary>
-        /// µ±Ç°¼Û¸ñ
+        /// å½“å‰ä»·æ ¼
         /// </summary>
         public decimal CurrentPrice { get; set; }
 
         /// <summary>
-        /// »õ±Ò
+        /// è´§å¸
         /// </summary>
         [Column(StringLength = 10)]
         public string Currency { get; set; } = "CNY";
 
         /// <summary>
-        /// ³ÉÉ«
+        /// æˆè‰²
         /// </summary>
         [Column(StringLength = 20)]
         public string? Condition { get; set; }
 
         /// <summary>
-        /// Ê¹ÓÃÃèÊö
+        /// ä½¿ç”¨æè¿°
         /// </summary>
         [Column(StringLength = 200)]
         public string? UsageDescription { get; set; }
 
         /// <summary>
-        /// ×îĞ¡Æğ¶©Á¿
+        /// ä¾›åº”å•†å‹å·
+        /// </summary>
+        [Column(StringLength = 200)]
+        public string SupplierModel { get; set; }
+
+        /// <summary>
+        /// æœ€å°èµ·è®¢é‡
         /// </summary>
         public int MOQ { get; set; }
 
         /// <summary>
-        /// ½»ÆÚÌìÊı
+        /// äº¤æœŸå¤©æ•°
         /// </summary>
         public int? LeadTimeDays { get; set; }
 
         /// <summary>
-        /// ¿â´æÊıÁ¿
+        /// åº“å­˜æ•°é‡
         /// </summary>
         public int StockQty { get; set; }
 
         /// <summary>
-        /// ÓĞĞ§ÆÚÆğ
+        /// æœ‰æ•ˆå¼€å§‹
         /// </summary>
         public DateTime? ValidFrom { get; set; }
 
         /// <summary>
-        /// ÓĞĞ§ÆÚÖ¹
+        /// æœ‰æ•ˆæˆªæ­¢
         /// </summary>
         public DateTime? ValidTo { get; set; }
 
         /// <summary>
-        /// ²úÆ·
+        /// äº§å“
         /// </summary>
         [NotGen]
         public ProductEntity Product { get; set; }
 
         /// <summary>
-        /// ¹©Ó¦ÉÌ
+        /// ä¾›åº”å•†
         /// </summary>
         [NotGen]
         public SupplierEntity Supplier { get; set; }

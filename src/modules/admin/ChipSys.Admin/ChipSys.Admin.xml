@@ -608,6 +608,618 @@
             <param name="input"></param>
             <returns></returns>
         </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService">
+            <summary>
+            产品分类服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.ProductCategory.Dto.CategoryUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.ProductCategory.CategoryService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.Product.ProductService">
+            <summary>
+            产品服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService">
+            <summary>
+            产品供应商关系服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Product.Dto.ProductSupplierUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Product.ProductSupplierService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService">
+            <summary>
+            联系人服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.ContactUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.ContactService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService">
+            <summary>
+            命中清单服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.HitListUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.HitListService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService">
+            <summary>
+            供应商服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.SupplierUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.SupplierService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService">
+            <summary>
+            上传清单条目服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListItemUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListItemService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService">
+            <summary>
+            上传清单服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UploadListUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UploadListService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService">
+            <summary>
+            用户操作清单服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetPageInput})">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.GetListAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListGetListInput)">
+            <summary>
+            查询列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.AddAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.UpdateAsync(ChipSys.Admin.Contracts.Services.ChipMgr.Supplier.Dto.UserListUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.DeleteAsync(System.Int64)">
+            <summary>
+            彻底删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量彻底删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.SoftDeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.ChipMgr.Supplier.UserListService.BatchSoftDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
         <member name="T:ChipSys.Admin.Services.DictType.DictTypeService">
             <summary>
             数据字典类型服务
@@ -1529,142 +2141,6 @@
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.PrintTemplate.PrintTemplateService.BatchSoftDeleteAsync(System.Int64[])">
-            <summary>
-            批量删除
-            </summary>
-            <param name="ids"></param>
-            <returns></returns>
-        </member>
-        <member name="T:ChipSys.Admin.Services.ProductCategory.CategoryService">
-            <summary>
-            产品分类服务
-            </summary>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.GetAsync(System.Int64)">
-            <summary>
-            查询
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetPageInput})">
-            <summary>
-            查询分页
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.GetListAsync(ChipSys.Admin.Services.ProductCategory.Dto.CategoryGetListInput)">
-            <summary>
-            查询列表
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.AddAsync(ChipSys.Admin.Services.ProductCategory.Dto.CategoryAddInput)">
-            <summary>
-            添加
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.UpdateAsync(ChipSys.Admin.Services.ProductCategory.Dto.CategoryUpdateInput)">
-            <summary>
-            修改
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.DeleteAsync(System.Int64)">
-            <summary>
-            彻底删除
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.BatchDeleteAsync(System.Int64[])">
-            <summary>
-            批量彻底删除
-            </summary>
-            <param name="ids"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.SoftDeleteAsync(System.Int64)">
-            <summary>
-            删除
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.ProductCategory.CategoryService.BatchSoftDeleteAsync(System.Int64[])">
-            <summary>
-            批量删除
-            </summary>
-            <param name="ids"></param>
-            <returns></returns>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Product.ProductService">
-            <summary>
-            产品服务
-            </summary>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.GetAsync(System.Int64)">
-            <summary>
-            查询
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Admin.Services.Product.Dto.ProductGetPageInput})">
-            <summary>
-            查询分页
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.GetListAsync(ChipSys.Admin.Services.Product.Dto.ProductGetListInput)">
-            <summary>
-            查询列表
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.AddAsync(ChipSys.Admin.Services.Product.Dto.ProductAddInput)">
-            <summary>
-            添加
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.UpdateAsync(ChipSys.Admin.Services.Product.Dto.ProductUpdateInput)">
-            <summary>
-            修改
-            </summary>
-            <param name="input"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.DeleteAsync(System.Int64)">
-            <summary>
-            彻底删除
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.BatchDeleteAsync(System.Int64[])">
-            <summary>
-            批量彻底删除
-            </summary>
-            <param name="ids"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.SoftDeleteAsync(System.Int64)">
-            <summary>
-            删除
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
-        </member>
-        <member name="M:ChipSys.Admin.Services.Product.ProductService.BatchSoftDeleteAsync(System.Int64[])">
             <summary>
             批量删除
             </summary>

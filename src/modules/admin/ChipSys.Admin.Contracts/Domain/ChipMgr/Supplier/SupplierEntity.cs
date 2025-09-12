@@ -11,7 +11,7 @@ namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier;
 /// 供应商
 /// </summary>
 [Table(Name = DbConsts.ChipTableNamePrefix + "supplier", OldName = DbConsts.ChipTableOldNamePrefix + "supplier")]
-public partial class SupplierEntity : EntityBase
+public partial class SupplierEntity : EntityTenantWithData
 {
     /// <summary>
     /// 名称

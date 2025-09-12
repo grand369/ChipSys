@@ -6,54 +6,60 @@ using ChipSys.Admin.Contracts.Domain.ChipMgr.ProductCategory;
 namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Product;
 
 /// <summary>
-/// ��Ʒ
+/// 产品
 /// </summary>
 [Table(Name = DbConsts.ChipTableNamePrefix + "product", OldName = DbConsts.ChipTableOldNamePrefix + "product")]
 [Index("idx_{tablename}_01", nameof(Code) + "," + nameof(Brand), false)]
-public partial class ProductEntity : EntityBase
+public partial class ProductEntity : EntityTenantWithData
 {
     /// <summary>
-    /// ����Id
+    /// 分类Id
     /// </summary>
     public long CategoryId { get; set; }
 
     /// <summary>
-    /// ����
+    /// 分类
     /// </summary>
     [NotGen]
     public CategoryEntity Category { get; set; }
 
     /// <summary>
-    /// ��Ʒ����/�����
+    /// 产品编码/型号
     /// </summary>
     [Column(StringLength = 50)]
     public string Code { get; set; }
 
     /// <summary>
-    /// Ʒ��
+    /// 品牌
     /// </summary>
     [Column(StringLength = 100)]
     public string Brand { get; set; }
 
     /// <summary>
-    /// ����
+    /// 描述
     /// </summary>
     [Column(StringLength = 500)]
     public string Description { get; set; }
 
     /// <summary>
-    /// ������
+    /// 制造商
     /// </summary>
     [Column(StringLength = 200)]
     public string Manufacturer { get; set; }
 
     /// <summary>
-    /// �Ƿ�����
+    /// 产品型号
+    /// </summary>
+    [Column(StringLength = 200)]
+    public string Model { get; set; }
+
+    /// <summary>
+    /// 是否启用
     /// </summary>
     public bool Enabled { get; set; } = true;
 
     /// <summary>
-    /// ����
+    /// 排序
     /// </summary>
     public int Sort { get; set; }
 }

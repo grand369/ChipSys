@@ -10,7 +10,7 @@ namespace ChipSys.Admin.Contracts.Domain.ChipMgr.ProductCategory;
 /// </summary>
 [Table(Name = DbConsts.ChipTableNamePrefix + "category", OldName = DbConsts.ChipTableOldNamePrefix + "category")]
 [Index("idx_{tablename}_01", nameof(Name), false)]
-public partial class CategoryEntity : EntityBase, IChilds<CategoryEntity>
+public partial class CategoryEntity : EntityTenantWithData, IChilds<CategoryEntity>
 {
     /// <summary>
     /// �ϼ�����Id

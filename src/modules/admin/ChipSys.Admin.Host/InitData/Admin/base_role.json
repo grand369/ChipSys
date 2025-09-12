@@ -3,7 +3,7 @@
     "id": 162605510979653,
     "parentId": 336557578817605,
     "childs": null,
-    "name": "普通员�?,
+    "name": "普通员工",
     "code": "emp",
     "type": 2,
     "dataScope": 4,
@@ -13,11 +13,11 @@
     "isDeleted": false,
     "createdUserId": 161223411986501,
     "createdUserName": "admin",
-    "createdUserRealName": "管理�?,
+    "createdUserRealName": "管理员",
     "createdTime": "2023-06-13T16:23:05",
     "modifiedUserId": 161223411986501,
     "modifiedUserName": "admin",
-    "modifiedUserRealName": "管理�?,
+    "modifiedUserRealName": "管理员",
     "modifiedTime": "2023-06-13T16:28:58"
   },
   {
@@ -34,18 +34,18 @@
     "isDeleted": false,
     "createdUserId": 161223411986501,
     "createdUserName": "admin",
-    "createdUserRealName": "管理�?,
+    "createdUserRealName": "管理员",
     "createdTime": "2023-06-13T16:23:05",
     "modifiedUserId": 161223411986501,
     "modifiedUserName": "admin",
-    "modifiedUserRealName": "管理�?,
+    "modifiedUserRealName": "管理员",
     "modifiedTime": "2024-01-31T18:09:02"
   },
   {
     "id": 564647954321477,
     "parentId": 336557578817605,
     "childs": null,
-    "name": "超级管理�?,
+    "name": "超级管理员",
     "code": null,
     "type": 2,
     "dataScope": 1,
@@ -55,11 +55,11 @@
     "isDeleted": false,
     "createdUserId": 161223411986501,
     "createdUserName": "admin",
-    "createdUserRealName": "管理�?,
+    "createdUserRealName": "管理员",
     "createdTime": "2024-07-03T22:58:26",
     "modifiedUserId": 161223411986501,
     "modifiedUserName": "admin",
-    "modifiedUserRealName": "管理�?,
+    "modifiedUserRealName": "管理员",
     "modifiedTime": "2024-07-03T22:58:42"
   }
 ]

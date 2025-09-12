@@ -13,7 +13,7 @@ namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier
     /// 联系人
     /// </summary>
     [Table(Name = DbConsts.ChipTableNamePrefix + "contact", OldName = DbConsts.ChipTableOldNamePrefix + "contact")]
-    public partial class ContactEntity : EntityBase
+    public partial class ContactEntity : EntityTenantWithData
     {
         /// <summary>
         /// 供应商Id
