@@ -51,11 +51,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Update="wwwroot\**\*">
+		<Content Update="wwwroot\*\*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\*\*\*\*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\*\*\*\*\*">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
-
+	
 	<ItemGroup>
 	  <Content Update="ConfigCenter\ratelimitconfig.Development.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

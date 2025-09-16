@@ -8,69 +8,99 @@ using ChipSys.Admin.Contracts.Domain.ChipMgr.Product;
 namespace ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier;
 
 /// <summary>
-/// ¹©Ó¦ÉÌ
+/// ï¿½ï¿½Ó¦ï¿½ï¿½
 /// </summary>
 [Table(Name = DbConsts.ChipTableNamePrefix + "supplier", OldName = DbConsts.ChipTableOldNamePrefix + "supplier")]
 public partial class SupplierEntity : EntityTenantWithData
 {
     /// <summary>
-    /// Ãû³Æ
+    /// åç§°
     /// </summary>
     [Column(StringLength = 100)]
     public string Name { get; set; }
+
     /// <summary>
-    /// ±àÂë
+    /// å…¬å¸åç§°
+    /// </summary>
+    [Column(StringLength = 100)]
+    public string? CompanyName { get; set; }
+    /// <summary>
+    /// ç¼–ç 
     /// </summary>
     [Column(StringLength = 50)]
     public string? Code { get; set; }
     /// <summary>
-    /// ÁªÏµÈË
+    /// è”ç³»äºº
     /// </summary>
     [Column(StringLength = 50)]
     public string? ContactPerson { get; set; }
 
     /// <summary>
-    /// µç»°
+    /// è”ç³»äººå§“å
+    /// </summary>
+    [Column(StringLength = 50)]
+    public string? ContactName { get; set; }
+
+    /// <summary>
+    /// è”ç³»äººç”µè¯
+    /// </summary>
+    [Column(StringLength = 20)]
+    public string? ContactPhone { get; set; }
+
+    /// <summary>
+    /// è”ç³»äººé‚®ç®±
+    /// </summary>
+    [Column(StringLength = 100)]
+    public string? ContactEmail { get; set; }
+
+    /// <summary>
+    /// ç»è¥èŒƒå›´
+    /// </summary>
+    [Column(StringLength = 500)]
+    public string? BusinessScope { get; set; }
+
+    /// <summary>
+    /// ç”µè¯
     /// </summary>
     [Column(StringLength = 20)]
     public string? Phone { get; set; }
 
     /// <summary>
-    /// ÓÊÏä
+    /// é‚®ç®±
     /// </summary>
     [Column(StringLength = 100)]
     public string? Email { get; set; }
 
     /// <summary>
-    /// µØÖ·
+    /// åœ°å€
     /// </summary>
     [Column(StringLength = 200)]
     public string? Address { get; set; }
 
     /// <summary>
-    /// ÆÀ·Ö
+    /// è¯„åˆ†
     /// </summary>
     public int Rating { get; set; }
     [Column(StringLength = 100)]
     public string? Website { get; set; }
     /// <summary>
-    /// ×´Ì¬
+    /// çŠ¶æ€
     /// </summary>
     public int Status { get; set; }
     /// <summary>
-    /// ÃèÊö
+    ///  æè¿°
     /// </summary>
     [Column(StringLength = 500)]
     public string? Description { get; set; }
 
     /// <summary>
-    /// ÁªÏµÈËÁĞ±í
+    /// è”ç³»äººåˆ—è¡¨
     /// </summary>
     [NotGen]
     public ICollection<ContactEntity> Contacts { get; set; } = new List<ContactEntity>();
 
     /// <summary>
-    /// ²úÆ·¹©Ó¦ÉÌ¹ØÏµÁĞ±í
+    /// äº§å“ä¾›åº”å•†å…³ç³»åˆ—è¡¨
     /// </summary>
     [NotGen]
     public ICollection<ProductSupplierEntity> ProductSuppliers { get; set; } = new List<ProductSupplierEntity>();

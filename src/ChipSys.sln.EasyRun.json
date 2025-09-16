@@ -7,7 +7,7 @@
       "LoggingPath": "./.logs",
       "LoggerUrl": null,
       "UseTye": true,
-      "TyePort": 10000,
+      "TyePort": 8000,
       "Filter": ".Host",
       "Services": [
         {

@@ -520,11 +520,6 @@ public class HostApp
                 jsonSerializerOptions.Converters.Add(converter);
             }
             
-            // .NET 9兼容性：设置TypeInfoResolver
-            if (jsonSerializerOptions.TypeInfoResolver == null)
-            {
-                jsonSerializerOptions.TypeInfoResolver = System.Text.Json.Serialization.Metadata.JsonTypeInfoResolver.Combine();
-            }
         }).AddControllersAsServices();
 
         if (appConfig.Lang.EnableJson)

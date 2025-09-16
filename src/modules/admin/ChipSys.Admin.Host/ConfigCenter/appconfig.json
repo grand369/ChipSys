@@ -51,6 +51,12 @@
           "code": "admin",
           "version": "v9.2.0",
           "description": ""
+        },
+        {
+          "name": "Client模块",
+          "code": "client",
+          "version": "v9.2.0",
+          "description": "Client模块相关接口"
         }
       ]
     },

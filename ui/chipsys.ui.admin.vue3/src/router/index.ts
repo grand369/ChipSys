@@ -98,17 +98,31 @@ router.beforeEach(async (to, from, next) => {
   if (to.meta.title) NProgress.start()
   const storesUseUserInfo = useUserInfo(pinia)
   const token = storesUseUserInfo.getToken()
+  // 检查是否为会员相关路由
+  const isMemberRoute = to.path.startsWith('/client/')
+  const memberInfo = Session.get('member_info')
+  
   if (to.meta.isPublic && !token) {
     next()
     NProgress.done()
   } else {
     if (!token) {
-      next(`/login?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`)
+      debugger;
+      // 根据路由类型跳转到不同的登录页面
+      if (isMemberRoute) {
+        next(`/client/member-auth?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`)
+      } else {
+        next(`/login?redirect=${to.path}&params=${JSON.stringify(to.query ? to.query : to.params)}`)
+      }
       storesUseUserInfo.removeTokenInfo()
       Session.clear()
       NProgress.done()
     } else if (token && to.path === '/login') {
       next('/')
+      NProgress.done()
+    } else if (token && to.path === '/client/member-auth' && memberInfo) {
+      // 会员已登录，重定向到会员首页
+      next('/client/dashboard')
       NProgress.done()
     } else {
       const storesRoute = useRoute(pinia)

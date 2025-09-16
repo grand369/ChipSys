@@ -161,6 +161,16 @@
             排序
             </summary>
         </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.Price">
+            <summary>
+            价格
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductEntity.SupplierId">
+            <summary>
+            供应商ID
+            </summary>
+        </member>
         <member name="T:ChipSys.Admin.Contracts.Domain.ChipMgr.Product.ProductSupplierEntity">
             <summary>
             产品供应商关系（包含价格信息等）
@@ -338,12 +348,17 @@
         </member>
         <member name="T:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity">
             <summary>
-            供应商
+            ��Ӧ��
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Name">
             <summary>
             名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.CompanyName">
+            <summary>
+            公司名称
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Code">
@@ -354,6 +369,26 @@
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.ContactPerson">
             <summary>
             联系人
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.ContactName">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.ContactPhone">
+            <summary>
+            联系人电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.ContactEmail">
+            <summary>
+            联系人邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.BusinessScope">
+            <summary>
+            经营范围
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Phone">
@@ -383,7 +418,7 @@
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Description">
             <summary>
-            描述
+             描述
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Contracts.Domain.ChipMgr.Supplier.SupplierEntity.Contacts">
@@ -8662,6 +8697,2332 @@
             <summary>
             WebSocketId
             </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Domain.Client.InquiryEntity">
+            <summary>
+            询价实体
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.Title">
+            <summary>
+            询价标题
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.ProductManufacturer">
+            <summary>
+            产品制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.Quantity">
+            <summary>
+            需求数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.BudgetRange">
+            <summary>
+            预算范围
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.ExpectedDeliveryDays">
+            <summary>
+            期望交期天数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.ValidDays">
+            <summary>
+            询价有效期天数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.TechnicalRequirements">
+            <summary>
+            技术参数要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.QualityRequirements">
+            <summary>
+            质量要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.OtherRequirements">
+            <summary>
+            其他要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.ContactInfo">
+            <summary>
+            联系信息
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.QuoteCount">
+            <summary>
+            报价数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.Status">
+            <summary>
+            状态：Draft-草稿，Published-已发布，Closed-已关闭，Completed-已完成，Cancelled-已取消
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.MemberId">
+            <summary>
+            会员ID
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.InquiryEntity.Quotes">
+            <summary>
+            报价列表
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Domain.Client.MemberEntity">
+            <summary>
+            会员实体
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.UserId">
+            <summary>
+            关联的用户ID
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.NickName">
+            <summary>
+            会员昵称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.RealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.Gender">
+            <summary>
+            性别：Male-男，Female-女，Other-其他
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.Province">
+            <summary>
+            所属省份
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.City">
+            <summary>
+            所属城市
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.District">
+            <summary>
+            所属区县
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.Address">
+            <summary>
+            详细地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.WechatOpenId">
+            <summary>
+            微信OpenId
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.WechatUnionId">
+            <summary>
+            微信UnionId
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.WechatNickName">
+            <summary>
+            微信昵称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.WechatAvatar">
+            <summary>
+            微信头像
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.IsProfileComplete">
+            <summary>
+            是否已完善信息
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Domain.Client.MemberFavoriteEntity">
+            <summary>
+            会员收藏实体
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberFavoriteEntity.MemberId">
+            <summary>
+            会员用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberFavoriteEntity.FavoriteType">
+            <summary>
+            收藏类型：Supplier-供应商，Product-产品，Contact-联系人
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberFavoriteEntity.FavoriteId">
+            <summary>
+            收藏对象Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberFavoriteEntity.FavoriteName">
+            <summary>
+            收藏对象名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberFavoriteEntity.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberFavoriteEntity.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity">
+            <summary>
+            会员等级实体
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.MemberId">
+            <summary>
+            会员用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.Level">
+            <summary>
+            会员等级：Free-免费会员，Basic-基础版，Standard-标准版，Advanced-高级版，Enterprise-企业版
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.CategoryLimit">
+            <summary>
+            可查看的产品分类数量限制
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.ProductDataLimit">
+            <summary>
+            产品数据查看限制（条数）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.SupplierDataLimit">
+            <summary>
+            供应商数据查看限制（条数）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.ShowFullContactInfo">
+            <summary>
+            是否显示完整联系人信息
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.EffectiveTime">
+            <summary>
+            等级生效时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.ExpireTime">
+            <summary>
+            等级过期时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Domain.Client.QuoteEntity">
+            <summary>
+            报价实体
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.InquiryId">
+            <summary>
+            询价ID
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.SupplierId">
+            <summary>
+            供应商ID
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.SupplierName">
+            <summary>
+            供应商名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.QuotePrice">
+            <summary>
+            报价金额
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.Currency">
+            <summary>
+            货币类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.DeliveryDays">
+            <summary>
+            交期天数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.MinOrderQuantity">
+            <summary>
+            最小起订量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.ValidDays">
+            <summary>
+            有效期天数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.ValidUntil">
+            <summary>
+            有效期至
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.ProductSpecification">
+            <summary>
+            产品规格说明
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.QualityAssurance">
+            <summary>
+            质量保证
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.QuoteRemark">
+            <summary>
+            报价备注
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.ContactName">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.ContactEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.Status">
+            <summary>
+            状态：Pending-待审核，Approved-已通过，Accepted-已接受，Rejected-已拒绝，Cancelled-已取消
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.AcceptedTime">
+            <summary>
+            接受时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.RejectedTime">
+            <summary>
+            拒绝时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.QuoteEntity.Inquiry">
+            <summary>
+            询价信息
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity">
+            <summary>
+            供应商申请实体
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.MemberId">
+            <summary>
+            会员用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.CompanyAddress">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.ContactName">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.ContactEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.BusinessLicense">
+            <summary>
+            营业执照号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.MainProductCategories">
+            <summary>
+            主要产品类别
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.CompanyDescription">
+            <summary>
+            公司简介
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.ApplicationReason">
+            <summary>
+            申请理由
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.Status">
+            <summary>
+            审核状态：Pending-待审核，Approved-已通过，Rejected-已拒绝
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.ReviewComment">
+            <summary>
+            审核意见
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.ReviewerId">
+            <summary>
+            审核人Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.ReviewTime">
+            <summary>
+            审核时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.SubmittedTime">
+            <summary>
+            提交时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplierApplicationEntity.CancelledTime">
+            <summary>
+            取消时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity">
+            <summary>
+            供求信息实体
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.MemberId">
+            <summary>
+            会员用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.InfoType">
+            <summary>
+            信息类型：Supply-供应，Demand-需求，Inquiry-询价
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.ProductManufacturer">
+            <summary>
+            产品制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.TechnicalRequirements">
+            <summary>
+            技术参数要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.Quantity">
+            <summary>
+            数量要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.PriceRange">
+            <summary>
+            价格范围
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.DeliveryDays">
+            <summary>
+            供货周期（天）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.ContactInfo">
+            <summary>
+            联系信息
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.Description">
+            <summary>
+            详细描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.Status">
+            <summary>
+            状态：Draft-草稿，Published-已发布，Closed-已关闭
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.SupplyDemandEntity.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions">
+            <summary>
+            会员权限常量
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.MemberFavorite">
+            <summary>
+            会员收藏管理
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.MemberFavoriteView">
+            <summary>
+            会员收藏查看
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.MemberFavoriteAdd">
+            <summary>
+            会员收藏添加
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.MemberFavoriteUpdate">
+            <summary>
+            会员收藏修改
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.MemberFavoriteDelete">
+            <summary>
+            会员收藏删除
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplyDemand">
+            <summary>
+            供求信息管理
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplyDemandView">
+            <summary>
+            供求信息查看
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplyDemandAdd">
+            <summary>
+            供求信息添加
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplyDemandUpdate">
+            <summary>
+            供求信息修改
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplyDemandDelete">
+            <summary>
+            供求信息删除
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplyDemandPublish">
+            <summary>
+            供求信息发布
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplierApplication">
+            <summary>
+            供应商申请
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplierApplicationView">
+            <summary>
+            供应商申请查看
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientPermissions.SupplierApplicationSubmit">
+            <summary>
+            供应商申请提交
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.ClientRoles">
+            <summary>
+            会员角色配置
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientRoles.Member">
+            <summary>
+            会员角色
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientRoles.Supplier">
+            <summary>
+            供应商角色
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.ClientRolePermissions">
+            <summary>
+            会员权限配置
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientRolePermissions.MemberPermissions">
+            <summary>
+            会员角色权限
+            </summary>
+        </member>
+        <member name="F:ChipSys.Client.Contracts.Services.Client.Dto.ClientRolePermissions.SupplierPermissions">
+            <summary>
+            供应商角色权限（在会员权限基础上增加）
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.InquiryGetOutput">
+            <summary>
+            询价输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.InquiryGetPageOutput">
+            <summary>
+            询价分页输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.InquiryAddInput">
+            <summary>
+            询价添加输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.InquiryUpdateInput">
+            <summary>
+            询价更新输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.InquiryGetPageInput">
+            <summary>
+            询价分页输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByMobileInput">
+            <summary>
+            会员手机号注册输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByMobileInput.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByMobileInput.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByMobileInput.CodeId">
+            <summary>
+            验证码Id
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByEmailInput">
+            <summary>
+            会员邮箱注册输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByEmailInput.Email">
+            <summary>
+            邮箱地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByEmailInput.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByEmailInput.CodeId">
+            <summary>
+            验证码Id
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput">
+            <summary>
+            会员微信注册输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput.Code">
+            <summary>
+            微信授权码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput.OpenId">
+            <summary>
+            微信OpenId
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput.UnionId">
+            <summary>
+            微信UnionId
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput.NickName">
+            <summary>
+            微信昵称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput.Avatar">
+            <summary>
+            微信头像
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByMobileInput">
+            <summary>
+            会员手机号登录输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByMobileInput.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByMobileInput.Code">
+            <summary>
+            验证码
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByMobileInput.CodeId">
+            <summary>
+            验证码Id
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByWechatInput">
+            <summary>
+            会员微信登录输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByWechatInput.Code">
+            <summary>
+            微信授权码
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginOutput">
+            <summary>
+            会员登录输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginOutput.AccessToken">
+            <summary>
+            访问令牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginOutput.RefreshToken">
+            <summary>
+            刷新令牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginOutput.Expires">
+            <summary>
+            过期时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginOutput.MemberInfo">
+            <summary>
+            会员信息
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput">
+            <summary>
+            会员信息输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.Id">
+            <summary>
+            会员ID
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.UserId">
+            <summary>
+            用户ID
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.NickName">
+            <summary>
+            会员昵称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.RealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.Mobile">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.Email">
+            <summary>
+            邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.Gender">
+            <summary>
+            性别
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.Region">
+            <summary>
+            所属区域
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.IsProfileComplete">
+            <summary>
+            是否已完善信息
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberInfoOutput.WechatInfo">
+            <summary>
+            微信信息
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.WechatInfoOutput">
+            <summary>
+            微信信息输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.WechatInfoOutput.NickName">
+            <summary>
+            微信昵称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.WechatInfoOutput.Avatar">
+            <summary>
+            微信头像
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput">
+            <summary>
+            会员信息补充输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.NickName">
+            <summary>
+            会员昵称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.Password">
+            <summary>
+            密码（可选）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.RealName">
+            <summary>
+            真实姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.IdCard">
+            <summary>
+            身份证号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.Gender">
+            <summary>
+            性别：Male-男，Female-女，Other-其他
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.Province">
+            <summary>
+            所属省份
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.City">
+            <summary>
+            所属城市
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.District">
+            <summary>
+            所属区县
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput.Address">
+            <summary>
+            详细地址
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput">
+            <summary>
+            会员仪表板统计输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.FavoriteSupplierCount">
+            <summary>
+            收藏的供应商数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.FavoriteProductCount">
+            <summary>
+            收藏的产品数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.FavoriteContactCount">
+            <summary>
+            收藏的联系人数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.SupplyInfoCount">
+            <summary>
+            发布的供应信息数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.DemandInfoCount">
+            <summary>
+            发布的需求信息数量
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.SupplierApplicationStatus">
+            <summary>
+            供应商申请状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.RecentFavoriteSuppliers">
+            <summary>
+            最近收藏的供应商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.RecentFavoriteProducts">
+            <summary>
+            最近收藏的产品
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberDashboardStatsOutput.RecentSupplyDemands">
+            <summary>
+            最近的供求信息
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.RecentFavoriteOutput">
+            <summary>
+            最近收藏输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentFavoriteOutput.Id">
+            <summary>
+            收藏Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentFavoriteOutput.FavoriteId">
+            <summary>
+            对象Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentFavoriteOutput.FavoriteName">
+            <summary>
+            对象名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentFavoriteOutput.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentFavoriteOutput.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentFavoriteOutput.CreatedTime">
+            <summary>
+            收藏时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.RecentSupplyDemandOutput">
+            <summary>
+            最近供求信息输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentSupplyDemandOutput.Id">
+            <summary>
+            信息Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentSupplyDemandOutput.InfoType">
+            <summary>
+            信息类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentSupplyDemandOutput.Title">
+            <summary>
+            标题
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentSupplyDemandOutput.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentSupplyDemandOutput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.RecentSupplyDemandOutput.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageInput">
+            <summary>
+            会员收藏查询输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageFilter">
+            <summary>
+            会员收藏查询过滤
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageFilter.FavoriteType">
+            <summary>
+            收藏类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageFilter.FavoriteName">
+            <summary>
+            收藏对象名称
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageOutput">
+            <summary>
+            会员收藏分页输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageOutput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageOutput.FavoriteType">
+            <summary>
+            收藏类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageOutput.FavoriteId">
+            <summary>
+            收藏对象Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageOutput.FavoriteName">
+            <summary>
+            收藏对象名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageOutput.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageOutput.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetOutput">
+            <summary>
+            会员收藏详情输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetOutput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetOutput.MemberId">
+            <summary>
+            会员用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetOutput.FavoriteType">
+            <summary>
+            收藏类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetOutput.FavoriteId">
+            <summary>
+            收藏对象Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetOutput.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetOutput.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteAddInput">
+            <summary>
+            会员收藏添加输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteAddInput.FavoriteType">
+            <summary>
+            收藏类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteAddInput.FavoriteId">
+            <summary>
+            收藏对象Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteAddInput.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteUpdateInput">
+            <summary>
+            会员收藏修改输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteUpdateInput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteUpdateInput.Remark">
+            <summary>
+            备注
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelGetOutput">
+            <summary>
+            会员等级输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelGetPageOutput">
+            <summary>
+            会员等级分页输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelAddInput">
+            <summary>
+            会员等级添加输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelAddInput.MemberId">
+            <summary>
+            会员ID（可选，用于直接为特定会员创建等级）
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelUpdateInput">
+            <summary>
+            会员等级更新输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelGetPageInput">
+            <summary>
+            会员等级分页输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.QuoteGetOutput">
+            <summary>
+            报价输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.QuoteGetPageOutput">
+            <summary>
+            报价分页输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.QuoteAddInput">
+            <summary>
+            报价添加输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.QuoteUpdateInput">
+            <summary>
+            报价更新输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.QuoteGetPageInput">
+            <summary>
+            报价分页输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageInput">
+            <summary>
+            供应商申请查询输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageFilter">
+            <summary>
+            供应商申请查询过滤
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageFilter.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageFilter.ContactName">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageFilter.Status">
+            <summary>
+            审核状态
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput">
+            <summary>
+            供应商申请分页输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.CompanyAddress">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.ContactName">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.ContactEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.MainProductCategories">
+            <summary>
+            主要产品类别
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.Status">
+            <summary>
+            审核状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.ReviewComment">
+            <summary>
+            审核意见
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.ReviewTime">
+            <summary>
+            审核时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageOutput.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput">
+            <summary>
+            供应商申请详情输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.MemberId">
+            <summary>
+            会员用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.CompanyAddress">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.ContactName">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.ContactEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.BusinessLicense">
+            <summary>
+            营业执照号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.MainProductCategories">
+            <summary>
+            主要产品类别
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.CompanyDescription">
+            <summary>
+            公司简介
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.ApplicationReason">
+            <summary>
+            申请理由
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.Status">
+            <summary>
+            审核状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.ReviewComment">
+            <summary>
+            审核意见
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.ReviewTime">
+            <summary>
+            审核时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetOutput.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput">
+            <summary>
+            供应商申请添加输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.CompanyAddress">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.ContactName">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.ContactEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.BusinessLicense">
+            <summary>
+            营业执照号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.MainProductCategories">
+            <summary>
+            主要产品类别
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.BusinessScope">
+            <summary>
+            经营范围
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.CompanyDescription">
+            <summary>
+            公司简介
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput.ApplicationReason">
+            <summary>
+            申请理由
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput">
+            <summary>
+            供应商申请修改输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.CompanyName">
+            <summary>
+            公司名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.CompanyAddress">
+            <summary>
+            公司地址
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.ContactName">
+            <summary>
+            联系人姓名
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.ContactPhone">
+            <summary>
+            联系电话
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.ContactEmail">
+            <summary>
+            联系邮箱
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.BusinessLicense">
+            <summary>
+            营业执照号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.MainProductCategories">
+            <summary>
+            主要产品类别
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.CompanyDescription">
+            <summary>
+            公司简介
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput.ApplicationReason">
+            <summary>
+            申请理由
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageInput">
+            <summary>
+            供求信息查询输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageFilter">
+            <summary>
+            供求信息查询过滤
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageFilter.InfoType">
+            <summary>
+            信息类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageFilter.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageFilter.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput">
+            <summary>
+            供求信息分页输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.InfoType">
+            <summary>
+            信息类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.Quantity">
+            <summary>
+            数量要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.PriceRange">
+            <summary>
+            价格范围
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.DeliveryDays">
+            <summary>
+            供货周期（天）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageOutput.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput">
+            <summary>
+            供求信息详情输出
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.MemberId">
+            <summary>
+            会员用户Id
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.InfoType">
+            <summary>
+            信息类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.ProductManufacturer">
+            <summary>
+            产品制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.ProductDescription">
+            <summary>
+            产品描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.ProductSpecification">
+            <summary>
+            产品参数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.TechnicalRequirements">
+            <summary>
+            技术参数要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.Quantity">
+            <summary>
+            数量要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.PriceRange">
+            <summary>
+            价格范围
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.DeliveryDays">
+            <summary>
+            供货周期（天）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.ContactInfo">
+            <summary>
+            联系信息
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.Description">
+            <summary>
+            详细描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.Status">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetOutput.CreatedTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput">
+            <summary>
+            供求信息添加输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.InfoType">
+            <summary>
+            信息类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.ProductManufacturer">
+            <summary>
+            产品制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.ProductDescription">
+            <summary>
+            产品描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.ProductSpecification">
+            <summary>
+            产品参数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.TechnicalRequirements">
+            <summary>
+            技术参数要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.Quantity">
+            <summary>
+            数量要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.Unit">
+            <summary>
+            单位
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.ExpectedPrice">
+            <summary>
+            期望价格
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.Currency">
+            <summary>
+            货币类型
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.PriceRange">
+            <summary>
+            价格范围
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.DeliveryDays">
+            <summary>
+            供货周期（天）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.ContactInfo">
+            <summary>
+            联系信息
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput.Description">
+            <summary>
+            详细描述
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput">
+            <summary>
+            供求信息修改输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.Id">
+            <summary>
+            主键
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.ProductName">
+            <summary>
+            产品名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.ProductModel">
+            <summary>
+            产品型号
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.ProductBrand">
+            <summary>
+            产品品牌
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.ProductManufacturer">
+            <summary>
+            产品制造商
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.ProductDescription">
+            <summary>
+            产品描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.ProductSpecification">
+            <summary>
+            产品参数
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.TechnicalRequirements">
+            <summary>
+            技术参数要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.Quantity">
+            <summary>
+            数量要求
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.PriceRange">
+            <summary>
+            价格范围
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.DeliveryDays">
+            <summary>
+            供货周期（天）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.ContactInfo">
+            <summary>
+            联系信息
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput.Description">
+            <summary>
+            详细描述
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.IInquiryService">
+            <summary>
+            询价服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IInquiryService.GetAsync(System.Int64)">
+            <summary>
+            查询询价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IInquiryService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.InquiryGetPageInput})">
+            <summary>
+            查询询价分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IInquiryService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.InquiryAddInput)">
+            <summary>
+            新增询价
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IInquiryService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.InquiryUpdateInput)">
+            <summary>
+            更新询价
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IInquiryService.DeleteAsync(System.Int64)">
+            <summary>
+            删除询价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IInquiryService.PublishAsync(System.Int64)">
+            <summary>
+            发布询价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IInquiryService.CloseAsync(System.Int64)">
+            <summary>
+            关闭询价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IInquiryService.GetStatsAsync">
+            <summary>
+            获取询价统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.IMemberAuthService">
+            <summary>
+            会员认证服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.SendMobileCodeAsync(System.String)">
+            <summary>
+            发送手机验证码
+            </summary>
+            <param name="mobile">手机号</param>
+            <returns>验证码ID</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.SendEmailCodeAsync(System.String)">
+            <summary>
+            发送邮箱验证码
+            </summary>
+            <param name="email">邮箱地址</param>
+            <returns>验证码ID</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.CheckMobileExistsAsync(System.String)">
+            <summary>
+            检查手机号是否已注册
+            </summary>
+            <param name="mobile">手机号</param>
+            <returns>是否已注册</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.CheckEmailExistsAsync(System.String)">
+            <summary>
+            检查邮箱是否已注册
+            </summary>
+            <param name="email">邮箱地址</param>
+            <returns>是否已注册</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.RegisterByMobileAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByMobileInput)">
+            <summary>
+            手机号注册
+            </summary>
+            <param name="input">注册信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.RegisterByEmailAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByEmailInput)">
+            <summary>
+            邮箱注册
+            </summary>
+            <param name="input">注册信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.RegisterByWechatAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput)">
+            <summary>
+            微信注册
+            </summary>
+            <param name="input">注册信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.LoginByMobileAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByMobileInput)">
+            <summary>
+            手机号登录
+            </summary>
+            <param name="input">登录信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.LoginByWechatAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByWechatInput)">
+            <summary>
+            微信登录
+            </summary>
+            <param name="input">登录信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.GetMemberInfoAsync">
+            <summary>
+            获取会员信息
+            </summary>
+            <returns>会员信息</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.UpdateProfileAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput)">
+            <summary>
+            更新会员信息
+            </summary>
+            <param name="input">会员信息</param>
+            <returns>操作结果</returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberAuthService.RefreshTokenAsync(System.String)">
+            <summary>
+            刷新令牌
+            </summary>
+            <param name="refreshToken">刷新令牌</param>
+            <returns>新的令牌信息</returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.IMemberDashboardService">
+            <summary>
+            会员仪表板服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberDashboardService.GetDashboardStatsAsync">
+            <summary>
+            获取会员仪表板统计数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberDashboardService.GetFavoriteStatsAsync">
+            <summary>
+            获取会员收藏统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberDashboardService.GetSupplyDemandStatsAsync">
+            <summary>
+            获取会员供求信息统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService">
+            <summary>
+            会员收藏服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService.GetPageAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageInput)">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService.DeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService.IsFavoritedAsync(System.String,System.Int64)">
+            <summary>
+            检查是否已收藏
+            </summary>
+            <param name="favoriteType"></param>
+            <param name="favoriteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberFavoriteService.ToggleFavoriteAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteAddInput)">
+            <summary>
+            一键收藏
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.IMemberLevelService">
+            <summary>
+            会员等级服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelService.GetAsync(System.Int64)">
+            <summary>
+            查询会员等级
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelGetPageInput})">
+            <summary>
+            查询会员等级分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelService.GetCurrentLevelAsync(System.Int64)">
+            <summary>
+            获取会员当前等级
+            </summary>
+            <param name="memberId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelService.UpgradeLevelAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelAddInput)">
+            <summary>
+            升级会员等级
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelService.UpdateLevelAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelUpdateInput)">
+            <summary>
+            更新会员等级
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelService.CheckPermissionAsync(System.Int64,System.String)">
+            <summary>
+            检查会员权限
+            </summary>
+            <param name="memberId"></param>
+            <param name="permissionType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.IPublicQueryService">
+            <summary>
+            公开查询服务接口（供会员查看公开信息）
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetPublicSuppliersAsync(System.Object)">
+            <summary>
+            查询公开的供应商列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetPublicSupplierAsync(System.Int64)">
+            <summary>
+            查询公开的供应商详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetPublicProductsAsync(System.Object)">
+            <summary>
+            查询公开的产品列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetPublicProductAsync(System.Int64)">
+            <summary>
+            查询公开的产品详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetSupplierProductsAsync(System.Int64,System.Object)">
+            <summary>
+            查询供应商的产品列表
+            </summary>
+            <param name="supplierId"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.SearchAsync(System.String,System.String)">
+            <summary>
+            搜索供应商和产品
+            </summary>
+            <param name="keyword"></param>
+            <param name="type">搜索类型：all-全部，supplier-供应商，product-产品</param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.IQuoteService">
+            <summary>
+            报价服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.GetAsync(System.Int64)">
+            <summary>
+            查询报价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.QuoteGetPageInput})">
+            <summary>
+            查询报价分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.QuoteAddInput)">
+            <summary>
+            新增报价
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.QuoteUpdateInput)">
+            <summary>
+            更新报价
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.DeleteAsync(System.Int64)">
+            <summary>
+            删除报价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.AcceptAsync(System.Int64)">
+            <summary>
+            接受报价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.RejectAsync(System.Int64)">
+            <summary>
+            拒绝报价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.GetInquiryQuotesAsync(System.Int64,ChipSys.Client.Contracts.Services.Client.Dto.QuoteGetPageInput)">
+            <summary>
+            获取询价的报价列表
+            </summary>
+            <param name="inquiryId"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IQuoteService.GetStatsAsync">
+            <summary>
+            获取报价统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService">
+            <summary>
+            供应商申请服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService.GetPageAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageInput)">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService.DeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService.SubmitAsync(System.Int64)">
+            <summary>
+            提交申请
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService.CancelAsync(System.Int64)">
+            <summary>
+            撤销申请
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplierApplicationService.HasPendingApplicationAsync">
+            <summary>
+            检查是否已有申请
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService">
+            <summary>
+            供求信息服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.GetPageAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageInput)">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.DeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.PublishAsync(System.Int64)">
+            <summary>
+            发布
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.CloseAsync(System.Int64)">
+            <summary>
+            关闭
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.ISupplyDemandService.GetPublicPageAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageInput)">
+            <summary>
+            查询公开的供求信息（供其他用户查看）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
         </member>
         <member name="T:Refit.Implementation.Generated">
             <inheritdoc />

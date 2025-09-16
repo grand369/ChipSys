@@ -1,6 +1,7 @@
 import { AuthApi } from '/@/api/admin/Auth'
+import { memberAuthApi } from '/@/api/client'
 import { merge } from 'lodash-es'
-import { Local } from '/@/utils/storage'
+import { Local, Session } from '/@/utils/storage'
 import { useThemeConfig } from '/@/stores/themeConfig'
 import Watermark from '/@/utils/watermark'
 import { TokenInfo } from '/@/api/admin/data-contracts'
@@ -39,6 +40,9 @@ export const useUserInfo = defineStore('userInfo', {
     setToken(token: string) {
       this.userInfos.token = token
       Local.set(adminTokenKey, token)
+      // 同时设置到adminTokenInfoKey，确保getToken能正确读取
+      const tokenInfo = { accessToken: token } as TokenInfo
+      Local.set(adminTokenInfoKey, tokenInfo)
     },
     setTokenInfo(tokenInfo: TokenInfo | undefined) {
       this.userInfos.token = tokenInfo?.accessToken as string
@@ -56,6 +60,7 @@ export const useUserInfo = defineStore('userInfo', {
     removeTokenInfo() {
       this.userInfos.token = ''
       Local.remove(adminTokenInfoKey)
+      Local.remove(adminTokenKey)
     },
     clear() {
       this.removeTokenInfo()
@@ -65,34 +70,60 @@ export const useUserInfo = defineStore('userInfo', {
     //查询用户信息
     async getUserInfo() {
       try {
-        const profile = await new AuthApi().getUserProfile().catch(() => {})
-        const permissions = await new AuthApi().getUserPermissions().catch(() => {})
-
-        const userInfos = {} as any
-        const user = profile?.data
-        if (profile?.success) {
-          userInfos.userName = user?.nickName || user?.name
-          userInfos.photo = user?.avatar ? user?.avatar : ''
+        // 检查是否为会员用户
+        const memberInfo = Session.get('member_info')
+        if (memberInfo) {
+          // 会员用户信息获取
+          const userInfos = {} as any
+          userInfos.userName = memberInfo.nickName || memberInfo.realName || '会员用户'
+          userInfos.photo = memberInfo.wechatInfo?.avatar || ''
           userInfos.time = new Date().getTime()
-          userInfos.roles = []
-        }
-
-        if (permissions?.success) {
-          userInfos.authBtnList = permissions.data?.permissions
-        }
-
-        // 水印文案
-        const storesThemeConfig = useThemeConfig()
-        if (storesThemeConfig.themeConfig.isWatermark) {
-          storesThemeConfig.themeConfig.watermarkText = user?.watermarkText || '中台Admin'
-          Watermark.set(storesThemeConfig.themeConfig.watermarkText)
-          Local.remove('themeConfig')
-          Local.set('themeConfig', storesThemeConfig.themeConfig)
+          userInfos.roles = ['member'] // 会员角色
+          userInfos.authBtnList = [] // 会员暂时不需要权限按钮
+          
+          // 水印文案
+          const storesThemeConfig = useThemeConfig()
+          if (storesThemeConfig.themeConfig.isWatermark) {
+            storesThemeConfig.themeConfig.watermarkText = '会员用户'
+            Watermark.set(storesThemeConfig.themeConfig.watermarkText)
+            Local.remove('themeConfig')
+            Local.set('themeConfig', storesThemeConfig.themeConfig)
+          } else {
+            Watermark.del()
+          }
+          
+          return userInfos
         } else {
-          Watermark.del()
-        }
+          // 管理员用户信息获取
+          const profile = await new AuthApi().getUserProfile().catch(() => {})
+          const permissions = await new AuthApi().getUserPermissions().catch(() => {})
 
-        return userInfos
+          const userInfos = {} as any
+          const user = profile?.data
+          if (profile?.success) {
+            userInfos.userName = user?.nickName || user?.name
+            userInfos.photo = user?.avatar ? user?.avatar : ''
+            userInfos.time = new Date().getTime()
+            userInfos.roles = []
+          }
+
+          if (permissions?.success) {
+            userInfos.authBtnList = permissions.data?.permissions
+          }
+
+          // 水印文案
+          const storesThemeConfig = useThemeConfig()
+          if (storesThemeConfig.themeConfig.isWatermark) {
+            storesThemeConfig.themeConfig.watermarkText = user?.watermarkText || '中台Admin'
+            Watermark.set(storesThemeConfig.themeConfig.watermarkText)
+            Local.remove('themeConfig')
+            Local.set('themeConfig', storesThemeConfig.themeConfig)
+          } else {
+            Watermark.del()
+          }
+
+          return userInfos
+        }
       } catch (err) {
         console.error('获取用户信息失败:', err)
         throw err

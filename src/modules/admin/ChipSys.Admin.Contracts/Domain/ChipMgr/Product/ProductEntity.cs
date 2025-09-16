@@ -78,4 +78,14 @@ public partial class ProductEntity : EntityTenantWithData
     /// 排序
     /// </summary>
     public int Sort { get; set; }
+
+    /// <summary>
+    /// 价格
+    /// </summary>
+    public decimal? Price { get; set; }
+
+    /// <summary>
+    /// 供应商ID
+    /// </summary>
+    public long? SupplierId { get; set; }
 }

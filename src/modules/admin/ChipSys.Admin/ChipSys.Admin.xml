@@ -1220,6 +1220,632 @@
             <param name="ids"></param>
             <returns></returns>
         </member>
+        <member name="T:ChipSys.Admin.Services.Client.InquiryService">
+            <summary>
+            询价服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.InquiryService.GetAsync(System.Int64)">
+            <summary>
+            获取询价信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.InquiryService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.InquiryGetPageInput})">
+            <summary>
+            获取询价分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.InquiryService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.InquiryAddInput)">
+            <summary>
+            新增询价
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.InquiryService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.InquiryUpdateInput)">
+            <summary>
+            更新询价
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.InquiryService.DeleteAsync(System.Int64)">
+            <summary>
+            删除询价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.InquiryService.PublishAsync(System.Int64)">
+            <summary>
+            发布询价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.InquiryService.CloseAsync(System.Int64)">
+            <summary>
+            关闭询价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.InquiryService.GetStatsAsync">
+            <summary>
+            获取询价统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.MemberAuthService">
+            <summary>
+            会员认证服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.SendMobileCodeAsync(System.String)">
+            <summary>
+            发送手机验证码
+            </summary>
+            <param name="mobile">手机号</param>
+            <returns>验证码ID</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.SendEmailCodeAsync(System.String)">
+            <summary>
+            发送邮箱验证码
+            </summary>
+            <param name="email">邮箱地址</param>
+            <returns>验证码ID</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.CheckMobileExistsAsync(System.String)">
+            <summary>
+            检查手机号是否已注册
+            </summary>
+            <param name="mobile">手机号</param>
+            <returns>是否已注册</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.CheckEmailExistsAsync(System.String)">
+            <summary>
+            检查邮箱是否已注册
+            </summary>
+            <param name="email">邮箱地址</param>
+            <returns>是否已注册</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.RegisterByMobileAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByMobileInput)">
+            <summary>
+            手机号注册
+            </summary>
+            <param name="input">注册信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.RegisterByEmailAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByEmailInput)">
+            <summary>
+            邮箱注册
+            </summary>
+            <param name="input">注册信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.RegisterByWechatAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput)">
+            <summary>
+            微信注册
+            </summary>
+            <param name="input">注册信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.LoginByMobileAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByMobileInput)">
+            <summary>
+            手机号登录
+            </summary>
+            <param name="input">登录信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.LoginByWechatAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLoginByWechatInput)">
+            <summary>
+            微信登录
+            </summary>
+            <param name="input">登录信息</param>
+            <returns>登录结果</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.GetMemberInfoAsync">
+            <summary>
+            获取会员信息
+            </summary>
+            <returns>会员信息</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.UpdateProfileAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberProfileUpdateInput)">
+            <summary>
+            更新会员信息
+            </summary>
+            <param name="input">会员信息</param>
+            <returns>操作结果</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.RefreshTokenAsync(System.String)">
+            <summary>
+            刷新令牌
+            </summary>
+            <param name="refreshToken">刷新令牌</param>
+            <returns>新的令牌信息</returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.ValidateMobileCodeAsync(System.String,System.String,System.String)">
+            <summary>
+            验证手机验证码
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.ValidateEmailCodeAsync(System.String,System.String,System.String)">
+            <summary>
+            验证邮箱验证码
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.CreateUserAndMemberAsync(System.String,System.String,System.String,System.String,ChipSys.Client.Contracts.Services.Client.Dto.MemberRegByWechatInput)">
+            <summary>
+            创建用户和会员
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.GenerateLoginResultAsync(ChipSys.Admin.Domain.User.UserEntity,ChipSys.Client.Contracts.Domain.Client.MemberEntity)">
+            <summary>
+            生成登录结果
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.IsValidMobile(System.String)">
+            <summary>
+            验证手机号格式
+            </summary>
+            <param name="mobile">手机号</param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberAuthService.IsValidEmail(System.String)">
+            <summary>
+            验证邮箱格式
+            </summary>
+            <param name="email">邮箱地址</param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.MemberDashboardService">
+            <summary>
+            会员仪表板服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberDashboardService.GetDashboardStatsAsync">
+            <summary>
+            获取会员仪表板统计数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberDashboardService.GetFavoriteStatsAsync">
+            <summary>
+            获取会员收藏统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberDashboardService.GetSupplyDemandStatsAsync">
+            <summary>
+            获取会员供求信息统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.MemberFavoriteService">
+            <summary>
+            会员收藏服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.GetPageAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteGetPageInput)">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.DeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.IsFavoritedAsync(System.String,System.Int64)">
+            <summary>
+            检查是否已收藏
+            </summary>
+            <param name="favoriteType"></param>
+            <param name="favoriteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.ToggleFavoriteAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberFavoriteAddInput)">
+            <summary>
+            一键收藏/取消收藏
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.GetFavoriteNameAsync(System.String,System.Int64)">
+            <summary>
+            获取收藏对象名称
+            </summary>
+            <param name="favoriteType"></param>
+            <param name="favoriteId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.ValidateFavoriteObjectAsync(System.String,System.Int64)">
+            <summary>
+            验证收藏对象是否存在
+            </summary>
+            <param name="favoriteType"></param>
+            <param name="favoriteId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.MemberLevelService">
+            <summary>
+            会员等级服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.GetAsync(System.Int64)">
+            <summary>
+            获取会员等级信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelGetPageInput})">
+            <summary>
+            获取会员等级分页列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelAddInput)">
+            <summary>
+            添加会员等级
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelUpdateInput)">
+            <summary>
+            修改会员等级
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.DeleteAsync(System.Int64)">
+            <summary>
+            删除会员等级
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.GetCurrentLevelAsync(System.Int64)">
+            <summary>
+            获取当前会员等级信息
+            </summary>
+            <param name="memberId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.UpgradeLevelAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelAddInput)">
+            <summary>
+            升级会员等级
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.GetLevelConfig(System.String)">
+            <summary>
+            获取等级配置
+            </summary>
+            <param name="level"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.IsHigherOrEqualLevel(System.String,System.String)">
+            <summary>
+            比较等级高低
+            </summary>
+            <param name="level1"></param>
+            <param name="level2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.UpdateLevelAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelUpdateInput)">
+            <summary>
+            更新会员等级
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelService.CheckPermissionAsync(System.Int64,System.String)">
+            <summary>
+            检查会员权限
+            </summary>
+            <param name="memberId"></param>
+            <param name="permissionType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.PublicQueryService">
+            <summary>
+            公开查询服务（供会员查看公开信息）
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetPublicSuppliersAsync(System.Object)">
+            <summary>
+            查询公开的供应商列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetPublicSupplierAsync(System.Int64)">
+            <summary>
+            查询公开的供应商详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetPublicProductsAsync(System.Object)">
+            <summary>
+            查询公开的产品列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetPublicProductAsync(System.Int64)">
+            <summary>
+            查询公开的产品详情
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetSupplierProductsAsync(System.Int64,System.Object)">
+            <summary>
+            查询供应商的产品列表
+            </summary>
+            <param name="supplierId"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.SearchAsync(System.String,System.String)">
+            <summary>
+            搜索供应商和产品
+            </summary>
+            <param name="keyword"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetMemberLimitsAsync">
+            <summary>
+            获取会员权限限制
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.QuoteService">
+            <summary>
+            报价服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.GetAsync(System.Int64)">
+            <summary>
+            获取报价信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.QuoteGetPageInput})">
+            <summary>
+            获取报价分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.QuoteAddInput)">
+            <summary>
+            新增报价
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.QuoteUpdateInput)">
+            <summary>
+            更新报价
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.DeleteAsync(System.Int64)">
+            <summary>
+            删除报价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.AcceptAsync(System.Int64)">
+            <summary>
+            接受报价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.RejectAsync(System.Int64)">
+            <summary>
+            拒绝报价
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.GetInquiryQuotesAsync(System.Int64,ChipSys.Client.Contracts.Services.Client.Dto.QuoteGetPageInput)">
+            <summary>
+            获取询价的报价列表
+            </summary>
+            <param name="inquiryId"></param>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.QuoteService.GetStatsAsync">
+            <summary>
+            获取报价统计
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.SupplierApplicationService">
+            <summary>
+            供应商申请服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplierApplicationService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplierApplicationService.GetPageAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationGetPageInput)">
+            <summary>
+            查询分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplierApplicationService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplierApplicationService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplierApplicationUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplierApplicationService.DeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplierApplicationService.SubmitAsync(System.Int64)">
+            <summary>
+            提交申请
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplierApplicationService.CancelAsync(System.Int64)">
+            <summary>
+            撤销申请
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplierApplicationService.HasPendingApplicationAsync">
+            <summary>
+            检查是否已有待审核申请
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.SupplyDemandService">
+            <summary>
+            供求信息服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.GetAsync(System.Int64)">
+            <summary>
+            查询
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.GetPageAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageInput)">
+            <summary>
+            查询分页（我的信息）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.GetPublicPageAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandGetPageInput)">
+            <summary>
+            查询公开的供求信息（供其他用户查看）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandAddInput)">
+            <summary>
+            添加
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.SupplyDemandUpdateInput)">
+            <summary>
+            修改
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.DeleteAsync(System.Int64)">
+            <summary>
+            删除
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.BatchDeleteAsync(System.Int64[])">
+            <summary>
+            批量删除
+            </summary>
+            <param name="ids"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.PublishAsync(System.Int64)">
+            <summary>
+            发布
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.CloseAsync(System.Int64)">
+            <summary>
+            关闭
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.SupplyDemandService.CheckMemberPermissionAsync(System.Int64,System.String)">
+            <summary>
+            检查会员权限
+            </summary>
+            <param name="memberId"></param>
+            <param name="infoType"></param>
+            <returns></returns>
+        </member>
         <member name="T:ChipSys.Admin.Services.DictType.DictTypeService">
             <summary>
             数据字典类型服务

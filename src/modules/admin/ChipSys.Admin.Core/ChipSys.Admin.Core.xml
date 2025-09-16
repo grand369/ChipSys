@@ -1700,6 +1700,18 @@
             <param name="fileId">文件Id</param>
             <returns></returns>
         </member>
+        <member name="F:ChipSys.Admin.Core.Consts.CacheKeys.RefreshToken">
+            <summary>
+            刷新令牌 admin:refresh:token:tokenId
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Core.Consts.CacheKeys.GetRefreshTokenKey(System.String)">
+            <summary>
+            获取刷新令牌缓存键
+            </summary>
+            <param name="tokenId">令牌ID</param>
+            <returns></returns>
+        </member>
         <member name="T:ChipSys.Admin.Core.Consts.DbKeys">
             <summary>
             鏁版嵁搴撻敭鍚?

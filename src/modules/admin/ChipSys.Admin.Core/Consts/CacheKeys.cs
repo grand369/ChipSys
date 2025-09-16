@@ -4,84 +4,84 @@ using ChipSys.Admin.Core.Attributes;
 namespace ChipSys.Admin.Core.Consts;
 
 /// <summary>
-/// »º´æ¼ü
+/// ç¼“å­˜é”®
 /// </summary>
 [ScanCacheKeys]
 public static partial class CacheKeys
 {
     /// <summary>
-    /// ÑéÖ¤Âë admin:captcha:guid
+    /// éªŒè¯ç  admin:captcha:guid
     /// </summary>
-    [Description("ÑéÖ¤Âë")]
+    [Description("éªŒè¯ç ")]
     public const string Captcha = "admin:captcha:";
 
     /// <summary>
-    /// ÃÜÂë¼ÓÃÜ admin:password:encrypt:guid
+    /// å¯†ç åŠ å¯† admin:password:encrypt:guid
     /// </summary>
-    [Description("ÃÜÂë¼ÓÃÜ")]
+    [Description("å¯†ç åŠ å¯†")]
     public const string PassWordEncrypt = "admin:password:encrypt:";
 
     /// <summary>
-    /// ÓÃ»§È¨ÏŞ admin:user:permissions:userId
+    /// ç”¨æˆ·æƒé™ admin:user:permissions:userId
     /// </summary>
-    [Description("ÓÃ»§È¨ÏŞ")]
+    [Description("ç”¨æˆ·æƒé™")]
     public const string UserPermission = "admin:user:permission:";
 
     /// <summary>
-    /// Êı¾İÈ¨ÏŞ admin:user:data:permission:userId
+    /// æ•°æ®æƒé™ admin:user:data:permission:userId
     /// </summary>
-    [Description("Êı¾İÈ¨ÏŞ")]
+    [Description("æ•°æ®æƒé™")]
     public const string DataPermission = "admin:user:data:permission:";
 
     /// <summary>
-    /// ¶ÌĞÅÑéÖ¤Âë admin:sms:code:guid
+    /// çŸ­ä¿¡éªŒè¯ç  admin:sms:code:guid
     /// </summary>
-    [Description("¶ÌĞÅÑéÖ¤Âë")]
+    [Description("çŸ­ä¿¡éªŒè¯ç ")]
     public const string SmsCode = "admin:sms:code:";
 
     /// <summary>
-    /// ÓÊÏäÑéÖ¤Âë admin:email:code:guid
+    /// é‚®ç®±éªŒè¯ç  admin:email:code:guid
     /// </summary>
-    [Description("ÓÊÏäÑéÖ¤Âë")]
+    [Description("é‚®ç®±éªŒè¯ç ")]
     public const string EmailCode = "admin:email:code:";
 
     /// <summary>
-    /// ½Ó¿ÚÁĞ±í admin:api:list
+    /// æ¥å£åˆ—è¡¨ admin:api:list
     /// </summary>
-    [Description("½Ó¿ÚÁĞ±í")]
+    [Description("æ¥å£åˆ—è¡¨")]
     public const string ApiList = "admin:api:list";
 
     /// <summary>
-    /// Excel´íÎó±ê¼ÇÎÄ¼ş admin:excel:error_mark:userId:fileId
+    /// Excelé”™è¯¯æ ‡è®°æ–‡ä»¶ admin:excel:error_mark:userId:fileId
     /// </summary>
-    [Description("Excel´íÎó±ê¼ÇÎÄ¼ş")]
+    [Description("Excelé”™è¯¯æ ‡è®°æ–‡ä»¶")]
     public const string ExcelErrorMark = "admin:excel:error_mark:";
 
     /// <summary>
-    /// »ñÈ¡¶ÌĞÅÑéÖ¤Âë»º´æ¼ü
+    /// è·å–çŸ­ä¿¡éªŒè¯ç ç¼“å­˜é”®
     /// </summary>
-    /// <param name="mobile">ÊÖ»úºÅ</param>
-    /// <param name="code">Î¨Ò»Âë</param>
+    /// <param name="mobile">æ‰‹æœºå·</param>
+    /// <param name="code">å”¯ä¸€ç </param>
     /// <returns></returns>
     public static string GetSmsCodeKey(string mobile, string code) => $"{SmsCode}{mobile}:{code}";
 
     /// <summary>
-    /// »ñÈ¡ÓÊÏäÑéÖ¤Âë»º´æ¼ü
+    /// è·å–é‚®ç®±éªŒè¯ç ç¼“å­˜é”®
     /// </summary>
-    /// <param name="email">ÓÊ¼şµØÖ·</param>
-    /// <param name="code">Î¨Ò»Âë</param>
+    /// <param name="email">é‚®ä»¶åœ°å€</param>
+    /// <param name="code">å”¯ä¸€ç </param>
     /// <returns></returns>
     public static string GetEmailCodeKey(string email, string code) => $"{EmailCode}{email}:{code}";
 
     /// <summary>
-    /// »ñÈ¡Êı¾İÈ¨ÏŞ»º´æ¼ü
+    /// è·å–æ•°æ®æƒé™ç¼“å­˜é”®
     /// </summary>
-    /// <param name="userId">ÓÃ»§Id</param>
-    /// <param name="apiPath">ÇëÇó½Ó¿ÚÂ·¾¶</param>
+    /// <param name="userId">ç”¨æˆ·Id</param>
+    /// <param name="apiPath">è¯·æ±‚æ¥å£è·¯å¾„</param>
     /// <returns></returns>
     public static string GetDataPermissionKey(long userId, string apiPath = null)
     {
-        if(apiPath.IsNull())
+        if (apiPath.IsNull())
         {
             apiPath = AppInfo.CurrentDataPermissionApiPath;
         }
@@ -90,24 +90,37 @@ public static partial class CacheKeys
     }
 
     /// <summary>
-    /// »ñÈ¡Êı¾İÈ¨ÏŞ»º´æ¼ü
+    /// è·å–æ•°æ®æƒé™ç¼“å­˜é”®
     /// </summary>
-    /// <param name="userId">ÓÃ»§Id</param>
+    /// <param name="userId">ç”¨æˆ·Id</param>
     /// <returns></returns>
     public static string GetUserPermissionKey(long userId) => $"{UserPermission}{userId}";
 
     /// <summary>
-    /// »ñÈ¡Êı¾İÈ¨ÏŞÄ£°å
+    /// è·å–æ•°æ®æƒé™æ¨¡æ¿
     /// </summary>
-    /// <param name="userId">ÓÃ»§Id</param>
+    /// <param name="userId">ç”¨æˆ·Id</param>
     /// <returns></returns>
     public static string GetDataPermissionPattern(long userId) => $"{DataPermission}{userId}*";
 
     /// <summary>
-    /// »ñÈ¡Excel´íÎó±ê¼ÇÎÄ¼ş»º´æ¼ü
+    /// è·å–Excelé”™è¯¯æ ‡è®°æ–‡ä»¶ç¼“å­˜é”®
     /// </summary>
-    /// <param name="userId">ÓÃ»§Id</param>
-    /// <param name="fileId">ÎÄ¼şId</param>
+    /// <param name="userId">ç”¨æˆ·Id</param>
+    /// <param name="fileId">æ–‡ä»¶Id</param>
     /// <returns></returns>
     public static string GetExcelErrorMarkKey(long userId, string fileId) => $"{ExcelErrorMark}{userId}{(fileId.NotNull() ? (":" + fileId) : "")}";
+
+    /// <summary>
+    /// åˆ·æ–°ä»¤ç‰Œ admin:refresh:token:tokenId
+    /// </summary>
+    [Description("åˆ·æ–°ä»¤ç‰Œ")]
+    public const string RefreshToken = "admin:refresh:token:";
+
+    /// <summary>
+    /// è·å–åˆ·æ–°ä»¤ç‰Œç¼“å­˜é”®
+    /// </summary>
+    /// <param name="tokenId">ä»¤ç‰ŒID</param>
+    /// <returns></returns>
+    public static string GetRefreshTokenKey(string tokenId) => $"{RefreshToken}{tokenId}";
 }

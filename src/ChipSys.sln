@@ -24,8 +24,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChipSys.ApiUI", "platform\C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01.sln", "01.sln", "{DA553AC2-CFE8-4DF7-B4BF-E57252CE5B83}"
 	ProjectSection(SolutionItems) = preProject
-		Directory.Build.props = Directory.Build.props
 		ChipSys.sln.EasyRun.json = ChipSys.sln.EasyRun.json
+		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.modules", "04.modules", "{626D43B7-A210-4754-BB59-357F917D5E86}"

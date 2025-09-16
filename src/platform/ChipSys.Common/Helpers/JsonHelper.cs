@@ -1,7 +1,8 @@
+using ChipSys.Common.Converters;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using ChipSys.Common.Converters;
+using System.Text.Json.Serialization.Metadata;
 
 namespace ChipSys.Common.Helpers;
 
@@ -21,6 +22,7 @@ public class JsonHelper
     {
         return new JsonSerializerOptions
         {
+            TypeInfoResolver = new DefaultJsonTypeInfoResolver(),
             //大小写不敏感
             PropertyNameCaseInsensitive = true,
             //驼峰命名策略
