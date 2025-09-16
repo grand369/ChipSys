@@ -126,11 +126,10 @@ export class PublicQueryApi<SecurityDataType = unknown> extends HttpClient<Secur
     },
     params: RequestParams = {}
   ) =>
-    this.request<ResultOutputSearchResultOutput, any>({
+    this.request({
       path: `/api/client/public-query/search`,
-      method: 'POST',
-      body: body,
+      method: 'GET',
+      query: { keyword: body?.keyword, type: body?.type },
       secure: true,
-      ...params,
     })
 }

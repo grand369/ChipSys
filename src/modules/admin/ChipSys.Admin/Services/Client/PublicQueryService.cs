@@ -221,6 +221,7 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
     /// <param name="keyword"></param>
     /// <param name="type"></param>
     /// <returns></returns>
+    [HttpGet]
     public async Task<object> SearchAsync(string keyword, string type = "all")
     {
         if (string.IsNullOrWhiteSpace(keyword))
@@ -239,7 +240,7 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
         {
             var supplierList = await _supplierRep.Select
                 .Where(a => a.Status == 1 && 
-                           (a.CompanyName.Contains(keyword) || a.BusinessScope.Contains(keyword)))
+                           a.Name.Contains(keyword))
                 .Take(memberLimits.SupplierDataLimit)
                 .ToListAsync();
 
