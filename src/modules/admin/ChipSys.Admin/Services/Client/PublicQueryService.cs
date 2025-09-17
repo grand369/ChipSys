@@ -27,18 +27,27 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
 {
     private readonly AdminRepositoryBase<SupplierEntity> _supplierRep;
     private readonly AdminRepositoryBase<ProductEntity> _productRep;
+    private readonly AdminRepositoryBase<ProductSupplierEntity> _productSupplierRep;
+    private readonly AdminRepositoryBase<ContactEntity> _contactRep;
     private readonly AdminRepositoryBase<MemberLevelEntity> _memberLevelRep;
+    private readonly AdminRepositoryBase<MemberFavoriteEntity> _memberFavoriteRep;
     private readonly AdminLocalizer _adminLocalizer;
 
     public PublicQueryService(
         AdminRepositoryBase<SupplierEntity> supplierRep,
         AdminRepositoryBase<ProductEntity> productRep,
+        AdminRepositoryBase<ProductSupplierEntity> productSupplierRep,
+        AdminRepositoryBase<ContactEntity> contactRep,
         AdminRepositoryBase<MemberLevelEntity> memberLevelRep,
+        AdminRepositoryBase<MemberFavoriteEntity> memberFavoriteRep,
         AdminLocalizer adminLocalizer)
     {
         _supplierRep = supplierRep;
         _productRep = productRep;
+        _productSupplierRep = productSupplierRep;
+        _contactRep = contactRep;
         _memberLevelRep = memberLevelRep;
+        _memberFavoriteRep = memberFavoriteRep;
         _adminLocalizer = adminLocalizer;
     }
 
@@ -48,33 +57,40 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<PageOutput<object>> GetPublicSuppliersAsync(object input)
+    public async Task<PageOutput<object>> GetPublicSuppliersAsync(PageInput input)
     {
         // 获取会员权限限制
         var memberLimits = await GetMemberLimitsAsync();
         
-        var list = await _supplierRep.Select
-            .Where(a => a.Status == 1) // 只显示激活的供应商
-            .Take(memberLimits.SupplierDataLimit) // 根据会员等级限制数据量
-            .ToListAsync();
+        // 设置分页参数
+        var pageSize = Math.Min(input.PageSize, 50); // 每页最多50条
+        var currentPage = input.CurrentPage;
 
-        // 根据会员等级处理联系人信息
-        var result = list.Select(s => new
-        {
-            s.Id,
-            s.CompanyName,
-            s.BusinessScope,
-            s.Address,
-            ContactName = memberLimits.ShowFullContactInfo ? s.ContactName : "****",
-            ContactPhone = memberLimits.ShowFullContactInfo ? s.ContactPhone : "****",
-            ContactEmail = memberLimits.ShowFullContactInfo ? s.ContactEmail : "****",
-            s.CreatedTime
-        }).ToList();
+        // 使用 FreeSql 单表查询 + 子查询判断收藏，避免方言 SQL
+        var result = _supplierRep.Select
+            .Where(s => s.Status == 1)
+            .Count(out var total)
+            .OrderByDescending(s => s.CreatedTime)
+            .Page(currentPage, Math.Min(pageSize, memberLimits.SupplierDataLimit))
+            .ToList(s => new
+            {
+                s.Id,
+                s.CompanyName,
+                s.BusinessScope,
+                s.Address,
+                ContactName = memberLimits.ShowFullContactInfo ? s.ContactName : "****",
+                ContactPhone = memberLimits.ShowFullContactInfo ? s.ContactPhone : "****",
+                ContactEmail = memberLimits.ShowFullContactInfo ? s.ContactEmail : "****",
+                IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
+                    .Where(a => a.MemberId == User.Id && a.FavoriteType == "Supplier" && a.FavoriteId == s.Id)
+                    .Any(),
+                s.CreatedTime
+            });
 
         return new PageOutput<object>
         {
             List = result.Cast<object>().ToList(),
-            Total = result.Count
+            Total = total
         };
     }
 
@@ -109,38 +125,58 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
     }
 
     /// <summary>
-    /// 查询公开的产品列表
+    /// 查询公开的产品列表（从供应商产品表查询）
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
     [HttpPost]
-    public async Task<PageOutput<object>> GetPublicProductsAsync(object input)
+    public async Task<PageOutput<object>> GetPublicProductsAsync(PageInput input)
     {
         // 获取会员权限限制
         var memberLimits = await GetMemberLimitsAsync();
         
-        var list = await _productRep.Select
-            .Where(a => a.Status == 1) // 只显示激活的产品
-            .Take(memberLimits.ProductDataLimit) // 根据会员等级限制数据量
-            .ToListAsync();
+        // 设置分页参数
+        var pageSize = Math.Min(input.PageSize, 50); // 每页最多50条
+        var currentPage = input.CurrentPage;
 
-        var result = list.Select(p => new
-        {
-            p.Id,
-            p.Name,
-            p.Category,
-            p.Description,
-            p.Specification,
-            p.Unit,
-            p.Price,
-            p.SupplierId,
-            p.CreatedTime
-        }).ToList();
+        // 使用 FreeSql 单表（带 Include）+ 子查询判断收藏
+        var result = _productSupplierRep.Select
+            .Include(ps => ps.Product)
+            .Include(ps => ps.Supplier)
+            .Where(ps => ps.Status == 1 && ps.Product.Status == 1 && ps.Supplier.Status == 1)
+            .Count(out var total)
+            .OrderByDescending(ps => ps.CreatedTime)
+            .Page(currentPage, Math.Min(pageSize, memberLimits.ProductDataLimit))
+            .ToList(ps => new
+            {
+                Id = ps.Product.Id,
+                ProductName = ps.Product.Name,
+                Category = ps.Product.Category,
+                Description = ps.Product.Description,
+                Specification = ps.Product.Specification,
+                Unit = ps.Product.Unit,
+                Price = ps.CurrentPrice,
+                Currency = ps.Currency,
+                Condition = ps.Condition,
+                MOQ = ps.MOQ,
+                StockQty = ps.StockQty,
+                LeadTimeDays = ps.LeadTimeDays,
+                SupplierId = ps.Supplier.Id,
+                SupplierName = ps.Supplier.CompanyName ?? ps.Supplier.Name,
+                SupplierCode = ps.Supplier.Code,
+                SupplierModel = ps.SupplierModel,
+                SupplierProductCode = ps.SupplierProductCode,
+                SupplierProductName = ps.SupplierProductName,
+                IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
+                    .Where(a => a.MemberId == User.Id && a.FavoriteType == "Product" && a.FavoriteId == ps.Product.Id)
+                    .Any(),
+                ps.CreatedTime
+            });
 
         return new PageOutput<object>
         {
             List = result.Cast<object>().ToList(),
-            Total = result.Count
+            Total = total
         };
     }
 
@@ -220,9 +256,11 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
     /// </summary>
     /// <param name="keyword"></param>
     /// <param name="type"></param>
+    /// <param name="currentPage"></param>
+    /// <param name="pageSize"></param>
     /// <returns></returns>
     [HttpGet]
-    public async Task<object> SearchAsync(string keyword, string type = "all")
+    public async Task<object> SearchAsync(string keyword, string type = "all", int currentPage = 1, int pageSize = 20)
     {
         if (string.IsNullOrWhiteSpace(keyword))
         {
@@ -232,56 +270,171 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
         // 获取会员权限限制
         var memberLimits = await GetMemberLimitsAsync();
         
+        // 设置分页参数
+        var pageSizeLimit = Math.Min(pageSize, 50); // 每页最多50条
+        var offset = (currentPage - 1) * pageSizeLimit;
+        
         var suppliers = new List<object>();
         var products = new List<object>();
 
-        // 搜索供应商
+        // 搜索供应商（FreeSql 关联 + 分页）
         if (type == "all" || type == "supplier")
         {
-            var supplierList = await _supplierRep.Select
-                .Where(a => a.Status == 1 && 
-                           a.Name.Contains(keyword))
-                .Take(memberLimits.SupplierDataLimit)
-                .ToListAsync();
+            var supplierList = _supplierRep.Select
+                .Where(s => s.Status == 1 && s.Name.Contains(keyword))
+                .OrderByDescending(s => s.CreatedTime)
+                .Page(currentPage, Math.Min(pageSizeLimit, memberLimits.SupplierDataLimit))
+                .ToList(s => new
+                {
+                    s.Id,
+                    s.CompanyName,
+                    s.BusinessScope,
+                    s.Address,
+                    ContactName = memberLimits.ShowFullContactInfo ? s.ContactName : "****",
+                    ContactPhone = memberLimits.ShowFullContactInfo ? s.ContactPhone : "****",
+                    ContactEmail = memberLimits.ShowFullContactInfo ? s.ContactEmail : "****",
+                    IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
+                        .Where(a => a.MemberId == User.Id && a.FavoriteType == "Supplier" && a.FavoriteId == s.Id)
+                        .Any(),
+                    s.CreatedTime
+                });
 
-            suppliers.AddRange(supplierList.Select(s => new
-            {
-                s.Id,
-                s.CompanyName,
-                s.BusinessScope,
-                s.Address,
-                ContactName = memberLimits.ShowFullContactInfo ? s.ContactName : "****",
-                ContactPhone = memberLimits.ShowFullContactInfo ? s.ContactPhone : "****",
-                ContactEmail = memberLimits.ShowFullContactInfo ? s.ContactEmail : "****",
-                s.CreatedTime
-            }));
+            suppliers.AddRange(supplierList);
         }
 
-        // 搜索产品
+        // 搜索产品（从供应商产品表查询，FreeSql 关联 + 分页）
         if (type == "all" || type == "product")
         {
-            var productList = await _productRep.Select
-                .Where(a => a.Status == 1 && 
-                           (a.Name.Contains(keyword) || a.Description.Contains(keyword) || a.Category.Name.Contains(keyword)))
-                .Take(memberLimits.ProductDataLimit)
-                .ToListAsync();
+            var productList = _productSupplierRep.Select
+                .Include(ps => ps.Product)
+                .Include(ps => ps.Supplier)
+                .Where(ps => ps.Status == 1 && ps.Product.Status == 1 && ps.Supplier.Status == 1
+                    && (
+                        ps.Product.Name.Contains(keyword) ||
+                        ps.Product.Description.Contains(keyword) ||
+                        ps.SupplierModel.Contains(keyword) ||
+                        ps.SupplierProductName.Contains(keyword) ||
+                        true
+                    ))
+                .OrderByDescending(ps => ps.CreatedTime)
+                .Page(currentPage, Math.Min(pageSizeLimit, memberLimits.ProductDataLimit))
+                .ToList(ps => new
+                {
+                    Id = ps.Product.Id,
+                    ProductName = ps.Product.Name,
+                    Category = ps.Product.Category,
+                    Description = ps.Product.Description,
+                    Specification = ps.Product.Specification,
+                    Unit = ps.Product.Unit,
+                    Price = ps.CurrentPrice,
+                    Currency = ps.Currency,
+                    Condition = ps.Condition,
+                    MOQ = ps.MOQ,
+                    StockQty = ps.StockQty,
+                    LeadTimeDays = ps.LeadTimeDays,
+                    SupplierId = ps.Supplier.Id,
+                    SupplierName = ps.Supplier.CompanyName ?? ps.Supplier.Name,
+                    SupplierCode = ps.Supplier.Code,
+                    SupplierModel = ps.SupplierModel,
+                    SupplierProductCode = ps.SupplierProductCode,
+                    SupplierProductName = ps.SupplierProductName,
+                    IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
+                        .Where(a => a.MemberId == User.Id && a.FavoriteType == "Product" && a.FavoriteId == ps.Product.Id)
+                        .Any(),
+                    ps.CreatedTime
+                });
 
-            products.AddRange(productList.Select(p => new
-            {
-                p.Id,
-                p.Name,
-                p.Category,
-                p.Description,
-                p.Specification,
-                p.Unit,
-                p.Price,
-                p.SupplierId,
-                p.CreatedTime
-            }));
+            products.AddRange(productList);
         }
 
         return new { Suppliers = suppliers, Products = products };
     }
+
+    /// <summary>
+    /// 获取供应商详细信息（包含联系人）
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    [HttpGet]
+    public async Task<object> GetSupplierDetailAsync(long id)
+    {
+        var supplier = await _supplierRep.GetAsync(id);
+        if (supplier == null || supplier.Status != 1)
+        {
+            throw ResultOutput.Exception(_adminLocalizer["供应商不存在或已停用"]);
+        }
+
+        // 获取会员权限限制
+        var memberLimits = await GetMemberLimitsAsync();
+
+        // 使用 FreeSql 关联查询获取供应商信息及收藏状态
+        var supplierInfo = _supplierRep.Select
+            .Where(s => s.Id == id && s.Status == 1)
+            .Limit(1)
+            .ToList(s => new
+            {
+                s.Id,
+                s.Name,
+                s.CompanyName,
+                s.Code,
+                s.BusinessScope,
+                s.Address,
+                s.Description,
+                s.Website,
+                s.Rating,
+                s.ContactName,
+                s.ContactPhone,
+                s.ContactEmail,
+                s.CreatedTime,
+                IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
+                    .Where(a => a.MemberId == User.Id && a.FavoriteType == "Supplier" && a.FavoriteId == s.Id)
+                    .Any()
+            })
+            .FirstOrDefault();
+
+        if (supplierInfo == null)
+        {
+            throw ResultOutput.Exception(_adminLocalizer["供应商不存在或已停用"]);
+        }
+
+        // 使用 FreeSql 关联查询获取联系人列表及收藏状态
+        var contacts = _contactRep.Select
+            .Where(c => c.SupplierId == id)
+            .ToList(c => new
+            {
+                c.Id,
+                c.Name,
+                Phone = memberLimits.ShowFullContactInfo ? c.Phone : "****",
+                Email = memberLimits.ShowFullContactInfo ? c.Email : "****",
+                c.Position,
+                IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
+                    .Where(a => a.MemberId == User.Id && a.FavoriteType == "Contact" && a.FavoriteId == c.Id)
+                    .Any()
+            });
+
+        return new
+        {
+            Supplier = new
+            {
+                supplierInfo.Id,
+                supplierInfo.Name,
+                supplierInfo.CompanyName,
+                supplierInfo.Code,
+                supplierInfo.BusinessScope,
+                supplierInfo.Address,
+                supplierInfo.Description,
+                supplierInfo.Website,
+                supplierInfo.Rating,
+                ContactName = memberLimits.ShowFullContactInfo ? supplierInfo.ContactName : "****",
+                ContactPhone = memberLimits.ShowFullContactInfo ? supplierInfo.ContactPhone : "****",
+                ContactEmail = memberLimits.ShowFullContactInfo ? supplierInfo.ContactEmail : "****",
+                supplierInfo.IsFavorited,
+                supplierInfo.CreatedTime
+            },
+            Contacts = contacts
+        };
+    }
+
 
     /// <summary>
     /// 获取会员权限限制

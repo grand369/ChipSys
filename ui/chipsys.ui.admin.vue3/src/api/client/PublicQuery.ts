@@ -132,4 +132,21 @@ export class PublicQueryApi<SecurityDataType = unknown> extends HttpClient<Secur
       query: { keyword: body?.keyword, type: body?.type },
       secure: true,
     })
+
+  /**
+   * 获取供应商详细信息（包含联系人）
+   */
+  getSupplierDetail = (
+    query?: {
+      /** @format int64 */
+      id?: number
+    },
+    params: RequestParams = {}
+  ) =>
+    this.request({
+      path: `/api/client/public-query/get-supplier-detail`,
+      method: 'GET',
+      query: query,
+      secure: true,
+    })
 }

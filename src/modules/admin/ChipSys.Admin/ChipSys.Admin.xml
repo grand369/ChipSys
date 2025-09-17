@@ -308,6 +308,51 @@
             Admin国际化
             </summary>
         </member>
+        <member name="T:ChipSys.Admin.Services.Admin.MemberManageService">
+            <summary>
+            平台管理/权限管理下：会员管理服务
+            - 管理会员基本信息（新增/编辑/禁用）
+            - 调整会员等级（独立操作）
+            - 左右联动：左侧等级列表，右侧对应会员列表
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberManageService.GetLevelsAsync">
+            <summary>
+            左侧：获取会员等级列表（包含当前启用等级的会员数量）
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberManageService.GetMembersAsync(ChipSys.Admin.Services.Admin.MemberManageService.MemberGetPageInput)">
+            <summary>
+            右侧：按等级、关键字分页查询会员列表
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberManageService.AddAsync(ChipSys.Admin.Services.Admin.MemberManageService.MemberAddInput)">
+            <summary>
+            新增会员基本信息（不含等级）
+            自动创建 User 与 Member 关系（若需要）
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberManageService.UpdateAsync(ChipSys.Admin.Services.Admin.MemberManageService.MemberUpdateInput)">
+            <summary>
+            更新会员基本信息（不含等级）
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberManageService.ToggleEnabledAsync(ChipSys.Admin.Services.Admin.MemberManageService.ToggleEnabledInput)">
+            <summary>
+            启用/禁用会员（Enabled=1/0）
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberManageService.AdjustLevelAsync(ChipSys.Admin.Services.Admin.MemberManageService.AdjustLevelInput)">
+            <summary>
+            调整会员等级（独立按钮）
+            逻辑：关闭原有启用记录，插入新等级为启用记录
+            </summary>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Admin.Permission.MapConfig">
+            <summary>
+            映射配置
+            </summary>
+        </member>
         <member name="T:ChipSys.Admin.Services.Api.ApiService">
             <summary>
             接口服务
@@ -1592,7 +1637,7 @@
             公开查询服务（供会员查看公开信息）
             </summary>
         </member>
-        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetPublicSuppliersAsync(System.Object)">
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetPublicSuppliersAsync(ChipSys.Admin.Core.Dto.PageInput)">
             <summary>
             查询公开的供应商列表
             </summary>
@@ -1606,9 +1651,9 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetPublicProductsAsync(System.Object)">
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetPublicProductsAsync(ChipSys.Admin.Core.Dto.PageInput)">
             <summary>
-            查询公开的产品列表
+            查询公开的产品列表（从供应商产品表查询）
             </summary>
             <param name="input"></param>
             <returns></returns>
@@ -1628,12 +1673,21 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.SearchAsync(System.String,System.String)">
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.SearchAsync(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             搜索供应商和产品
             </summary>
             <param name="keyword"></param>
             <param name="type"></param>
+            <param name="currentPage"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetSupplierDetailAsync(System.Int64)">
+            <summary>
+            获取供应商详细信息（包含联系人）
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:ChipSys.Admin.Services.Client.PublicQueryService.GetMemberLimitsAsync">
@@ -2564,11 +2618,6 @@
             </summary>
             <param name="input"></param>
             <returns></returns>
-        </member>
-        <member name="T:ChipSys.Admin.Services.Admin.Permission.MapConfig">
-            <summary>
-            映射配置
-            </summary>
         </member>
         <member name="T:ChipSys.Admin.Services.Pkg.PkgService">
             <summary>

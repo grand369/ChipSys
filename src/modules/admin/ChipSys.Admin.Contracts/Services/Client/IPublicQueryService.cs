@@ -12,7 +12,7 @@ public interface IPublicQueryService
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<PageOutput<object>> GetPublicSuppliersAsync(object input);
+    Task<PageOutput<object>> GetPublicSuppliersAsync(PageInput input);
 
     /// <summary>
     /// 查询公开的供应商详情
@@ -26,7 +26,7 @@ public interface IPublicQueryService
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task<PageOutput<object>> GetPublicProductsAsync(object input);
+    Task<PageOutput<object>> GetPublicProductsAsync(PageInput input);
 
     /// <summary>
     /// 查询公开的产品详情
@@ -48,6 +48,15 @@ public interface IPublicQueryService
     /// </summary>
     /// <param name="keyword"></param>
     /// <param name="type">搜索类型：all-全部，supplier-供应商，product-产品</param>
+    /// <param name="currentPage"></param>
+    /// <param name="pageSize"></param>
     /// <returns></returns>
-    Task<object> SearchAsync(string keyword, string type = "all");
+    Task<object> SearchAsync(string keyword, string type = "all", int currentPage = 1, int pageSize = 20);
+
+    /// <summary>
+    /// 获取供应商详细信息（包含联系人）
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    Task<object> GetSupplierDetailAsync(long id);
 }

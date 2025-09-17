@@ -10784,7 +10784,7 @@
             公开查询服务接口（供会员查看公开信息）
             </summary>
         </member>
-        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetPublicSuppliersAsync(System.Object)">
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetPublicSuppliersAsync(ChipSys.Admin.Core.Dto.PageInput)">
             <summary>
             查询公开的供应商列表
             </summary>
@@ -10798,7 +10798,7 @@
             <param name="id"></param>
             <returns></returns>
         </member>
-        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetPublicProductsAsync(System.Object)">
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetPublicProductsAsync(ChipSys.Admin.Core.Dto.PageInput)">
             <summary>
             查询公开的产品列表
             </summary>
@@ -10820,12 +10820,21 @@
             <param name="input"></param>
             <returns></returns>
         </member>
-        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.SearchAsync(System.String,System.String)">
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.SearchAsync(System.String,System.String,System.Int32,System.Int32)">
             <summary>
             搜索供应商和产品
             </summary>
             <param name="keyword"></param>
             <param name="type">搜索类型：all-全部，supplier-供应商，product-产品</param>
+            <param name="currentPage"></param>
+            <param name="pageSize"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IPublicQueryService.GetSupplierDetailAsync(System.Int64)">
+            <summary>
+            获取供应商详细信息（包含联系人）
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:ChipSys.Client.Contracts.Services.Client.IQuoteService">
