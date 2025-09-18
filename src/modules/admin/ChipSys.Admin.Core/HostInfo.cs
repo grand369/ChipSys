@@ -4,37 +4,37 @@ using ChipSys.Common.Extensions;
 namespace ChipSys.Admin.Core;
 
 /// <summary>
-/// ËŞÖ÷ĞÅÏ¢
+/// å®¿ä¸»ä¿¡æ¯
 /// </summary>
 public class HostInfo
 {
     /// <summary>
-    /// Î¨Ò»Id
+    /// å”¯ä¸€Id
     /// </summary>
     public string Id { get; private set; } = string.Empty;
 
     /// <summary>
-    /// Ãû³Æ
+    /// åç§°
     /// </summary>
     public string Name { get; private set; } = string.Empty;
 
     /// <summary>
-    /// ¶ÌÃüÃû
+    /// çŸ­å‘½å
     /// </summary>
     public string ShortName { get; private set; } = string.Empty;
 
     /// <summary>
-    /// È«ÃüÃû
+    /// å…¨å‘½å
     /// </summary>
     public string FullName { get; private set; } = string.Empty;
 
     /// <summary>
-    /// °æ±¾ºÅ
+    /// ç‰ˆæœ¬å·
     /// </summary>
     public string Version { get; private set; } = string.Empty;
 
     /// <summary>
-    /// ÃèÊö
+    /// æè¿°
     /// </summary>
     public string Description { get; private set; } = string.Empty;
 

@@ -7,7 +7,7 @@ using ChipSys.Common.Extensions;
 namespace ChipSys.Admin.Tools.Cache;
 
 /// <summary>
-/// �ڴ滺��
+/// 内存缓存
 /// </summary>
 public partial class MemoryCacheTool : ICacheTool
 {

@@ -9,62 +9,62 @@ public interface IRepositoryBase<TEntity, TKey> : IBaseRepository<TEntity, TKey>
     IUser User { get; set; }
 
     /// <summary>
-    /// »ñµÃDto
+    /// è·å¾—Dto
     /// </summary>
     /// <typeparam name="TDto"></typeparam>
-    /// <param name="id">Ö÷¼ü</param>
+    /// <param name="id">ä¸»é”®</param>
     /// <returns></returns>
     Task<TDto> GetAsync<TDto>(TKey id);
 
     /// <summary>
-    /// ¸ù¾İÌõ¼ş»ñÈ¡Dto
+    /// æ ¹æ®æ¡ä»¶è·å–Dto
     /// </summary>
     /// <param name="exp"></param>
     /// <returns></returns>
     Task<TDto> GetAsync<TDto>(Expression<Func<TEntity, bool>> exp);
 
     /// <summary>
-    /// ¸ù¾İÌõ¼ş»ñÈ¡ÊµÌå
+    /// æ ¹æ®æ¡ä»¶è·å–å®ä½“
     /// </summary>
     /// <param name="exp"></param>
     /// <returns></returns>
     Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> exp);
 
     /// <summary>
-    /// ÈíÉ¾³ı
+    /// è½¯åˆ é™¤
     /// </summary>
-    /// <param name="id">Ö÷¼ü</param>
+    /// <param name="id">ä¸»é”®</param>
     /// <returns></returns>
     Task<bool> SoftDeleteAsync(TKey id);
 
     /// <summary>
-    /// ÅúÁ¿ÈíÉ¾³ı
+    /// æ‰¹é‡è½¯åˆ é™¤
     /// </summary>
-    /// <param name="ids">Ö÷¼üÊı×é</param>
+    /// <param name="ids">ä¸»é”®æ•°ç»„</param>
     /// <returns></returns>
     Task<bool> SoftDeleteAsync(TKey[] ids);
 
     /// <summary>
-    /// ÈíÉ¾³ı
+    /// è½¯åˆ é™¤
     /// </summary>
     /// <param name="exp"></param>
-    /// <param name="disableGlobalFilterNames">½ûÓÃÈ«¾Ö¹ıÂËÆ÷Ãû</param>
+    /// <param name="disableGlobalFilterNames">ç¦ç”¨å…¨å±€è¿‡æ»¤å™¨å</param>
     /// <returns></returns>
     Task<bool> SoftDeleteAsync(Expression<Func<TEntity, bool>> exp, params string[] disableGlobalFilterNames);
 
     /// <summary>
-    /// µİ¹éÉ¾³ı
+    /// é€’å½’åˆ é™¤
     /// </summary>
     /// <param name="exp"></param>
-    /// <param name="disableGlobalFilterNames">½ûÓÃÈ«¾Ö¹ıÂËÆ÷Ãû</param>
+    /// <param name="disableGlobalFilterNames">ç¦ç”¨å…¨å±€è¿‡æ»¤å™¨å</param>
     /// <returns></returns>
     Task<bool> DeleteRecursiveAsync(Expression<Func<TEntity, bool>> exp, params string[] disableGlobalFilterNames);
 
     /// <summary>
-    /// µİ¹éÈíÉ¾³ı
+    /// é€’å½’è½¯åˆ é™¤
     /// </summary>
     /// <param name="exp"></param>
-    /// <param name="disableGlobalFilterNames">½ûÓÃÈ«¾Ö¹ıÂËÆ÷Ãû</param>
+    /// <param name="disableGlobalFilterNames">ç¦ç”¨å…¨å±€è¿‡æ»¤å™¨å</param>
     /// <returns></returns>
     Task<bool> SoftDeleteRecursiveAsync(Expression<Func<TEntity, bool>> exp, params string[] disableGlobalFilterNames);
 }

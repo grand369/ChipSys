@@ -16,7 +16,7 @@ public class RegisterModule : Module
     private readonly AppConfig _appConfig;
 
     /// <summary>
-    /// Ä£¿é×¢Èë
+    /// æ¨¡å—æ³¨å…¥
     /// </summary>
     /// <param name="appConfig">AppConfig</param>
     public RegisterModule(AppConfig appConfig)
@@ -26,7 +26,7 @@ public class RegisterModule : Module
 
     protected override void Load(ContainerBuilder builder)
     {
-        //ÊÂÎñÀ¹½Ø
+        //äº‹åŠ¡æ‹¦æˆª
         var interceptorServiceTypes = new List<Type>();
         if (_appConfig.Aop.Transaction)
         {
@@ -35,7 +35,7 @@ public class RegisterModule : Module
             interceptorServiceTypes.Add(typeof(TransactionInterceptor));
         }
 
-        // »ñµÃÒª×¢ÈëµÄ³ÌĞò¼¯
+        // è·å¾—è¦æ³¨å…¥çš„ç¨‹åºé›†
         Assembly[] assemblies = null;
         if (_appConfig.AssemblyNames?.Length > 0)
         {
@@ -51,27 +51,27 @@ public class RegisterModule : Module
             && (a.Name.EndsWith("Service") || a.Name.EndsWith("Repository") || typeof(IRegisterIOC).IsAssignableFrom(a)) 
             && !a.IsAbstract && !a.IsInterface && a.IsPublic;
 
-        //ÓĞ½Ó¿ÚÊµÀı
+        //æœ‰æ¥å£å®ä¾‹
         builder.RegisterAssemblyTypes(assemblies)
         .Where(new Func<Type, bool>(Predicate))
         .AsImplementedInterfaces()
         .InstancePerLifetimeScope()
-        .PropertiesAutowired()// ÊôĞÔ×¢Èë
+        .PropertiesAutowired()// å±æ€§æ³¨å…¥
         .InterceptedBy(interceptorServiceTypes.ToArray())
         .EnableInterfaceInterceptors();
 
-        //ÎŞ½Ó¿ÚÊµÀı
+        //æ— æ¥å£å®ä¾‹
         builder.RegisterAssemblyTypes(assemblies)
         .Where(new Func<Type, bool>(Predicate))
         .InstancePerLifetimeScope()
-        .PropertiesAutowired()// ÊôĞÔ×¢Èë
+        .PropertiesAutowired()// å±æ€§æ³¨å…¥
         .InterceptedBy(interceptorServiceTypes.ToArray())
         .EnableClassInterceptors();
 
-        //ÃÜÂë¹şÏ£·ºĞÍ×¢Èë
+        //å¯†ç å“ˆå¸Œæ³›å‹æ³¨å…¥
         builder.RegisterGeneric(typeof(PasswordHasher<>)).As(typeof(IPasswordHasher<>)).SingleInstance().PropertiesAutowired();
 
-        //²Ö´¢·ºĞÍ×¢Èë
+        //ä»“å‚¨æ³›å‹æ³¨å…¥
         builder.RegisterGeneric(typeof(RepositoryBase<>)).As(typeof(IRepositoryBase<>)).InstancePerLifetimeScope().PropertiesAutowired();
         builder.RegisterGeneric(typeof(RepositoryBase<,>)).As(typeof(IRepositoryBase<,>)).InstancePerLifetimeScope().PropertiesAutowired();
     }

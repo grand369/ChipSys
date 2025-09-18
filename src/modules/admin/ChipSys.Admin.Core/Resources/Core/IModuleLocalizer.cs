@@ -3,7 +3,7 @@ using Microsoft.Extensions.Localization;
 namespace ChipSys.Admin.Resources;
 
 /// <summary>
-/// ģ�鱾�ػ��ӿ�
+/// 模块本地化接口
 /// </summary>
 public interface IModuleLocalizer : IStringLocalizer
 {

@@ -3,17 +3,17 @@ using System.Reflection;
 namespace ChipSys.Admin.Core;
 
 /// <summary>
-/// 模块信息
+/// 妯″潡淇℃伅
 /// </summary>
 public class ModuleInfo
 {
     /// <summary>
-    /// 任务层程序集
+    /// 浠诲姟灞傜▼搴忛泦
     /// </summary>
     public Assembly Assembly { get; set; }
 
     /// <summary>
-    /// 多语言文件类型
+    /// 澶氳瑷�鏂囦欢绫诲瀷
     /// </summary>
     public Type LocalizerType { get; set; }
 }

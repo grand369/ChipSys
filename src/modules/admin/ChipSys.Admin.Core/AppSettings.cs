@@ -1,17 +1,17 @@
 namespace ChipSys.Admin.Core;
 
 /// <summary>
-/// 应用配置
+/// 搴旂敤閰嶇疆
 /// </summary>
 public class AppSettings
 {
     /// <summary>
-    /// 使用配置中心
+    /// 浣跨敤閰嶇疆涓績
     /// </summary>
     public bool UseConfigCenter { get; set; } = false;
 
     /// <summary>
-    /// 配置中心路径
+    /// 閰嶇疆涓績璺緞
     /// </summary>
     public string ConfigCenterPath { get; set; } = "ConfigCenter";
 }

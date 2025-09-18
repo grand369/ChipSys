@@ -4,13 +4,13 @@ using ChipSys.Admin.Core.Attributes;
 namespace ChipSys.Admin.Core.Helpers;
 
 /// <summary>
-/// ÎÄ¼şÉÏ´«°ïÖúÀà
+/// æ–‡ä»¶ä¸Šä¼ å¸®åŠ©ç±»
 /// </summary>
 [InjectSingleton]
 public class UploadHelper
 {
     /// <summary>
-    /// ±£´æÎÄ¼ş
+    /// ä¿å­˜æ–‡ä»¶
     /// </summary>
     /// <param name="file"></param>
     /// <param name="filePath"></param>

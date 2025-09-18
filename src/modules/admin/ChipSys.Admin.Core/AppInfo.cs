@@ -14,7 +14,7 @@ using ChipSys.Admin.Core.Auth;
 namespace ChipSys.Admin.Core;
 
 /// <summary>
-/// Ó¦ÓÃÈ«¾ÖĞÅÏ¢
+/// åº”ç”¨å…¨å±€ä¿¡æ¯
 /// </summary>
 public static class AppInfo
 {
@@ -26,7 +26,7 @@ public static class AppInfo
     private static bool _isRun;
 
     /// <summary>
-    /// Ó¦ÓÃÊÇ·ñÔËĞĞ
+    /// åº”ç”¨æ˜¯å¦è¿è¡Œ
     /// </summary>
     public static bool IsRun
     {
@@ -35,44 +35,44 @@ public static class AppInfo
     }
 
     /// <summary>
-    /// ·şÎñÌá¹©³ÌĞò
+    /// æœåŠ¡æä¾›ç¨‹åº
     /// </summary>
     public static IServiceProvider ServiceProvider => IsRun ? AppInfoBase.ServiceProvider : null;
 
     /// <summary>
-    /// WebÖ÷»ú»·¾³
+    /// Webä¸»æœºç¯å¢ƒ
     /// </summary>
     public static IWebHostEnvironment WebHostEnvironment => AppInfoBase.WebHostEnvironment;
 
     /// <summary>
-    /// ·ºĞÍÖ÷»ú»·¾³
+    /// æ³›å‹ä¸»æœºç¯å¢ƒ
     /// </summary>
     public static IHostEnvironment HostEnvironment => AppInfoBase.HostEnvironment;
 
     /// <summary>
-    /// ÅäÖÃ
+    /// é…ç½®
     /// </summary>
     public static IConfiguration Configuration => AppInfoBase.Configuration;
 
     /// <summary>
-    /// ÇëÇóÉÏÏÂÎÄ
+    /// è¯·æ±‚ä¸Šä¸‹æ–‡
     /// </summary>
     public static HttpContext HttpContext => ServiceProvider?.GetService<IHttpContextAccessor>()?.HttpContext;
 
     /// <summary>
-    /// ÓÃ»§
+    /// ç”¨æˆ·
     /// </summary>
     public static IUser User => HttpContext == null ? null : ServiceProvider?.GetService<IUser>();
 
     /// <summary>
-    /// ÈÕÖ¾
+    /// æ—¥å¿—
     /// </summary>
     public static Logger Log => LogManager.Setup().LoadConfigurationFromAppSettings().GetCurrentClassLogger();
 
     static readonly AsyncLocal<string> _asyncLocal = new();
 
     /// <summary>
-    /// Êı¾İÈ¨ÏŞ½Ó¿ÚÂ·¾¶
+    /// æ•°æ®æƒé™æ¥å£è·¯å¾„
     /// </summary>
     public static string CurrentDataPermissionApiPath
     {
@@ -81,7 +81,7 @@ public static class AppInfo
     }
 
     /// <summary>
-    /// Ä£¿éĞÅÏ¢
+    /// æ¨¡å—ä¿¡æ¯
     /// </summary>
     public static HostInfo HostInfo => AppInfoBase.HostInfo;
 
@@ -126,7 +126,7 @@ public static class AppInfo
 
     #region Service
     /// <summary>
-    /// »ñµÃ·şÎñÌá¹©³ÌĞò
+    /// è·å¾—æœåŠ¡æä¾›ç¨‹åº
     /// </summary>
     /// <param name="serviceType"></param>
     /// <param name="isBuild"></param>
@@ -161,7 +161,7 @@ public static class AppInfo
     }
 
     /// <summary>
-    /// »ñµÃÇëÇóÉú´æÖÜÆÚµÄ·şÎñ
+    /// è·å¾—è¯·æ±‚ç”Ÿå­˜å‘¨æœŸçš„æœåŠ¡
     /// </summary>
     /// <typeparam name="TService"></typeparam>
     /// <param name="isBuild"></param>
@@ -170,7 +170,7 @@ public static class AppInfo
         GetService(typeof(TService), null, isBuild) as TService;
 
     /// <summary>
-    /// »ñµÃÇëÇóÉú´æÖÜÆÚµÄ·şÎñ
+    /// è·å¾—è¯·æ±‚ç”Ÿå­˜å‘¨æœŸçš„æœåŠ¡
     /// </summary>
     /// <typeparam name="TService"></typeparam>
     /// <param name="serviceProvider"></param>
@@ -180,7 +180,7 @@ public static class AppInfo
         GetService(typeof(TService), serviceProvider, isBuild) as TService;
 
     /// <summary>
-    /// »ñµÃ·şÎñ
+    /// è·å¾—æœåŠ¡
     /// </summary>
     /// <param name="type"></param>
     /// <param name="serviceProvider"></param>
@@ -190,7 +190,7 @@ public static class AppInfo
         (serviceProvider ?? GetServiceProvider(type, isBuild)).GetService(type);
 
     /// <summary>
-    /// »ñµÃ·şÎñ
+    /// è·å¾—æœåŠ¡
     /// </summary>
     /// <typeparam name="TService"></typeparam>
     /// <param name="isBuild"></param>
@@ -199,7 +199,7 @@ public static class AppInfo
         GetRequiredService(typeof(TService), null, isBuild) as TService;
 
     /// <summary>
-    /// »ñÈ¡·şÎñ
+    /// è·å–æœåŠ¡
     /// </summary>
     /// <typeparam name="TService"></typeparam>
     /// <param name="serviceProvider"></param>
@@ -209,7 +209,7 @@ public static class AppInfo
         GetRequiredService(typeof(TService), serviceProvider, isBuild) as TService;
 
     /// <summary>
-    /// »ñµÃ·şÎñ
+    /// è·å¾—æœåŠ¡
     /// </summary>
     /// <param name="type"></param>
     /// <param name="serviceProvider"></param>
@@ -222,7 +222,7 @@ public static class AppInfo
 
     #region Options
     /// <summary>
-    /// »ñµÃÑ¡Ïî
+    /// è·å¾—é€‰é¡¹
     /// </summary>
     /// <typeparam name="TOptions"></typeparam>
     /// <param name="path"></param>
@@ -231,7 +231,7 @@ public static class AppInfo
         Configuration.GetSection(path).Get<TOptions>();
 
     /// <summary>
-    /// »ñµÃÑ¡Ïî
+    /// è·å¾—é€‰é¡¹
     /// </summary>
     /// <typeparam name="TOptions"></typeparam>
     /// <param name="serviceProvider"></param>
@@ -240,7 +240,7 @@ public static class AppInfo
         GetService<IOptions<TOptions>>(serviceProvider ?? ServiceProvider, false)?.Value;
 
     /// <summary>
-    /// »ñµÃÑ¡Ïî
+    /// è·å¾—é€‰é¡¹
     /// </summary>
     /// <typeparam name="TOptions"></typeparam>
     /// <param name="serviceProvider"></param>
@@ -249,7 +249,7 @@ public static class AppInfo
         GetService<IOptionsMonitor<TOptions>>(serviceProvider ?? ServiceProvider, false)?.CurrentValue;
 
     /// <summary>
-    /// »ñµÃÑ¡Ïî
+    /// è·å¾—é€‰é¡¹
     /// </summary>
     /// <typeparam name="TOptions"></typeparam>
     /// <param name="serviceProvider"></param>

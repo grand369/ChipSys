@@ -3,7 +3,7 @@ using ProtoBuf;
 namespace ChipSys.Admin.Core.Protos;
 
 /// <summary>
-/// ProtoDecimal ±íÊ¾ Grpc ÇëÇó»òÏìÓ¦ÖĞµÄ decimal
+/// ProtoDecimal è¡¨ç¤º Grpc è¯·æ±‚æˆ–å“åº”ä¸­çš„ decimal
 /// </summary>
 [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
 public class ProtoDecimal

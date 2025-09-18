@@ -1,22 +1,22 @@
 namespace ChipSys.Admin.Tools.TaskScheduler;
 
 /// <summary>
-/// Shell命令参数
+/// Shell鍛戒护鍙傛暟
 /// </summary>
 public class ShellArgs
 {
     /// <summary>
-    /// 执行应用
+    /// 鎵ц搴旂敤
     /// </summary>
     public string FileName { get; set; }
 
     /// <summary>
-    /// 执行参数
+    /// 鎵ц鍙傛暟
     /// </summary>
     public string Arguments { get; set; }
 
     /// <summary>
-    /// 命令应用工作目录
+    /// 鍛戒护搴旂敤宸ヤ綔鐩綍
     /// </summary>
     public string WorkingDirectory { get; set; }
 }

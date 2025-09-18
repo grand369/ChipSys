@@ -3,48 +3,48 @@ using FreeSql.DataAnnotations;
 namespace ChipSys.Admin.Domain;
 
 /// <summary>
-/// ÈÎÎñÓÊ¼ş
+/// ä»»åŠ¡é‚®ä»¶
 /// </summary>
 public class TaskInfoExt
 {
     /// <summary>
-    /// ÈÎÎñId
+    /// ä»»åŠ¡Id
     /// </summary>
     public string TaskId { get; set; }
 
     /// <summary>
-    /// ±¨¾¯ÓÊ¼ş£¬¶à¸öÓÊ¼şµØÖ·Ôò¶ººÅ·Ö¸ô
+    /// æŠ¥è­¦é‚®ä»¶ï¼Œå¤šä¸ªé‚®ä»¶åœ°å€åˆ™é€—å·åˆ†éš”
     /// </summary>
     [Column(StringLength = 500)]
     public string AlarmEmail { get; set; }
 
     /// <summary>
-    /// Ê§°ÜÖØÊÔ´ÎÊı
+    /// å¤±è´¥é‡è¯•æ¬¡æ•°
     /// </summary>
     public int? FailRetryCount { get; set; }
 
     /// <summary>
-    /// Ê§°ÜÖØÊÔ¼ä¸ô£¨Ãë£©
+    /// å¤±è´¥é‡è¯•é—´éš”ï¼ˆç§’ï¼‰
     /// </summary>
     public int? FailRetryInterval { get; set; }
 
     /// <summary>
-    /// Ìí¼ÓÊ±¼ä
+    /// æ·»åŠ æ—¶é—´
     /// </summary>
     public DateTime? CreatedTime { get; set; }
 
     /// <summary>
-    /// Ìí¼ÓÓÃ»§Id
+    /// æ·»åŠ ç”¨æˆ·Id
     /// </summary>
     public long? CreatedUserId { get; set; }
 
     /// <summary>
-    /// ĞŞ¸ÄÊ±¼ä
+    /// ä¿®æ”¹æ—¶é—´
     /// </summary>
     public DateTime? ModifiedTime { get; set; }
 
     /// <summary>
-    /// ĞŞ¸ÄÓÃ»§Id
+    /// ä¿®æ”¹ç”¨æˆ·Id
     /// </summary>
     public long? ModifiedUserId { get; set; }
 }

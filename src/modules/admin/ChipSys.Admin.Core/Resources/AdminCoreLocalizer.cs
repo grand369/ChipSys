@@ -5,7 +5,7 @@ using ChipSys.Admin.Resources;
 namespace ChipSys.Admin.Core.Resources;
 
 /// <summary>
-/// Admin核心库国际化
+/// Admin鏍稿績搴撳浗闄呭寲
 /// </summary>
 [InjectSingleton]
 public class AdminCoreLocalizer: ModuleLocalizer

@@ -1,115 +1,115 @@
 namespace ChipSys.Admin.Tools.Cache;
 
 /// <summary>
-/// »º´æ½Ó¿Ú
+/// ç¼“å­˜æ¥å£
 /// </summary>
 public interface ICacheTool
 {
     /// <summary>
-    /// ÓÃÓÚÔÚ key ´æÔÚÊ±É¾³ı key
+    /// ç”¨äºåœ¨ key å­˜åœ¨æ—¶åˆ é™¤ key
     /// </summary>
-    /// <param name="key">¼ü</param>
+    /// <param name="key">é”®</param>
     long Del(params string[] key);
 
     /// <summary>
-    /// ÓÃÓÚÔÚ key ´æÔÚÊ±É¾³ı key
+    /// ç”¨äºåœ¨ key å­˜åœ¨æ—¶åˆ é™¤ key
     /// </summary>
-    /// <param name="key">¼ü</param>
+    /// <param name="key">é”®</param>
     /// <returns></returns>
     Task<long> DelAsync(params string[] key);
 
     /// <summary>
-    /// ÓÃÓÚÔÚ key Ä£°å´æÔÚÊ±É¾³ı
+    /// ç”¨äºåœ¨ key æ¨¡æ¿å­˜åœ¨æ—¶åˆ é™¤
     /// </summary>
-    /// <param name="pattern">keyÄ£°å</param>
+    /// <param name="pattern">keyæ¨¡æ¿</param>
     /// <returns></returns>
     Task<long> DelByPatternAsync(string pattern);
 
     /// <summary>
-    /// ¼ì²é¸ø¶¨ key ÊÇ·ñ´æÔÚ
+    /// æ£€æŸ¥ç»™å®š key æ˜¯å¦å­˜åœ¨
     /// </summary>
-    /// <param name="key">¼ü</param>
+    /// <param name="key">é”®</param>
     /// <returns></returns>
     bool Exists(string key);
 
     /// <summary>
-    /// ¼ì²é¸ø¶¨ key ÊÇ·ñ´æÔÚ
+    /// æ£€æŸ¥ç»™å®š key æ˜¯å¦å­˜åœ¨
     /// </summary>
-    /// <param name="key">¼ü</param>
+    /// <param name="key">é”®</param>
     /// <returns></returns>
     Task<bool> ExistsAsync(string key);
 
     /// <summary>
-    /// »ñÈ¡Ö¸¶¨ key µÄÖµ
+    /// è·å–æŒ‡å®š key çš„å€¼
     /// </summary>
-    /// <param name="key">¼ü</param>
+    /// <param name="key">é”®</param>
     /// <returns></returns>
     string Get(string key);
 
     /// <summary>
-    /// »ñÈ¡Ö¸¶¨ key µÄÖµ
+    /// è·å–æŒ‡å®š key çš„å€¼
     /// </summary>
-    /// <typeparam name="T">Êı¾İÀàĞÍ</typeparam>
-    /// <param name="key">¼ü</param>
+    /// <typeparam name="T">æ•°æ®ç±»å‹</typeparam>
+    /// <param name="key">é”®</param>
     /// <returns></returns>
     T Get<T>(string key);
 
     /// <summary>
-    /// »ñÈ¡Ö¸¶¨ key µÄÖµ
+    /// è·å–æŒ‡å®š key çš„å€¼
     /// </summary>
-    /// <param name="key">¼ü</param>
+    /// <param name="key">é”®</param>
     /// <returns></returns>
     Task<string> GetAsync(string key);
 
     /// <summary>
-    /// »ñÈ¡Ö¸¶¨ key µÄÖµ
+    /// è·å–æŒ‡å®š key çš„å€¼
     /// </summary>
-    /// <typeparam name="T">Êı¾İÀàĞÍ</typeparam>
-    /// <param name="key">¼ü</param>
+    /// <typeparam name="T">æ•°æ®ç±»å‹</typeparam>
+    /// <param name="key">é”®</param>
     /// <returns></returns>
     Task<T> GetAsync<T>(string key);
 
     /// <summary>
-    /// ÉèÖÃÖ¸¶¨ key µÄÖµ£¬ËùÓĞĞ´Èë²ÎÊıobject¶¼Ö§³Östring | byte[] | ÊıÖµ | ¶ÔÏó
+    /// è®¾ç½®æŒ‡å®š key çš„å€¼ï¼Œæ‰€æœ‰å†™å…¥å‚æ•°objectéƒ½æ”¯æŒstring | byte[] | æ•°å€¼ | å¯¹è±¡
     /// </summary>
-    /// <param name="key">¼ü</param>
-    /// <param name="value">Öµ</param>
+    /// <param name="key">é”®</param>
+    /// <param name="value">å€¼</param>
     void Set(string key, object value);
 
     /// <summary>
-    /// ÉèÖÃÖ¸¶¨ key µÄÖµ£¬ËùÓĞĞ´Èë²ÎÊıobject¶¼Ö§³Östring | byte[] | ÊıÖµ | ¶ÔÏó
+    /// è®¾ç½®æŒ‡å®š key çš„å€¼ï¼Œæ‰€æœ‰å†™å…¥å‚æ•°objectéƒ½æ”¯æŒstring | byte[] | æ•°å€¼ | å¯¹è±¡
     /// </summary>
-    /// <param name="key">¼ü</param>
-    /// <param name="value">Öµ</param>
-    /// <param name="expire">ÓĞĞ§ÆÚ</param>
+    /// <param name="key">é”®</param>
+    /// <param name="value">å€¼</param>
+    /// <param name="expire">æœ‰æ•ˆæœŸ</param>
     void Set(string key, object value, TimeSpan expire);
 
     /// <summary>
-    /// ÉèÖÃÖ¸¶¨ key µÄÖµ£¬ËùÓĞĞ´Èë²ÎÊıobject¶¼Ö§³Östring | byte[] | ÊıÖµ | ¶ÔÏó
+    /// è®¾ç½®æŒ‡å®š key çš„å€¼ï¼Œæ‰€æœ‰å†™å…¥å‚æ•°objectéƒ½æ”¯æŒstring | byte[] | æ•°å€¼ | å¯¹è±¡
     /// </summary>
-    /// <param name="key">¼ü</param>
-    /// <param name="value">Öµ</param>
-    /// <param name="expire">ÓĞĞ§ÆÚ</param>
+    /// <param name="key">é”®</param>
+    /// <param name="value">å€¼</param>
+    /// <param name="expire">æœ‰æ•ˆæœŸ</param>
     /// <returns></returns>
     Task SetAsync(string key, object value, TimeSpan? expire = null);
 
     /// <summary>
-    /// »ñÈ¡»òÉèÖÃ»º´æ
+    /// è·å–æˆ–è®¾ç½®ç¼“å­˜
     /// </summary>
-    /// <typeparam name="T">Êı¾İÀàĞÍ</typeparam>
-    /// <param name="key">¼ü</param>
-    /// <param name="func">»ñÈ¡Êı¾İµÄ·½·¨</param>
-    /// <param name="expire">ÓĞĞ§ÆÚ</param>
+    /// <typeparam name="T">æ•°æ®ç±»å‹</typeparam>
+    /// <param name="key">é”®</param>
+    /// <param name="func">è·å–æ•°æ®çš„æ–¹æ³•</param>
+    /// <param name="expire">æœ‰æ•ˆæœŸ</param>
     /// <returns></returns>
     Task<T> GetOrSetAsync<T>(string key, Func<Task<T>> func, TimeSpan? expire = null);
 
     /// <summary>
-    /// ËùÓĞ»º´æ¼ü
+    /// æ‰€æœ‰ç¼“å­˜é”®
     /// </summary>
     List<string> Keys { get; }
 
     /// <summary>
-    /// ¸ù¾İ key Ä£°å»ñµÃËùÓĞ»º´æ¼ü
+    /// æ ¹æ® key æ¨¡æ¿è·å¾—æ‰€æœ‰ç¼“å­˜é”®
     /// </summary>
     List<string> GetKeysByPattern(string pattern);
 }

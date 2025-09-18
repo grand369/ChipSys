@@ -1,17 +1,16 @@
 namespace ChipSys.Admin.Tools.Cache;
-
 /// <summary>
-/// »º´æÀàÐÍ
+/// ç¼“å­˜ç±»åž‹
 /// </summary>
 public enum CacheType
 {
     /// <summary>
-    /// ÄÚ´æ»º´æ
+    /// å†…å­˜ç¼“å­˜
     /// </summary>
     Memory,
 
     /// <summary>
-    /// Redis»º´æ
+    /// Redisç¼“å­˜
     /// </summary>
     Redis
 }

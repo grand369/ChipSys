@@ -3,7 +3,7 @@ using Microsoft.Extensions.Localization;
 namespace ChipSys.Admin.Resources;
 
 /// <summary>
-/// ģ�鱾�ػ�
+/// 模块本地化
 /// </summary>
 public abstract class ModuleLocalizer : IModuleLocalizer
 {

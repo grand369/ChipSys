@@ -5,7 +5,7 @@ using ChipSys.Common.Extensions;
 namespace ChipSys.Admin.Tools.Cache;
 
 /// <summary>
-/// Redis»º´æ
+/// Redisç¼“å­˜
 /// </summary>
 public partial class RedisCacheTool : ICacheTool
 {

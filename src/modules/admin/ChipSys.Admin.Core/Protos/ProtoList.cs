@@ -3,7 +3,7 @@ using ProtoBuf;
 namespace ChipSys.Admin.Core.Protos;
 
 /// <summary>
-/// ProtoList ±íÊ¾ Grpc ÇëÇó»òÏìÓ¦ÖĞµÄ List
+/// ProtoList è¡¨ç¤º Grpc è¯·æ±‚æˆ–å“åº”ä¸­çš„ List
 /// </summary>
 [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
 public class ProtoList<T>

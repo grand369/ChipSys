@@ -8,100 +8,99 @@ using ChipSys.Admin.Core.Configs;
 using ChipSys.DynamicApi;
 
 namespace ChipSys.Admin.Core.Startup;
-
 /// <summary>
-/// ËŞÖ÷Ó¦ÓÃÅäÖÃ
+/// å®¿ä¸»åº”ç”¨é…ç½®
 /// </summary>
 public class HostAppOptions
 {
     /// <summary>
-    /// ÅäÖÃÇ°ÖÃÓ¦ÓÃ³ÌĞò¹¹½¨Æ÷
+    /// é…ç½®å‰ç½®åº”ç”¨ç¨‹åºæ„å»ºå™¨
     /// </summary>
     public Action<WebApplicationBuilder> ConfigurePreWebApplicationBuilder { get; set; }
 
     /// <summary>
-    /// ÅäÖÃÓ¦ÓÃ³ÌĞò¹¹½¨Æ÷
+    /// é…ç½®åº”ç”¨ç¨‹åºæ„å»ºå™¨
     /// </summary>
     public Action<WebApplicationBuilder> ConfigureWebApplicationBuilder { get; set; }
 
     /// <summary>
-    /// ÅäÖÃÇ°ÖÃ·şÎñ
+    /// é…ç½®å‰ç½®æœåŠ¡
     /// </summary>
     public Action<HostAppContext> ConfigurePreServices { get; set; }
 
     /// <summary>
-    /// ÅäÖÃ·şÎñ
+    /// é…ç½®æœåŠ¡
     /// </summary>
     public Action<HostAppContext> ConfigureServices { get; set; }
 
     /// <summary>
-    /// ÅäÖÃºóÖÃ·şÎñ
+    /// é…ç½®åç½®æœåŠ¡
     /// </summary>
     public Action<HostAppContext> ConfigurePostServices { get; set; }
 
     /// <summary>
-    /// ÅäÖÃmvc¹¹½¨Æ÷
+    /// é…ç½®mvcæ„å»ºå™¨
     /// </summary>
     public Action<IMvcBuilder, HostAppContext> ConfigureMvcBuilder { get; set; }
 
     /// <summary>
-    /// ÅäÖÃAutofacÈİÆ÷
+    /// é…ç½®Autofacå®¹å™¨
     /// </summary>
     public Action<ContainerBuilder, HostAppContext> ConfigureAutofacContainer { get; set; }
 
     /// <summary>
-    /// ÅäÖÃÇ°ÖÃÖĞ¼ä¼ş
+    /// é…ç½®å‰ç½®ä¸­é—´ä»¶
     /// </summary>
     public Action<HostAppMiddlewareContext> ConfigurePreMiddleware { get; set; }
 
     /// <summary>
-    /// ÅäÖÃÖĞ¼ä¼ş
+    /// é…ç½®ä¸­é—´ä»¶
     /// </summary>
     public Action<HostAppMiddlewareContext> ConfigureMiddleware { get; set; }
 
     /// <summary>
-    /// ÅäÖÃºóÖÃÖĞ¼ä¼ş
+    /// é…ç½®åç½®ä¸­é—´ä»¶
     /// </summary>
     public Action<HostAppMiddlewareContext> ConfigurePostMiddleware { get; set; }
 
     /// <summary>
-    /// ÅäÖÃFreeSql¹¹½¨Æ÷
+    /// é…ç½®FreeSqlæ„å»ºå™¨
     /// </summary>
     public Action<FreeSqlBuilder, DbConfig> ConfigureFreeSqlBuilder { get; set; }
 
     /// <summary>
-    /// ÅäÖÃFreeSqlÍ¬²½½á¹¹
+    /// é…ç½®FreeSqlåŒæ­¥ç»“æ„
     /// </summary>
     public Action<IFreeSql, DbConfig> ConfigureFreeSqlSyncStructure { get; set; }
 
     /// <summary>
-    /// Ç°ÖÃÅäÖÃFreeSql
+    /// å‰ç½®é…ç½®FreeSql
     /// </summary>
     public Action<IFreeSql, DbConfig> ConfigurePreFreeSql { get; set; }
 
     /// <summary>
-    /// ÅäÖÃFreeSql
+    /// é…ç½®FreeSql
     /// </summary>
     public Action<IFreeSql, DbConfig> ConfigureFreeSql { get; set; }
 
     
     /// <summary>
-    /// ÅäÖÃ¶¯Ì¬Api
+    /// é…ç½®åŠ¨æ€Api
     /// </summary>
     public Action<DynamicApiOptions> ConfigureDynamicApi { get; set; }
 
     /// <summary>
-    /// ÅäÖÃSwaggerUI
+    /// é…ç½®SwaggerUI
     /// </summary>
     public Action<SwaggerUIOptions> ConfigureSwaggerUI { get; set; }
 
     /// <summary>
-    /// ÅäÖÃÑ©»¨Æ¯ÒÆËã·¨
+    /// é…ç½®é›ªèŠ±æ¼‚ç§»ç®—æ³•
     /// </summary>
     public Action<IdGeneratorOptions> ConfigureIdGenerator { get; set; }
 
     /// <summary>
-    /// ×Ô¶¨ÒåÊı¾İ¿â³õÊ¼»¯
+    /// è‡ªå®šä¹‰æ•°æ®åº“åˆå§‹åŒ–
     /// </summary>
     public bool CustomInitDb { get; set; } = false;
 

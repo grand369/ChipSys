@@ -6,20 +6,20 @@ using ChipSys.Admin.Core.Resources;
 namespace ChipSys.Admin.Core.Helpers;
 
 /// <summary>
-/// ÓÃ»§°ïÖúÀà
+/// ç”¨æˆ·å¸®åŠ©ç±»
 /// </summary>
 [InjectSingleton]
 public class UserHelper(AdminCoreLocalizer adminCoreLocalizer)
 {
     /// <summary>
-    /// ¼ì²éÃÜÂë
+    /// æ£€æŸ¥å¯†ç 
     /// </summary>
     /// <param name="password"></param>
     public void CheckPassword(string password)
     {
         if (!PasswordHelper.Verify(password))
         {
-            throw ResultOutput.Exception(adminCoreLocalizer["ÃÜÂëÎª×ÖÄ¸+Êı×Ö+¿ÉÑ¡ÌØÊâ×Ö·û£¬³¤¶ÈÔÚ6-16Ö®¼ä"]);
+            throw ResultOutput.Exception(adminCoreLocalizer["å¯†ç ä¸ºå­—æ¯+æ•°å­—+å¯é€‰ç‰¹æ®Šå­—ç¬¦ï¼Œé•¿åº¦åœ¨6-16ä¹‹é—´"]);
         }
     }
 }

@@ -3,7 +3,7 @@ using ProtoBuf;
 namespace ChipSys.Admin.Core.Protos;
 
 /// <summary>
-/// ProtoDateTime ±íÊ¾ Grpc ÇëÇó»òÏìÓ¦ÖĞµÄ DateTime
+/// ProtoDateTime è¡¨ç¤º Grpc è¯·æ±‚æˆ–å“åº”ä¸­çš„ DateTime
 /// </summary>
 [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
 public class ProtoDateTime

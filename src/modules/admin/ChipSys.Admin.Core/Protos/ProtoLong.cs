@@ -3,7 +3,7 @@ using ProtoBuf;
 namespace ChipSys.Admin.Core.Protos;
 
 /// <summary>
-/// ProtoLong ±íÊ¾ Grpc ÇëÇó»òÏìÓ¦ÖĞµÄ long
+/// ProtoLong è¡¨ç¤º Grpc è¯·æ±‚æˆ–å“åº”ä¸­çš„ long
 /// </summary>
 [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
 public class ProtoLong

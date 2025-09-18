@@ -1,31 +1,31 @@
 namespace ChipSys.Admin.Core.Records;
 
 /// <summary>
-/// Î»ÖÃĞÅÏ¢
+/// ä½ç½®ä¿¡æ¯
 /// </summary>
 public record LocationInfo
 {
     /// <summary>
-    /// ¹ú¼Ò
+    /// å›½å®¶
     /// </summary>
     public string Country { get; init; }
     /// <summary>
-    /// Ê¡·İ
+    /// çœä»½
     /// </summary>
     public string Province { get; init; }
 
     /// <summary>
-    /// ³ÇÊĞ
+    /// åŸå¸‚
     /// </summary>
     public string City { get; init; }
 
     /// <summary>
-    /// ÍøÂç·şÎñÉÌ
+    /// ç½‘ç»œæœåŠ¡å•†
     /// </summary>
     public string Isp { get; init; }
 
     /// <summary>
-    /// ×ª»»µØÖ·ĞÅÏ¢
+    /// è½¬æ¢åœ°å€ä¿¡æ¯
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>

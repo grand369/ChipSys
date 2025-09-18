@@ -6,9 +6,8 @@ using Microsoft.Extensions.Hosting;
 using System.Reflection;
 
 namespace ChipSys.Admin.Core;
-
 /// <summary>
-/// 应用基础信息
+/// 搴旂敤鍩虹淇℃伅
 /// </summary>
 internal static class AppInfoBase
 {

@@ -5,23 +5,24 @@ using Microsoft.Extensions.Hosting;
 namespace ChipSys.Admin.Core.Startup;
 
 /// <summary>
-/// HostAppÉÏÏÂÎÄ
+/// HostAppä¸Šä¸‹æ–‡
 /// </summary>
 public class HostAppContext
 {
     /// <summary>
-    /// ·şÎñ
+    /// æœåŠ¡
     /// </summary>
     public IServiceCollection Services { get; set; }
 
     /// <summary>
-    /// »·¾³
+    /// ç¯å¢ƒ
     /// </summary>
     public IHostEnvironment Environment { get; set; }
 
     /// <summary>
-    /// ÅäÖÃ
+    /// é…ç½®
     /// </summary>
     public IConfiguration Configuration { get; set; }
 }
+
 

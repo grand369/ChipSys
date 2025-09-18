@@ -4,32 +4,32 @@ using ChipSys.Admin.Core.Consts;
 namespace ChipSys.Admin.Tools.TaskScheduler;
 
 /// <summary>
-/// TaskSchedulerÅäÖÃ
+/// TaskScheduleré…ç½®
 /// </summary>
 public class TaskSchedulerOptions
 {
     /// <summary>
-    /// Êı¾İ¿â¼ü
+    /// æ•°æ®åº“é”®
     /// </summary>
     public string DbKey { get; set; } = DbKeys.AdminDb;
 
     /// <summary>
-    /// Êı¾İ¿âÊµÀı
+    /// æ•°æ®åº“å®ä¾‹
     /// </summary>
     public IFreeSql FreeSql { get; set; }
 
     /// <summary>
-    /// ¶à¿âÊµÀı
+    /// å¤šåº“å®ä¾‹
     /// </summary>
     public FreeSqlCloud FreeSqlCloud { get; set; }
 
     /// <summary>
-    /// ÅäÖÃFreeSql
+    /// é…ç½®FreeSql
     /// </summary>
     public Action<IFreeSql> ConfigureFreeSql { get; set; }
 
     /// <summary>
-    /// ÅäÖÃFreeSql
+    /// é…ç½®FreeSql
     /// </summary>
     public Action<FreeSchedulerBuilder> ConfigureFreeSchedulerBuilder { get; set; }
 }

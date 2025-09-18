@@ -1,7 +1,7 @@
 namespace ChipSys.Admin.Core.RegisterModules;
 
 /// <summary>
-/// ×¢²áµ½µÚÈý·½IOCÈÝÆ÷
+/// æ³¨å†Œåˆ°ç¬¬ä¸‰æ–¹IOCå®¹å™¨
 /// </summary>
 public interface IRegisterIOC
 {

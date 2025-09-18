@@ -9,57 +9,29 @@ namespace ChipSys.Client.Contracts.Services.Client;
 public interface ISupplierApplicationService
 {
     /// <summary>
-    /// 查询
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    Task<SupplierApplicationGetOutput> GetAsync(long id);
-
-    /// <summary>
-    /// 查询分页
-    /// </summary>
-    /// <param name="input"></param>
-    /// <returns></returns>
-    Task<PageOutput<SupplierApplicationGetPageOutput>> GetPageAsync(SupplierApplicationGetPageInput input);
-
-    /// <summary>
-    /// 添加
+    /// 提交供应商申请
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
     Task<long> AddAsync(SupplierApplicationAddInput input);
 
     /// <summary>
-    /// 修改
+    /// 获取申请详情
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    Task<SupplierApplicationGetOutput> GetAsync(long id);
+
+    /// <summary>
+    /// 获取申请分页列表
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
-    Task UpdateAsync(SupplierApplicationUpdateInput input);
+    Task<PageOutput<SupplierApplicationGetOutput>> GetPageAsync(PageInput<SupplierApplicationGetPageInput> input);
 
     /// <summary>
-    /// 删除
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    Task DeleteAsync(long id);
-
-    /// <summary>
-    /// 提交申请
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    Task SubmitAsync(long id);
-
-    /// <summary>
-    /// 撤销申请
-    /// </summary>
-    /// <param name="id"></param>
-    /// <returns></returns>
-    Task CancelAsync(long id);
-
-    /// <summary>
-    /// 检查是否已有申请
+    /// 获取我的申请
     /// </summary>
     /// <returns></returns>
-    Task<bool> HasPendingApplicationAsync();
+    Task<SupplierApplicationGetOutput?> GetMyApplicationAsync();
 }

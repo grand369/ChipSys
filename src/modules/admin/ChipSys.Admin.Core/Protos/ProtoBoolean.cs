@@ -3,7 +3,7 @@ using ProtoBuf;
 namespace ChipSys.Admin.Core.Protos;
 
 /// <summary>
-/// ProtoBoolean ±íÊ¾ Grpc ÇëÇó»òÏìÓ¦ÖĞµÄ bool
+/// ProtoBoolean è¡¨ç¤º Grpc è¯·æ±‚æˆ–å“åº”ä¸­çš„ bool
 /// </summary>
 [ProtoContract(ImplicitFields = ImplicitFields.AllPublic)]
 public class ProtoBoolean

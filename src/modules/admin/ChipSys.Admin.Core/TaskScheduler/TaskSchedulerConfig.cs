@@ -1,78 +1,78 @@
 namespace ChipSys.Admin.Tools.TaskScheduler;
 
 /// <summary>
-/// 任务调度配置
+/// 浠诲姟璋冨害閰嶇疆
 /// </summary>
 public class TaskSchedulerConfig
 {
     public static class Models
     {
         /// <summary>
-        /// 告警邮件
+        /// 鍛婅閭欢
         /// </summary>
         public class AlerEmail
         {
             /// <summary>
-            /// 是否启用
+            /// 鏄惁鍚敤
             /// </summary>
             public bool Enable { get; set; }
 
             /// <summary>
-            /// 邮件地址
+            /// 閭欢鍦板潃
             /// </summary>
             public string Address { get; set; }
         }
 
         /// <summary>
-        /// 进程启动信息
+        /// 杩涚▼鍚姩淇℃伅
         /// </summary>
         public class ProcessStartInfoModel
         {
             /// <summary>
-            /// 应用程序
+            /// 搴旂敤绋嬪簭
             /// </summary>
             public string FileName { get; set; }
 
             /// <summary>
-            /// 工作目录
+            /// 宸ヤ綔鐩綍
             /// </summary>
             public string WorkingDirectory { get; set; }
         }
 
         /// <summary>
-        /// 模块信息
+        /// 妯″潡淇℃伅
         /// </summary>
         public class Modules
         {
             /// <summary>
-            /// 模块名称
+            /// 妯″潡鍚嶇О
             /// </summary>
             public string Name { get; set; }
 
             /// <summary>
-            /// Http请求地址
+            /// Http璇锋眰鍦板潃
             /// </summary>
             public string HttpUrl { get; set; }
 
             /// <summary>
-            /// Grpc请求地址
+            /// Grpc璇锋眰鍦板潃
             /// </summary>
             public string GrpcUrl { get; set; }
         }
     }
 
     /// <summary>
-    /// 模块信息列表
+    /// 妯″潡淇℃伅鍒楄〃
     /// </summary>
     public List<Models.Modules> Modules { get; set; } = [];
 
     /// <summary>
-    /// 进程启动信息
+    /// 杩涚▼鍚姩淇℃伅
     /// </summary>
     public Models.ProcessStartInfoModel ProcessStartInfo { get; set; }
 
     /// <summary>
-    /// 告警邮件
+    /// 鍛婅閭欢
     /// </summary>
     public Models.AlerEmail AlerEmail { get; set; }
 }

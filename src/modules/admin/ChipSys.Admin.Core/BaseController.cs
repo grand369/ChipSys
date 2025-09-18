@@ -4,7 +4,7 @@ using ChipSys.Admin.Core.Attributes;
 namespace ChipSys.Admin.Core;
 
 /// <summary>
-/// »ù´¡¿ØÖÆÆ÷
+/// åŸºç¡€æŽ§åˆ¶å™¨
 /// </summary>
 [Route("api/[area]/[controller]/[action]")]
 [ApiController]

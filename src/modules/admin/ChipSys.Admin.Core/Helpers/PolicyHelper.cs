@@ -3,27 +3,27 @@ using Polly;
 namespace ChipSys.Admin.Core.Helpers;
 
 /// <summary>
-/// ²ßÂÔ°ïÖúÀà
+/// ç­–ç•¥å¸®åŠ©ç±»
 /// </summary>
 public class PolicyHelper
 {
     public static List<IAsyncPolicy<HttpResponseMessage>> GetPolicyList()
     {
-        //¸ôÀë²ßÂÔ
+        //éš”ç¦»ç­–ç•¥
         //var bulkheadPolicy = Policy.BulkheadAsync<HttpResponseMessage>(10, 100);
 
-        //»ØÍË²ßÂÔ
-        //»ØÍËÒ²³ÆÎª·şÎñ½µ¼¶£¬ÓÃÓÚÖ¸¶¨ÔÚ·¢Éú¹ÊÕÏÊ±µÄ±¸ÓÃ·½°¸¡£
+        //å›é€€ç­–ç•¥
+        //å›é€€ä¹Ÿç§°ä¸ºæœåŠ¡é™çº§ï¼Œç”¨äºæŒ‡å®šåœ¨å‘ç”Ÿæ•…éšœæ—¶çš„å¤‡ç”¨æ–¹æ¡ˆã€‚
         //var fallbackPolicy = Policy<string>.Handle<HttpRequestException>().FallbackAsync("backup strategy");
 
-        //»º´æ²ßÂÔ
+        //ç¼“å­˜ç­–ç•¥
         //var cachePolicy = Policy.CacheAsync<HttpResponseMessage>(cacheProvider, TimeSpan.FromSeconds(60));
 
-        //³¬Ê±²ßÂÔ
+        //è¶…æ—¶ç­–ç•¥
         var timeoutPolicy = Policy.TimeoutAsync<HttpResponseMessage>(9);
 
-        // ÖØÊÔ²ßÂÔ
-        // ¶ÔÓÚ³¬Ê±»òÏìÓ¦×´Ì¬Âë>=500µÄ´íÎó£¬×î¶àÖØÊÔ3´Î¡£
+        // é‡è¯•ç­–ç•¥
+        // å¯¹äºè¶…æ—¶æˆ–å“åº”çŠ¶æ€ç >=500çš„é”™è¯¯ï¼Œæœ€å¤šé‡è¯•3æ¬¡ã€‚
         var retryPolicy = Policy.Handle<Exception>()
             .OrResult<HttpResponseMessage>(response =>
             {
@@ -36,28 +36,28 @@ public class PolicyHelper
                 TimeSpan.FromSeconds(5)
             });
 
-        //ÈÛ¶Ï²ßÂÔ
+        //ç†”æ–­ç­–ç•¥
         var circuitBreakerPolicy = Policy.Handle<Exception>()
             .CircuitBreakerAsync
             (
-                // ÔÚÈÛ¶ÏÇ°ÔÊĞíµÄÒì³£´ÎÊı
+                // åœ¨ç†”æ–­å‰å…è®¸çš„å¼‚å¸¸æ¬¡æ•°
                 exceptionsAllowedBeforeBreaking: 2,
-                // ÈÛ¶Ï³ÖĞøÊ±¼ä
+                // ç†”æ–­æŒç»­æ—¶é—´
                 durationOfBreak: TimeSpan.FromMinutes(10),
-                // ÈÛ¶Ï´¥·¢ÊÂ¼ş
+                // ç†”æ–­è§¦å‘äº‹ä»¶
                 onBreak: (ex, breakDelay) =>
                 {
-                    Console.WriteLine("ÈÛ¶Ï´¥·¢ÊÂ¼ş");
+                    Console.WriteLine("ç†”æ–­è§¦å‘äº‹ä»¶");
                 },
-                //ÈÛ¶Ï»Ö¸´ÊÂ¼ş
+                //ç†”æ–­æ¢å¤äº‹ä»¶
                 onReset: () =>
                 {
-                    Console.WriteLine("ÈÛ¶Ï»Ö¸´ÊÂ¼ş");
+                    Console.WriteLine("ç†”æ–­æ¢å¤äº‹ä»¶");
                 },
-                //ÈÛ¶Ï½áÊøÊÂ¼ş
+                //ç†”æ–­ç»“æŸäº‹ä»¶
                 onHalfOpen: () =>
                 {
-                    Console.WriteLine("ÈÛ¶Ï½áÊøÊÂ¼ş");
+                    Console.WriteLine("ç†”æ–­ç»“æŸäº‹ä»¶");
                 }
             ).AsAsyncPolicy<HttpResponseMessage>();
 

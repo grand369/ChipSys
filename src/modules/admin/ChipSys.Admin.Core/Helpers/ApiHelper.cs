@@ -12,7 +12,7 @@ using ChipSys.Common.Extensions;
 namespace ChipSys.Admin.Core.Helpers;
 
 /// <summary>
-/// Api°ïÖúÀà
+/// Apiå¸®åŠ©ç±»
 /// </summary>
 [InjectSingleton]
 public class ApiHelper
@@ -96,25 +96,25 @@ public class ApiHelper
 public class ApiModel
 {
     /// <summary>
-    /// ½Ó¿ÚÃû³Æ
+    /// æ¥å£åç§°
     /// </summary>
     public string Label { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚµØÖ·
+    /// æ¥å£åœ°å€
     /// </summary>
     public string Path { get; set; }
     /// <summary>
-    /// ÆôÓÃ½Ó¿ÚÈÕÖ¾
+    /// å¯ç”¨æ¥å£æ—¥å¿—
     /// </summary>
     public bool EnabledLog { get; set; }
     /// <summary>
-    /// ÆôÓÃÇëÇó²ÎÊı
+    /// å¯ç”¨è¯·æ±‚å‚æ•°
     /// </summary>
     public bool EnabledParams { get; set; }
 
     /// <summary>
-    /// ÆôÓÃÏìÓ¦½á¹û
+    /// å¯ç”¨å“åº”ç»“æœ
     /// </summary>
     public bool EnabledResult { get; set; }
 }

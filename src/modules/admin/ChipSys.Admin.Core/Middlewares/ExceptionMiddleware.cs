@@ -8,7 +8,7 @@ using ChipSys.Common.Helpers;
 namespace ChipSys.Admin.Core.Middlewares;
 
 /// <summary>
-/// Òì³£ÖÐ¼ä¼þ
+/// å¼‚å¸¸ä¸­é—´ä»¶
 /// </summary>
 public class ExceptionMiddleware
 {

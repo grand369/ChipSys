@@ -8,7 +8,7 @@ using Module = Autofac.Module;
 namespace ChipSys.Admin.Core.RegisterModules;
 
 /// <summary>
-/// ÉúÃüÖÜÆÚ×¢Èë
+/// ç”Ÿå‘½å‘¨æœŸæ³¨å…¥
 /// </summary>
 public class LifecycleModule : Module
 {
@@ -21,7 +21,7 @@ public class LifecycleModule : Module
 
     protected override void Load(ContainerBuilder builder)
     {
-        // »ñµÃÒª×¢ÈëµÄ³ÌĞò¼¯
+        // è·å¾—è¦æ³¨å…¥çš„ç¨‹åºé›†
         Assembly[] assemblies = null;
         if (_appConfig.AssemblyNames?.Length > 0)
         {
@@ -33,39 +33,39 @@ public class LifecycleModule : Module
             return;
         }
 
-        //ÎŞ½Ó¿Ú×¢Èëµ¥Àı
+        //æ— æ¥å£æ³¨å…¥å•ä¾‹
         builder.RegisterAssemblyTypes(assemblies)
         .Where(t => t.GetCustomAttribute<InjectSingletonAttribute>(false) != null)
         .SingleInstance()
         .PropertiesAutowired();
 
-        //ÓĞ½Ó¿Ú×¢Èëµ¥Àı
+        //æœ‰æ¥å£æ³¨å…¥å•ä¾‹
         builder.RegisterAssemblyTypes(assemblies)
         .Where(t => t.GetCustomAttribute<InjectSingletonAttribute>(false) != null)
         .AsImplementedInterfaces()
         .SingleInstance()
         .PropertiesAutowired();
 
-        //ÎŞ½Ó¿Ú×¢Èë×÷ÓÃÓò
+        //æ— æ¥å£æ³¨å…¥ä½œç”¨åŸŸ
         builder.RegisterAssemblyTypes(assemblies)
         .Where(t => t.GetCustomAttribute<InjectScopedAttribute>(false) != null)
         .InstancePerLifetimeScope()
         .PropertiesAutowired();
 
-        //ÓĞ½Ó¿Ú×¢Èë×÷ÓÃÓò
+        //æœ‰æ¥å£æ³¨å…¥ä½œç”¨åŸŸ
         builder.RegisterAssemblyTypes(assemblies)
         .Where(t => t.GetCustomAttribute<InjectScopedAttribute>(false) != null)
         .AsImplementedInterfaces()
         .InstancePerLifetimeScope()
         .PropertiesAutowired();
 
-        //ÎŞ½Ó¿Ú×¢ÈëË²Ê±
+        //æ— æ¥å£æ³¨å…¥ç¬æ—¶
         builder.RegisterAssemblyTypes(assemblies)
         .Where(t => t.GetCustomAttribute<InjectTransientAttribute>(false) != null)
         .InstancePerDependency()
         .PropertiesAutowired();
 
-        //ÓĞ½Ó¿Ú×¢ÈëË²Ê±
+        //æœ‰æ¥å£æ³¨å…¥ç¬æ—¶
         builder.RegisterAssemblyTypes(assemblies)
         .Where(t => t.GetCustomAttribute<InjectTransientAttribute>(false) != null)
         .AsImplementedInterfaces()
@@ -73,3 +73,4 @@ public class LifecycleModule : Module
         .PropertiesAutowired();
     }
 }
+

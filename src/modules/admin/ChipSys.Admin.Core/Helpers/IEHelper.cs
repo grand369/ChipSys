@@ -14,7 +14,7 @@ using ChipSys.Admin.Core.Resources;
 namespace ChipSys.Admin.Core.Helpers;
 
 /// <summary>
-/// µ¼Èëµ¼³ö°ïÖúÀà
+/// å¯¼å…¥å¯¼å‡ºå¸®åŠ©ç±»
 /// </summary>
 [InjectSingleton]
 public class IEHelper
@@ -33,7 +33,7 @@ public class IEHelper
     }
 
     /// <summary>
-    /// ÏÂÔØÄ£°å
+    /// ä¸‹è½½æ¨¡æ¿
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="type"></param>
@@ -46,7 +46,7 @@ public class IEHelper
     }
 
     /// <summary>
-    /// ÏÂÔØ´íÎó±ê¼ÇÎÄ¼ş
+    /// ä¸‹è½½é”™è¯¯æ ‡è®°æ–‡ä»¶
     /// </summary>
     /// <param name="fileId"></param>
     /// <param name="fileName"></param>
@@ -58,19 +58,19 @@ public class IEHelper
         await _cache.DelAsync(excelErrorMarkKey);
         if (fileStream == null)
         {
-            throw ResultOutput.Exception(_adminCoreLocalizer["ÇëÖØĞÂµ¼ÈëÊı¾İ£¬ÔÙÏÂÔØ´íÎó±ê¼ÇÎÄ¼ş"], statusCode: 500);
+            throw ResultOutput.Exception(_adminCoreLocalizer["è¯·é‡æ–°å¯¼å…¥æ•°æ®ï¼Œå†ä¸‹è½½é”™è¯¯æ ‡è®°æ–‡ä»¶"], statusCode: 500);
         }
 
         if (fileName.IsNull())
         {
-            fileName = _adminCoreLocalizer["´íÎó±ê¼ÇÎÄ¼ş{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
+            fileName = _adminCoreLocalizer["é”™è¯¯æ ‡è®°æ–‡ä»¶{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
         }
 
         return new XlsxFileResult(fileStream, fileName);
     }
 
     /// <summary>
-    /// µ¼³öÊı¾İ
+    /// å¯¼å‡ºæ•°æ®
     /// </summary>
     /// <param name="dataItems"></param>
     /// <param name="fileName"></param>
@@ -83,14 +83,14 @@ public class IEHelper
 
         if (fileName.IsNull())
         {
-            fileName = _adminCoreLocalizer["Êı¾İÁĞ±í{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
+            fileName = _adminCoreLocalizer["æ•°æ®åˆ—è¡¨{0}.xlsx", DateTime.Now.ToString("yyyyMMddHHmmss")];
         }
 
         return new XlsxFileResult(result, fileName);
     }
 
     /// <summary>
-    /// µ¼ÈëÊı¾İ
+    /// å¯¼å…¥æ•°æ®
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="file"></param>
@@ -112,30 +112,30 @@ public class IEHelper
         {
             if (importResult.Exception != null)
             {
-                errorMsg.AppendLine(_adminCoreLocalizer["´íÎóĞÅÏ¢£º"]);
+                errorMsg.AppendLine(_adminCoreLocalizer["é”™è¯¯ä¿¡æ¯ï¼š"]);
                 errorMsg.AppendLine(importResult.Exception.Message);
             }
 
             if (importResult.TemplateErrors != null && importResult.TemplateErrors.Count > 0)
             {
-                errorMsg.AppendLine(_adminCoreLocalizer["È±ÉÙÊı¾İÁĞ£º"] + string.Join("£¬", importResult.TemplateErrors.Select(m => m.RequireColumnName).ToList()));
+                errorMsg.AppendLine(_adminCoreLocalizer["ç¼ºå°‘æ•°æ®åˆ—ï¼š"] + string.Join("ï¼Œ", importResult.TemplateErrors.Select(m => m.RequireColumnName).ToList()));
             }
         }
 
         var rowErros = importResult.RowErrors;
         if (rowErros?.Count > 0)
         {
-            errorMsg.AppendLine(_adminCoreLocalizer["Êı¾İÌîĞ´ÓĞÎó£º"]);
+            errorMsg.AppendLine(_adminCoreLocalizer["æ•°æ®å¡«å†™æœ‰è¯¯ï¼š"]);
             rowErros = rowErros.OrderBy(a => a.RowIndex).ToList();
             foreach (DataRowErrorInfo drErrorInfo in rowErros)
             {
                 foreach (var item in drErrorInfo.FieldErrors)
                 {
-                    errorMsg.AppendLine(_adminCoreLocalizer["µÚ{0}ĞĞ - {1}£º{2}", drErrorInfo.RowIndex, item.Key, item.Value]);
+                    errorMsg.AppendLine(_adminCoreLocalizer["ç¬¬{0}è¡Œ - {1}ï¼š{2}", drErrorInfo.RowIndex, item.Key, item.Value]);
                 }
             }
 
-            //»º´æ´íÎó±ê¼ÇÎÄ¼ş
+            //ç¼“å­˜é”™è¯¯æ ‡è®°æ–‡ä»¶
             new ExcelImporter().OutputBussinessErrorData<T>(file.OpenReadStream(), rowErros.ToList(), out byte[] fileByte);
             var userId = _user.Id;
             await _cache.DelAsync(CacheKeys.GetExcelErrorMarkKey(userId, fileId));

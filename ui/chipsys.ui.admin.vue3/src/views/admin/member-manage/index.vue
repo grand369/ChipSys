@@ -169,7 +169,7 @@
 
 <script lang="ts" setup>
 import { reactive, onMounted, computed } from 'vue'
-import { MemberLevelApi } from '/@/api/client/MemberLevel'
+import { MemberLevelManageApi } from '/@/api/admin/MemberLevelManage'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ArrowDown } from '@element-plus/icons-vue'
 import { memberManageApi } from '/@/api/admin/MemberManage'
@@ -204,7 +204,7 @@ const openAddLevel = () => {
 const openEditLevel = (lvl: any) => {
   state.levelDialog.type = 'edit'
   // 先查询该等级的最新一条记录，填充完整信息
-  const api = new MemberLevelApi()
+  const api = new MemberLevelManageApi()
   api.getPage({ currentPage: 1, pageSize: 1, filter: { level: lvl.level } } as any).then(res => {
     const row = res?.data?.list?.[0]
     if (row) {
@@ -227,7 +227,7 @@ const openEditLevel = (lvl: any) => {
 }
 
 const submitLevelDialog = async () => {
-  const api = new MemberLevelApi()
+  const api = new MemberLevelManageApi()
   if (state.levelDialog.type === 'add') {
     const res = await api.add({
       level: state.levelDialog.form.level,
@@ -238,6 +238,7 @@ const submitLevelDialog = async () => {
       enabled: state.levelDialog.form.enabled,
       effectiveTime: state.levelDialog.form.effectiveTime,
       expireTime: state.levelDialog.form.expireTime,
+      // 不传递MemberId，让后端设置为0（等级模板）
     })
     if (res?.success) {
       ElMessage.success('新增等级成功')
@@ -255,6 +256,7 @@ const submitLevelDialog = async () => {
       enabled: state.levelDialog.form.enabled,
       effectiveTime: state.levelDialog.form.effectiveTime,
       expireTime: state.levelDialog.form.expireTime,
+      // 不传递MemberId，保持原有值
     })
     if (res?.success) {
       ElMessage.success('保存成功')
@@ -266,7 +268,7 @@ const submitLevelDialog = async () => {
 
 const deleteLevel = async (lvl: any) => {
   await ElMessageBox.confirm(`确认删除会员等级【${renderLevelText(lvl.level)}】吗？`, '提示', { type: 'warning' })
-  const api = new MemberLevelApi()
+  const api = new MemberLevelManageApi()
   // 先查出该等级的一条记录，拿到id再删除
   const pageRes = await api.getPage({ currentPage: 1, pageSize: 1, filter: { level: lvl.level } } as any)
   const id = pageRes?.data?.list?.[0]?.id

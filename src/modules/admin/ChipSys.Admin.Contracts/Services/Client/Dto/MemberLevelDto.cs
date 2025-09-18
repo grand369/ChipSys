@@ -27,9 +27,8 @@ public class MemberLevelGetPageOutput : MemberLevelGetOutput
 public class MemberLevelAddInput
 {
     /// <summary>
-    /// 会员ID（可选，用于直接为特定会员创建等级）
+    /// 会员ID（可选，用于直接为特定会员创建等级，0表示等级模板）
     /// </summary>
-    [Range(1, long.MaxValue, ErrorMessage = "会员ID必须大于0")]
     public long? MemberId { get; set; }
     
     [Required(ErrorMessage = "会员等级不能为空")]

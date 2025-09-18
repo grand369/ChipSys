@@ -1,38 +1,38 @@
 namespace ChipSys.Admin.Tools.Cache;
 
 /// <summary>
-/// »º´æÅäÖÃ
+/// ç¼“å­˜é…ç½®
 /// </summary>
 public class CacheConfig
 {
     /// <summary>
-    /// »º´æÀàĞÍ
+    /// ç¼“å­˜ç±»å‹
     /// </summary>
     public CacheType Type { get; set; } = CacheType.Memory;
 
     /// <summary>
-    /// ÏŞÁ÷»º´æÀàĞÍ
+    /// é™æµç¼“å­˜ç±»å‹
     /// </summary>
     public CacheType TypeRateLimit { get; set; } = CacheType.Memory;
 
     /// <summary>
-    /// RedisÅäÖÃ
+    /// Redisé…ç½®
     /// </summary>
     public RedisConfig Redis { get; set; } = new RedisConfig();
 }
 
 /// <summary>
-/// RedisÅäÖÃ
+/// Redisé…ç½®
 /// </summary>
 public class RedisConfig
 {
     /// <summary>
-    /// Á¬½Ó×Ö·û´®
+    /// è¿æ¥å­—ç¬¦ä¸²
     /// </summary>
     public string ConnectionString { get; set; } = "127.0.0.1:6379,password=,defaultDatabase=0";
 
     /// <summary>
-    /// ÏŞÁ÷Á¬½Ó×Ö·û´®
+    /// é™æµè¿æ¥å­—ç¬¦ä¸²
     /// </summary>
     public string ConnectionStringRateLimit { get; set; } = "127.0.0.1:6379,password=,defaultDatabase=0";
 }
