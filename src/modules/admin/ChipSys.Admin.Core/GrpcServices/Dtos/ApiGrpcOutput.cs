@@ -1,51 +1,51 @@
-using ProtoBuf;
+ï»¿using ProtoBuf;
 
 namespace ChipSys.Admin.Core.GrpcServices.Dtos;
 
 /// <summary>
-/// ½Ó¿Ú
+/// æ¥å£
 /// </summary>
 [ProtoContract(ImplicitFields = ImplicitFields.None)]
 public class ApiGrpcOutput
 {
     /// <summary>
-    /// Ö÷¼üId
+    /// ä¸»é”®Id
     /// </summary>
     [ProtoMember(1)]
     public long Id { get; set; }
 
     /// <summary>
-    /// ËùÊôÄ£¿é
+    /// æ‰€å±æ¨¡å—
     /// </summary>
     [ProtoMember(2)]
     public long ParentId { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚÃû³Æ
+    /// æ¥å£åç§°
     /// </summary>
     [ProtoMember(3)]
     public string Label { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚµØÖ·
+    /// æ¥å£åœ°å€
     /// </summary>
     [ProtoMember(4)]
     public string Path { get; set; }
 
     /// <summary>
-    /// ÆôÓÃ½Ó¿ÚÈÕÖ¾
+    /// å¯ç”¨æ¥å£æ—¥å¿—
     /// </summary>
     [ProtoMember(5)]
     public bool EnabledLog { get; set; }
 
     /// <summary>
-    /// ÆôÓÃÇëÇó²ÎÊı
+    /// å¯ç”¨è¯·æ±‚å‚æ•°
     /// </summary>
     [ProtoMember(6)]
     public bool EnabledParams { get; set; }
 
     /// <summary>
-    /// ÆôÓÃÏìÓ¦½á¹û
+    /// å¯ç”¨å“åº”ç»“æœ
     /// </summary>
     [ProtoMember(7)]
     public bool EnabledResult { get; set; }

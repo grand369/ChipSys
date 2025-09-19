@@ -1,29 +1,29 @@
-using System.Text.RegularExpressions;
+ï»¿using System.Text.RegularExpressions;
 using Yitter.IdGenerator;
 
 namespace ChipSys.Admin.Core.Configs;
 
 /// <summary>
-/// Ó¦ÓÃÅäÖÃ
+/// åº”ç”¨é…ç½®
 /// </summary>
 public class AppConfig
 {
     public AppType AppType { get; set; } = AppType.Controllers;
 
     /// <summary>
-    /// ApiµØÖ·
+    /// Apiåœ°å€
     /// </summary>
     public string[] Urls { get; set; }
 
     /// <summary>
-    /// ¿çÓòµØÖ·
+    /// è·¨åŸŸåœ°å€
     /// </summary>
     public string[] CorUrls { get; set; }
 
     private string[] _assemblyNames;
 
     /// <summary>
-    /// ³ÌĞò¼¯Ãû³Æ
+    /// ç¨‹åºé›†åç§°
     /// </summary>
     public string[] AssemblyNames
     {
@@ -50,7 +50,7 @@ public class AppConfig
     private string[] _enumListAssemblyNames;
 
     /// <summary>
-    /// Ã¶¾ÙÁĞ±í³ÌĞò¼¯Ãû³Æ
+    /// æšä¸¾åˆ—è¡¨ç¨‹åºé›†åç§°
     /// </summary>
     public string[] EnumListAssemblyNames
     {
@@ -74,251 +74,251 @@ public class AppConfig
     }
 
     /// <summary>
-    /// ×â»§ÀàĞÍ
+    /// ç§Ÿæˆ·ç±»å‹
     /// </summary>
     public bool Tenant { get; set; } = false;
 
     /// <summary>
-    /// ·Ö²¼Ê½ÊÂÎñÎ¨Ò»±êÊ¶
+    /// åˆ†å¸ƒå¼äº‹åŠ¡å”¯ä¸€æ ‡è¯†
     /// </summary>
     public string DistributeKey { get; set; }
 
     /// <summary>
-    /// SwaggerÎÄµµ
+    /// Swaggeræ–‡æ¡£
     /// </summary>
     public SwaggerConfig Swagger { get; set; } = new SwaggerConfig();
 
     /// <summary>
-    /// ĞÂ°æApiÎÄµµ
+    /// æ–°ç‰ˆApiæ–‡æ¡£
     /// </summary>
     public ApiUIConfig ApiUI { get; set; } = new ApiUIConfig();
 
     /// <summary>
-    /// MiniProfilerĞÔÄÜ·ÖÎöÆ÷
+    /// MiniProfileræ€§èƒ½åˆ†æå™¨
     /// </summary>
     public bool MiniProfiler { get; set; } = false;
 
     /// <summary>
-    /// Í³Ò»ÈÏÖ¤ÊÚÈ¨·şÎñÆ÷
+    /// ç»Ÿä¸€è®¤è¯æˆæƒæœåŠ¡å™¨
     /// </summary>
     public IdentityServer IdentityServer { get; set; } = new IdentityServer();
 
     /// <summary>
-    /// AopÅäÖÃ
+    /// Aopé…ç½®
     /// </summary>
     public AopConfig Aop { get; set; } = new AopConfig();
 
     /// <summary>
-    /// ÈÕÖ¾ÅäÖÃ
+    /// æ—¥å¿—é…ç½®
     /// </summary>
     public LogConfig Log { get; set; } = new LogConfig();
 
     /// <summary>
-    /// ÑéÖ¤ÅäÖÃ
+    /// éªŒè¯é…ç½®
     /// </summary>
     public ValidateConfig Validate { get; set; } = new ValidateConfig();
 
     /// <summary>
-    /// ÏŞÁ÷
+    /// é™æµ
     /// </summary>
     public bool RateLimit { get; set; } = false;
 
     /// <summary>
-    /// ÑéÖ¤ÂëÅäÖÃ
+    /// éªŒè¯ç é…ç½®
     /// </summary>
     public VarifyCodeConfig VarifyCode { get; set; } = new VarifyCodeConfig();
 
     /// <summary>
-    /// Ä¬ÈÏÃÜÂë
+    /// é»˜è®¤å¯†ç 
     /// </summary>
     public string DefaultPassword { get; set; } = "123asd";
 
     /// <summary>
-    /// ¶¯Ì¬ApiÅäÖÃ
+    /// åŠ¨æ€Apié…ç½®
     /// </summary>
     public DynamicApiConfig DynamicApi { get; set; } = new DynamicApiConfig();
 
     /// <summary>
-    /// ÊµÏÖ±ê×¼±êÊ¶ÃÜÂë¹şÏ£
+    /// å®ç°æ ‡å‡†æ ‡è¯†å¯†ç å“ˆå¸Œ
     /// </summary>
     public bool PasswordHasher { get; set; } = false;
 
     /// <summary>
-    /// ×î´óÇëÇó´óĞ¡
+    /// æœ€å¤§è¯·æ±‚å¤§å°
     /// </summary>
-    [Obsolete("ÇëÊ¹ÓÃ Kestrel: { MaxRequestBodySize: 104857600 }ÅäÖÃ")]
+    [Obsolete("è¯·ä½¿ç”¨ Kestrel: { MaxRequestBodySize: 104857600 }é…ç½®")]
     public long? MaxRequestBodySize { get; set; } = 104857600;
 
     /// <summary>
-    /// Kestrel·şÎñÆ÷
+    /// KestrelæœåŠ¡å™¨
     /// </summary>
     public KestrelConfig Kestrel { get; set; } = new KestrelConfig();
 
     /// <summary>
-    /// ½¡¿µ¼ì²éÅäÖÃ
+    /// å¥åº·æ£€æŸ¥é…ç½®
     /// </summary>
     public HealthChecksConfig HealthChecks { get; set; } = new HealthChecksConfig();
 
     /// <summary>
-    /// Ö¸¶¨¿çÓò·ÃÎÊÊ±Ô¤¼ìµÈ´ıÊ±¼ä£¬ÒÔÃëÎªµ¥Î»£¬Ä¬ÈÏ30·ÖÖÓ
+    /// æŒ‡å®šè·¨åŸŸè®¿é—®æ—¶é¢„æ£€ç­‰å¾…æ—¶é—´ï¼Œä»¥ç§’ä¸ºå•ä½ï¼Œé»˜è®¤30åˆ†é’Ÿ
     /// </summary>
     public int PreflightMaxAge { get; set; }
 
     /// <summary>
-    /// ÈÎÎñµ÷¶È¹ÜÀí½çÃæÅäÖÃ
+    /// ä»»åŠ¡è°ƒåº¦ç®¡ç†ç•Œé¢é…ç½®
     /// </summary>
     public TaskSchedulerUIConfig TaskSchedulerUI { get; set; } = new TaskSchedulerUIConfig();
 
     /// <summary>
-    /// IdÉú³ÉÆ÷ÅäÖÃ
+    /// Idç”Ÿæˆå™¨é…ç½®
     /// </summary>
     public IdGeneratorConfig IdGenerator { get; set; } = new IdGeneratorConfig();
 
     /// <summary>
-    /// ÓïÑÔÅäÖÃ
+    /// è¯­è¨€é…ç½®
     /// </summary>
     public LangConfig Lang { get; set; } = new LangConfig();
 
     /// <summary>
-    /// IPµØÖ·¶¨Î»ÅäÖÃ
+    /// IPåœ°å€å®šä½é…ç½®
     /// </summary>
     public IP2RegionConfig IP2Region { get; set; } = new IP2RegionConfig();
 }
 
 /// <summary>
-/// Kestrel·şÎñÆ÷ÅäÖÃ
+/// KestrelæœåŠ¡å™¨é…ç½®
 /// </summary>
 public class KestrelConfig
 {
     /// <summary>
-    /// HTTPÁ¬½Ó±£»î×î³¤Ê±¼ä£¬µ¥Î»Ãë
+    /// HTTPè¿æ¥ä¿æ´»æœ€é•¿æ—¶é—´ï¼Œå•ä½ç§’
     /// </summary>
     public double KeepAliveTimeout { get; set; } = 130;
 
     /// <summary>
-    /// ·¢ËÍÇëÇóÍ·×î³¤Ê±¼ä£¬µ¥Î»Ãë
+    /// å‘é€è¯·æ±‚å¤´æœ€é•¿æ—¶é—´ï¼Œå•ä½ç§’
     /// </summary>
     public double RequestHeadersTimeout { get; set; } = 30;
 
     /// <summary>
-    /// ×î´óÇëÇó´óĞ¡£¬µ¥Î»bytes
+    /// æœ€å¤§è¯·æ±‚å¤§å°ï¼Œå•ä½bytes
     /// </summary>
     public long? MaxRequestBodySize { get; set; } = 30000000;
 }
 
 /// <summary>
-/// ÓïÑÔÅäÖÃ
+/// è¯­è¨€é…ç½®
 /// </summary>
 public class LangConfig
 {
     /// <summary>
-    /// ÆôÓÃJsonÅäÖÃ
+    /// å¯ç”¨Jsoné…ç½®
     /// </summary>
     public bool EnableJson { get; set; } = true;
 
     /// <summary>
-    /// Ä¬ÈÏÓïÑÔ
+    /// é»˜è®¤è¯­è¨€
     /// </summary>
     public string DefaultLang { get; set; } = "zh";
 
     /// <summary>
-    /// ÓïÑÔÁĞ±í
+    /// è¯­è¨€åˆ—è¡¨
     /// </summary>
     public string[] Langs { get; set; }
 
     /// <summary>
-    /// ÓïÑÔÇëÇó½âÎöÁĞ±í
+    /// è¯­è¨€è¯·æ±‚è§£æåˆ—è¡¨
     /// </summary>
     public string[] RequestCultureProviders { get; set; }
 }
 
 /// <summary>
-/// IPµØÖ·¶¨Î»ÅäÖÃ
+/// IPåœ°å€å®šä½é…ç½®
 /// </summary>
 public class IP2RegionConfig
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = false;
 
     /// <summary>
-    /// Êı¾İ¿âÂ·¾¶
+    /// æ•°æ®åº“è·¯å¾„
     /// </summary>
     public string DbPath { get; set; }
 }
 
 /// <summary>
-/// SwaggerÅäÖÃ
+/// Swaggeré…ç½®
 /// </summary>
 public class SwaggerConfig
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = false;
 
     /// <summary>
-    /// ÆôÓÃÃ¶¾Ù¼Ü¹¹¹ıÂËÆ÷
+    /// å¯ç”¨æšä¸¾æ¶æ„è¿‡æ»¤å™¨
     /// </summary>
     public bool EnableEnumSchemaFilter { get; set; } = true;
 
     /// <summary>
-    /// ÆôÓÃ½Ó¿ÚÅÅĞòÎÄµµ¹ıÂËÆ÷
+    /// å¯ç”¨æ¥å£æ’åºæ–‡æ¡£è¿‡æ»¤å™¨
     /// </summary>
     public bool EnableOrderTagsDocumentFilter { get; set; } = true;
 
     /// <summary>
-    /// ÆôÓÃÃ¶¾ÙÊôĞÔÃû
+    /// å¯ç”¨æšä¸¾å±æ€§å
     /// </summary>
     public bool EnableJsonStringEnumConverter { get; set; } = false;
 
     /// <summary>
-    /// ÆôÓÃSchemaIdÃüÃû¿Õ¼ä
+    /// å¯ç”¨SchemaIdå‘½åç©ºé—´
     /// </summary>
     public bool EnableSchemaIdNamespace { get; set; } = false;
 
     /// <summary>
-    /// ³ÌĞò¼¯ÁĞ±í
+    /// ç¨‹åºé›†åˆ—è¡¨
     /// </summary>
     public string[] AssemblyNameList { get; set; }
 
     private string _RoutePrefix = "swagger";
     /// <summary>
-    /// ·ÃÎÊµØÖ·
+    /// è®¿é—®åœ°å€
     /// </summary>
     public string RoutePrefix { get => Regex.Replace(_RoutePrefix, "^\\/+|\\/+$", ""); set => _RoutePrefix = value; }
 
     /// <summary>
-    /// µØÖ·
+    /// åœ°å€
     /// </summary>
     public string Url { get; set; }
 
     /// <summary>
-    /// ÏîÄ¿ÁĞ±í
+    /// é¡¹ç›®åˆ—è¡¨
     /// </summary>
     public List<ProjectConfig> Projects { get; set; }
 
     /// <summary>
-    /// ÆôÓÃ×Ô¶¯Í¬²½
+    /// å¯ç”¨è‡ªåŠ¨åŒæ­¥
     /// </summary>
     public bool EnableAutoSync { get; set; }
 }
 
 /// <summary>
-///ĞÂ°æApiÎÄµµÅäÖÃ
+///æ–°ç‰ˆApiæ–‡æ¡£é…ç½®
 /// </summary>
 public class ApiUIConfig
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = false;
 
 
     private string _RoutePrefix="";
     /// <summary>
-    /// ·ÃÎÊµØÖ·
+    /// è®¿é—®åœ°å€
     /// </summary>
     public string RoutePrefix { get => Regex.Replace(_RoutePrefix, "^\\/+|\\/+$", ""); set => _RoutePrefix = value; }
 
@@ -326,54 +326,54 @@ public class ApiUIConfig
 }
 
 /// <summary>
-/// SwaggerÒ³½ÅÅäÖÃ
+/// Swaggeré¡µè„šé…ç½®
 /// </summary>
 public class SwaggerFooterConfig
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = false;
 
     /// <summary>
-    /// ÄÚÈİ
+    /// å†…å®¹
     /// </summary>
     public string Content { get; set; }
 }
 
 /// <summary>
-/// Í³Ò»ÈÏÖ¤ÊÚÈ¨·şÎñÆ÷ÅäÖÃ
+/// ç»Ÿä¸€è®¤è¯æˆæƒæœåŠ¡å™¨é…ç½®
 /// </summary>
 public class IdentityServer
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = false;
 
     /// <summary>
-    /// µØÖ·
+    /// åœ°å€
     /// </summary>
     public string Url { get; set; } = "https://localhost:5000";
 
     /// <summary>
-    /// ÆôÓÃHttps
+    /// å¯ç”¨Https
     /// </summary>
     public bool RequireHttpsMetadata { get; set; } = false;
 
     /// <summary>
-    /// ÊÜÖÚ
+    /// å—ä¼—
     /// </summary>
     public string Audience { get; set; } = "admin.server.api";
 }
 
 /// <summary>
-/// AopÅäÖÃ
+/// Aopé…ç½®
 /// </summary>
 public class AopConfig
 {
     /// <summary>
-    /// ÊÂÎñ
+    /// äº‹åŠ¡
     /// </summary>
     public bool Transaction { get; set; } = true;
 }
@@ -381,128 +381,128 @@ public class AopConfig
 
 
 /// <summary>
-/// ÈÕÖ¾ÅäÖÃ
+/// æ—¥å¿—é…ç½®
 /// </summary>
 public class LogConfig
 {
     /// <summary>
-    /// ²Ù×÷ÈÕÖ¾
+    /// æ“ä½œæ—¥å¿—
     /// </summary>
     public bool Operation { get; set; } = true;
 
     /// <summary>
-    /// ¼ÇÂ¼ÈÕÖ¾·½Ê½
+    /// è®°å½•æ—¥å¿—æ–¹å¼
     /// </summary>
     public LogMethod Method { get; set; } = LogMethod.Grpc;
 }
 
 /// <summary>
-/// ÑéÖ¤ÅäÖÃ
+/// éªŒè¯é…ç½®
 /// </summary>
 public class ValidateConfig
 {
     /// <summary>
-    /// µÇÂ¼
+    /// ç™»å½•
     /// </summary>
     public bool Login { get; set; } = true;
 
     /// <summary>
-    /// ½Ó¿ÚÈ¨ÏŞ
+    /// æ¥å£æƒé™
     /// </summary>
     public bool Permission { get; set; } = true;
 
     /// <summary>
-    /// Êı¾İÈ¨ÏŞ
+    /// æ•°æ®æƒé™
     /// </summary>
     public bool DataPermission { get; set; } = true;
 
     /// <summary>
-    /// ½Ó¿ÚÊı¾İÈ¨ÏŞ
+    /// æ¥å£æ•°æ®æƒé™
     /// </summary>
     public bool ApiDataPermission { get; set; } = false;
 }
 
 /// <summary>
-/// ÑéÖ¤ÂëÅäÖÃ
+/// éªŒè¯ç é…ç½®
 /// </summary>
 public class VarifyCodeConfig
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = true;
 
     /// <summary>
-    /// ²Ù×÷ÈÕÖ¾
+    /// æ“ä½œæ—¥å¿—
     /// </summary>
     public string[] Fonts { get; set; }// = new[] { "Times New Roman", "Verdana", "Arial", "Gungsuh", "Impact" };
 }
 
 /// <summary>
-/// ÏîÄ¿ÅäÖÃ
+/// é¡¹ç›®é…ç½®
 /// </summary>
 public class ProjectConfig
 {
     /// <summary>
-    /// Ãû³Æ
+    /// åç§°
     /// </summary>
     public string Name { get; set; }
 
     /// <summary>
-    /// ±àÂë
+    /// ç¼–ç 
     /// </summary>
     public string Code { get; set; }
 
     /// <summary>
-    /// °æ±¾
+    /// ç‰ˆæœ¬
     /// </summary>
     public string Version { get; set; }
 
     /// <summary>
-    /// ÃèÊö
+    /// æè¿°
     /// </summary>
     public string Description { get; set; }
 }
 
 /// <summary>
-/// ¶¯Ì¬apiÅäÖÃ
+/// åŠ¨æ€apié…ç½®
 /// </summary>
 public class DynamicApiConfig
 {
     /// <summary>
-    /// ½á¹û¸ñÊ½»¯
+    /// ç»“æœæ ¼å¼åŒ–
     /// </summary>
     public bool FormatResult { get; set; } = true;
 }
 
 /// <summary>
-/// ½¡¿µ¼ì²éÅäÖÃ
+/// å¥åº·æ£€æŸ¥é…ç½®
 /// </summary>
 public class HealthChecksConfig
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = true;
 
     /// <summary>
-    /// ·ÃÎÊÂ·¾¶
+    /// è®¿é—®è·¯å¾„
     /// </summary>
     public string Path { get; set; } = "/health";
 }
 
 /// <summary>
-/// ÈÎÎñµ÷¶È¹ÜÀí½çÃæ
+/// ä»»åŠ¡è°ƒåº¦ç®¡ç†ç•Œé¢
 /// </summary>
 public class TaskSchedulerUIConfig
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = false;
 
     /// <summary>
-    /// ·ÃÎÊÂ·¾¶
+    /// è®¿é—®è·¯å¾„
     /// </summary>
     public string Path { get; set; } = "/task";
 }
@@ -513,7 +513,7 @@ public class IdGeneratorConfig: IdGeneratorOptions
 }
 
 /// <summary>
-/// Ó¦ÓÃ³ÌĞòÀàĞÍ
+/// åº”ç”¨ç¨‹åºç±»å‹
 /// </summary>
 public enum AppType
 {
@@ -523,7 +523,7 @@ public enum AppType
 }
 
 /// <summary>
-/// ¼ÇÂ¼ÈÕÖ¾·½Ê½
+/// è®°å½•æ—¥å¿—æ–¹å¼
 /// </summary>
 public enum LogMethod
 {

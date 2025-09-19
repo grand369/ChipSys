@@ -1,32 +1,32 @@
-namespace ChipSys.Admin.Services.Api.Dto;
+ï»¿namespace ChipSys.Admin.Services.Api.Dto;
 
 /// <summary>
-/// Ìí¼Ó
+/// æ·»åŠ 
 /// </summary>
 public class OperationLogAddInput
 {
     /// <summary>
-    /// ×â»§Id
+    /// ç§Ÿæˆ·Id
     /// </summary>
     public long? TenantId { get; set; }
 
     /// <summary>
-    /// ĞÕÃû
+    /// å§“å
     /// </summary>
     public string Name { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚÃû³Æ
+    /// æ¥å£åç§°
     /// </summary>
     public string ApiLabel { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚµØÖ·
+    /// æ¥å£åœ°å€
     /// </summary>
     public string ApiPath { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚÌá½»·½·¨
+    /// æ¥å£æäº¤æ–¹æ³•
     /// </summary>
     public string ApiMethod { get; set; }
 
@@ -36,87 +36,87 @@ public class OperationLogAddInput
     public string IP { get; set; }
 
     /// <summary>
-    /// ¹ú¼Ò
+    /// å›½å®¶
     /// </summary>
     public string Country { get; set; }
 
     /// <summary>
-    /// Ê¡·İ
+    /// çœä»½
     /// </summary>
     public string Province { get; set; }
 
     /// <summary>
-    /// ³ÇÊĞ
+    /// åŸå¸‚
     /// </summary>
     public string City { get; set; }
 
     /// <summary>
-    /// ÍøÂç·şÎñÉÌ
+    /// ç½‘ç»œæœåŠ¡å•†
     /// </summary>
     public string Isp { get; set; }
 
     /// <summary>
-    /// ä¯ÀÀÆ÷
+    /// æµè§ˆå™¨
     /// </summary>
     public string Browser { get; set; }
 
     /// <summary>
-    /// ²Ù×÷ÏµÍ³
+    /// æ“ä½œç³»ç»Ÿ
     /// </summary>
     public string Os { get; set; }
 
     /// <summary>
-    /// Éè±¸
+    /// è®¾å¤‡
     /// </summary>
     public string Device { get; set; }
 
     /// <summary>
-    /// ä¯ÀÀÆ÷ĞÅÏ¢
+    /// æµè§ˆå™¨ä¿¡æ¯
     /// </summary>
     public string BrowserInfo { get; set; }
 
     /// <summary>
-    /// ºÄÊ±£¨ºÁÃë£©
+    /// è€—æ—¶ï¼ˆæ¯«ç§’ï¼‰
     /// </summary>
     public long ElapsedMilliseconds { get; set; }
 
     /// <summary>
-    /// ²Ù×÷×´Ì¬
+    /// æ“ä½œçŠ¶æ€
     /// </summary>
     public bool? Status { get; set; }
 
     /// <summary>
-    /// ²Ù×÷ÏûÏ¢
+    /// æ“ä½œæ¶ˆæ¯
     /// </summary>
     public string Msg { get; set; }
 
     /// <summary>
-    /// ²Ù×÷²ÎÊı
+    /// æ“ä½œå‚æ•°
     /// </summary>
     public string Params { get; set; }
 
     /// <summary>
-    /// ×´Ì¬Âë
+    /// çŠ¶æ€ç 
     /// </summary>
     public int? StatusCode { get; set; }
 
     /// <summary>
-    /// ²Ù×÷½á¹û
+    /// æ“ä½œç»“æœ
     /// </summary>
     public string Result { get; set; }
 
     /// <summary>
-    /// ´´½¨ÕßÓÃ»§Id
+    /// åˆ›å»ºè€…ç”¨æˆ·Id
     /// </summary>
     public long? CreatedUserId { get; set; }
 
     /// <summary>
-    /// ´´½¨ÕßÓÃ»§Ãû
+    /// åˆ›å»ºè€…ç”¨æˆ·å
     /// </summary>
     public string CreatedUserName { get; set; }
 
     /// <summary>
-    /// ´´½¨ÕßĞÕÃû
+    /// åˆ›å»ºè€…å§“å
     /// </summary>
     public string CreatedUserRealName { get; set; }
 }

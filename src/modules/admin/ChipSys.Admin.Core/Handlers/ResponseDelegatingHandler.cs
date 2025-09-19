@@ -1,11 +1,11 @@
-using ChipSys.Admin.Core.Dto;
+ï»¿using ChipSys.Admin.Core.Dto;
 using ChipSys.Admin.Core.Exceptions;
 using ChipSys.Common.Helpers;
 
 namespace ChipSys.Admin.Core.Handlers;
 
 /// <summary>
-/// ÏìÓ¦´¦ÀíÆ÷
+/// å“åº”å¤„ç†å™¨
 /// </summary>
 public class ResponseDelegatingHandler : DelegatingHandler
 {
@@ -28,3 +28,4 @@ public class ResponseDelegatingHandler : DelegatingHandler
         return response;
     }
 }
+

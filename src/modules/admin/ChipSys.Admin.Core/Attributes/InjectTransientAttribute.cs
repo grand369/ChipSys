@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+﻿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ˲ʱע��
+/// 瞬时注入
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Property)]
 public class InjectTransientAttribute : Attribute

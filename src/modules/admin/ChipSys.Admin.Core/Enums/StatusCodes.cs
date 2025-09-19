@@ -1,45 +1,45 @@
-using System.ComponentModel;
+ï»¿using System.ComponentModel;
 
 namespace ChipSys.Admin.Core.Enums;
 
 /// <summary>
-/// ×´Ì¬ÂëÃ¶¾Ù
+/// çŠ¶æ€ç æšä¸¾
 /// </summary>
 public enum StatusCodes
 {
     /// <summary>
-    /// ²Ù×÷Ê§°Ü
+    /// æ“ä½œå¤±è´¥
     /// </summary>
-    [Description("²Ù×÷Ê§°Ü")]
+    [Description("æ“ä½œå¤±è´¥")]
     Status0NotOk = 0,
 
     /// <summary>
-    /// ²Ù×÷³É¹¦
+    /// æ“ä½œæˆåŠŸ
     /// </summary>
-    [Description("²Ù×÷³É¹¦")]
+    [Description("æ“ä½œæˆåŠŸ")]
     Status1Ok = 1,
 
     /// <summary>
-    /// Î´µÇÂ¼£¨ĞèÒªÖØĞÂµÇÂ¼£©
+    /// æœªç™»å½•ï¼ˆéœ€è¦é‡æ–°ç™»å½•ï¼‰
     /// </summary>
-    [Description("Î´µÇÂ¼")]
+    [Description("æœªç™»å½•")]
     Status401Unauthorized = 401,
 
     /// <summary>
-    /// È¨ÏŞ²»×ã
+    /// æƒé™ä¸è¶³
     /// </summary>
-    [Description("È¨ÏŞ²»×ã")]
+    [Description("æƒé™ä¸è¶³")]
     Status403Forbidden = 403,
 
     /// <summary>
-    /// ×ÊÔ´²»´æÔÚ
+    /// èµ„æºä¸å­˜åœ¨
     /// </summary>
-    [Description("×ÊÔ´²»´æÔÚ")]
+    [Description("èµ„æºä¸å­˜åœ¨")]
     Status404NotFound = 404,
 
     /// <summary>
-    /// ÏµÍ³ÄÚ²¿´íÎó£¨·ÇÒµÎñ´úÂëÀïÏÔÊ½Å×³öµÄÒì³££¬ÀıÈçÓÉÓÚÊı¾İ²»ÕıÈ·µ¼ÖÂ¿ÕÖ¸ÕëÒì³£¡¢Êı¾İ¿âÒì³£µÈµÈ£©
+    /// ç³»ç»Ÿå†…éƒ¨é”™è¯¯ï¼ˆéä¸šåŠ¡ä»£ç é‡Œæ˜¾å¼æŠ›å‡ºçš„å¼‚å¸¸ï¼Œä¾‹å¦‚ç”±äºæ•°æ®ä¸æ­£ç¡®å¯¼è‡´ç©ºæŒ‡é’ˆå¼‚å¸¸ã€æ•°æ®åº“å¼‚å¸¸ç­‰ç­‰ï¼‰
     /// </summary>
-    [Description("ÏµÍ³ÄÚ²¿´íÎó")]
+    [Description("ç³»ç»Ÿå†…éƒ¨é”™è¯¯")]
     Status500InternalServerError = 500
 }

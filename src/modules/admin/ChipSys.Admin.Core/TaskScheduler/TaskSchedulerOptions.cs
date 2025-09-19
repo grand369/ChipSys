@@ -1,4 +1,4 @@
-using FreeSql;
+﻿using FreeSql;
 using ChipSys.Admin.Core.Consts;
 
 namespace ChipSys.Admin.Tools.TaskScheduler;

@@ -1,9 +1,9 @@
-using System.Net;
+﻿using System.Net;
 
 namespace ChipSys.Admin.Core.Exceptions;
 
 /// <summary>
-/// ϵͳ�쳣
+/// 系统异常
 /// </summary>
 public class AppException : Exception
 {

@@ -1,23 +1,23 @@
-using ChipSys.Admin.Core.Consts;
+ï»¿using ChipSys.Admin.Core.Consts;
 using ChipSys.Common.Helpers;
 using DataType = FreeSql.DataType;
 
 namespace ChipSys.Admin.Core.Configs;
 
 /// <summary>
-/// Êı¾İ¿âÅäÖÃ
+/// æ•°æ®åº“é…ç½®
 /// </summary>
 public class DbConfig
 {
     /// <summary>
-    /// Êı¾İ¿â×¢²á¼ü
+    /// æ•°æ®åº“æ³¨å†Œé”®
     /// </summary>
     public string Key { get; set; } = DbKeys.AdminDb;
 
     private string[] _assemblyNames;
     
     /// <summary>
-    /// ³ÌĞò¼¯Ãû³Æ
+    /// ç¨‹åºé›†åç§°
     /// </summary>
     public string[] AssemblyNames
     {
@@ -47,49 +47,49 @@ public class DbConfig
     }
 
     /// <summary>
-    /// Ö¸¶¨ÊµÌåÊı¾İ¿âÁĞ±í
+    /// æŒ‡å®šå®ä½“æ•°æ®åº“åˆ—è¡¨
     /// </summary>
     public string[] IncludeEntityDbs { get; set; }
 
     /// <summary>
-    /// ÅÅ³ıÊµÌåÊı¾İ¿âÁĞ±í
+    /// æ’é™¤å®ä½“æ•°æ®åº“åˆ—è¡¨
     /// </summary>
     public string[] ExcludeEntityDbs { get; set; }
 
     /// <summary>
-    /// Êı¾İ¿âÀàĞÍ
+    /// æ•°æ®åº“ç±»å‹
     /// </summary>
     public DataType Type { get; set; } = DataType.Sqlite;
 
     /// <summary>
-    /// Êı¾İ¿â×Ö·û´®
+    /// æ•°æ®åº“å­—ç¬¦ä¸²
     /// </summary>
     public string ConnectionString { get; set; } = "Data Source=|DataDirectory|\\admindb.db; Pooling=true;Min Pool Size=1";
 
     /// <summary>
-    /// Ö¸¶¨³ÌĞò¼¯
+    /// æŒ‡å®šç¨‹åºé›†
     /// </summary>
     public string ProviderType { get; set; }
 
     /// <summary>
-    /// Éú³ÉÊı¾İ
+    /// ç”Ÿæˆæ•°æ®
     /// </summary>
     public bool GenerateData { get; set; } = false;
 
     /// <summary>
-    /// Í¬²½½á¹¹
+    /// åŒæ­¥ç»“æ„
     /// </summary>
     public bool SyncStructure { get; set; } = false;
 
     /// <summary>
-    /// Í¬²½½á¹¹½Å±¾
+    /// åŒæ­¥ç»“æ„è„šæœ¬
     /// </summary>
     public bool SyncStructureSql { get; set; } = false;
 
     private int _syncStructureEntityBatchSize = 1;
 
     /// <summary>
-    /// Í¬²½½á¹¹Åú´ÎÊµÌåÊı
+    /// åŒæ­¥ç»“æ„æ‰¹æ¬¡å®ä½“æ•°
     /// </summary>
     public int SyncStructureEntityBatchSize
     {
@@ -98,140 +98,140 @@ public class DbConfig
     }
 
     /// <summary>
-    /// Í¬²½Êı¾İ·ÖÅú´¦Àí´óĞ¡
+    /// åŒæ­¥æ•°æ®åˆ†æ‰¹å¤„ç†å¤§å°
     /// </summary>
     public int SyncDataBatchSize { get; set; } = 500;
 
     /// <summary>
-    /// Í¬²½Êı¾İ
+    /// åŒæ­¥æ•°æ®
     /// </summary>
     public bool SyncData { get; set; } = false;
 
     /// <summary>
-    /// Í¬²½Êı¾İ¼àÌıCurd²Ù×÷
+    /// åŒæ­¥æ•°æ®ç›‘å¬Curdæ“ä½œ
     /// </summary>
     public bool SyncDataCurd { get; set; } = false;
 
     /// <summary>
-    /// Í¬²½¸üĞÂÊı¾İ
+    /// åŒæ­¥æ›´æ–°æ•°æ®
     /// </summary>
-    [Obsolete("Çë¸ÄÓÃDbConfig.SyncUpdateDataÊôĞÔ")]
+    [Obsolete("è¯·æ”¹ç”¨DbConfig.SyncUpdateDataå±æ€§")]
     public bool SysUpdateData { get; set; } = false;
 
     /// <summary>
-    /// Í¬²½¸üĞÂÊı¾İ
+    /// åŒæ­¥æ›´æ–°æ•°æ®
     /// </summary>
     public bool SyncUpdateData { get; set; } = false;
 
     /// <summary>
-    /// Í¬²½Êı¾İµØÖ·
+    /// åŒæ­¥æ•°æ®åœ°å€
     /// </summary>
     public string SyncDataPath { get; set; } = "InitData/Admin";
 
     /// <summary>
-    /// Í¬²½Êı¾İ°üº¬±íÁĞ±í
+    /// åŒæ­¥æ•°æ®åŒ…å«è¡¨åˆ—è¡¨
     /// </summary>
     public string[] SyncDataIncludeTables { get; set; }
 
     /// <summary>
-    /// Í¬²½Êı¾İÅÅ³ı±íÁĞ±í
+    /// åŒæ­¥æ•°æ®æ’é™¤è¡¨åˆ—è¡¨
     /// </summary>
     public string[] SyncDataExcludeTables { get; set; }
 
     /// <summary>
-    /// Í¬²½Êı¾İ²Ù×÷ÓÃ»§
+    /// åŒæ­¥æ•°æ®æ“ä½œç”¨æˆ·
     /// </summary>
     public SyncDataUser SyncDataUser { get; set; } = new SyncDataUser { Id = 161223411986501, UserName = "admin", TenantId = 161223412138053 };
 
     /// <summary>
-    /// ½¨¿â
+    /// å»ºåº“
     /// </summary>
     public bool CreateDb { get; set; } = false;
 
     /// <summary>
-    /// ½¨¿âÁ¬½Ó×Ö·û´®
+    /// å»ºåº“è¿æ¥å­—ç¬¦ä¸²
     /// </summary>
     public string CreateDbConnectionString { get; set; }
 
     /// <summary>
-    /// ½¨¿â½Å±¾
+    /// å»ºåº“è„šæœ¬
     /// </summary>
     public string CreateDbSql { get; set; }
 
     /// <summary>
-    /// ½¨¿â½Å±¾ÎÄ¼ş
+    /// å»ºåº“è„šæœ¬æ–‡ä»¶
     /// </summary>
     public string CreateDbSqlFile { get; set; } = "ConfigCenter/createdbsql.txt";
 
     /// <summary>
-    /// ¼àÌıËùÓĞ²Ù×÷
+    /// ç›‘å¬æ‰€æœ‰æ“ä½œ
     /// </summary>
     public bool MonitorCommand { get; set; } = false;
 
     /// <summary>
-    /// ¼àÌıCurd²Ù×÷
+    /// ç›‘å¬Curdæ“ä½œ
     /// </summary>
     public bool Curd { get; set; } = false;
 
     /// <summary>
-    /// ¿ÕÏĞÊ±¼ä£¨·Ö£©£¬Ä¬ÈÏ10·ÖÖÓ£¬ÉèÖÃidleTime=0Ôò²»×Ô¶¯»ØÊÕ
+    /// ç©ºé—²æ—¶é—´ï¼ˆåˆ†ï¼‰ï¼Œé»˜è®¤10åˆ†é’Ÿï¼Œè®¾ç½®idleTime=0åˆ™ä¸è‡ªåŠ¨å›æ”¶
     /// </summary>
     public int? IdleTime { get; set; } = 10;
 
     /// <summary>
-    /// ¶àÊı¾İ¿â
+    /// å¤šæ•°æ®åº“
     /// </summary>
     public DbConfig[] Dbs { get; set; }
 
     /// <summary>
-    /// ¶ÁĞ´·ÖÀë´Ó¿âÁĞ±í
+    /// è¯»å†™åˆ†ç¦»ä»åº“åˆ—è¡¨
     /// </summary>
     public SlaveDb[] SlaveList { get; set; }
 
     /// <summary>
-    /// Ç¿ÖÆ¸üĞÂ
+    /// å¼ºåˆ¶æ›´æ–°
     /// </summary>
     public bool ForceUpdate { get; set; } = false;
 }
 
 /// <summary>
-/// ¶ÁĞ´·ÖÀë´Ó¿â
+/// è¯»å†™åˆ†ç¦»ä»åº“
 /// </summary>
 public class SlaveDb
 {
     /// <summary>
-    /// Êı¾İ¿âÀàĞÍ
+    /// æ•°æ®åº“ç±»å‹
     /// </summary>
     public int Weight { get; set; } = 1;
 
     /// <summary>
-    /// Êı¾İ¿âÁ¬½Ó×Ö·û´®
+    /// æ•°æ®åº“è¿æ¥å­—ç¬¦ä¸²
     /// </summary>
     public string ConnectionString { get; set; }
 }
 
 /// <summary>
-/// Í¬²½Êı¾İ²Ù×÷ÓÃ»§
+/// åŒæ­¥æ•°æ®æ“ä½œç”¨æˆ·
 /// </summary>
 public class SyncDataUser
 {
     /// <summary>
-    /// ÓÃ»§Id
+    /// ç”¨æˆ·Id
     /// </summary>
     public long Id { get; set; }
 
     /// <summary>
-    /// ÕËºÅ
+    /// è´¦å·
     /// </summary>
     public string UserName { get; set; }
 
     /// <summary>
-    /// ĞÕÃû
+    /// å§“å
     /// </summary>
     public string Name { get; set; }
 
     /// <summary>
-    /// ×â»§Id
+    /// ç§Ÿæˆ·Id
     /// </summary>
     public long TenantId { get; set; }
 }

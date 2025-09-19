@@ -1,27 +1,28 @@
-namespace ChipSys.Admin.Core.Configs;
+ï»¿namespace ChipSys.Admin.Core.Configs;
 
 /// <summary>
-/// imÅäÖÃ
+/// imé…ç½®
 /// </summary>
 public class ImConfig
 {
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = false;
 
     /// <summary>
-    /// im·şÎñÆ÷¼¯ÈºµØÖ·
+    /// imæœåŠ¡å™¨é›†ç¾¤åœ°å€
     /// </summary>
     public string[] Servers { get; set; }
 
     /// <summary>
-    /// wsÒµÎñ¶ËµØÖ·
+    /// wsä¸šåŠ¡ç«¯åœ°å€
     /// </summary>
     public string Server { get; set; }
 
     /// <summary>
-    /// RedisÁ¬½Ó×Ö·û´®
+    /// Redisè¿æ¥å­—ç¬¦ä¸²
     /// </summary>
     public string RedisConnectionString { get; set; }
 }
+

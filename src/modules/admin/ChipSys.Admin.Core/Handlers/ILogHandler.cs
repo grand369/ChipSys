@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Mvc.Filters;
+ï»¿using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ChipSys.Admin.Core.Handlers;
 
 /// <summary>
-/// ²Ù×÷ÈÕÖ¾´¦Àí½Ó¿Ú
+/// æ“ä½œæ—¥å¿—å¤„ç†æ¥å£
 /// </summary>
 public interface ILogHandler
 {
     /// <summary>
-    /// Ğ´²Ù×÷ÈÕÖ¾
+    /// å†™æ“ä½œæ—¥å¿—
     /// </summary>
     /// <param name="context"></param>
     /// <param name="next"></param>

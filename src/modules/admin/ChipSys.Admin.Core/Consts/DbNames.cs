@@ -1,27 +1,27 @@
-using System.ComponentModel;
+ï»¿using System.ComponentModel;
 
 namespace ChipSys.Admin.Core.Consts;
 
 /// <summary>
-/// Êı¾İ¿âÃû
+/// æ•°æ®åº“å
 /// </summary>
 public static partial class DbNames
 {
     /// <summary>
-    /// È¨ÏŞ¿â
+    /// æƒé™åº“
     /// </summary>
-    [Description("È¨ÏŞ¿â")]
+    [Description("æƒé™åº“")]
     public const string Admin = "Admin";
 
     /// <summary>
-    /// ÈÕÖ¾¿â
+    /// æ—¥å¿—åº“
     /// </summary>
-    [Description("ÈÕÖ¾¿â")]
+    [Description("æ—¥å¿—åº“")]
     public const string Log = "Log";
 
     /// <summary>
-    /// ÈÎÎñ¿â
+    /// ä»»åŠ¡åº“
     /// </summary>
-    [Description("ÈÎÎñ¿â")]
+    [Description("ä»»åŠ¡åº“")]
     public const string Task = "Task";
 }

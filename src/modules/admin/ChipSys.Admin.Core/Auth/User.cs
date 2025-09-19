@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Http;
+ï»¿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using ChipSys.Common.Extensions;
 using ChipSys.Admin.Core.Consts;
@@ -11,7 +11,7 @@ using ChipSys.Admin.Services.User.Dto;
 namespace ChipSys.Admin.Core.Auth;
 
 /// <summary>
-/// ÓÃ»§ĞÅÏ¢
+/// ç”¨æˆ·ä¿¡æ¯
 /// </summary>
 public class User : IUser
 {
@@ -23,7 +23,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ÓÃ»§Id
+    /// ç”¨æˆ·Id
     /// </summary>
     public virtual long Id
     {
@@ -39,7 +39,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ÓÃ»§Ãû
+    /// ç”¨æˆ·å
     /// </summary>
     public string UserName
     {
@@ -57,7 +57,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ĞÕÃû
+    /// å§“å
     /// </summary>
     public string Name
     {
@@ -75,7 +75,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ×â»§Id
+    /// ç§Ÿæˆ·Id
     /// </summary>
     public virtual long? TenantId
     {
@@ -91,7 +91,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ÓÃ»§ÀàĞÍ
+    /// ç”¨æˆ·ç±»å‹
     /// </summary>
     public virtual UserType Type
     {
@@ -107,7 +107,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// Ä¬ÈÏÓÃ»§
+    /// é»˜è®¤ç”¨æˆ·
     /// </summary>
     public virtual bool DefaultUser
     {
@@ -119,7 +119,7 @@ public class User : IUser
 
 
     /// <summary>
-    /// Æ½Ì¨¹ÜÀíÔ±
+    /// å¹³å°ç®¡ç†å‘˜
     /// </summary>
     public virtual bool PlatformAdmin
     {
@@ -130,7 +130,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ×â»§¹ÜÀíÔ±
+    /// ç§Ÿæˆ·ç®¡ç†å‘˜
     /// </summary>
     public virtual bool TenantAdmin
     {
@@ -141,7 +141,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ×â»§ÀàĞÍ
+    /// ç§Ÿæˆ·ç±»å‹
     /// </summary>
     public virtual TenantType? TenantType
     {
@@ -157,7 +157,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// Êı¾İ¿â×¢²á¼ü
+    /// æ•°æ®åº“æ³¨å†Œé”®
     /// </summary>
     public virtual string DbKey
     {
@@ -173,7 +173,7 @@ public class User : IUser
     }
 
     /// <summary>
-    /// »ñµÃÊı¾İÈ¨ÏŞ
+    /// è·å¾—æ•°æ®æƒé™
     /// </summary>
     /// <returns></returns>
     DataPermissionOutput GetDataPermission()
@@ -190,12 +190,12 @@ public class User : IUser
     }
 
     /// <summary>
-    /// Êı¾İÈ¨ÏŞ
+    /// æ•°æ®æƒé™
     /// </summary>
     public virtual DataPermissionOutput DataPermission => GetDataPermission();
 
     /// <summary>
-    /// »ñµÃÓÃ»§È¨ÏŞ
+    /// è·å¾—ç”¨æˆ·æƒé™
     /// </summary>
     /// <returns></returns>
     UserGetPermissionOutput GetUserPermission()
@@ -212,14 +212,14 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ÓÃ»§È¨ÏŞ
+    /// ç”¨æˆ·æƒé™
     /// </summary>
     public virtual UserGetPermissionOutput UserPermission => GetUserPermission();
 
     /// <summary>
-    /// ¼ì²éÓÃ»§ÊÇ·ñÓµÓĞÄ³¸öÈ¨ÏŞµã
+    /// æ£€æŸ¥ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æŸä¸ªæƒé™ç‚¹
     /// </summary>
-    /// <param name="permissionCode">È¨ÏŞµã±àÂë</param>
+    /// <param name="permissionCode">æƒé™ç‚¹ç¼–ç </param>
     /// <returns></returns>
     public virtual bool HasPermission(string permissionCode)
     {
@@ -229,10 +229,10 @@ public class User : IUser
     }
 
     /// <summary>
-    /// ¼ì²éÓÃ»§ÊÇ·ñÓµÓĞÕâĞ©È¨ÏŞµã
+    /// æ£€æŸ¥ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰è¿™äº›æƒé™ç‚¹
     /// </summary>
-    /// <param name="permissionCodes">È¨ÏŞµã±àÂëÁĞ±í</param>
-    /// <param name="all">ÊÇ·ñÈ«²¿Âú×ã</param>
+    /// <param name="permissionCodes">æƒé™ç‚¹ç¼–ç åˆ—è¡¨</param>
+    /// <param name="all">æ˜¯å¦å…¨éƒ¨æ»¡è¶³</param>
     /// <returns></returns>
     public virtual bool HasPermissions(string[] permissionCodes, bool all = false)
     {

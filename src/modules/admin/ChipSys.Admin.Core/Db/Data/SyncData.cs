@@ -1,4 +1,4 @@
-using Mapster;
+ï»¿using Mapster;
 using FreeSql;
 using FreeSql.DataAnnotations;
 using ChipSys.Common.Extensions;
@@ -9,12 +9,12 @@ using ChipSys.Admin.Core.Entities;
 namespace ChipSys.Admin.Core.Db.Data;
 
 /// <summary>
-/// Í¬²½Êı¾İ
+/// åŒæ­¥æ•°æ®
 /// </summary>
 public abstract class SyncData
 {
     /// <summary>
-    /// ¼ì²éÊµÌåÊôĞÔÊÇ·ñÎª×ÔÔö³¤
+    /// æ£€æŸ¥å®ä½“å±æ€§æ˜¯å¦ä¸ºè‡ªå¢é•¿
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
@@ -35,7 +35,7 @@ public abstract class SyncData
     }
 
     /// <summary>
-    /// »ñµÃ±íÃû
+    /// è·å¾—è¡¨å
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <returns></returns>
@@ -65,7 +65,7 @@ public abstract class SyncData
     }
 
     /// <summary>
-    /// ³õÊ¼»¯Êı¾İ±íÊı¾İ
+    /// åˆå§‹åŒ–æ•°æ®è¡¨æ•°æ®
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="db"></param>
@@ -113,7 +113,7 @@ public abstract class SyncData
     }
 
     /// <summary>
-    /// »ñµÃÊı¾İ
+    /// è·å¾—æ•°æ®
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="isTenant"></param>
@@ -127,7 +127,7 @@ public abstract class SyncData
         var filePath = Path.Combine(AppContext.BaseDirectory, $"{path}/{fileName}").ToPath();
         if (!File.Exists(filePath))
         {
-            var msg = $"Êı¾İÎÄ¼ş{filePath}²»´æÔÚ";
+            var msg = $"æ•°æ®æ–‡ä»¶{filePath}ä¸å­˜åœ¨";
             ConsoleHelper.WriteWarningLine(msg);
             return null;
             //throw new Exception(msg);
@@ -139,16 +139,16 @@ public abstract class SyncData
     }
 
     /// <summary>
-    /// Í¬²½ÊµÌåÊı¾İ
+    /// åŒæ­¥å®ä½“æ•°æ®
     /// </summary>
     /// <param name="db"></param>
     /// <param name="unitOfWork"></param>
-    /// <param name="dbConfig">Ä£¿éÊı¾İ¿âÅäÖÃ</param>
-    /// <param name="appConfig">Ó¦ÓÃÅäÖÃ</param>
-    /// <param name="readPath">¶ÁÈ¡Êı¾İÂ·¾¶ InitData/xxx </param>
-    /// <param name="processChilds">´¦Àí×Ó¼¶ÁĞ±í</param>
-    /// <param name="whereFunc">²éÑ¯Ìõ¼şº¯Êı</param>
-    ///  <param name="insertDataFunc">²åÈëÊı¾İº¯Êı</param>
+    /// <param name="dbConfig">æ¨¡å—æ•°æ®åº“é…ç½®</param>
+    /// <param name="appConfig">åº”ç”¨é…ç½®</param>
+    /// <param name="readPath">è¯»å–æ•°æ®è·¯å¾„ InitData/xxx </param>
+    /// <param name="processChilds">å¤„ç†å­çº§åˆ—è¡¨</param>
+    /// <param name="whereFunc">æŸ¥è¯¢æ¡ä»¶å‡½æ•°</param>
+    ///  <param name="insertDataFunc">æ’å…¥æ•°æ®å‡½æ•°</param>
     /// <returns></returns>
     protected virtual async Task SyncEntityAsync<T>(IFreeSql db, 
         IRepositoryUnitOfWork unitOfWork, 
@@ -177,7 +177,7 @@ public abstract class SyncData
             var rep = db.GetRepository<T>();
             rep.UnitOfWork = unitOfWork;
 
-            //Êı¾İÁĞ±í
+            //æ•°æ®åˆ—è¡¨
             var dataList = GetData<T>(isTenant, readPath ?? dbConfig.SyncDataPath);
 
             if (!(dataList?.Length > 0))
@@ -191,14 +191,14 @@ public abstract class SyncData
                 dataList = dataList.ToList().ToPlainList((a) => ((IChilds<T>)a).Childs).ToArray();
             }
 
-            // ·ÖÅú´¦Àí
+            // åˆ†æ‰¹å¤„ç†
             int batchSize = dbConfig.SyncDataBatchSize;
             int total = dataList.Length;
             for (int i = 0; i < total; i += batchSize)
             {
                 var batchDataList = dataList.Skip(i).Take(batchSize).ToArray();
 
-                // ²éÑ¯
+                // æŸ¥è¯¢
                 List<T> dbDataList;
                 if (whereFunc != null)
                 {
@@ -209,7 +209,7 @@ public abstract class SyncData
                     dbDataList = await rep.Where(a => batchDataList.Any(b => a.Id == b.Id)).ToListAsync();
                 }
 
-                // ĞÂÔö
+                // æ–°å¢
                 IEnumerable<T> insertDataList = null;
                 if(insertDataFunc != null)
                 {
@@ -225,7 +225,7 @@ public abstract class SyncData
                     await rep.InsertAsync(insertDataList);
                 }
 
-                // ĞŞ¸Ä
+                // ä¿®æ”¹
                 if (dbConfig.SyncUpdateData && dbDataList?.Count > 0)
                 {
                     foreach (var dbData in dbDataList)
@@ -248,3 +248,4 @@ public abstract class SyncData
         }
     }
 }
+

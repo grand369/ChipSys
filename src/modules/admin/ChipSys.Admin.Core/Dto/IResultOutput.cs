@@ -1,34 +1,34 @@
-namespace ChipSys.Admin.Core.Dto;
+锘縩amespace ChipSys.Admin.Core.Dto;
 
 /// <summary>
-/// 结果输出接口
+/// 缁撴灉杈撳嚭鎺ュ彛
 /// </summary>
 public interface IResultOutput
 {
     /// <summary>
-    /// 是否成功
+    /// 鏄惁鎴愬姛
     /// </summary>
     bool Success { get; }
 
     /// <summary>
-    /// 消息
+    /// 娑堟伅
     /// </summary>
     string Msg { get; }
 
     /// <summary>
-    /// 编码
+    /// 缂栫爜
     /// </summary>
     string Code { get; set; }
 }
 
 /// <summary>
-/// 泛型结果输出接口
+/// 娉涘瀷缁撴灉杈撳嚭鎺ュ彛
 /// </summary>
 /// <typeparam name="T"></typeparam>
 public interface IResultOutput<T> : IResultOutput
 {
     /// <summary>
-    /// 返回数据
+    /// 杩斿洖鏁版嵁
     /// </summary>
     T Data { get; }
 }

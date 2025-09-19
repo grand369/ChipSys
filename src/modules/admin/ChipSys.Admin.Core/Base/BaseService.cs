@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+ï»¿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -19,29 +19,29 @@ public abstract class BaseService: IBaseService
     private IUser _user;
 
     /// <summary>
-    /// »º´æ
+    /// ç¼“å­˜
     /// </summary>
     public ICacheTool Cache => LazyGetRequiredService(ref _cache);
 
     /// <summary>
-    /// ÈÕÖ¾¹¤³§
+    /// æ—¥å¿—å·¥å‚
     /// </summary>
     public ILoggerFactory LoggerFactory => LazyGetRequiredService(ref _loggerFactory);
 
     /// <summary>
-    /// Ó³Éä
+    /// æ˜ å°„
     /// </summary>
     public IMapper Mapper => LazyGetRequiredService(ref _mapper);
 
     public IServiceProvider ServiceProvider { get; set; }
 
     /// <summary>
-    /// ÓÃ»§ĞÅÏ¢
+    /// ç”¨æˆ·ä¿¡æ¯
     /// </summary>
     public IUser User => LazyGetRequiredService(ref _user);
 
     /// <summary>
-    /// ÈÕÖ¾
+    /// æ—¥å¿—
     /// </summary>
     protected ILogger Logger => _lazyLogger.Value;
 
@@ -64,9 +64,9 @@ public abstract class BaseService: IBaseService
     }
 
     /// <summary>
-    /// »ñµÃÀÁ¼ÓÔØ·şÎñ
+    /// è·å¾—æ‡’åŠ è½½æœåŠ¡
     /// </summary>
-    /// <typeparam name="TService">·şÎñ½Ó¿Ú</typeparam>
+    /// <typeparam name="TService">æœåŠ¡æ¥å£</typeparam>
     /// <returns></returns>
     [NonAction]
     public virtual TService LazyGetRequiredService<TService>()
@@ -75,9 +75,9 @@ public abstract class BaseService: IBaseService
     }
 
     /// <summary>
-    /// ¸ù¾İ·şÎñÀàĞÍ»ñµÃÀÁ¼ÓÔØ·şÎñ
+    /// æ ¹æ®æœåŠ¡ç±»å‹è·å¾—æ‡’åŠ è½½æœåŠ¡
     /// </summary>
-    /// <param name="serviceType">·şÎñÀàĞÍ</param>
+    /// <param name="serviceType">æœåŠ¡ç±»å‹</param>
     /// <returns></returns>
     [NonAction]
     public virtual object LazyGetRequiredService(Type serviceType)

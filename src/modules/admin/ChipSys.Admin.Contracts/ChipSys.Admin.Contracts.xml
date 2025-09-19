@@ -8933,6 +8933,21 @@
             是否已完善信息
             </summary>
         </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.Level">
+            <summary>
+            会员等级：Free-免费会员，Basic-基础版，Standard-标准版，Premium-高级版，Enterprise-企业版
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.LevelEffectiveTime">
+            <summary>
+            等级生效时间
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.LevelExpireTime">
+            <summary>
+            等级过期时间
+            </summary>
+        </member>
         <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberEntity.Enabled">
             <summary>
             是否启用
@@ -8980,12 +8995,17 @@
         </member>
         <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.MemberId">
             <summary>
-            会员用户Id
+            会员用户Id（0表示等级模板）
             </summary>
         </member>
         <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.Level">
             <summary>
-            会员等级：Free-免费会员，Basic-基础版，Standard-标准版，Advanced-高级版，Enterprise-企业版
+            等级名称：Free-免费会员，Basic-基础版，Standard-标准版，Premium-高级版，Enterprise-企业版
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.LevelName">
+            <summary>
+            等级显示名称
             </summary>
         </member>
         <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.CategoryLimit">
@@ -9008,6 +9028,21 @@
             是否显示完整联系人信息
             </summary>
         </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.OriginalPrice">
+            <summary>
+            等级原价（元）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.DiscountedPrice">
+            <summary>
+            等级折扣后价格（元）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.DiscountPercent">
+            <summary>
+            折扣百分比（0-100）
+            </summary>
+        </member>
         <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.EffectiveTime">
             <summary>
             等级生效时间
@@ -9021,6 +9056,61 @@
         <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelEntity.Enabled">
             <summary>
             是否启用
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity">
+            <summary>
+            会员等级价格方案实体
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.MemberLevelId">
+            <summary>
+            会员等级ID
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.PlanType">
+            <summary>
+            价格方案类型：Monthly-包月，Quarterly-包季，Yearly-包年
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.PlanName">
+            <summary>
+            方案名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.OriginalPrice">
+            <summary>
+            原价（元）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.DiscountedPrice">
+            <summary>
+            折扣后价格（元）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.DiscountPercent">
+            <summary>
+            折扣百分比（0-100）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.Description">
+            <summary>
+            方案描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.IsRecommended">
+            <summary>
+            是否推荐方案
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Domain.Client.MemberLevelPricePlanEntity.Sort">
+            <summary>
+            排序
             </summary>
         </member>
         <member name="T:ChipSys.Client.Contracts.Domain.Client.PaymentOrderEntity">
@@ -9993,6 +10083,11 @@
             会员ID（可选，用于直接为特定会员创建等级，0表示等级模板）
             </summary>
         </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelAddInput.LevelName">
+            <summary>
+            等级显示名称
+            </summary>
+        </member>
         <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelUpdateInput">
             <summary>
             会员等级更新输入
@@ -10001,6 +10096,81 @@
         <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelGetPageInput">
             <summary>
             会员等级分页输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanGetOutput">
+            <summary>
+            会员等级价格方案输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanGetPageOutput">
+            <summary>
+            会员等级价格方案分页输出
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput">
+            <summary>
+            会员等级价格方案添加输入
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.MemberLevelId">
+            <summary>
+            会员等级ID
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.PlanType">
+            <summary>
+            价格方案类型：Monthly-包月，Quarterly-包季，Yearly-包年
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.PlanName">
+            <summary>
+            方案名称
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.OriginalPrice">
+            <summary>
+            原价（元）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.DiscountedPrice">
+            <summary>
+            折扣后价格（元）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.DiscountPercent">
+            <summary>
+            折扣百分比（0-100）
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.Description">
+            <summary>
+            方案描述
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.IsRecommended">
+            <summary>
+            是否推荐方案
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.Enabled">
+            <summary>
+            是否启用
+            </summary>
+        </member>
+        <member name="P:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput.Sort">
+            <summary>
+            排序
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanUpdateInput">
+            <summary>
+            会员等级价格方案更新输入
+            </summary>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanGetPageInput">
+            <summary>
+            会员等级价格方案分页输入
             </summary>
         </member>
         <member name="T:ChipSys.Client.Contracts.Services.Client.Dto.PaymentCreateInput">
@@ -10850,6 +11020,65 @@
             </summary>
             <param name="input"></param>
             <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.IMemberLevelPricePlanService">
+            <summary>
+            会员等级价格方案服务接口
+            </summary>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelPricePlanService.GetAsync(System.Int64)">
+            <summary>
+            查询会员等级价格方案
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelPricePlanService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanGetPageInput})">
+            <summary>
+            查询会员等级价格方案分页
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelPricePlanService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput)">
+            <summary>
+            添加会员等级价格方案
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelPricePlanService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanUpdateInput)">
+            <summary>
+            更新会员等级价格方案
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelPricePlanService.DeleteAsync(System.Int64)">
+            <summary>
+            删除会员等级价格方案
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelPricePlanService.GetByMemberLevelIdAsync(System.Int64)">
+            <summary>
+            获取指定等级的价格方案列表
+            </summary>
+            <param name="memberLevelId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Client.Contracts.Services.Client.IMemberLevelPricePlanService.BatchSetPricePlansAsync(ChipSys.Client.Contracts.Services.Client.BatchSetPricePlansInput)">
+            <summary>
+            批量设置价格方案
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Client.Contracts.Services.Client.BatchSetPricePlansInput">
+            <summary>
+            批量设置价格方案输入
+            </summary>
         </member>
         <member name="T:ChipSys.Client.Contracts.Services.Client.IMemberLevelService">
             <summary>

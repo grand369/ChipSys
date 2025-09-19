@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// Ñ©»¨Ëã·¨ÌØÐÔ
+/// é›ªèŠ±ç®—æ³•ç‰¹æ€§
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
 public class SnowflakeAttribute : Attribute

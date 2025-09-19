@@ -1,12 +1,12 @@
-namespace ChipSys.Admin.Core.Entities;
+ï»¿namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// É¾³ı½Ó¿Ú
+/// åˆ é™¤æ¥å£
 /// </summary>
 public interface IDelete
 {
     /// <summary>
-    /// ÊÇ·ñÉ¾³ı
+    /// æ˜¯å¦åˆ é™¤
     /// </summary>
     bool IsDeleted { get; set; }
 }

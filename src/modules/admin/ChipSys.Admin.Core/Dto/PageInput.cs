@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Dto;
+锘縩amespace ChipSys.Admin.Core.Dto;
 
 /// <summary>
-/// 分页信息输入
+/// 鍒嗛〉淇℃伅杈撳叆
 /// </summary>
 public class PageInput: QueryInput
 {
@@ -9,7 +9,7 @@ public class PageInput: QueryInput
     private int _pageSize;
 
     /// <summary>
-    /// 当前页标
+    /// 褰撳墠椤垫爣
     /// </summary>
     public virtual int CurrentPage 
     {
@@ -18,7 +18,7 @@ public class PageInput: QueryInput
     }
 
     /// <summary>
-    /// 每页大小
+    /// 姣忛〉澶у皬
     /// </summary>
     public virtual int PageSize 
     {
@@ -33,13 +33,13 @@ public class PageInput: QueryInput
 }
 
 /// <summary>
-/// 分页信息输入
+/// 鍒嗛〉淇℃伅杈撳叆
 /// </summary>
-/// <typeparam name="T">过滤数据</typeparam>
+/// <typeparam name="T">杩囨护鏁版嵁</typeparam>
 public class PageInput<T>: PageInput
 {
     /// <summary>
-    /// 查询条件
+    /// 鏌ヨ鏉′欢
     /// </summary>
     public virtual T Filter { get; set; }
 }

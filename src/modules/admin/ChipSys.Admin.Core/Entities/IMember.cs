@@ -1,12 +1,12 @@
-namespace ChipSys.Admin.Core.Entities;
+锘縩amespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 会员接口
+/// 浼氬憳鎺ュ彛
 /// </summary>
 public interface IMember
 {
     /// <summary>
-    /// 顾客Id
+    /// 椤惧Id
     /// </summary>
     long? MemberId { get; set; }
 }

@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Http;
+ï»¿using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using System.Reflection;
 using Refit;
@@ -12,12 +12,12 @@ using ChipSys.Common.Helpers;
 namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// HttpÀ©Õ¹
+/// Httpæ‰©å±•
 /// </summary>
 public static class HttpExtensions
 {
     /// <summary>
-    /// Ìí¼ÓHttp¿Í»§¶Ë
+    /// æ·»åŠ Httpå®¢æˆ·ç«¯
     /// </summary>
     /// <param name="services"></param>
     /// <param name="assemblies"></param>
@@ -48,7 +48,7 @@ public static class HttpExtensions
     }
 
     /// <summary>
-    /// Ìí¼ÓRefit¿Í»§¶Ë
+    /// æ·»åŠ Refitå®¢æˆ·ç«¯
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="services"></param>
@@ -96,3 +96,4 @@ public static class HttpExtensions
         return services;
     }
 }
+

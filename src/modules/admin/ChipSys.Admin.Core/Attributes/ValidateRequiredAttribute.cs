@@ -1,14 +1,14 @@
-using System.ComponentModel.DataAnnotations;
+ï»¿using System.ComponentModel.DataAnnotations;
 
 namespace ChipSys.Admin.Core.Validators;
 
 /// <summary>
-/// Ö¸¶¨ÊôĞÔ¡¢×Ö¶Î¡¢²ÎÊı±ØÌî
+/// æŒ‡å®šå±æ€§ã€å­—æ®µã€å‚æ•°å¿…å¡«
 /// </summary>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter)]
 public class ValidateRequiredAttribute : ValidationAttribute
 {
-    public ValidateRequiredAttribute() : base("{0} Îª±ØÌîÏî") { }
+    public ValidateRequiredAttribute() : base("{0} ä¸ºå¿…å¡«é¡¹") { }
 
     public ValidateRequiredAttribute(string errorMessage) : base(errorMessage) { }
 
@@ -31,3 +31,4 @@ public class ValidateRequiredAttribute : ValidationAttribute
         return valid;
     }
 }
+

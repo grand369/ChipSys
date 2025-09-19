@@ -1,61 +1,62 @@
-namespace ChipSys.Admin.Core.Configs;
+ï»¿namespace ChipSys.Admin.Core.Configs;
 
 /// <summary>
-/// ÓÊ¼şÅäÖÃ
+/// é‚®ä»¶é…ç½®
 /// </summary>
 public class EmailConfig
 {
     public static class Models
     {
         /// <summary>
-        /// ÓÊÏä
+        /// é‚®ç®±
         /// </summary>
         public class EmailModel
         {
             /// <summary>
-            /// Ãû³Æ
+            /// åç§°
             /// </summary>
             public string Name { get; set; }
 
             /// <summary>
-            /// µØÖ·
+            /// åœ°å€
             /// </summary>
             public string Address { get; set; }
         }
     }
 
     /// <summary>
-    /// Ö÷»ú
+    /// ä¸»æœº
     /// </summary>
     public string Host { get; set; }
 
     /// <summary>
-    /// ¶Ë¿Ú
+    /// ç«¯å£
     /// </summary>
     public int Port { get; set; }
 
     /// <summary>
-    /// ÆôÓÃSSL
+    /// å¯ç”¨SSL
     /// </summary>
     public bool UseSsl { get; set; }
 
     /// <summary>
-    /// ÓÊÏäÕËºÅ
+    /// é‚®ç®±è´¦å·
     /// </summary>
     public string UserName { get; set; }
 
     /// <summary>
-    /// ÓÊÏäÃÜÂë
+    /// é‚®ç®±å¯†ç 
     /// </summary>
     public string Password { get; set; }
 
     /// <summary>
-    /// ·¢¼şÈË
+    /// å‘ä»¶äºº
     /// </summary>
     public Models.EmailModel FromEmail { get; set; }
 
     /// <summary>
-    /// ÊÕ¼şÈË
+    /// æ”¶ä»¶äºº
     /// </summary>
     public Models.EmailModel ToEmail { get; set; }
 }
+

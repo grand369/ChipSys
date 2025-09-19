@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+锘縩amespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// 不注册到第三方IOC容器
+/// 涓嶆敞鍐屽埌绗笁鏂笽OC瀹瑰櫒
 /// </summary>
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true)]
 public class NonRegisterIOCAttribute : Attribute

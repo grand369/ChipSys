@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc.Controllers;
+ï»¿using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Collections.Concurrent;
@@ -7,7 +7,7 @@ using ChipSys.DynamicApi.Attributes;
 namespace ChipSys.Admin.Core.Filters;
 
 /// <summary>
-/// ½Ó¿ÚÅÅĞòÎÄµµ¹ıÂËÆ÷
+/// æ¥å£æ’åºæ–‡æ¡£è¿‡æ»¤å™¨
 /// </summary>
 public class OrderTagsDocumentFilter : IDocumentFilter
 {

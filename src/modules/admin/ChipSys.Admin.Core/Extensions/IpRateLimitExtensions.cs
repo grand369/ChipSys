@@ -1,4 +1,4 @@
-using AspNetCoreRateLimit;
+锘縰sing AspNetCoreRateLimit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ChipSys.Admin.Tools.Cache;
@@ -6,19 +6,19 @@ using ChipSys.Admin.Tools.Cache;
 namespace ChipSys.Admin.Core.Extensions;
 
 /// <summary>
-/// Ip限流扩展
+/// Ip闄愭祦鎵╁睍
 /// </summary>
 public static class IpRateLimitExtensions
 {
     /// <summary>
-    /// 添加Ip限流
+    /// 娣诲姞Ip闄愭祦
     /// </summary>
     /// <param name="services"></param>
     /// <param name="configuration"></param>
     /// <param name="cacheConfig"></param>
     public static void AddIpRateLimit(this IServiceCollection services, IConfiguration configuration, CacheConfig cacheConfig)
     {
-        #region IP限流
+        #region IP闄愭祦
 
         services.Configure<IpRateLimitOptions>(configuration.GetSection("IpRateLimiting"));
         services.Configure<IpRateLimitPolicies>(configuration.GetSection("IpRateLimitPolicies"));
@@ -33,6 +33,7 @@ public static class IpRateLimitExtensions
         }
         services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
 
-        #endregion IP限流
+        #endregion IP闄愭祦
     }
 }
+

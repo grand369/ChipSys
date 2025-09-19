@@ -1,4 +1,4 @@
-namespace ChipSys.Admin.Core;
+﻿namespace ChipSys.Admin.Core;
 
 /// <summary>
 /// 应用配置

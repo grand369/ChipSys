@@ -1,9 +1,9 @@
-using ProtoBuf;
+ï»¿using ProtoBuf;
 
 namespace ChipSys.Admin.Core.GrpcServices.Dtos;
 
 /// <summary>
-/// ÓÃ»§È¨ÏŞ
+/// ç”¨æˆ·æƒé™
 /// </summary>
 [ProtoContract(ImplicitFields = ImplicitFields.None)]
 public class UserGetPermissionGrpcOutput
@@ -11,19 +11,19 @@ public class UserGetPermissionGrpcOutput
     public static class Models
     {
         /// <summary>
-        /// ½Ó¿Ú
+        /// æ¥å£
         /// </summary>
         [ProtoContract(ImplicitFields = ImplicitFields.None)]
         public class ApiModel
         {
             /// <summary>
-            /// ÇëÇó·½·¨
+            /// è¯·æ±‚æ–¹æ³•
             /// </summary>
             [ProtoMember(1)]
             public string HttpMethods { get; set; }
 
             /// <summary>
-            /// ÇëÇóµØÖ·
+            /// è¯·æ±‚åœ°å€
             /// </summary>
             [ProtoMember(2)]
             public string Path { get; set; }
@@ -31,14 +31,15 @@ public class UserGetPermissionGrpcOutput
     }
 
     /// <summary>
-    /// ½Ó¿ÚÁĞ±í
+    /// æ¥å£åˆ—è¡¨
     /// </summary>
     [ProtoMember(1)]
     public List<Models.ApiModel> Apis { get; set; }
 
     /// <summary>
-    /// È¨ÏŞµã±àÂëÁĞ±í
+    /// æƒé™ç‚¹ç¼–ç åˆ—è¡¨
     /// </summary>
     [ProtoMember(2)]
     public List<string> Codes { get; set; }
 }
+

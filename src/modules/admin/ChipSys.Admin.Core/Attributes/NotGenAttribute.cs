@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ²»Éú³ÉÌØĞÔ
+/// ä¸ç”Ÿæˆç‰¹æ€§
 /// </summary>
 [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field, AllowMultiple = false)]
 public class NotGenAttribute : Attribute

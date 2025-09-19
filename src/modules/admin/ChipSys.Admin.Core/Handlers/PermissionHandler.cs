@@ -1,11 +1,11 @@
-using ChipSys.Admin.Core.Attributes;
+锘縰sing ChipSys.Admin.Core.Attributes;
 using ChipSys.Admin.Core.GrpcServices;
 using ChipSys.Admin.Core.Handlers;
 
 namespace ChipSys.Admin.Core.Auth;
 
 /// <summary>
-/// 权限处理
+/// 鏉冮檺澶勭悊
 /// </summary>
 public class PermissionHandler : IPermissionHandler
 {
@@ -19,11 +19,11 @@ public class PermissionHandler : IPermissionHandler
     }
 
     /// <summary>
-    /// 权限验证
+    /// 鏉冮檺楠岃瘉
     /// </summary>
-    /// <param name="api">接口路径</param>
-    /// <param name="httpMethod">http请求方法</param>
-    /// <param name="apiAccess">接口访问</param>
+    /// <param name="api">鎺ュ彛璺緞</param>
+    /// <param name="httpMethod">http璇锋眰鏂规硶</param>
+    /// <param name="apiAccess">鎺ュ彛璁块棶</param>
     /// <returns></returns>
     public async Task<bool> ValidateAsync(string api, string httpMethod, ApiAccessAttribute apiAccess)
     {

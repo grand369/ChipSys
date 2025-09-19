@@ -1,4 +1,4 @@
-using FreeSql.DataAnnotations;
+ï»¿using FreeSql.DataAnnotations;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using ChipSys.Admin.Core.Attributes;
@@ -6,42 +6,42 @@ using ChipSys.Admin.Core.Attributes;
 namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// ÊµÌå´´½¨
+/// å®ä½“åˆ›å»º
 /// </summary>
 public class EntityAdd<TKey> : Entity<TKey>, IEntityAdd where TKey : struct
 {
     /// <summary>
-    /// ´´½¨ÕßÓÃ»§Id
+    /// åˆ›å»ºè€…ç”¨æˆ·Id
     /// </summary>
-    [Description("´´½¨ÕßÓÃ»§Id")]
+    [Description("åˆ›å»ºè€…ç”¨æˆ·Id")]
     [Column(Position = -23, CanUpdate = false)]
     public virtual long? CreatedUserId { get; set; }
 
     /// <summary>
-    /// ´´½¨ÕßÓÃ»§Ãû
+    /// åˆ›å»ºè€…ç”¨æˆ·å
     /// </summary>
-    [Description("´´½¨ÕßÓÃ»§Ãû")]
+    [Description("åˆ›å»ºè€…ç”¨æˆ·å")]
     [Column(Position = -22, CanUpdate = false), MaxLength(60)]
     public virtual string CreatedUserName { get; set; }
 
     /// <summary>
-    /// ´´½¨ÕßĞÕÃû
+    /// åˆ›å»ºè€…å§“å
     /// </summary>
-    [Description("´´½¨ÕßĞÕÃû")]
+    [Description("åˆ›å»ºè€…å§“å")]
     [Column(Position = -21, CanUpdate = false), MaxLength(60)]
     public virtual string CreatedUserRealName { get; set; }
 
     /// <summary>
-    /// ´´½¨Ê±¼ä
+    /// åˆ›å»ºæ—¶é—´
     /// </summary>
-    [Description("´´½¨Ê±¼ä")]
+    [Description("åˆ›å»ºæ—¶é—´")]
     [Column(Position = -20, CanUpdate = false)]
     [ServerTime]
     public virtual DateTime? CreatedTime { get; set; }
 }
 
 /// <summary>
-/// ÊµÌå´´½¨
+/// å®ä½“åˆ›å»º
 /// </summary>
 public class EntityAdd : EntityAdd<long>
 {

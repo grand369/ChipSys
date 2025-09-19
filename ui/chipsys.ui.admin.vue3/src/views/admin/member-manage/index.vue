@@ -158,12 +158,89 @@
         <el-form-item label="启用">
           <el-switch v-model="state.levelDialog.form.enabled" />
         </el-form-item>
+        
+        <!-- 价格方案管理 -->
+        <el-form-item label="价格方案">
+          <div class="price-plan-section">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-sm text-gray-600">价格方案配置</span>
+              <div class="space-x-2">
+                <el-button size="small" type="primary" @click="openPricePlanDialog">
+                  <i class="fas fa-plus mr-1"></i>
+                  添加方案
+                </el-button>
+                <el-button size="small" type="success" @click="openBatchSetDialog">
+                  <i class="fas fa-cogs mr-1"></i>
+                  批量设置
+                </el-button>
+              </div>
+            </div>
+            
+            <!-- 价格方案列表 -->
+            <div v-if="state.pricePlans.length > 0" class="price-plan-list">
+              <div 
+                v-for="plan in state.pricePlans" 
+                :key="plan.id"
+                class="price-plan-item border border-gray-200 rounded p-3 mb-2 bg-gray-50"
+              >
+                <div class="flex justify-between items-start">
+                  <div class="flex-1">
+                    <div class="flex items-center space-x-2 mb-1">
+                      <span class="font-medium text-sm">{{ plan.planName }}</span>
+                      <el-tag size="small" type="info">{{ getPlanTypeLabel(plan.planType) }}</el-tag>
+                      <el-tag v-if="plan.isRecommended" size="small" type="warning">推荐</el-tag>
+                      <el-tag :type="plan.enabled ? 'success' : 'danger'" size="small">
+                        {{ plan.enabled ? '启用' : '禁用' }}
+                      </el-tag>
+                    </div>
+                    <div class="text-xs text-gray-600 space-y-1">
+                      <div>原价: ¥{{ plan.originalPrice }} | 折扣价: ¥{{ plan.discountedPrice }} | 折扣: {{ plan.discountPercent }}%</div>
+                      <div v-if="plan.description" class="text-gray-500">{{ plan.description }}</div>
+                    </div>
+                  </div>
+                  <div class="flex space-x-1">
+                    <el-button size="small" text type="primary" @click="editPricePlan(plan)">
+                      编辑
+                    </el-button>
+                    <el-button size="small" text type="danger" @click="deletePricePlan(plan)">
+                      删除
+                    </el-button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div v-else class="text-center py-4 text-gray-500 text-sm">
+              <i class="fas fa-plus-circle text-2xl mb-2 block"></i>
+              暂无价格方案，点击"添加方案"开始配置
+            </div>
+          </div>
+        </el-form-item>
       </el-form>
       <template #footer>
         <el-button @click="state.levelDialog.visible = false">取消</el-button>
         <el-button type="primary" @click="submitLevelDialog">确定</el-button>
       </template>
     </el-dialog>
+    
+    <!-- 价格方案对话框 -->
+    <PricePlanDialog 
+      v-if="state.pricePlanDialog.visible"
+      :visible="state.pricePlanDialog.visible"
+      :form-data="state.pricePlanDialog.formData"
+      :member-levels="[{ id: state.levelDialog.form.id, levelName: state.levelDialog.form.level }]"
+      @close="handlePricePlanDialogClose"
+      @submit="handlePricePlanDialogSubmit"
+    />
+    
+    <!-- 批量设置对话框 -->
+    <BatchSetDialog 
+      v-if="state.batchSetDialog.visible"
+      :visible="state.batchSetDialog.visible"
+      :member-levels="[{ id: state.levelDialog.form.id, levelName: state.levelDialog.form.level }]"
+      @close="handleBatchSetDialogClose"
+      @submit="handleBatchSetDialogSubmit"
+    />
   </div>
 </template>
 
@@ -173,6 +250,9 @@ import { MemberLevelManageApi } from '/@/api/admin/MemberLevelManage'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import { ArrowDown } from '@element-plus/icons-vue'
 import { memberManageApi } from '/@/api/admin/MemberManage'
+import { MemberLevelPricePlanApi, PricePlanTypeOptions, type MemberLevelPricePlanGetOutput, type MemberLevelPricePlanAddInput, type MemberLevelPricePlanUpdateInput, type BatchSetPricePlansInput } from '/@/api/admin/MemberLevelPricePlan'
+import PricePlanDialog from '../member-level-price-plan/components/PricePlanDialog.vue'
+import BatchSetDialog from '../member-level-price-plan/components/BatchSetDialog.vue'
 
 const state = reactive({
   loading: false,
@@ -195,6 +275,16 @@ state.levelDialog = {
   form: { id: 0, level: '', categoryLimit: 0, productDataLimit: 0, supplierDataLimit: 0, showFullContactInfo: false, enabled: true },
 } as any
 
+// 价格方案相关状态
+state.pricePlans = [] as MemberLevelPricePlanGetOutput[]
+state.pricePlanDialog = {
+  visible: false,
+  formData: null as MemberLevelPricePlanAddInput | MemberLevelPricePlanUpdateInput | null
+}
+state.batchSetDialog = {
+  visible: false
+}
+
 const openAddLevel = () => {
   state.levelDialog.type = 'add'
   state.levelDialog.form = { id: 0, level: '', categoryLimit: 0, productDataLimit: 0, supplierDataLimit: 0, showFullContactInfo: false, enabled: true, effectiveTime: '', expireTime: '' }
@@ -205,7 +295,7 @@ const openEditLevel = (lvl: any) => {
   state.levelDialog.type = 'edit'
   // 先查询该等级的最新一条记录，填充完整信息
   const api = new MemberLevelManageApi()
-  api.getPage({ currentPage: 1, pageSize: 1, filter: { level: lvl.level } } as any).then(res => {
+  api.getPage({ currentPage: 1, pageSize: 1, filter: { level: lvl.level } } as any).then(async res => {
     const row = res?.data?.list?.[0]
     if (row) {
       state.levelDialog.form = {
@@ -219,8 +309,11 @@ const openEditLevel = (lvl: any) => {
         effectiveTime: row.effectiveTime || '',
         expireTime: row.expireTime || '',
       }
+      // 加载该等级的价格方案
+      await loadPricePlans(row.id)
     } else {
       state.levelDialog.form = { id: 0, level: lvl.level, categoryLimit: 0, productDataLimit: 0, supplierDataLimit: 0, showFullContactInfo: false, enabled: true, effectiveTime: '', expireTime: '' }
+      state.pricePlans = []
     }
     state.levelDialog.visible = true
   })
@@ -390,6 +483,109 @@ const adjustLevel = async (row: any, level: string) => {
   }
 }
 
+// 价格方案相关方法
+const getPlanTypeLabel = (planType: string) => {
+  const option = PricePlanTypeOptions.find(opt => opt.value === planType)
+  return option ? option.label : planType
+}
+
+const loadPricePlans = async (memberLevelId: number) => {
+  if (!memberLevelId) {
+    state.pricePlans = []
+    return
+  }
+  try {
+    const api = new MemberLevelPricePlanApi()
+    const response = await api.getByMemberLevelId(memberLevelId)
+    state.pricePlans = response.data || []
+  } catch (error) {
+    console.error('加载价格方案失败:', error)
+    state.pricePlans = []
+  }
+}
+
+const openPricePlanDialog = () => {
+  state.pricePlanDialog.formData = {
+    memberLevelId: state.levelDialog.form.id,
+    planType: 'Monthly',
+    planName: '',
+    originalPrice: 0,
+    discountedPrice: 0,
+    discountPercent: 0,
+    description: '',
+    isRecommended: false,
+    enabled: true,
+    sort: state.pricePlans.length
+  }
+  state.pricePlanDialog.visible = true
+}
+
+const editPricePlan = (plan: MemberLevelPricePlanGetOutput) => {
+  state.pricePlanDialog.formData = { ...plan }
+  state.pricePlanDialog.visible = true
+}
+
+const deletePricePlan = async (plan: MemberLevelPricePlanGetOutput) => {
+  try {
+    await ElMessageBox.confirm('确定要删除这个价格方案吗？', '确认删除', {
+      type: 'warning'
+    })
+    const api = new MemberLevelPricePlanApi()
+    await api.delete(plan.id)
+    ElMessage.success('删除成功')
+    await loadPricePlans(state.levelDialog.form.id)
+  } catch (error) {
+    if (error !== 'cancel') {
+      ElMessage.error('删除失败')
+      console.error(error)
+    }
+  }
+}
+
+const openBatchSetDialog = () => {
+  state.batchSetDialog.visible = true
+}
+
+const handlePricePlanDialogClose = () => {
+  state.pricePlanDialog.visible = false
+  state.pricePlanDialog.formData = null
+}
+
+const handlePricePlanDialogSubmit = async (formData: MemberLevelPricePlanAddInput | MemberLevelPricePlanUpdateInput) => {
+  try {
+    const api = new MemberLevelPricePlanApi()
+    if ('id' in formData) {
+      await api.update(formData as MemberLevelPricePlanUpdateInput)
+      ElMessage.success('更新成功')
+    } else {
+      await api.add(formData as MemberLevelPricePlanAddInput)
+      ElMessage.success('添加成功')
+    }
+    handlePricePlanDialogClose()
+    await loadPricePlans(state.levelDialog.form.id)
+  } catch (error) {
+    ElMessage.error('操作失败')
+    console.error(error)
+  }
+}
+
+const handleBatchSetDialogClose = () => {
+  state.batchSetDialog.visible = false
+}
+
+const handleBatchSetDialogSubmit = async (data: BatchSetPricePlansInput) => {
+  try {
+    const api = new MemberLevelPricePlanApi()
+    await api.batchSetPricePlans(data)
+    ElMessage.success('批量设置成功')
+    handleBatchSetDialogClose()
+    await loadPricePlans(state.levelDialog.form.id)
+  } catch (error) {
+    ElMessage.error('批量设置失败')
+    console.error(error)
+  }
+}
+
 onMounted(async () => {
   await fetchLevels()
   await fetchMembers()
@@ -407,6 +603,38 @@ onMounted(async () => {
 .level-item { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 .level-text { display: flex; align-items: center; }
 .level-actions :deep(.el-button) { padding: 0 6px; }
+
+/* 价格方案样式 */
+.price-plan-section {
+  width: 100%;
+}
+
+.price-plan-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.price-plan-item {
+  transition: all 0.2s ease;
+}
+
+.price-plan-item:hover {
+  background-color: #f8fafc;
+  border-color: #3b82f6;
+}
+
+.price-plan-item .el-tag {
+  margin-right: 4px;
+}
+
+.price-plan-item .text-xs {
+  line-height: 1.4;
+}
+
+.price-plan-item .flex.space-x-1 .el-button {
+  padding: 2px 6px;
+  font-size: 12px;
+}
 </style>
 
 

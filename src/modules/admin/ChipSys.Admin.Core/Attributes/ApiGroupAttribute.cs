@@ -1,18 +1,18 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ½Ó¿Ú·Ö×é
+/// æ¥å£åˆ†ç»„
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true)]
 public class ApiGroupAttribute : Attribute
 {
     /// <summary>
-    /// ÊÇ·ñ²»·Ö×é
+    /// æ˜¯å¦ä¸åˆ†ç»„
     /// </summary>
     public bool NonGroup { get; set; }
 
     /// <summary>
-    /// ·Ö×éÃû³ÆÁĞ±í
+    /// åˆ†ç»„åç§°åˆ—è¡¨
     /// </summary>
     public string[] GroupNames { get; set; }
 

@@ -1,4 +1,4 @@
-using System.Text.Json;
+ï»¿using System.Text.Json;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using System.Text.Json.Serialization.Metadata;
@@ -11,14 +11,14 @@ using ChipSys.Common.Helpers;
 namespace ChipSys.Admin.Core.Db.Data;
 
 /// <summary>
-/// Éú³ÉÊı¾İ
+/// ç”Ÿæˆæ•°æ®
 /// </summary>
 public abstract class GenerateData
 {
     private readonly string _tenantName = InterfaceHelper.GetPropertyNames<ITenant>().FirstOrDefault()?.ToLower();
 
     /// <summary>
-    /// ºöÂÔÊôĞÔÃû
+    /// å¿½ç•¥å±æ€§å
     /// </summary>
     /// <param name="ti"></param>
     /// <param name="isTenant"></param>
@@ -39,7 +39,7 @@ public abstract class GenerateData
     }
 
     /// <summary>
-    /// ±£´æÊı¾İµ½JsonÎÄ¼ş
+    /// ä¿å­˜æ•°æ®åˆ°Jsonæ–‡ä»¶
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="data"></param>
@@ -67,19 +67,20 @@ public abstract class GenerateData
     }
 
     /// <summary>
-    /// ±£´æÊµÌåÊı¾İ
+    /// ä¿å­˜å®ä½“æ•°æ®
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="db"></param>
-    /// <param name="appConfig">Ó¦ÓÃÅäÖÃ</param>
-    /// <param name="outPath">Êä³öÂ·¾¶ InitData/xxx </param>
+    /// <param name="appConfig">åº”ç”¨é…ç½®</param>
+    /// <param name="outPath">è¾“å‡ºè·¯å¾„ InitData/xxx </param>
     /// <returns></returns>
     protected virtual async Task SaveEntityAsync<T>(IFreeSql db, AppConfig appConfig, string outPath) where T : EntityBase, new()
     {
         var modules = await db.Queryable<T>().ToListAsync();
-        //ÊÇ·ñ¶à×â»§
+        //æ˜¯å¦å¤šç§Ÿæˆ·
         var isTenant = appConfig.Tenant && typeof(T).IsAssignableFrom(typeof(EntityTenant));
 
         SaveDataToJsonFile<T>(modules, isTenant, outPath);
     }
 }
+

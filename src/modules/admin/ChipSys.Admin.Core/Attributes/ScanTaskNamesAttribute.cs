@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// É¨ÃèÈÎÎñÃû³ÆÌØĞÔ
+/// æ‰«æä»»åŠ¡åç§°ç‰¹æ€§
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
 public class ScanTaskNamesAttribute : Attribute

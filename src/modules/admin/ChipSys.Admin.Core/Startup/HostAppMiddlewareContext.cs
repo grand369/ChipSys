@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 
@@ -24,3 +24,5 @@ public class HostAppMiddlewareContext
     /// </summary>
     public IConfiguration Configuration { get; set; }
 }
+
+

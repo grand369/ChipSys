@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+ï»¿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Collections.Concurrent;
 using System.Reflection;
@@ -11,12 +11,12 @@ using ChipSys.Admin.Core.Db.Transaction;
 namespace ChipSys.Admin.Core.Db;
 
 /// <summary>
-/// Êı¾İ¿â·şÎñ¼¯ºÏÀ©Õ¹
+/// æ•°æ®åº“æœåŠ¡é›†åˆæ‰©å±•
 /// </summary>
 public static class DBServiceCollectionExtensions
 {
     /// <summary>
-    /// Ìí¼ÓÊı¾İ¿â
+    /// æ·»åŠ æ•°æ®åº“
     /// </summary>
     /// <param name="services"></param>
     /// <param name="env"></param>
@@ -30,18 +30,18 @@ public static class DBServiceCollectionExtensions
         var freeSqlCloud = appConfig.DistributeKey.IsNull() ? new FreeSqlCloud() : new FreeSqlCloud(appConfig.DistributeKey);
         DbHelper.RegisterDb(freeSqlCloud, user, dbConfig, appConfig, hostAppOptions);
 
-        //ÔËĞĞÖ÷¿â
+        //è¿è¡Œä¸»åº“
         var masterDb = freeSqlCloud.Use(dbConfig.Key);
         services.AddSingleton(provider => masterDb);
         masterDb.Select<object>();
 
-        //×¢²á¶àÊı¾İ¿â
+        //æ³¨å†Œå¤šæ•°æ®åº“
         if (dbConfig.Dbs?.Length > 0)
         {
             foreach (var db in dbConfig.Dbs)
             {
                 DbHelper.RegisterDb(freeSqlCloud, user, db, appConfig, hostAppOptions);
-                //ÔËĞĞµ±Ç°¿â
+                //è¿è¡Œå½“å‰åº“
                 var currentDb = freeSqlCloud.Use(db.Key);
                 currentDb.Select<object>();
             }
@@ -53,11 +53,11 @@ public static class DBServiceCollectionExtensions
     }
 
     /// <summary>
-    /// Ìí¼ÓTiDbÊı¾İ¿â
+    /// æ·»åŠ TiDbæ•°æ®åº“
     /// </summary>
     /// <param name="_"></param>
     /// <param name="context"></param>
-    /// <param name="version">°æ±¾</param>
+    /// <param name="version">ç‰ˆæœ¬</param>
     public static void AddTiDb(this IServiceCollection _, HostAppContext context, string version = "8.0")
     {
         var dbConfig = AppInfo.GetOptions<DbConfig>();

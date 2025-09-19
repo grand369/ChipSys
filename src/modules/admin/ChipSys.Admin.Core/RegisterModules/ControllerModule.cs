@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 using Module = Autofac.Module;
@@ -8,7 +8,7 @@ namespace ChipSys.Admin.Core.RegisterModules;
 public class ControllerModule : Module
 {
     /// <summary>
-    /// 控制器注册
+    /// 控制器注入
     /// </summary>
     public ControllerModule()
     {
@@ -20,7 +20,8 @@ public class ControllerModule : Module
         .Where(a => typeof(ControllerBase).IsAssignableFrom(a) && !a.IsAbstract && !a.IsInterface && a.IsPublic)
         .ToArray();
 
-        // 注册所有控制器支持属性注入
+        // 配置所有控制器均支持属性注入
         builder.RegisterTypes(controllerTypes).PropertiesAutowired();
     }
 }
+

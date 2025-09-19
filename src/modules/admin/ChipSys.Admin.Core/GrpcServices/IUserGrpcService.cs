@@ -1,4 +1,4 @@
-using ProtoBuf.Grpc;
+锘縰sing ProtoBuf.Grpc;
 using System.ServiceModel;
 using ChipSys.Admin.Core.Consts;
 using ChipSys.Admin.Core.GrpcServices.Dtos;
@@ -7,7 +7,7 @@ using ChipSys.Admin.Core.Protos;
 namespace ChipSys.Admin.Core.GrpcServices;
 
 /// <summary>
-/// 用户服务接口
+/// 鐢ㄦ埛鏈嶅姟鎺ュ彛
 /// </summary>
 [ServiceContract(ConfigurationName = AdminConsts.AreaName)]
 public interface IUserGrpcService
@@ -16,3 +16,4 @@ public interface IUserGrpcService
 
     Task<UserGetPermissionGrpcOutput> GetPermissionAsync(CallContext context = default);
 }
+

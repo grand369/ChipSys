@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc.Filters;
+ï»¿using Microsoft.AspNetCore.Mvc.Filters;
 using ChipSys.Admin.Core.Attributes;
 using ChipSys.Admin.Core.Configs;
 using ChipSys.Admin.Core.Handlers;
@@ -6,7 +6,7 @@ using ChipSys.Admin.Core.Handlers;
 namespace ChipSys.Admin.Core.Filters;
 
 /// <summary>
-/// ¿ØÖÆÆ÷²Ù×÷ÈÕÖ¾¼ÇÂ¼
+/// æ§åˆ¶å™¨æ“ä½œæ—¥å¿—è®°å½•
 /// </summary>
 public class ControllerLogFilter : IAsyncActionFilter
 {

@@ -1,27 +1,28 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ½Ó¿Ú·ÃÎÊ
+/// æ¥å£è®¿é—®
 /// </summary>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
 public class ApiAccessAttribute : Attribute
 {
     /// <summary>
-    /// Ä¬ÈÏ false£¬ Âú×ãÈÎÒâÒ»¸ö¿É·ÃÎÊ¡£ÈôÉèÖÃ true È«²¿Âú×ã¿É·ÃÎÊ
+    /// é»˜è®¤ falseï¼Œ æ»¡è¶³ä»»æ„ä¸€ä¸ªå¯è®¿é—®ã€‚è‹¥è®¾ç½® true å…¨éƒ¨æ»¡è¶³å¯è®¿é—®
     /// </summary>
     public bool All { get; set; } = false;
 
     /// <summary>
-    /// È¨ÏŞµã
+    /// æƒé™ç‚¹
     /// </summary>
     public string[] Codes { get; set; }
 
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="codes">È¨ÏŞµã</param>
+    /// <param name="codes">æƒé™ç‚¹</param>
     public ApiAccessAttribute(params string[] codes)
     {
         Codes = codes;
     }
 }
+

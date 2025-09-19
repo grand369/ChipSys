@@ -1,4 +1,4 @@
-using Microsoft.Extensions.Localization;
+﻿using Microsoft.Extensions.Localization;
 using ChipSys.Admin.Core.Attributes;
 using ChipSys.Admin.Resources;
 
@@ -14,3 +14,4 @@ public class AdminCoreLocalizer: ModuleLocalizer
     {
     }
 }
+

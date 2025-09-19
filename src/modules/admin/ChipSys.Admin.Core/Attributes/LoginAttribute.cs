@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ÆôÓÃµÇÂ¼
+/// å¯ç”¨ç™»å½•
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
 public class LoginAttribute : Attribute

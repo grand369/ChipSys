@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Dto;
+ï»¿namespace ChipSys.Admin.Core.Dto;
 
 /// <summary>
-/// ÅÅĞò·½Ê½
+/// æ’åºæ–¹å¼
 /// </summary>
 public enum SortOrder
 {
@@ -10,22 +10,22 @@ public enum SortOrder
 }
 
 /// <summary>
-/// ÅÅĞò
+/// æ’åº
 /// </summary>
 public class SortInput
 {
     /// <summary>
-    /// ÊôĞÔÃû³Æ
+    /// å±æ€§åç§°
     /// </summary>
     public string PropName { get; set; }
 
     /// <summary>
-    /// ÅÅĞò·½Ê½
+    /// æ’åºæ–¹å¼
     /// </summary>
     public SortOrder? Order { get; set; }
 
     /// <summary>
-    /// ÊÇ·ñÉıĞò
+    /// æ˜¯å¦å‡åº
     /// </summary>
     public bool? IsAscending => Order.HasValue && Order.Value == SortOrder.Asc;
 }

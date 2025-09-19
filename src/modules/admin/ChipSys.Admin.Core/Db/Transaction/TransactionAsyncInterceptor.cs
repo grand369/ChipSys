@@ -1,4 +1,4 @@
-using System.Data;
+ï»¿using System.Data;
 using Castle.DynamicProxy;
 using FreeSql;
 using ChipSys.Admin.Core.Attributes;
@@ -8,7 +8,7 @@ using ChipSys.Admin.Core.Dto;
 namespace ChipSys.Admin.Core.Db.Transaction;
 
 /// <summary>
-/// ÊÂÎñÀ¹½ØÆ÷
+/// äº‹åŠ¡æ‹¦æˆªå™¨
 /// </summary>
 public class TransactionAsyncInterceptor : IAsyncInterceptor
 {
@@ -51,7 +51,7 @@ public class TransactionAsyncInterceptor : IAsyncInterceptor
 
         try
         {
-            //´¦ÀíTask·µ»ØÒ»¸önullÖµµÄÇé¿ö»áµ¼ÖÂ¿ÕÖ¸Õë
+            //å¤„ç†Taskè¿”å›ä¸€ä¸ªnullå€¼çš„æƒ…å†µä¼šå¯¼è‡´ç©ºæŒ‡é’ˆ
             if (invocation.ReturnValue != null)
             {
                 await (Task)invocation.ReturnValue;
@@ -106,7 +106,7 @@ public class TransactionAsyncInterceptor : IAsyncInterceptor
     }
 
     /// <summary>
-    /// À¹½ØÍ¬²½Ö´ĞĞµÄ·½·¨
+    /// æ‹¦æˆªåŒæ­¥æ‰§è¡Œçš„æ–¹æ³•
     /// </summary>
     /// <param name="invocation"></param>
     public void InterceptSynchronous(IInvocation invocation)
@@ -143,7 +143,7 @@ public class TransactionAsyncInterceptor : IAsyncInterceptor
     }
 
     /// <summary>
-    /// À¹½Ø·µ»Ø½á¹û
+    /// æ‹¦æˆªè¿”å›ç»“æœ
     /// </summary>
     /// <param name="invocation"></param>
     public void InterceptAsynchronous(IInvocation invocation)
@@ -159,7 +159,7 @@ public class TransactionAsyncInterceptor : IAsyncInterceptor
     }
 
     /// <summary>
-    /// À¹½Ø·µ»Ø½á¹û
+    /// æ‹¦æˆªè¿”å›ç»“æœ
     /// </summary>
     /// <typeparam name="TResult"></typeparam>
     /// <param name="invocation"></param>

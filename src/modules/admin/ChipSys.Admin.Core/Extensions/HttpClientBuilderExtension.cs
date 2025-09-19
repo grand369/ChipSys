@@ -1,14 +1,14 @@
-using Polly;
+锘縰sing Polly;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// HttpClientBuilder扩展
+/// HttpClientBuilder鎵╁睍
 /// </summary>
 public static class HttpClientBuilderExtension
 {
     /// <summary>
-    /// 添加PolicyHandler列表
+    /// 娣诲姞PolicyHandler鍒楄〃
     /// </summary>
     /// <param name="builder"></param>
     /// <param name="policies"></param>
@@ -19,3 +19,4 @@ public static class HttpClientBuilderExtension
         return builder;
     }
 }
+

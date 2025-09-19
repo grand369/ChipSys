@@ -1,4 +1,4 @@
-namespace ChipSys.Admin.Tools.TaskScheduler;
+﻿namespace ChipSys.Admin.Tools.TaskScheduler;
 
 /// <summary>
 /// Shell命令参数
@@ -20,3 +20,4 @@ public class ShellArgs
     /// </summary>
     public string WorkingDirectory { get; set; }
 }
+

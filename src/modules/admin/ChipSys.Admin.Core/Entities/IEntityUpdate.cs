@@ -1,27 +1,27 @@
-namespace ChipSys.Admin.Core.Entities;
+ï»¿namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// ĞŞ¸Ä½Ó¿Ú
+/// ä¿®æ”¹æ¥å£
 /// </summary>
 public interface IEntityUpdate
 {
     /// <summary>
-    /// ĞŞ¸ÄÕßId
+    /// ä¿®æ”¹è€…Id
     /// </summary>
     long? ModifiedUserId { get; set; }
 
     /// <summary>
-    /// ĞŞ¸ÄÕß
+    /// ä¿®æ”¹è€…
     /// </summary>
     string ModifiedUserName { get; set; }
 
     /// <summary>
-    /// ĞŞ¸ÄÕßĞÕÃû
+    /// ä¿®æ”¹è€…å§“å
     /// </summary>
     string ModifiedUserRealName { get; set; }
 
     /// <summary>
-    /// ĞŞ¸ÄÊ±¼ä
+    /// ä¿®æ”¹æ—¶é—´
     /// </summary>
     DateTime? ModifiedTime { get; set; }
 }

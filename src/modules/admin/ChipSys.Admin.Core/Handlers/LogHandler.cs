@@ -1,4 +1,4 @@
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -23,7 +23,7 @@ using ChipSys.Admin.Core.GrpcServices.Dtos;
 namespace ChipSys.Admin.Core.Handlers;
 
 /// <summary>
-/// ������־����
+/// 操作日志处理
 /// </summary>
 public class LogHandler : ILogHandler
 {
@@ -55,7 +55,7 @@ public class LogHandler : ILogHandler
     }
 
     /// <summary>
-    /// ���IP��ַ
+    /// 获得IP地址
     /// </summary>
     /// <param name="ip"></param>
     /// <returns></returns>
@@ -92,18 +92,18 @@ public class LogHandler : ILogHandler
             };
 
             var api = (await _apiHelper.GetApiListAsync()).FirstOrDefault(a => a.Path == input.ApiPath);
-            //������־����
+            //操作日志启用
             if ((api != null && api.EnabledLog))
             {
                 var excepton = actionExecutedContext.Exception;
 
-                //��������
+                //操作参数
                 if ((api != null && api.EnabledParams && context.ActionArguments.Count > 0) || excepton != null)
                 {
                     input.Params = JsonHelper.Serialize(context.ActionArguments);
                 }
 
-                //�������?
+                //操作结果
                 if (api != null && api.EnabledResult && actionExecutedContext.Result != null && actionExecutedContext.Result is JsonResult result)
                 {
                     input.Result = JsonHelper.Serialize(result.Value);
@@ -172,7 +172,7 @@ public class LogHandler : ILogHandler
         }
         catch (Exception ex)
         {
-            _logger.LogError("������־�����쳣��{@ex}", ex);
+            _logger.LogError("操作日志插入异常：{@ex}", ex);
         }
     }
 }

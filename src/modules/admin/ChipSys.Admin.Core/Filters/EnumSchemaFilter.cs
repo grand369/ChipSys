@@ -1,11 +1,11 @@
-using Microsoft.OpenApi.Models;
+ï»¿using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using ChipSys.Common.Extensions;
 
 namespace ChipSys.Admin.Core.Filters;
 
 /// <summary>
-/// Ã¶¾Ù¼Ü¹¹¹ýÂËÆ÷
+/// æžšä¸¾æž¶æž„è¿‡æ»¤å™¨
 /// </summary>
 public class EnumSchemaFilter : ISchemaFilter
 {

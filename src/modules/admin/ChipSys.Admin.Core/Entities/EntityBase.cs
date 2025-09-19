@@ -1,14 +1,14 @@
-namespace ChipSys.Admin.Core.Entities;
+锘縩amespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 实体基类
+/// 瀹炰綋鍩虹被
 /// </summary>
 public class EntityBase<TKey> : EntityDelete<TKey> where TKey : struct
 {
 }
 
 /// <summary>
-/// 实体基类
+/// 瀹炰綋鍩虹被
 /// </summary>
 public class EntityBase : EntityBase<long>
 {

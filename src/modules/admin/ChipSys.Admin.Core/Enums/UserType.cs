@@ -1,27 +1,28 @@
-namespace ChipSys.Admin.Domain.User;
+ï»¿namespace ChipSys.Admin.Domain.User;
 
 /// <summary>
-/// ÓÃ»§ÀàĞÍ
+/// ç”¨æˆ·ç±»å‹
 /// </summary>
 public enum UserType
 {
     /// <summary>
-    /// »áÔ±
+    /// ä¼šå‘˜
     /// </summary>
     Member = 0,
 
     /// <summary>
-    /// ÆÕÍ¨ÓÃ»§
+    /// æ™®é€šç”¨æˆ·
     /// </summary>
     DefaultUser = 1,
 
     /// <summary>
-    /// ×â»§¹ÜÀíÔ±
+    /// ç§Ÿæˆ·ç®¡ç†å‘˜
     /// </summary>
     TenantAdmin = 10,
 
     /// <summary>
-    /// Æ½Ì¨¹ÜÀíÔ±
+    /// å¹³å°ç®¡ç†å‘˜
     /// </summary>
     PlatformAdmin = 100
 }
+

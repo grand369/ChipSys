@@ -1,4 +1,4 @@
-using System.Reflection;
+﻿using System.Reflection;
 using ChipSys.Common.Extensions;
 
 namespace ChipSys.Admin.Core;
@@ -77,3 +77,4 @@ public class HostInfo
         };
     }
 }
+

@@ -1511,77 +1511,77 @@
         </member>
         <member name="T:ChipSys.Admin.Core.Configs.RpcConfig">
             <summary>
-            Զ�̹��̵�������
+            远程过程调用配置
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Core.Configs.RpcConfig.Models.HttpModel">
             <summary>
-            HttpԶ������
+            Http远程配置
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Models.HttpModel.Enable">
             <summary>
-            ����
+            启用
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Models.HttpModel.AssemblyNames">
             <summary>
-            ��������
+            程序集名称
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Core.Configs.RpcConfig.Models.GrpcModel">
             <summary>
-            GrpcԶ������
+            Grpc远程配置
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Models.GrpcModel.Enable">
             <summary>
-            ����
+            启用
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Models.GrpcModel.AssemblyNames">
             <summary>
-            ��������
+            程序集名称
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Models.GrpcModel.ServerAssemblyNames">
             <summary>
-            ����˳�������?
+            服务端程序集名称
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Core.Configs.RpcConfig.Models.Endpoint">
             <summary>
-            ��ַ
+            地址
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Models.Endpoint.Name">
             <summary>
-            ģ������
+            模块命名
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Models.Endpoint.HttpUrl">
             <summary>
-            Http��ַ
+            Http地址
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Models.Endpoint.GrpcUrl">
             <summary>
-            Grpc��ַ
+            Grpc地址
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Http">
             <summary>
-            HttpԶ������
+            Http远程配置
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Grpc">
             <summary>
-            GrpcԶ������
+            Grpc远程配置
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Configs.RpcConfig.Endpoints">
             <summary>
-            ��ַ�б�
+            地址列表
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Core.Consts.AdminConsts">
@@ -1714,27 +1714,27 @@
         </member>
         <member name="T:ChipSys.Admin.Core.Consts.DbKeys">
             <summary>
-            鏁版嵁搴撻敭鍚?
+            数据库键名
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Consts.DbKeys.AppDb">
             <summary>
-            搴旂敤鏁版嵁搴撴敞鍐岄敭
+            应用数据库注册键
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Consts.DbKeys.AdminDb">
             <summary>
-            鏉冮檺鏁版嵁搴撴敞鍐岄敭
+            权限数据库注册键
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Consts.DbKeys.TaskDb">
             <summary>
-            浠诲姟璋冨害鏁版嵁搴撴敞鍐岄敭
+            任务调度数据库注册键
             </summary>
         </member>
         <member name="P:ChipSys.Admin.Core.Consts.DbKeys.LogDb">
             <summary>
-            鏃ュ織鏁版嵁搴撴敞鍐岄敭
+            日志数据库注册键
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Core.Consts.DbNames">
@@ -2918,19 +2918,19 @@
         </member>
         <member name="T:ChipSys.Admin.Core.Extensions.OSSExtensions">
             <summary>
-            OSS��չ
+            OSS扩展
             </summary>
         </member>
         <member name="M:ChipSys.Admin.Core.Extensions.OSSExtensions.CreateBucketName(OnceMi.AspNetCore.OSS.IOSSServiceFactory,ChipSys.Admin.Core.Configs.OSSOptions)">
             <summary>
-            �����洢Ͱ
+            创建存储桶
             </summary>
             <param name="oSSServiceFactory"></param>
             <param name="oSSOptions"></param>
         </member>
         <member name="M:ChipSys.Admin.Core.Extensions.OSSExtensions.AddOSS(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
-            ����OSS
+            添加OSS
             </summary>
             <param name="services"></param>
             <returns></returns>
@@ -3241,19 +3241,19 @@
         </member>
         <member name="T:ChipSys.Admin.Core.Handlers.LogHandler">
             <summary>
-            ������־����
+            操作日志处理
             </summary>
         </member>
         <member name="M:ChipSys.Admin.Core.Handlers.LogHandler.GetIpLocationInfo(System.String)">
             <summary>
-            ���IP��ַ
+            获得IP地址
             </summary>
             <param name="ip"></param>
             <returns></returns>
         </member>
         <member name="T:ChipSys.Admin.Core.Handlers.ResponseAuthenticationHandler">
             <summary>
-            ��Ӧ��֤������
+            响应认证处理器
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Core.Handlers.ResponseDelegatingHandler">
@@ -3542,7 +3542,7 @@
         </member>
         <member name="M:ChipSys.Admin.Core.RegisterModules.ControllerModule.#ctor">
             <summary>
-            控制器注册
+            控制器注入
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Core.RegisterModules.IRegisterIOC">

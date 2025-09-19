@@ -1,9 +1,9 @@
-using ChipSys.Admin.Core.Consts;
+ï»¿using ChipSys.Admin.Core.Consts;
 
 namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ÆôÓÃÈ¨ÏŞ¿âÊÂÎñ
+/// å¯ç”¨æƒé™åº“äº‹åŠ¡
 /// </summary>
 [AttributeUsage(AttributeTargets.Method, Inherited = true)]
 public class AdminTransactionAttribute : TransactionAttribute

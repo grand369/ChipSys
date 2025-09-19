@@ -1,36 +1,36 @@
-namespace ChipSys.Admin.Services.User.Dto;
+ï»¿namespace ChipSys.Admin.Services.User.Dto;
 
 /// <summary>
-/// ÓÃ»§È¨ÏŞ
+/// ç”¨æˆ·æƒé™
 /// </summary>
 public class UserGetPermissionOutput
 {
     public static class Models
     {
         /// <summary>
-        /// ½Ó¿Ú
+        /// æ¥å£
         /// </summary>
         public class ApiModel
         {
             /// <summary>
-            /// ÇëÇó·½·¨
+            /// è¯·æ±‚æ–¹æ³•
             /// </summary>
             public string HttpMethods { get; set; }
 
             /// <summary>
-            /// ÇëÇóµØÖ·
+            /// è¯·æ±‚åœ°å€
             /// </summary>
             public string Path { get; set; }
         }
     }
 
     /// <summary>
-    /// ½Ó¿ÚÁĞ±í
+    /// æ¥å£åˆ—è¡¨
     /// </summary>
     public List<Models.ApiModel> Apis {  get; set; }
 
     /// <summary>
-    /// È¨ÏŞµã±àÂëÁĞ±í
+    /// æƒé™ç‚¹ç¼–ç åˆ—è¡¨
     /// </summary>
     public List<string> Codes { get; set; }
 }

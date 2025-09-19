@@ -1,4 +1,4 @@
-using ChipSys.Admin.Core.Repositories;
+ï»¿using ChipSys.Admin.Core.Repositories;
 using FreeScheduler;
 using ChipSys.Admin.Core.Configs;
 using ChipSys.Admin.Domain;
@@ -6,12 +6,12 @@ using ChipSys.Admin.Domain;
 namespace ChipSys.Admin.Core.Db;
 
 /// <summary>
-/// FreeSqlDbContextÀ©Õ¹Àà
+/// FreeSqlDbContextæ‰©å±•ç±»
 /// </summary>
 public static class FreeSqlDbContextExtensions
 {
     /// <summary>
-    /// ·µ»ØÄ¬ÈÏ²Ö¿âÀà
+    /// è¿”å›é»˜è®¤ä»“åº“ç±»
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TKey"></typeparam>
@@ -23,7 +23,7 @@ public static class FreeSqlDbContextExtensions
     }
 
     /// <summary>
-    /// ·µ»ØÄ¬ÈÏ²Ö¿âÀà£¬ÊÊÓÃÁªºÏÖ÷¼üµÄ²Ö´¢Àà
+    /// è¿”å›é»˜è®¤ä»“åº“ç±»ï¼Œé€‚ç”¨è”åˆä¸»é”®çš„ä»“å‚¨ç±»
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <param name="that"></param>
@@ -34,7 +34,7 @@ public static class FreeSqlDbContextExtensions
     }
 
     /// <summary>
-    /// Í¬²½µ÷¶È½á¹¹
+    /// åŒæ­¥è°ƒåº¦ç»“æ„
     /// </summary>
     /// <param name="that"></param>
     /// <param name="dbConfig"></param>

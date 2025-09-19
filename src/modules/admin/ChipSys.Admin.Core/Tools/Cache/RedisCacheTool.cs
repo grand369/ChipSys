@@ -1,4 +1,4 @@
-using FreeRedis;
+﻿using FreeRedis;
 using System.Text.RegularExpressions;
 using ChipSys.Common.Extensions;
 

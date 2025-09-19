@@ -1,4 +1,4 @@
-namespace ChipSys.Admin.Tools.Cache;
+﻿namespace ChipSys.Admin.Tools.Cache;
 
 /// <summary>
 /// 缓存接口

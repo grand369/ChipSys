@@ -1,17 +1,18 @@
-namespace ChipSys.Admin.Core.Enums;
+锘縩amespace ChipSys.Admin.Core.Enums;
 
 /// <summary>
-/// 内容类型
+/// 鍐呭绫诲瀷
 /// </summary>
 public enum ContentTypeEnum
 {
     /// <summary>
-    /// 表单数据
+    /// 琛ㄥ崟鏁版嵁
     /// </summary>
     FormData,
 
     /// <summary>
-    /// Json格式
+    /// Json鏍煎紡
     /// </summary>
     Json
 }
+

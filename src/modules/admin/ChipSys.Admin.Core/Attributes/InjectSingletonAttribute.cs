@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// µ¥Àı×¢Èë
+/// å•ä¾‹æ³¨å…¥
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Property)]
 public class InjectSingletonAttribute : Attribute

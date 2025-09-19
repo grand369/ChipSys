@@ -1,4 +1,4 @@
-using FreeSql.Internal.CommonProvider;
+ï»¿using FreeSql.Internal.CommonProvider;
 using FreeSql;
 using System.Linq.Expressions;
 using ChipSys.Admin.Core.Dto;
@@ -6,7 +6,7 @@ using ChipSys.Admin.Core.Dto;
 namespace ChipSys.Admin.Core.Db;
 
 /// <summary>
-/// ²âÊÔ³ÉÔ±±í´ïÊ½·ÃÎÊÆ÷
+/// æµ‹è¯•æˆå‘˜è¡¨è¾¾å¼è®¿é—®å™¨
 /// </summary>
 public class TestMemberExpressionVisitor : ExpressionVisitor
 {
@@ -29,7 +29,7 @@ public class TestMemberExpressionVisitor : ExpressionVisitor
 public static class FreeSqlExt
 {
     /// <summary>
-    /// Ö´ĞĞºöÂÔÁĞ²éÑ¯
+    /// æ‰§è¡Œå¿½ç•¥åˆ—æŸ¥è¯¢
     /// </summary>
     /// <typeparam name="T1"></typeparam>
     /// <param name="that"></param>
@@ -62,7 +62,7 @@ public static class FreeSqlExt
     }
 
     /// <summary>
-    /// ¶àÁĞÅÅĞò
+    /// å¤šåˆ—æ’åº
     /// </summary>
     /// <typeparam name="T1"></typeparam>
     /// <param name="that"></param>
@@ -81,3 +81,4 @@ public static class FreeSqlExt
         return that;
     }
 }
+

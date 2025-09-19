@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Builder;
@@ -63,7 +63,6 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using ChipSys.Admin.Core.GrpcServices;
 
 namespace ChipSys.Admin.Core;
-
 
 /// <summary>
 /// 宿主应用
@@ -326,7 +325,7 @@ public class HostApp
             services.AddSingleton<ICacheTool, RedisCacheTool>();
             //分布式Redis缓存
             services.AddSingleton<IDistributedCache>(new DistributedCache(redis));
-            if (_hostAppOptions?.ConfigureIdGenerator != null)
+            if(_hostAppOptions?.ConfigureIdGenerator != null)
             {
                 _hostAppOptions?.ConfigureIdGenerator?.Invoke(appConfig.IdGenerator);
                 YitIdHelper.SetIdGenerator(appConfig.IdGenerator);
@@ -515,11 +514,10 @@ public class HostApp
             var jsonSerializerOptions = options.JsonSerializerOptions;
             var currentJsonSerializerOptions = JsonHelper.GetCurrentOptions();
             currentJsonSerializerOptions.Adapt(jsonSerializerOptions);
-            foreach (var converter in currentJsonSerializerOptions.Converters)
+            foreach(var converter in currentJsonSerializerOptions.Converters)
             {
                 jsonSerializerOptions.Converters.Add(converter);
             }
-            
         }).AddControllersAsServices();
 
         if (appConfig.Lang.EnableJson)
@@ -954,7 +952,7 @@ public class HostApp
             {
                 routePrefix = appConfig.Swagger.RoutePrefix;
             }
-
+            
             app.UseSwagger(optoins =>
             {
                 optoins.RouteTemplate = routePrefix + (optoins.RouteTemplate.StartsWith("/") ? "" : "/") + optoins.RouteTemplate;
@@ -1018,7 +1016,7 @@ public class HostApp
 
             app.UseMyMapGrpcService(assemblies);
         }
-
+        
         //for postman
         app.MapCodeFirstGrpcReflectionService();
 

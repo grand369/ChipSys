@@ -1,4 +1,4 @@
-using DotNetCore.CAP;
+ï»¿using DotNetCore.CAP;
 using DotNetCore.CAP.Transport;
 using FreeSql;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,7 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 namespace ChipSys.Admin.Core.Db;
 
 /// <summary>
-/// CapÊÂÎñ FreeSql ÊµÏÖ
+/// Capäº‹åŠ¡ FreeSql å®ç°
 /// </summary>
 public class FreeSqlRepositoryPatternTransaction : CapTransactionBase
 {
@@ -49,7 +49,7 @@ public class FreeSqlRepositoryPatternTransaction : CapTransactionBase
 public static class UnitOfWorkExtensions
 {
     /// <summary>
-    /// ¿ªÆôCap·Ö²¼Ê½ÊÂÎñ
+    /// å¼€å¯Capåˆ†å¸ƒå¼äº‹åŠ¡
     /// </summary>
     /// <param name="unitOfWork"></param>
     /// <param name="capPublisher"></param>
@@ -70,3 +70,4 @@ public static class UnitOfWorkExtensions
         return capPublisher.Transaction = transaction;
     }
 }
+

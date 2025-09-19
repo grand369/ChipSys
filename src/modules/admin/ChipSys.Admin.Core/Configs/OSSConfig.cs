@@ -1,115 +1,115 @@
-using OnceMi.AspNetCore.OSS;
+ï»¿using OnceMi.AspNetCore.OSS;
 
 namespace ChipSys.Admin.Core.Configs;
 
 /// <summary>
-/// OSSÅäÖÃ
+/// OSSé…ç½®
 /// </summary>
 public class OSSOptions
 {
     /// <summary>
-    /// ÎÄ¼ş´æ´¢¹©Ó¦ÉÌ
+    /// æ–‡ä»¶å­˜å‚¨ä¾›åº”å•†
     /// </summary>
     public OSSProvider Provider { get; set; } = OSSProvider.Minio;
     /// <summary>
-    /// ÓòÃû
+    /// åŸŸå
     /// </summary>
     public string Endpoint { get; set; }
     /// <summary>
-    /// ÕËºÅ
+    /// è´¦å·
     /// </summary>
     public string AccessKey { get; set; }
     /// <summary>
-    /// ÃÜÂë
+    /// å¯†ç 
     /// </summary>
     public string SecretKey { get; set; }
     /// <summary>
-    /// µØÇø
+    /// åœ°åŒº
     /// </summary>
     public string Region { get; set; }
     /// <summary>
-    /// »á»°Token
+    /// ä¼šè¯Token
     /// </summary>
     public string SessionToken { get; set; }
     /// <summary>
-    /// ÆôÓÃHttps
+    /// å¯ç”¨Https
     /// </summary>
     public bool IsEnableHttps { get; set; }
     /// <summary>
-    /// ÆôÓÃ»º´æ
+    /// å¯ç”¨ç¼“å­˜
     /// </summary>
     public bool IsEnableCache { get; set; }
     /// <summary>
-    /// ´æ´¢Í°
+    /// å­˜å‚¨æ¡¶
     /// </summary>
     public string BucketName { get; set; } = "admin";
     /// <summary>
-    /// ÎÄ¼şµØÖ·
+    /// æ–‡ä»¶åœ°å€
     /// </summary>
     public string Url { get; set; }
     /// <summary>
-    /// ÎÄ¼şMd5Âë
+    /// æ–‡ä»¶Md5ç 
     /// </summary>
     public bool Md5 { get; set; } = false;
     /// <summary>
-    /// ÆôÓÃ
+    /// å¯ç”¨
     /// </summary>
     public bool Enable { get; set; } = false;
 }
 
 /// <summary>
-/// ±¾µØÉÏ´«ÅäÖÃ
+/// æœ¬åœ°ä¸Šä¼ é…ç½®
 /// </summary>
 public class LocalUploadConfig
 {
     /// <summary>
-    /// ÉÏ´«Ä¿Â¼
+    /// ä¸Šä¼ ç›®å½•
     /// </summary>
     public string Directory { get; set; } = "upload";
 
     /// <summary>
-    /// ÈÕÆÚÄ¿Â¼
+    /// æ—¥æœŸç›®å½•
     /// </summary>
     public string DateTimeDirectory { get; set; } = "yyyy/MM/dd";
 
     /// <summary>
-    /// ÎÄ¼şMd5Âë
+    /// æ–‡ä»¶Md5ç 
     /// </summary>
     public bool Md5 { get; set; } = false;
 
     /// <summary>
-    /// ÎÄ¼ş´óĞ¡
+    /// æ–‡ä»¶å¤§å°
     /// </summary>
     public long MaxSize { get; set; } = 104857600;
 
     /// <summary>
-    /// °üº¬ÎÄ¼şÍØÕ¹ÃûÁĞ±í
+    /// åŒ…å«æ–‡ä»¶æ‹“å±•ååˆ—è¡¨
     /// </summary>
     public string[] IncludeExtension { get; set; }
 
     /// <summary>
-    /// ÅÅ³ıÎÄ¼şÍØÕ¹ÃûÁĞ±í
+    /// æ’é™¤æ–‡ä»¶æ‹“å±•ååˆ—è¡¨
     /// </summary>
     public string[] ExcludeExtension { get; set; }
 }
 
 /// <summary>
-/// OSSÅäÖÃ
+/// OSSé…ç½®
 /// </summary>
 public class OSSConfig
 {
     /// <summary>
-    /// ±¾µØÉÏ´«ÅäÖÃ
+    /// æœ¬åœ°ä¸Šä¼ é…ç½®
     /// </summary>
     public LocalUploadConfig LocalUploadConfig { get; set; }
 
     /// <summary>
-    /// ÎÄ¼ş´æ´¢¹©Ó¦ÉÌ
+    /// æ–‡ä»¶å­˜å‚¨ä¾›åº”å•†
     /// </summary>
     public OSSProvider Provider { get; set; } = OSSProvider.Minio;
 
     /// <summary>
-    /// OSSÅäÖÃÁĞ±í
+    /// OSSé…ç½®åˆ—è¡¨
     /// </summary>
     public List<OSSOptions> OSSConfigs { get; set; }
 }

@@ -1,12 +1,12 @@
-namespace ChipSys.Admin.Core.Entities;
+锘縩amespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 子级接口
+/// 瀛愮骇鎺ュ彛
 /// </summary>
 public interface IChilds<T>
 {
     /// <summary>
-    /// 子级列表
+    /// 瀛愮骇鍒楄〃
     /// </summary>
     List<T> Childs { get; set; }
 }

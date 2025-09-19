@@ -1,38 +1,38 @@
-using System.Net;
+ï»¿using System.Net;
 using ChipSys.Admin.Core.Exceptions;
 
 namespace ChipSys.Admin.Core.Dto;
 
 /// <summary>
-/// ½á¹ûÊä³ö
+/// ç»“æœè¾“å‡º
 /// </summary>
 public class ResultOutput<T> : IResultOutput<T>
 {
     /// <summary>
-    /// ÊÇ·ñ³É¹¦±ê¼Ç
+    /// æ˜¯å¦æˆåŠŸæ ‡è®°
     /// </summary>
     public bool Success { get; set; }
 
     /// <summary>
-    /// ±àÂë
+    /// ç¼–ç 
     /// </summary>
     public string Code { get; set; }
 
     /// <summary>
-    /// ÏûÏ¢
+    /// æ¶ˆæ¯
     /// </summary>
     public string Msg { get; set; }
 
     /// <summary>
-    /// Êı¾İ
+    /// æ•°æ®
     /// </summary>
     public T Data { get; set; }
 
     /// <summary>
-    /// ³É¹¦
+    /// æˆåŠŸ
     /// </summary>
-    /// <param name="data">Êı¾İ</param>
-    /// <param name="msg">ÏûÏ¢</param>
+    /// <param name="data">æ•°æ®</param>
+    /// <param name="msg">æ¶ˆæ¯</param>
     public ResultOutput<T> Ok(T data, string msg = null)
     {
         Success = true;
@@ -43,10 +43,10 @@ public class ResultOutput<T> : IResultOutput<T>
     }
 
     /// <summary>
-    /// Ê§°Ü
+    /// å¤±è´¥
     /// </summary>
-    /// <param name="msg">ÏûÏ¢</param>
-    /// <param name="data">Êı¾İ</param>
+    /// <param name="msg">æ¶ˆæ¯</param>
+    /// <param name="data">æ•°æ®</param>
     /// <returns></returns>
     public ResultOutput<T> NotOk(string msg = null, T data = default)
     {
@@ -59,15 +59,15 @@ public class ResultOutput<T> : IResultOutput<T>
 }
 
 /// <summary>
-/// ¾²Ì¬½á¹ûÊä³ö
+/// é™æ€ç»“æœè¾“å‡º
 /// </summary>
 public static partial class ResultOutput
 {
     /// <summary>
-    /// ³É¹¦
+    /// æˆåŠŸ
     /// </summary>
-    /// <param name="data">Êı¾İ</param>
-    /// <param name="msg">ÏûÏ¢</param>
+    /// <param name="data">æ•°æ®</param>
+    /// <param name="msg">æ¶ˆæ¯</param>
     /// <returns></returns>
     public static IResultOutput<T> Ok<T>(T data = default(T), string msg = null)
     {
@@ -75,7 +75,7 @@ public static partial class ResultOutput
     }
 
     /// <summary>
-    /// ³É¹¦
+    /// æˆåŠŸ
     /// </summary>
     /// <returns></returns>
     public static IResultOutput<string> Ok()
@@ -84,10 +84,10 @@ public static partial class ResultOutput
     }
 
     /// <summary>
-    /// Ê§°Ü
+    /// å¤±è´¥
     /// </summary>
-    /// <param name="msg">ÏûÏ¢</param>
-    /// <param name="data">Êı¾İ</param>
+    /// <param name="msg">æ¶ˆæ¯</param>
+    /// <param name="data">æ•°æ®</param>
     /// <returns></returns>
     public static IResultOutput<T> NotOk<T>(string msg = null, T data = default)
     {
@@ -95,9 +95,9 @@ public static partial class ResultOutput
     }
 
     /// <summary>
-    /// Ê§°Ü
+    /// å¤±è´¥
     /// </summary>
-    /// <param name="msg">ÏûÏ¢</param>
+    /// <param name="msg">æ¶ˆæ¯</param>
     /// <returns></returns>
     public static IResultOutput<string> NotOk(string msg = null)
     {
@@ -105,11 +105,11 @@ public static partial class ResultOutput
     }
 
     /// <summary>
-    /// ÏµÍ³Òì³£
+    /// ç³»ç»Ÿå¼‚å¸¸
     /// </summary>
-    /// <param name="msg">ÏûÏ¢</param>
-    /// <param name="code">±àÂë</param>
-    /// <param name="statusCode">×´Ì¬±àÂë</param>
+    /// <param name="msg">æ¶ˆæ¯</param>
+    /// <param name="code">ç¼–ç </param>
+    /// <param name="statusCode">çŠ¶æ€ç¼–ç </param>
     /// <returns></returns>
     public static AppException Exception(string msg = null, string code = null, int statusCode = (int)HttpStatusCode.OK)
     {
@@ -117,7 +117,7 @@ public static partial class ResultOutput
     }
 
     /// <summary>
-    /// ¸ù¾İ²¼¶ûÖµ·µ»Ø½á¹û
+    /// æ ¹æ®å¸ƒå°”å€¼è¿”å›ç»“æœ
     /// </summary>
     /// <param name="success"></param>
     /// <returns></returns>
@@ -127,7 +127,7 @@ public static partial class ResultOutput
     }
 
     /// <summary>
-    /// ¸ù¾İ²¼¶ûÖµ·µ»Ø½á¹û
+    /// æ ¹æ®å¸ƒå°”å€¼è¿”å›ç»“æœ
     /// </summary>
     /// <param name="success"></param>
     /// <returns></returns>

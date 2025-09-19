@@ -1,44 +1,44 @@
-namespace ChipSys.Admin.Services.Api.Dto;
+ï»¿namespace ChipSys.Admin.Services.Api.Dto;
 
 /// <summary>
-/// Ã¶¾Ù
+/// æšä¸¾
 /// </summary>
 public class ApiGetEnumsOutput
 {
     /// <summary>
-    /// Ãû³Æ
+    /// åç§°
     /// </summary>
     public string Name { get; set; }
     
     /// <summary>
-    /// ÃèÊö
+    /// æè¿°
     /// </summary>
     public string Desc { get; set; }
 
     /// <summary>
-    /// Ñ¡ÏîÁĞ±í
+    /// é€‰é¡¹åˆ—è¡¨
     /// </summary>
     public List<Models.Options> Options { get; set; }
 
     public static class Models
     {
         /// <summary>
-        /// Ñ¡Ïî
+        /// é€‰é¡¹
         /// </summary>
         public class Options
         {
             /// <summary>
-            /// Ãû³Æ
+            /// åç§°
             /// </summary>
             public string Name { get; set; }
 
             /// <summary>
-            /// ÃèÊö
+            /// æè¿°
             /// </summary>
             public string Desc { get; set; }
 
             /// <summary>
-            /// Öµ
+            /// å€¼
             /// </summary>
             public long Value { get; set; }
         }

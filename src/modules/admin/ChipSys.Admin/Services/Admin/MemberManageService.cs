@@ -70,6 +70,9 @@ public class MemberManageService : BaseService, IDynamicApi
         public string? RealName { get; set; }
         public string? Mobile { get; set; }
         public string? Email { get; set; }
+        public string Level { get; set; } = "Free";
+        public DateTime? LevelEffectiveTime { get; set; }
+        public DateTime? LevelExpireTime { get; set; }
     }
 
     public class MemberUpdateInput : MemberAddInput
@@ -103,24 +106,39 @@ public class MemberManageService : BaseService, IDynamicApi
     [HttpGet]
     public async Task<List<LevelItem>> GetLevelsAsync()
     {
-        // 统计每个等级下已启用的最新等级记录的会员数量
-        var q = await _memberLevelRep.Select
+        // 获取所有已定义的等级模板
+        var allLevelTemplates = await _memberLevelRep.Select
             .Where(a => a.Enabled)
-            .OrderByDescending(a => a.CreatedTime)
             .ToListAsync();
 
-        var latestByMember = q
-            .GroupBy(x => x.MemberId)
-            .Select(g => g.OrderByDescending(x => x.CreatedTime).First())
-            .ToList();
+        // 统计每个等级下的会员数量（直接从会员表统计）
+        var memberCountByLevel = await _memberRep.Select
+            .Where(a => a.Enabled)
+            .GroupBy(a => a.Level)
+            .ToListAsync(a => new { Level = a.Key??"", Count = a.Count() });
 
-        var result = latestByMember
-            .GroupBy(x => x.Level)
-            .Select(g => new LevelItem { Level = g.Key, Count = g.Count() })
-            .OrderBy(x => x.Level)
-            .ToList();
+        var memberCountDict = memberCountByLevel.ToDictionary(x => x.Level, x => x.Count);
 
-        return result;
+        var allLevels =  allLevelTemplates.Select(p=>new LevelItem
+        {
+            Level = p.Level,
+            Count = memberCountDict.ContainsKey(p.Level) ? memberCountDict[p.Level] : 0
+        }).ToList();
+
+        // 合并模板等级和实际会员等级，确保所有等级都显示
+        //var allLevels = allLevelTemplates
+        //    .Select(t => t.Level)
+        //    .Union(memberCountDict.Keys)
+        //    .Distinct()
+        //    .OrderBy(x => x)
+        //    .Select(level => new LevelItem 
+        //    { 
+        //        Level = level, 
+        //        Count = memberCountDict.ContainsKey(level) ? memberCountDict[level] : 0 
+        //    })
+        //    .ToList();
+
+        return allLevels;
     }
 
     /// <summary>
@@ -140,18 +158,10 @@ public class MemberManageService : BaseService, IDynamicApi
             memberSel = memberSel.Where(a => a.NickName.Contains(kw) || a.RealName.Contains(kw));
         }
 
-        // 过滤等级：取最新启用等级记录
+        // 过滤等级：直接从会员表的等级字段过滤
         if (!string.IsNullOrWhiteSpace(input.Level))
         {
-            var latestLevels = _memberLevelRep.Orm.Select<MemberLevelEntity>()
-                .Where(a => a.Enabled)
-                .Where(a => a.Level == input.Level)
-                .Where(a => !_memberLevelRep.Orm.Select<MemberLevelEntity>()
-                    .Where(b => b.MemberId == a.MemberId && b.Enabled && b.CreatedTime > a.CreatedTime)
-                    .Any())
-                .ToList(a => a.MemberId);
-
-            memberSel = memberSel.Where(a => latestLevels.Contains(a.Id));
+            memberSel = memberSel.Where(a => a.Level == input.Level);
         }
 
         // 先获取会员列表
@@ -182,24 +192,7 @@ public class MemberManageService : BaseService, IDynamicApi
             CreatedTime = m.CreatedTime ?? DateTime.Now
         }).ToList();
 
-        // 填充等级（可选：为了减少查询，这里二次查询最新等级映射）
-        var memberIds = list.Select(x => x.Id).ToList();
-        if (memberIds.Count > 0)
-        {
-            var latest = await _memberLevelRep.Select
-                .Where(a => memberIds.Contains(a.MemberId) && a.Enabled)
-                .OrderByDescending(a => a.CreatedTime)
-                .ToListAsync();
-
-            var latestMap = latest
-                .GroupBy(x => x.MemberId)
-                .ToDictionary(g => g.Key, g => g.OrderByDescending(x => x.CreatedTime).First().Level);
-
-            foreach (var row in list)
-            {
-                if (latestMap.TryGetValue(row.Id, out var lvl)) row.Level = lvl;
-            }
-        }
+        // 等级信息已经直接从会员表获取，无需额外查询
 
         return new PageOutput<MemberSimpleOutput>
         {
@@ -233,6 +226,9 @@ public class MemberManageService : BaseService, IDynamicApi
             UserId = user.Id,
             NickName = input.NickName ?? input.RealName ?? user.UserName,
             RealName = input.RealName,
+            Level = input.Level,
+            LevelEffectiveTime = input.LevelEffectiveTime,
+            LevelExpireTime = input.LevelExpireTime,
             Enabled = true,
             CreatedTime = System.DateTime.Now
         };
@@ -285,7 +281,7 @@ public class MemberManageService : BaseService, IDynamicApi
 
     /// <summary>
     /// 调整会员等级（独立按钮）
-    /// 逻辑：关闭原有启用记录，插入新等级为启用记录
+    /// 逻辑：直接更新会员表的等级字段
     /// </summary>
     [AdminTransaction]
     public virtual async Task AdjustLevelAsync(AdjustLevelInput input)
@@ -293,25 +289,24 @@ public class MemberManageService : BaseService, IDynamicApi
         var member = await _memberRep.GetAsync(input.MemberId);
         if (member == null) throw ResultOutput.Exception(_adminLocalizer["会员不存在"]);
 
-        // 禁用历史启用记录
-        var olds = await _memberLevelRep.Select
-            .Where(a => a.MemberId == input.MemberId && a.Enabled)
-            .ToListAsync();
-        foreach (var o in olds)
+        // 直接更新会员表的等级字段
+        member.Level = input.Level;
+        member.LevelEffectiveTime = DateTime.Now;
+        // 可以根据等级模板设置过期时间
+        var levelTemplate = await _memberLevelRep.Select
+            .Where(a => a.Level == input.Level && a.Enabled)
+            .FirstAsync();
+        
+        if (levelTemplate != null)
         {
-            o.Enabled = false;
+            // 根据等级模板设置过期时间（例如：付费等级1年有效期）
+            if (input.Level != "Free")
+            {
+                member.LevelExpireTime = DateTime.Now.AddYears(1);
+            }
         }
-        if (olds.Count > 0) await _memberLevelRep.UpdateAsync(olds);
 
-        // 新增启用记录
-        var entity = new MemberLevelEntity
-        {
-            MemberId = input.MemberId,
-            Level = input.Level,
-            Enabled = true,
-            CreatedTime = System.DateTime.Now
-        };
-        await _memberLevelRep.InsertAsync(entity);
+        await _memberRep.UpdateAsync(member);
     }
 }
 

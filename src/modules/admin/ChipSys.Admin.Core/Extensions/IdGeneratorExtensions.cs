@@ -1,4 +1,4 @@
-using FreeRedis;
+ï»¿using FreeRedis;
 using Microsoft.Extensions.DependencyInjection;
 using Yitter.IdGenerator;
 using ChipSys.Admin.Core.Configs;
@@ -7,7 +7,7 @@ using ChipSys.Admin.Tools.Cache;
 namespace ChipSys.Admin.Core.Extensions;
 
 /// <summary>
-/// IdÉú³ÉÆ÷À©Õ¹
+/// Idç”Ÿæˆå™¨æ‰©å±•
 /// </summary>
 public static class IdGeneratorExtensions
 {
@@ -15,7 +15,7 @@ public static class IdGeneratorExtensions
     private static readonly object _locker = new();
 
     /// <summary>
-    /// Ìí¼ÓIdÉú³ÉÆ÷
+    /// æ·»åŠ Idç”Ÿæˆå™¨
     /// </summary>
     /// <param name="services"></param>
     public static void AddIdGenerator(this IServiceCollection services)
@@ -24,13 +24,13 @@ public static class IdGeneratorExtensions
 
         if (_isSet)
             return;
-            //throw new InvalidOperationException("Ö»ÔÊĞíÌí¼ÓÒ»´ÎIdÉú³ÉÆ÷");
+            //throw new InvalidOperationException("åªå…è®¸æ·»åŠ ä¸€æ¬¡Idç”Ÿæˆå™¨");
 
         lock (_locker)
         {
             if (_isSet)
                 return;
-                //throw new InvalidOperationException("Ö»ÔÊĞíÌí¼ÓÒ»´ÎIdÉú³ÉÆ÷");
+                //throw new InvalidOperationException("åªå…è®¸æ·»åŠ ä¸€æ¬¡Idç”Ÿæˆå™¨");
 
             Task.Delay(new Random().Next(10, 100)).Wait();
 
@@ -41,7 +41,7 @@ public static class IdGeneratorExtensions
     }
 
     /// <summary>
-    /// ÉèÖÃIdÉú³ÉÆ÷
+    /// è®¾ç½®Idç”Ÿæˆå™¨
     /// </summary>
     /// <param name="idGeneratorConfig"></param>
     /// <exception cref="Exception"></exception>
@@ -86,7 +86,7 @@ public static class IdGeneratorExtensions
                     continue;
                 }
 
-                Console.WriteLine($"{Environment.NewLine}×Ô¶¯×¢²áµÄ»úÆ÷Âë WorkerId = {workerId}");
+                Console.WriteLine($"{Environment.NewLine}è‡ªåŠ¨æ³¨å†Œçš„æœºå™¨ç  WorkerId = {workerId}");
 
                 idGeneratorConfig.WorkerId = workerId;
                 YitIdHelper.SetIdGenerator(idGeneratorConfig);
@@ -98,10 +98,10 @@ public static class IdGeneratorExtensions
 
             if (workerIdKey.IsNull())
             {
-                throw new Exception("×Ô¶¯×¢²á»úÆ÷ÂëWorkerIdÒÑÈ«±»Õ¼ÓÃ£¬ÇëÔö¼Ó»úÆ÷ÂëÎ»³¤WorkerIdBitLengthºóÔÙÖØĞÂÆô¶¯");
+                throw new Exception("è‡ªåŠ¨æ³¨å†Œæœºå™¨ç WorkerIdå·²å…¨è¢«å ç”¨ï¼Œè¯·å¢åŠ æœºå™¨ç ä½é•¿WorkerIdBitLengthåå†é‡æ–°å¯åŠ¨");
             }
 
-            //Ã¿¸ô 10 ÃëË¢ĞÂ WorkerId Õ¼ÓÃÓĞĞ§ÆÚ
+            //æ¯éš” 10 ç§’åˆ·æ–° WorkerId å ç”¨æœ‰æ•ˆæœŸ
             Task.Run(() =>
             {
                 while (true)
@@ -121,3 +121,4 @@ public static class IdGeneratorExtensions
         }
     }
 }
+

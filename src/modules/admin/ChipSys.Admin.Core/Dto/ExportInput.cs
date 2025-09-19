@@ -1,24 +1,24 @@
-namespace ChipSys.Admin.Core.Dto;
+ï»¿namespace ChipSys.Admin.Core.Dto;
 
 /// <summary>
-/// µ¼³öĞÅÏ¢ÊäÈë
+/// å¯¼å‡ºä¿¡æ¯è¾“å…¥
 /// </summary>
 public class ExportInput: QueryInput
 {
     /// <summary>
-    /// ÎÄ¼şÃû
+    /// æ–‡ä»¶å
     /// </summary>
     public string FileName { get; set; }
 }
 
 /// <summary>
-/// µ¼³öĞÅÏ¢ÊäÈë
+/// å¯¼å‡ºä¿¡æ¯è¾“å…¥
 /// </summary>
-/// <typeparam name="T">¹ıÂËÊı¾İ</typeparam>
+/// <typeparam name="T">è¿‡æ»¤æ•°æ®</typeparam>
 public class ExportInput<T>: ExportInput
 {
     /// <summary>
-    /// ²éÑ¯Ìõ¼ş
+    /// æŸ¥è¯¢æ¡ä»¶
     /// </summary>
     public virtual T Filter { get; set; }
 }

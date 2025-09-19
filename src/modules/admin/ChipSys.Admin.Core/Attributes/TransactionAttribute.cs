@@ -1,26 +1,26 @@
-using FreeSql;
+锘縰sing FreeSql;
 using System.Data;
 
 namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// 启用事务
+/// 鍚敤浜嬪姟
 /// </summary>
 [AttributeUsage(AttributeTargets.Method, Inherited = true)]
 public class TransactionAttribute : Attribute
 {
     /// <summary>
-    /// 事务传播方式
+    /// 浜嬪姟浼犳挱鏂瑰紡
     /// </summary>
     public Propagation Propagation { get; set; } = Propagation.Required;
 
     /// <summary>
-    /// 事务隔离级别
+    /// 浜嬪姟闅旂绾у埆
     /// </summary>
     public IsolationLevel IsolationLevel { get; set; }
 
     /// <summary>
-    /// 数据库注册键
+    /// 鏁版嵁搴撴敞鍐岄敭
     /// </summary>
     public string DbKey { get; set; }
 
@@ -33,3 +33,4 @@ public class TransactionAttribute : Attribute
         DbKey = dbKey;
     }
 }
+

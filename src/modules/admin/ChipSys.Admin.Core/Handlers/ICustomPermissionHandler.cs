@@ -1,14 +1,14 @@
-using Microsoft.AspNetCore.Mvc.Filters;
+ï»¿using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace ChipSys.Admin.Core.Handlers;
 
 /// <summary>
-/// ×Ô¶¨ÒåÈ¨ÏŞ´¦Àí½Ó¿Ú
+/// è‡ªå®šä¹‰æƒé™å¤„ç†æ¥å£
 /// </summary>
 public interface ICustomPermissionHandler
 {
     /// <summary>
-    /// È¨ÏŞÑéÖ¤
+    /// æƒé™éªŒè¯
     /// </summary>
     /// <param name="context"></param>
     /// <returns></returns>

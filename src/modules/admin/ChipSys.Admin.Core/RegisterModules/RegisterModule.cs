@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using Autofac.Extras.DynamicProxy;
 using System.Reflection;
 using Microsoft.AspNetCore.Identity;
@@ -76,3 +76,4 @@ public class RegisterModule : Module
         builder.RegisterGeneric(typeof(RepositoryBase<,>)).As(typeof(IRepositoryBase<,>)).InstancePerLifetimeScope().PropertiesAutowired();
     }
 }
+

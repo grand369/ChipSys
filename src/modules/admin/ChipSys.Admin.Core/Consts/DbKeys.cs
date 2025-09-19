@@ -1,10 +1,10 @@
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using ChipSys.Admin.Core.Configs;
 
 namespace ChipSys.Admin.Core.Consts;
 
 /// <summary>
-/// 数据库键�?
+/// 数据库键名
 /// </summary>
 public class DbKeys
 {
@@ -22,7 +22,7 @@ public class DbKeys
     /// 应用数据库注册键
     /// </summary>
     [Description("应用数据库注册键")]
-    [Obsolete("请使�?AdminDb 代替")]
+    [Obsolete("请使用 AdminDb 代替")]
     public static string AppDb { get; set; } = _defaultDbKey;
 
     /// <summary>

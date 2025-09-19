@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Hosting;
+ï»¿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Hosting;
@@ -10,7 +10,7 @@ using ChipSys.Common.Extensions;
 namespace ChipSys.Admin.Core.Filters;
 
 /// <summary>
-/// ¿ØÖÆÆ÷Òì³£´¦Àí
+/// æ§åˆ¶å™¨å¼‚å¸¸å¤„ç†
 /// </summary>
 public class ControllerExceptionFilter : IExceptionFilter, IAsyncExceptionFilter
 {
@@ -58,7 +58,7 @@ public class ControllerExceptionFilter : IExceptionFilter, IAsyncExceptionFilter
 }
 
 /// <summary>
-/// ·şÎñÆ÷ÄÚ²¿´íÎó½á¹û
+/// æœåŠ¡å™¨å†…éƒ¨é”™è¯¯ç»“æœ
 /// </summary>
 public class InternalServerErrorResult : ObjectResult
 {

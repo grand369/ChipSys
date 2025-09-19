@@ -1,4 +1,4 @@
-using ProtoBuf.Grpc;
+锘縰sing ProtoBuf.Grpc;
 using System.ServiceModel;
 using ChipSys.Admin.Core.Consts;
 using ChipSys.Admin.Core.GrpcServices.Dtos;
@@ -7,10 +7,11 @@ using ChipSys.Admin.Core.Protos;
 namespace ChipSys.Admin.Core.GrpcServices;
 
 /// <summary>
-/// 操作日志服务接口
+/// 鎿嶄綔鏃ュ織鏈嶅姟鎺ュ彛
 /// </summary>
 [ServiceContract(ConfigurationName = AdminConsts.AreaName)]
 public interface IOprationLogGrpcService
 {
     Task<ProtoLong> AddAsync(OperationLogAddGrpcInput input, CallContext context = default);
 }
+

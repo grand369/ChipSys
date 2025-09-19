@@ -1,4 +1,4 @@
-using FreeSql.DataAnnotations;
+ï»¿using FreeSql.DataAnnotations;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
@@ -7,38 +7,38 @@ using ChipSys.Admin.Core.Attributes;
 namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// ÊµÌåĞŞ¸ÄÎŞÖ÷¼üId
+/// å®ä½“ä¿®æ”¹æ— ä¸»é”®Id
 /// </summary>
 public class EntityUpdateNoId : EntityAddNoId, IEntityUpdate
 {
     /// <summary>
-    /// ĞŞ¸ÄÕßÓÃ»§Id
+    /// ä¿®æ”¹è€…ç”¨æˆ·Id
     /// </summary>
-    [Description("ĞŞ¸ÄÕßÓÃ»§Id")]
+    [Description("ä¿®æ”¹è€…ç”¨æˆ·Id")]
     [Column(Position = -13)]
     [JsonPropertyOrder(10000)]
     public virtual long? ModifiedUserId { get; set; }
 
     /// <summary>
-    /// ĞŞ¸ÄÕßÓÃ»§Ãû
+    /// ä¿®æ”¹è€…ç”¨æˆ·å
     /// </summary>
-    [Description("ĞŞ¸ÄÕßÓÃ»§Ãû")]
+    [Description("ä¿®æ”¹è€…ç”¨æˆ·å")]
     [Column(Position = -12), MaxLength(60)]
     [JsonPropertyOrder(10001)]
     public virtual string ModifiedUserName { get; set; }
 
     /// <summary>
-    /// ĞŞ¸ÄÕßĞÕÃû
+    /// ä¿®æ”¹è€…å§“å
     /// </summary>
-    [Description("ĞŞ¸ÄÕßĞÕÃû")]
+    [Description("ä¿®æ”¹è€…å§“å")]
     [Column(Position = -11), MaxLength(60)]
     [JsonPropertyOrder(10001)]
     public virtual string ModifiedUserRealName { get; set; }
 
     /// <summary>
-    /// ĞŞ¸ÄÊ±¼ä
+    /// ä¿®æ”¹æ—¶é—´
     /// </summary>
-    [Description("ĞŞ¸ÄÊ±¼ä")]
+    [Description("ä¿®æ”¹æ—¶é—´")]
     [JsonPropertyOrder(10002)]
     [Column(Position = -10)]
     [ServerTime(CanInsert = false, CanUpdate = true)]

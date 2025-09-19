@@ -1,14 +1,14 @@
-using ChipSys.Admin.Core.Attributes;
+锘縰sing ChipSys.Admin.Core.Attributes;
 
 namespace ChipSys.Admin.Core.Handlers;
 
 /// <summary>
-/// 权限处理接口
+/// 鏉冮檺澶勭悊鎺ュ彛
 /// </summary>
 public interface IPermissionHandler
 {
     /// <summary>
-    /// 权限验证
+    /// 鏉冮檺楠岃瘉
     /// </summary>
     /// <param name="api"></param>
     /// <param name="httpMethod"></param>

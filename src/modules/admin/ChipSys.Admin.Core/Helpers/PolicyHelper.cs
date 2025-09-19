@@ -1,4 +1,4 @@
-using Polly;
+﻿using Polly;
 
 namespace ChipSys.Admin.Core.Helpers;
 
@@ -69,3 +69,4 @@ public class PolicyHelper
         };
     }
 }
+

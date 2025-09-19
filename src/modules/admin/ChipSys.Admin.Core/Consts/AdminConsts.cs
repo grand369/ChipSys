@@ -1,27 +1,27 @@
-namespace ChipSys.Admin.Core.Consts;
+ï»¿namespace ChipSys.Admin.Core.Consts;
 
 /// <summary>
-/// admin³£Á¿
+/// adminå¸¸é‡
 /// </summary>
 public static partial class AdminConsts
 {
     /// <summary>
-    /// Ä¬ÈÏÓò
+    /// é»˜è®¤åŸŸ
     /// </summary>
     public const string AreaName = "admin";
 
     /// <summary>
-    /// Ä¬ÈÏ×â»§
+    /// é»˜è®¤ç§Ÿæˆ·
     /// </summary>
     public const string TenantName = "Default";
 
     /// <summary>
-    /// ÔÊĞíËùÓĞÔ´·ÃÎÊ²ßÂÔ
+    /// å…è®¸æ‰€æœ‰æºè®¿é—®ç­–ç•¥
     /// </summary>
     public const string AllowAnyPolicyName = "AllowAnyPolicy";
 
     /// <summary>
-    /// Web¶Ë
+    /// Webç«¯
     /// </summary>
     public const string WebName = "web";
 }

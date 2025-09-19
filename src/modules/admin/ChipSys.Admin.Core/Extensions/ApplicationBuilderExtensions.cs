@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+ï»¿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using ChipSys.Admin.Core.Configs;
@@ -8,7 +8,7 @@ namespace ChipSys.Admin.Core.Extensions;
 public static class ApplicationBuilderExtensions
 {
     /// <summary>
-    /// Ê¹ÓÃ¶àÓïÑÔ
+    /// ä½¿ç”¨å¤šè¯­è¨€
     /// </summary>
     /// <param name="app"></param>
     /// <returns></returns>
@@ -16,7 +16,7 @@ public static class ApplicationBuilderExtensions
     {
         var langConfig = app.ApplicationServices.GetService<AppConfig>().Lang;
 
-        //¶àÓïÑÔ
+        //å¤šè¯­è¨€
         string[] cultures = langConfig!.Langs?.Length > 0 ? langConfig.Langs : ["zh-CN"];
         var options = new RequestLocalizationOptions()
             .AddSupportedCultures(cultures)
@@ -41,3 +41,4 @@ public static class ApplicationBuilderExtensions
         return app;
     }
 }
+

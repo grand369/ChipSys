@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -10,7 +10,7 @@ using StatusCodes = ChipSys.Admin.Core.Enums.StatusCodes;
 namespace ChipSys.Admin.Core.Handlers;
 
 /// <summary>
-/// ��Ӧ��֤������
+/// 响应认证处理器
 /// </summary>
 public class ResponseAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
 {

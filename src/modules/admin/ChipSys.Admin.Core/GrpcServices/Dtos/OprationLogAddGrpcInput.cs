@@ -1,33 +1,33 @@
-using ProtoBuf;
+ï»¿using ProtoBuf;
 
 namespace ChipSys.Admin.Core.GrpcServices.Dtos;
 
 /// <summary>
-/// ²Ù×÷ÈÕÖ¾
+/// æ“ä½œæ—¥å¿—
 /// </summary>
 [ProtoContract(ImplicitFields = ImplicitFields.None)]
 public class OperationLogAddGrpcInput
 {
     /// <summary>
-    /// ĞÕÃû
+    /// å§“å
     /// </summary>
     [ProtoMember(1)]
     public string Name { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚÃû³Æ
+    /// æ¥å£åç§°
     /// </summary>
     [ProtoMember(2)]
     public string ApiLabel { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚµØÖ·
+    /// æ¥å£åœ°å€
     /// </summary>
     [ProtoMember(3)]
     public string ApiPath { get; set; }
 
     /// <summary>
-    /// ½Ó¿ÚÌá½»·½·¨
+    /// æ¥å£æäº¤æ–¹æ³•
     /// </summary>
     [ProtoMember(4)]
     public string ApiMethod { get; set; }
@@ -39,109 +39,109 @@ public class OperationLogAddGrpcInput
     public string IP { get; set; }
 
     /// <summary>
-    /// ¹ú¼Ò
+    /// å›½å®¶
     /// </summary>
     [ProtoMember(6)]
     public string Country { get; set; }
 
     /// <summary>
-    /// Ê¡·İ
+    /// çœä»½
     /// </summary>
     [ProtoMember(7)]
     public string Province { get; set; }
 
     /// <summary>
-    /// ³ÇÊĞ
+    /// åŸå¸‚
     /// </summary>
     [ProtoMember(8)]
     public string City { get; set; }
 
     /// <summary>
-    /// ÍøÂç·şÎñÉÌ
+    /// ç½‘ç»œæœåŠ¡å•†
     /// </summary>
     [ProtoMember(9)]
     public string Isp { get; init; }
 
     /// <summary>
-    /// ä¯ÀÀÆ÷
+    /// æµè§ˆå™¨
     /// </summary>
     [ProtoMember(10)]
     public string Browser { get; set; }
 
     /// <summary>
-    /// ²Ù×÷ÏµÍ³
+    /// æ“ä½œç³»ç»Ÿ
     /// </summary>
     [ProtoMember(11)]
     public string Os { get; set; }
 
     /// <summary>
-    /// Éè±¸
+    /// è®¾å¤‡
     /// </summary>
     [ProtoMember(12)]
     public string Device { get; set; }
 
     /// <summary>
-    /// ä¯ÀÀÆ÷ĞÅÏ¢
+    /// æµè§ˆå™¨ä¿¡æ¯
     /// </summary>
     [ProtoMember(13)]
     public string BrowserInfo { get; set; }
 
     /// <summary>
-    /// ºÄÊ±£¨ºÁÃë£©
+    /// è€—æ—¶ï¼ˆæ¯«ç§’ï¼‰
     /// </summary>
     [ProtoMember(14)]
     public long ElapsedMilliseconds { get; set; }
 
     /// <summary>
-    /// ²Ù×÷×´Ì¬
+    /// æ“ä½œçŠ¶æ€
     /// </summary>
     [ProtoMember(15)]
     public bool? Status { get; set; }
 
     /// <summary>
-    /// ²Ù×÷ÏûÏ¢
+    /// æ“ä½œæ¶ˆæ¯
     /// </summary>
     [ProtoMember(16)]
     public string Msg { get; set; }
 
     /// <summary>
-    /// ²Ù×÷²ÎÊı
+    /// æ“ä½œå‚æ•°
     /// </summary>
     [ProtoMember(17)]
     public string Params { get; set; }
 
     /// <summary>
-    /// ×´Ì¬Âë
+    /// çŠ¶æ€ç 
     /// </summary>
     [ProtoMember(18)]
     public int? StatusCode { get; set; }
 
     /// <summary>
-    /// ²Ù×÷½á¹û
+    /// æ“ä½œç»“æœ
     /// </summary>
     [ProtoMember(19)]
     public string Result { get; set; }
 
     /// <summary>
-    /// ×â»§Id
+    /// ç§Ÿæˆ·Id
     /// </summary>
     [ProtoMember(20)]
     public long? TenantId { get; set; }
 
     /// <summary>
-    /// ´´½¨ÕßÓÃ»§Id
+    /// åˆ›å»ºè€…ç”¨æˆ·Id
     /// </summary>
     [ProtoMember(21)]
     public long? CreatedUserId { get; set; }
 
     /// <summary>
-    /// ´´½¨ÕßÓÃ»§Ãû
+    /// åˆ›å»ºè€…ç”¨æˆ·å
     /// </summary>
     [ProtoMember(22)]
     public string CreatedUserName { get; set; }
 
     /// <summary>
-    /// ´´½¨ÕßĞÕÃû
+    /// åˆ›å»ºè€…å§“å
     /// </summary>
     [ProtoMember(23)]
     public string CreatedUserRealName { get; set; }

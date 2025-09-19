@@ -1,15 +1,15 @@
-using Microsoft.Extensions.DependencyInjection;
+ï»¿using Microsoft.Extensions.DependencyInjection;
 using ChipSys.Admin.Core.Configs;
 
 namespace ChipSys.Admin.Core.Extensions;
 
 /// <summary>
-/// ImÀ©Õ¹
+/// Imæ‰©å±•
 /// </summary>
 public static class ImExtensions
 {
     /// <summary>
-    /// Ìí¼ÓIm
+    /// æ·»åŠ Im
     /// </summary>
     /// <param name="services"></param>
     public static void AddIm(this IServiceCollection services)
@@ -30,12 +30,13 @@ public static class ImExtensions
         ImHelper.EventBus(
             t =>
             {
-                //Console.WriteLine(t.clientId + "ÉÏÏßÁË");
+                //Console.WriteLine(t.clientId + "ä¸Šçº¿äº†");
             },
             t =>
             {
-                //Console.WriteLine(t.clientId + "ÏÂÏßÁË");
+                //Console.WriteLine(t.clientId + "ä¸‹çº¿äº†");
             }
         );
     }
 }
+

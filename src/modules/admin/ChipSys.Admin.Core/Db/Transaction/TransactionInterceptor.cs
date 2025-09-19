@@ -1,9 +1,9 @@
-using Castle.DynamicProxy;
+ï»¿using Castle.DynamicProxy;
 
 namespace ChipSys.Admin.Core.Db.Transaction;
 
 /// <summary>
-/// ÊÂÎñÀ¹½ØÆ÷
+/// äº‹åŠ¡æ‹¦æˆªå™¨
 /// </summary>
 public class TransactionInterceptor : IInterceptor
 {

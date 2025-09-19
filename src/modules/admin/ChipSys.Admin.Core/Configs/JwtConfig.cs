@@ -1,32 +1,32 @@
-namespace ChipSys.Admin.Core.Configs;
+ï»¿namespace ChipSys.Admin.Core.Configs;
 
 /// <summary>
-/// JwtÅäÖÃ
+/// Jwté…ç½®
 /// </summary>
 public class JwtConfig
 {
     /// <summary>
-    /// ·¢ĞĞÕß
+    /// å‘è¡Œè€…
     /// </summary>
     public string Issuer { get; set; } = "admin.core";
 
     /// <summary>
-    /// ¶©ÔÄÕß
+    /// è®¢é˜…è€…
     /// </summary>
     public string Audience { get; set; } = "admin.core";
 
     /// <summary>
-    /// ÃÜÔ¿
+    /// å¯†é’¥
     /// </summary>
     public string SecurityKey { get; set; }
 
     /// <summary>
-    /// ÓĞĞ§ÆÚ(·ÖÖÓ)
+    /// æœ‰æ•ˆæœŸ(åˆ†é’Ÿ)
     /// </summary>
     public int Expires { get; set; } = 120;
 
     /// <summary>
-    /// Ë¢ĞÂÓĞĞ§ÆÚ(·ÖÖÓ)
+    /// åˆ·æ–°æœ‰æ•ˆæœŸ(åˆ†é’Ÿ)
     /// </summary>
     public int RefreshExpires { get; set; } = 480;
 }

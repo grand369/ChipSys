@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -258,3 +258,4 @@ public static class AppInfo
         GetService<IOptionsSnapshot<TOptions>>(serviceProvider, false)?.Value;
     #endregion
 }
+

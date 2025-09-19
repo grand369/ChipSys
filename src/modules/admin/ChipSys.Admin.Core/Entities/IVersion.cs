@@ -1,12 +1,12 @@
-namespace ChipSys.Admin.Core.Entities;
+锘縩amespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 版本接口
+/// 鐗堟湰鎺ュ彛
 /// </summary>
 public interface IVersion
 {
     /// <summary>
-    /// 数据版本
+    /// 鏁版嵁鐗堟湰
     /// </summary>
     long Version { get; set; }
 }

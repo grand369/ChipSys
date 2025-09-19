@@ -1,26 +1,26 @@
-namespace ChipSys.Admin.Core.Configs;
+﻿namespace ChipSys.Admin.Core.Configs;
 
 /// <summary>
-/// Զ�̹��̵�������
+/// 远程过程调用配置
 /// </summary>
 public class RpcConfig
 {
     public static class Models
     {
         /// <summary>
-        /// HttpԶ������
+        /// Http远程配置
         /// </summary>
         public class HttpModel
         {
             /// <summary>
-            /// ����
+            /// 启用
             /// </summary>
             public bool Enable { get; set; } = true;
 
             private string[] _assemblyNames;
 
             /// <summary>
-            /// ��������
+            /// 程序集名称
             /// </summary>
             public string[] AssemblyNames
             {
@@ -37,19 +37,19 @@ public class RpcConfig
         }
 
         /// <summary>
-        /// GrpcԶ������
+        /// Grpc远程配置
         /// </summary>
         public class GrpcModel
         {
             /// <summary>
-            /// ����
+            /// 启用
             /// </summary>
             public bool Enable { get; set; } = true;
 
             private string[] _assemblyNames;
 
             /// <summary>
-            /// ��������
+            /// 程序集名称
             /// </summary>
             public string[] AssemblyNames
             {
@@ -65,45 +65,45 @@ public class RpcConfig
             }
 
             /// <summary>
-            /// ����˳�������?
+            /// 服务端程序集名称
             /// </summary>
             public string[] ServerAssemblyNames { get; set; }
         }
 
         /// <summary>
-        /// ��ַ
+        /// 地址
         /// </summary>
         public class Endpoint
         {
             /// <summary>
-            /// ģ������
+            /// 模块命名
             /// </summary>
             public string Name { get; set; }
 
             /// <summary>
-            /// Http��ַ
+            /// Http地址
             /// </summary>
             public string HttpUrl { get; set; }
 
             /// <summary>
-            /// Grpc��ַ
+            /// Grpc地址
             /// </summary>
             public string GrpcUrl { get; set; }
         }
     }
 
     /// <summary>
-    /// HttpԶ������
+    /// Http远程配置
     /// </summary>
     public Models.HttpModel Http { get; set; } = new Models.HttpModel();
 
     /// <summary>
-    /// GrpcԶ������
+    /// Grpc远程配置
     /// </summary>
     public Models.GrpcModel Grpc { get; set; } = new Models.GrpcModel();
 
     /// <summary>
-    /// ��ַ�б�
+    /// 地址列表
     /// </summary>
     public List<Models.Endpoint> Endpoints { get; set; }
 }

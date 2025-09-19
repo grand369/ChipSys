@@ -1,17 +1,17 @@
-namespace ChipSys.Admin.Core.Enums;
+锘縩amespace ChipSys.Admin.Core.Enums;
 
 /// <summary>
-/// 接口版本
+/// 鎺ュ彛鐗堟湰
 /// </summary>
 public enum ApiVersion
 {
     /// <summary>
-    /// V1 版本
+    /// V1 鐗堟湰
     /// </summary>
     V1 = 1,
 
     /// <summary>
-    /// V2 版本
+    /// V2 鐗堟湰
     /// </summary>
     V2 = 2,
 }

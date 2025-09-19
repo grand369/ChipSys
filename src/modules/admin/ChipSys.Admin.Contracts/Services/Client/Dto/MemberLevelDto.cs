@@ -35,6 +35,12 @@ public class MemberLevelAddInput
     [StringLength(20, ErrorMessage = "会员等级长度不能超过20个字符")]
     public string Level { get; set; } = "Free";
     
+    /// <summary>
+    /// 等级显示名称
+    /// </summary>
+    [StringLength(50, ErrorMessage = "等级显示名称长度不能超过50个字符")]
+    public string LevelName { get; set; } = "免费会员";
+    
     [Range(0, int.MaxValue, ErrorMessage = "分类限制必须大于等于0")]
     public int CategoryLimit { get; set; } = 0;
     
@@ -47,6 +53,16 @@ public class MemberLevelAddInput
     public int SupplierDataLimit { get; set; } = 50;
     
     public bool ShowFullContactInfo { get; set; } = false;
+    
+    [Range(0, double.MaxValue, ErrorMessage = "原价必须大于等于0")]
+    public decimal OriginalPrice { get; set; } = 0;
+    
+    [Range(0, double.MaxValue, ErrorMessage = "折扣后价格必须大于等于0")]
+    public decimal DiscountedPrice { get; set; } = 0;
+    
+    [Range(0, 100, ErrorMessage = "折扣百分比必须在0-100之间")]
+    public decimal DiscountPercent { get; set; } = 0;
+    
     public bool Enabled { get; set; } = true;
     
     [Required(ErrorMessage = "生效时间不能为空")]

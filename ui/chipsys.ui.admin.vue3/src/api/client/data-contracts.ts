@@ -270,7 +270,8 @@ export interface MemberLevelGetPageOutput {
 export interface MemberLevelGetOutput {
   id: number
   memberId: number
-  level: number
+  level: string
+  levelName: string
   categoryLimit: number
   productDataLimit: number
   supplierDataLimit: number
@@ -282,6 +283,7 @@ export interface MemberLevelGetOutput {
 export interface MemberLevelAddInput {
   memberId?: number
   level: string
+  levelName: string
   categoryLimit: number
   productDataLimit: number
   supplierDataLimit: number
@@ -295,6 +297,7 @@ export interface MemberLevelUpdateInput {
   id: number
   memberId?: number
   level: string
+  levelName: string
   categoryLimit: number
   productDataLimit: number
   supplierDataLimit: number

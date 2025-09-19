@@ -1,4 +1,4 @@
-namespace FreeSql;
+﻿namespace FreeSql;
 
 /// <summary>
 /// FreeSqlCloud

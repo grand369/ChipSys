@@ -1,4 +1,4 @@
-namespace ChipSys.Admin.Core.Records;
+﻿namespace ChipSys.Admin.Core.Records;
 
 /// <summary>
 /// 位置信息
@@ -47,3 +47,4 @@ public record LocationInfo
         return new LocationInfo();
     }
 }
+

@@ -1,4 +1,4 @@
-using FreeSql.DataAnnotations;
+锘縰sing FreeSql.DataAnnotations;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 using ChipSys.Admin.Core.Attributes;
@@ -6,34 +6,34 @@ using ChipSys.Admin.Core.Attributes;
 namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 实体接口
+/// 瀹炰綋鎺ュ彛
 /// </summary>
 /// <typeparam name="TKey"></typeparam>
 public interface IEntity<TKey>
 {
     /// <summary>
-    /// 主键Id
+    /// 涓婚敭Id
     /// </summary>
     TKey Id { get; set; }
 }
 
 /// <summary>
-/// 实体接口
+/// 瀹炰綋鎺ュ彛
 /// </summary>
 public interface IEntity : IEntity<long>
 {
 }
 
 /// <summary>
-/// 实体
+/// 瀹炰綋
 /// </summary>
 /// <typeparam name="TKey"></typeparam>
 public class Entity<TKey> : IEntity<TKey>
 {
     /// <summary>
-    /// 主键Id
+    /// 涓婚敭Id
     /// </summary>
-    [Description("主键Id")]
+    [Description("涓婚敭Id")]
     [Snowflake]
     [Column(Position = 1, IsIdentity = false, IsPrimary = true)]
     [JsonPropertyOrder(-30)]
@@ -41,7 +41,7 @@ public class Entity<TKey> : IEntity<TKey>
 }
 
 /// <summary>
-/// 实体
+/// 瀹炰綋
 /// </summary>
 public class Entity : Entity<long>
 {

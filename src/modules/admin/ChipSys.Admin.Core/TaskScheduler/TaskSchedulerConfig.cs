@@ -1,4 +1,4 @@
-namespace ChipSys.Admin.Tools.TaskScheduler;
+﻿namespace ChipSys.Admin.Tools.TaskScheduler;
 
 /// <summary>
 /// 任务调度配置

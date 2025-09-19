@@ -1,4 +1,4 @@
-namespace ChipSys.Admin.Core.RegisterModules;
+﻿namespace ChipSys.Admin.Core.RegisterModules;
 
 /// <summary>
 /// 注册到第三方IOC容器

@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Http;
+ï»¿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -9,7 +9,7 @@ using ChipSys.Admin.Core.Dto;
 namespace ChipSys.Admin.Core.Filters;
 
 /// <summary>
-/// ÊäÈëÄ£ĞÍÑéÖ¤¹ıÂËÆ÷
+/// è¾“å…¥æ¨¡å‹éªŒè¯è¿‡æ»¤å™¨
 /// </summary>
 public class ValidateInputFilter : IAsyncActionFilter
 {
@@ -29,7 +29,7 @@ public class ValidateInputFilter : IAsyncActionFilter
                 .Select(m =>
                 {
                     var sb = new StringBuilder();
-                    sb.AppendFormat("{0}£º", m.Key);
+                    sb.AppendFormat("{0}ï¼š", m.Key);
                     sb.Append(m.Value.Errors.Select(n => n.ErrorMessage).Aggregate((x, y) => x + ";" + y));
                     return sb.ToString();
                 })

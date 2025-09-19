@@ -1,13 +1,13 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// Http½Ó¿Ú¿Í»§¶ËÆõÔ¼
+/// Httpæ¥å£å®¢æˆ·ç«¯å¥‘çº¦
 /// </summary>
 [AttributeUsage(AttributeTargets.Interface, Inherited = false, AllowMultiple = false)]
 public sealed class HttpClientContractAttribute: Attribute
 {
     /// <summary>
-    /// Ä£¿éÃû
+    /// æ¨¡å—å
     /// </summary>
     public string ModuleName { get; set; }
 

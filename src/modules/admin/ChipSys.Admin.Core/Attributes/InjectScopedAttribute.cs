@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ×÷ÓÃÓò×¢Èë
+/// ä½œç”¨åŸŸæ³¨å…¥
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Property)]
 public class InjectScopedAttribute : Attribute

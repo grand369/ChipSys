@@ -1,47 +1,47 @@
-namespace ChipSys.Admin.Core.Auth;
+ï»¿namespace ChipSys.Admin.Core.Auth;
 
 /// <summary>
-/// ClaimÊôĞÔ
+/// Claimå±æ€§
 /// </summary>
 public static class ClaimAttributes
 {
     /// <summary>
-    /// ÓÃ»§Id
+    /// ç”¨æˆ·Id
     /// </summary>
     public const string UserId = "uid";
 
     /// <summary>
-    /// ÓÃ»§Ãû
+    /// ç”¨æˆ·å
     /// </summary>
     public const string UserName = "un";
 
     /// <summary>
-    /// ĞÕÃû
+    /// å§“å
     /// </summary>
     public const string Name = "na";
 
     /// <summary>
-    /// Ë¢ĞÂÓĞĞ§ÆÚ
+    /// åˆ·æ–°æœ‰æ•ˆæœŸ
     /// </summary>
     public const string RefreshExpires = "re";
 
     /// <summary>
-    /// ÓÃ»§ÀàĞÍ
+    /// ç”¨æˆ·ç±»å‹
     /// </summary>
     public const string UserType = "ut";
 
     /// <summary>
-    /// ×â»§Id
+    /// ç§Ÿæˆ·Id
     /// </summary>
     public const string TenantId = "ti";
 
     /// <summary>
-    /// ×â»§ÀàĞÍ
+    /// ç§Ÿæˆ·ç±»å‹
     /// </summary>
     public const string TenantType = "tt";
 
     /// <summary>
-    /// Êı¾İ¿â×¢²á¼ü
+    /// æ•°æ®åº“æ³¨å†Œé”®
     /// </summary>
     public const string DbKey = "dk";
 }

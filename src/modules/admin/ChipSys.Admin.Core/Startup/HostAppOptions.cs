@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using FreeSql;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +8,7 @@ using ChipSys.Admin.Core.Configs;
 using ChipSys.DynamicApi;
 
 namespace ChipSys.Admin.Core.Startup;
+
 /// <summary>
 /// 宿主应用配置
 /// </summary>

@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+锘縰sing Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ChipSys.Admin.Core.Dto;
@@ -7,7 +7,7 @@ using ChipSys.DynamicApi.Attributes;
 namespace ChipSys.Admin.Core.Filters;
 
 /// <summary>
-/// 结果格式化过滤器
+/// 缁撴灉鏍煎紡鍖栬繃婊ゅ櫒
 /// </summary>
 public class FormatResultFilter : IAsyncActionFilter
 {

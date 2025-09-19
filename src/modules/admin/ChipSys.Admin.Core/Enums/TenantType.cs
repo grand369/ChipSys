@@ -1,17 +1,17 @@
-namespace ChipSys.Admin.Domain.Tenant;
+锘縩amespace ChipSys.Admin.Domain.Tenant;
 
 /// <summary>
-/// 租户类型
+/// 绉熸埛绫诲瀷
 /// </summary>
 public enum TenantType
 {
     /// <summary>
-    /// 平台
+    /// 骞冲彴
     /// </summary>
     Platform = 1,
 
     /// <summary>
-    /// 租户
+    /// 绉熸埛
     /// </summary>
     Tenant = 2
 }

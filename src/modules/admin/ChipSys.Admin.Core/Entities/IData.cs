@@ -1,22 +1,22 @@
-namespace ChipSys.Admin.Core.Entities;
+ï»¿namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// Êı¾İÈ¨ÏŞ½Ó¿Ú
+/// æ•°æ®æƒé™æ¥å£
 /// </summary>
 public interface IData
 {
     /// <summary>
-    /// ÓµÓĞÕßId
+    /// æ‹¥æœ‰è€…Id
     /// </summary>
     long? OwnerId { get; set; }
 
     /// <summary>
-    /// ÓµÓĞÕß²¿ÃÅId
+    /// æ‹¥æœ‰è€…éƒ¨é—¨Id
     /// </summary>
     long? OwnerOrgId { get; set; }
 
     /// <summary>
-    /// ÓµÓĞÕß²¿ÃÅÃû³Æ
+    /// æ‹¥æœ‰è€…éƒ¨é—¨åç§°
     /// </summary>
     string OwnerOrgName { get; set; }
 }

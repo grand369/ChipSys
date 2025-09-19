@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// É¨Ãè»º´æKeyÌØĞÔ
+/// æ‰«æç¼“å­˜Keyç‰¹æ€§
 /// </summary>
 [AttributeUsage(AttributeTargets.Class)]
 public class ScanCacheKeysAttribute : Attribute

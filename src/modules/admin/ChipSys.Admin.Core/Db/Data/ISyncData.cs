@@ -1,11 +1,12 @@
-using ChipSys.Admin.Core.Configs;
+锘縰sing ChipSys.Admin.Core.Configs;
 
 namespace ChipSys.Admin.Core.Db.Data;
 
 /// <summary>
-/// 同步数据接口
+/// 鍚屾鏁版嵁鎺ュ彛
 /// </summary>
 public interface ISyncData
 {
     Task SyncDataAsync(IFreeSql db, DbConfig dbConfig = null, AppConfig appConfig = null);
 }
+

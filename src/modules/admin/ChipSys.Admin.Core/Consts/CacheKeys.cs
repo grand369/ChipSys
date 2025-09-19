@@ -1,4 +1,4 @@
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using ChipSys.Admin.Core.Attributes;
 
 namespace ChipSys.Admin.Core.Consts;
@@ -81,7 +81,7 @@ public static partial class CacheKeys
     /// <returns></returns>
     public static string GetDataPermissionKey(long userId, string apiPath = null)
     {
-        if (apiPath.IsNull())
+        if(apiPath.IsNull())
         {
             apiPath = AppInfo.CurrentDataPermissionApiPath;
         }

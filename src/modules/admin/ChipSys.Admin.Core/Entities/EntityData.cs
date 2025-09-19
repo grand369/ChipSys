@@ -1,37 +1,37 @@
-using FreeSql.DataAnnotations;
+ï»¿using FreeSql.DataAnnotations;
 using System.ComponentModel;
 
 namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// ÊµÌåÊı¾İÈ¨ÏŞ
+/// å®ä½“æ•°æ®æƒé™
 /// </summary>
 public class EntityData<TKey> : EntityBase<TKey>, IData where TKey : struct
 {
     /// <summary>
-    /// ÓµÓĞÕßId
+    /// æ‹¥æœ‰è€…Id
     /// </summary>
-    [Description("ÓµÓĞÕßId")]
+    [Description("æ‹¥æœ‰è€…Id")]
     [Column(Position = -42)]
     public virtual long? OwnerId { get; set; }
 
     /// <summary>
-    /// ÓµÓĞÕß²¿ÃÅId
+    /// æ‹¥æœ‰è€…éƒ¨é—¨Id
     /// </summary>
-    [Description("ÓµÓĞÕß²¿ÃÅId")]
+    [Description("æ‹¥æœ‰è€…éƒ¨é—¨Id")]
     [Column(Position = -41)]
     public virtual long? OwnerOrgId { get; set; }
 
     /// <summary>
-    /// ÓµÓĞÕß²¿ÃÅÃû³Æ
+    /// æ‹¥æœ‰è€…éƒ¨é—¨åç§°
     /// </summary>
-    [Description("ÓµÓĞÕß²¿ÃÅÃû³Æ")]
+    [Description("æ‹¥æœ‰è€…éƒ¨é—¨åç§°")]
     [Column(Position = -40)]
     public virtual string? OwnerOrgName { get; set; }
 }
 
 /// <summary>
-/// ÊµÌåÊı¾İÈ¨ÏŞ
+/// å®ä½“æ•°æ®æƒé™
 /// </summary>
 public class EntityData : EntityData<long>
 {

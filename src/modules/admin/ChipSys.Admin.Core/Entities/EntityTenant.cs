@@ -1,25 +1,25 @@
-using FreeSql.DataAnnotations;
+锘縰sing FreeSql.DataAnnotations;
 using System.ComponentModel;
 using System.Text.Json.Serialization;
 
 namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 实体租户
+/// 瀹炰綋绉熸埛
 /// </summary>
 public class EntityTenant<TKey> : EntityBase<TKey>, ITenant where TKey : struct
 {
     /// <summary>
-    /// 租户Id
+    /// 绉熸埛Id
     /// </summary>
-    [Description("租户Id")]
+    [Description("绉熸埛Id")]
     [Column(Position = 2, CanUpdate = false)]
     [JsonPropertyOrder(-20)]
     public virtual long? TenantId { get; set; }
 }
 
 /// <summary>
-/// 实体租户
+/// 瀹炰綋绉熸埛
 /// </summary>
 public class EntityTenant : EntityTenant<long>
 {

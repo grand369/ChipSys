@@ -1,13 +1,13 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// Êı¾İ¿â
+/// æ•°æ®åº“
 /// </summary>
 [AttributeUsage(AttributeTargets.Class, AllowMultiple = true, Inherited = true)]
 public class DatabaseAttribute : Attribute
 {
     /// <summary>
-    /// Êı¾İ¿âÃû³Æ
+    /// æ•°æ®åº“åç§°
     /// </summary>
     public string Name { get; set; }
 

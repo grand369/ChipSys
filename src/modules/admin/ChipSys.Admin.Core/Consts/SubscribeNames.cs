@@ -1,51 +1,51 @@
-using System.ComponentModel;
+ï»¿using System.ComponentModel;
 
 namespace ChipSys.Admin.Core.Consts;
 
 /// <summary>
-/// ¶©ÔÄÃû
+/// è®¢é˜…å
 /// </summary>
 public class SubscribeNames
 {
     /// <summary>
-    /// ¶ÌĞÅµ¥·¢
+    /// çŸ­ä¿¡å•å‘
     /// </summary>
-    [Description("¶ÌĞÅµ¥·¢")]
+    [Description("çŸ­ä¿¡å•å‘")]
     public const string SmsSingleSend = "ChipSys.Admin.sms:singleSend";
 
     /// <summary>
-    /// ¶ÌĞÅÑéÖ¤Âë·¢ËÍ
+    /// çŸ­ä¿¡éªŒè¯ç å‘é€
     /// </summary>
-    [Description("¶ÌĞÅÑéÖ¤Âë·¢ËÍ")]
+    [Description("çŸ­ä¿¡éªŒè¯ç å‘é€")]
     public const string SmsSendCode = "ChipSys.Admin.sms:sendCode";
 
     /// <summary>
-    /// ÓÊ¼şµ¥·¢
+    /// é‚®ä»¶å•å‘
     /// </summary>
-    [Description("ÓÊ¼şµ¥·¢")]
+    [Description("é‚®ä»¶å•å‘")]
     public const string EmailSingleSend = "ChipSys.Admin.email:singleSend";
 
     /// <summary>
-    /// ÓÊÏäÑéÖ¤Âë·¢ËÍ
+    /// é‚®ç®±éªŒè¯ç å‘é€
     /// </summary>
-    [Description("ÓÊÏäÑéÖ¤Âë·¢ËÍ")]
+    [Description("é‚®ç®±éªŒè¯ç å‘é€")]
     public const string EmailSendCode = "ChipSys.Admin.email:sendCode";
 
     /// <summary>
-    /// ÓÃ»§²¿ÃÅ×ªÒÆ
+    /// ç”¨æˆ·éƒ¨é—¨è½¬ç§»
     /// </summary>
-    [Description("ÓÃ»§²¿ÃÅ×ªÒÆ")]
+    [Description("ç”¨æˆ·éƒ¨é—¨è½¬ç§»")]
     public const string UserOrgChange = "ChipSys.Admin.user.orgChange";
 
     /// <summary>
-    /// µÇÂ¼ÈÕÖ¾Ìí¼Ó
+    /// ç™»å½•æ—¥å¿—æ·»åŠ 
     /// </summary>
-    [Description("µÇÂ¼ÈÕÖ¾Ìí¼Ó")]
+    [Description("ç™»å½•æ—¥å¿—æ·»åŠ ")]
     public const string LoginLogAdd = "ChipSys.Admin.loginLog.add";
 
     /// <summary>
-    /// ²Ù×÷ÈÕÖ¾Ìí¼Ó
+    /// æ“ä½œæ—¥å¿—æ·»åŠ 
     /// </summary>
-    [Description("²Ù×÷ÈÕÖ¾Ìí¼Ó")]
+    [Description("æ“ä½œæ—¥å¿—æ·»åŠ ")]
     public const string OperationLogAdd = "ChipSys.Admin.operationLog.add";
 }

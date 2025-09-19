@@ -1,12 +1,12 @@
-namespace ChipSys.Admin.Core.Entities;
+锘縩amespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 租户接口
+/// 绉熸埛鎺ュ彛
 /// </summary>
 public interface ITenant
 {
     /// <summary>
-    /// 租户Id
+    /// 绉熸埛Id
     /// </summary>
     long? TenantId { get; set; }
 }

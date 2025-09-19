@@ -1,4 +1,4 @@
-using StackExchange.Profiling;
+ï»¿using StackExchange.Profiling;
 using System.Reflection;
 using FreeSql;
 using FreeSql.Aop;
@@ -18,24 +18,24 @@ using ChipSys.Admin.Domain.User;
 namespace ChipSys.Admin.Core.Db;
 
 /// <summary>
-/// Êı¾İ¿â°ïÖúÀà
+/// æ•°æ®åº“å¸®åŠ©ç±»
 /// </summary>
 public class DbHelper
 {
     /// <summary>
-    /// Æ«ÒÆÊ±¼ä
+    /// åç§»æ—¶é—´
     /// </summary>
     private static TimeSpan timeOffset;
 
     public static TimeSpan TimeOffset { get => timeOffset; set => timeOffset = value; }
 
     /// <summary>
-    /// Êı¾İ¿âÊ±¼ä
+    /// æ•°æ®åº“æ—¶é—´
     /// </summary>
     public static DateTime ServerTime => DateTime.Now.Subtract(timeOffset);
 
     /// <summary>
-    /// ´´½¨Êı¾İ¿â
+    /// åˆ›å»ºæ•°æ®åº“
     /// </summary>
     /// <param name="dbConfig"></param>
     /// <returns></returns>
@@ -73,7 +73,7 @@ public class DbHelper
     }
 
     /// <summary>
-    /// »ñµÃÖ¸¶¨³ÌĞò¼¯±íÊµÌå
+    /// è·å¾—æŒ‡å®šç¨‹åºé›†è¡¨å®ä½“
     /// </summary>
     /// <param name="dbConfig"></param>
     /// <returns></returns>
@@ -99,7 +99,7 @@ public class DbHelper
             var types = assembly.GetExportedTypes()
            .Where(type => type.GetCustomAttribute<TableAttribute>() is { DisableSyncStructure: false });
 
-            // Ó¦ÓÃÊı¾İ¿âÉ¸Ñ¡Âß¼­£¨ÅÅ³ıÓÅÏÈ£©
+            // åº”ç”¨æ•°æ®åº“ç­›é€‰é€»è¾‘ï¼ˆæ’é™¤ä¼˜å…ˆï¼‰
             if (dbConfig.ExcludeEntityDbs?.Length > 0 || dbConfig.IncludeEntityDbs?.Length > 0)
             {
                 types = types.Where(type =>
@@ -107,22 +107,22 @@ public class DbHelper
                     var dbAttr = type.GetCustomAttribute<DatabaseAttribute>();
                     var dbName = dbAttr?.Name;
 
-                    // 1. ÏÈÖ´ĞĞÅÅ³ı¼ì²é
+                    // 1. å…ˆæ‰§è¡Œæ’é™¤æ£€æŸ¥
                     if (dbConfig.ExcludeEntityDbs?.Length > 0 && dbName != null)
                     {
                         if (dbConfig.ExcludeEntityDbs.Contains(dbName))
                         {
-                            return false; // ±»ÅÅ³ıµÄÊµÌåÖ±½Ó¹ıÂËµô
+                            return false; // è¢«æ’é™¤çš„å®ä½“ç›´æ¥è¿‡æ»¤æ‰
                         }
                     }
 
-                    // 2. ÔÙÖ´ĞĞ°üº¬¼ì²é
+                    // 2. å†æ‰§è¡ŒåŒ…å«æ£€æŸ¥
                     if (dbConfig.IncludeEntityDbs?.Length > 0)
                     {
                         return dbName != null && dbConfig.IncludeEntityDbs.Contains(dbName);
                     }
 
-                    return true; // ¼ÈÃ»ÓĞÅÅ³ıÒ²²»Ğè°üº¬µÄÊµÌå±£Áô
+                    return true; // æ—¢æ²¡æœ‰æ’é™¤ä¹Ÿä¸éœ€åŒ…å«çš„å®ä½“ä¿ç•™
                 });
             }
 
@@ -133,20 +133,20 @@ public class DbHelper
     }
 
     /// <summary>
-    /// ÅäÖÃÊµÌå
+    /// é…ç½®å®ä½“
     /// </summary>
     /// <param name="db"></param>
     /// <param name="appConfig"></param>
     /// <param name="dbConfig"></param>
     public static void ConfigEntity(IFreeSql db, AppConfig appConfig = null, DbConfig dbConfig = null)
     {
-        //×â»§Éú³ÉºÍ²Ù×÷×â»§Id
+        //ç§Ÿæˆ·ç”Ÿæˆå’Œæ“ä½œç§Ÿæˆ·Id
         if (!appConfig.Tenant)
         {
             var iTenant = nameof(ITenant);
             var tenantId = nameof(ITenant.TenantId);
 
-            //»ñµÃÖ¸¶¨³ÌĞò¼¯±íÊµÌå
+            //è·å¾—æŒ‡å®šç¨‹åºé›†è¡¨å®ä½“
             var entityTypes = GetEntityTypes(dbConfig);
 
             var tenantEntities = entityTypes?
@@ -164,7 +164,7 @@ public class DbHelper
     }
 
     /// <summary>
-    /// Éó¼ÆÊı¾İ
+    /// å®¡è®¡æ•°æ®
     /// </summary>
     /// <param name="e"></param>
     /// <param name="timeOffset"></param>
@@ -177,7 +177,7 @@ public class DbHelper
             return;
         }
 
-        //Êı¾İ¿âÊ±¼ä
+        //æ•°æ®åº“æ—¶é—´
         if ((e.Column.CsType == typeof(DateTime) || e.Column.CsType == typeof(DateTime?))
         && e.Property.GetCustomAttribute<ServerTimeAttribute>(false) is ServerTimeAttribute serverTimeAttribute)
         {
@@ -192,7 +192,7 @@ public class DbHelper
             }
         }
 
-        //Ñ©»¨Id
+        //é›ªèŠ±Id
         if (e.Column.CsType == typeof(long)
         && e.Property.GetCustomAttribute<SnowflakeAttribute>(false) is SnowflakeAttribute snowflakeAttribute
         && snowflakeAttribute.Enable && (e.Value == null || (long)e.Value == default || (long?)e.Value == default))
@@ -200,7 +200,7 @@ public class DbHelper
             e.Value = YitIdHelper.NextId();
         }
 
-        //ÓĞĞòGuid
+        //æœ‰åºGuid
         if (e.Column.CsType == typeof(Guid)
         && e.Property.GetCustomAttribute<OrderGuidAttribute>(false) is OrderGuidAttribute orderGuidAttribute
         && orderGuidAttribute.Enable && (e.Value == null || (Guid)e.Value == default || (Guid?)e.Value == default))
@@ -284,7 +284,7 @@ public class DbHelper
     }
 
     /// <summary>
-    /// Í¬²½½á¹¹
+    /// åŒæ­¥ç»“æ„
     /// </summary>
     /// <param name="db"></param>
     /// <param name="msg"></param>
@@ -294,21 +294,21 @@ public class DbHelper
         DbConfig dbConfig = null, 
         Action<IFreeSql, DbConfig> configureFreeSqlSyncStructure = null)
     {
-        //´òÓ¡½á¹¹±È¶Ô½Å±¾
+        //æ‰“å°ç»“æ„æ¯”å¯¹è„šæœ¬
         //var dDL = db.CodeFirst.GetComparisonDDLStatements<PermissionEntity>();
         //Console.WriteLine($"{Environment.NewLine}" + dDL);
 
-        //´òÓ¡½á¹¹Í¬²½½Å±¾
+        //æ‰“å°ç»“æ„åŒæ­¥è„šæœ¬
         if (dbConfig.SyncStructureSql)
         {
             db.Aop.SyncStructureAfter += SyncStructureAfter;
         }
 
-        // Í¬²½½á¹¹
+        // åŒæ­¥ç»“æ„
         var dbType = dbConfig.Type.ToString();
         Console.WriteLine($"{Environment.NewLine}{(msg.NotNull() ? msg : $"sync {dbConfig.Key} {dbType} structure")} started");
 
-        //»ñµÃÖ¸¶¨³ÌĞò¼¯±íÊµÌå
+        //è·å¾—æŒ‡å®šç¨‹åºé›†è¡¨å®ä½“
         var entityTypes = GetEntityTypes(dbConfig);
 
         var batchSize = dbConfig.SyncStructureEntityBatchSize;
@@ -333,7 +333,7 @@ public class DbHelper
             }
         }
 
-        //×Ô¶¨ÒåÇ¨ÒÆ½á¹¹
+        //è‡ªå®šä¹‰è¿ç§»ç»“æ„
         configureFreeSqlSyncStructure?.Invoke(db, dbConfig);
 
         if (dbConfig.SyncStructureSql)
@@ -353,7 +353,7 @@ public class DbHelper
     }
 
     /// <summary>
-    /// Í¬²½Êı¾İ
+    /// åŒæ­¥æ•°æ®
     /// </summary>
     /// <param name="db"></param>
     /// <param name="dbConfig"></param>
@@ -374,7 +374,7 @@ public class DbHelper
             {
                 var user = dbConfig.SyncDataUser;
 
-                // Í¬²½Êı¾İÉó¼Æ·½·¨
+                // åŒæ­¥æ•°æ®å®¡è®¡æ–¹æ³•
                 void SyncDataAuditValue(object s, AuditValueEventArgs e)
                 {
                     if (e.Property == null)
@@ -501,7 +501,7 @@ public class DbHelper
     }
 
     /// <summary>
-    /// Éú³ÉÊı¾İ
+    /// ç”Ÿæˆæ•°æ®
     /// </summary>
     /// <param name="db"></param>
     /// <param name="appConfig"></param>
@@ -532,12 +532,12 @@ public class DbHelper
         }
         catch (Exception ex)
         {
-            throw new Exception($"generate {dbConfig.Key} data failed¡£\n{ex.Message}{Environment.NewLine}");
+            throw new Exception($"generate {dbConfig.Key} data failedã€‚\n{ex.Message}{Environment.NewLine}");
         }
     }
 
     /// <summary>
-    /// ×¢²áÊı¾İ¿â
+    /// æ³¨å†Œæ•°æ®åº“
     /// </summary>
     /// <param name="freeSqlCloud"></param>
     /// <param name="user"></param>
@@ -552,11 +552,11 @@ public class DbHelper
         HostAppOptions hostAppOptions
     )
     {
-        //×¢²áÊı¾İ¿â
+        //æ³¨å†Œæ•°æ®åº“
         var idelTime = dbConfig.IdleTime.HasValue && dbConfig.IdleTime.Value > 0 ? TimeSpan.FromMinutes(dbConfig.IdleTime.Value) : TimeSpan.MaxValue;
         freeSqlCloud.Register(dbConfig.Key, () =>
         {
-            //´´½¨Êı¾İ¿â
+            //åˆ›å»ºæ•°æ®åº“
             if (dbConfig.CreateDb)
             {
                 CreateDatabaseAsync(dbConfig).Wait();
@@ -576,7 +576,7 @@ public class DbHelper
                 freeSqlBuilder.UseSlave(slaveList).UseSlaveWeight(slaveWeightList);
             }
 
-            #region ¼àÌıËùÓĞÃüÁî
+            #region ç›‘å¬æ‰€æœ‰å‘½ä»¤
 
             if (dbConfig.MonitorCommand)
             {
@@ -587,7 +587,7 @@ public class DbHelper
                 });
             }
 
-            #endregion ¼àÌıËùÓĞÃüÁî
+            #endregion ç›‘å¬æ‰€æœ‰å‘½ä»¤
 
             hostAppOptions?.ConfigureFreeSqlBuilder?.Invoke(freeSqlBuilder, dbConfig);
 
@@ -595,13 +595,13 @@ public class DbHelper
 
             hostAppOptions?.ConfigurePreFreeSql?.Invoke(fsql, dbConfig);
 
-            //Éú³ÉÊı¾İ
+            //ç”Ÿæˆæ•°æ®
             if (dbConfig.GenerateData && !dbConfig.CreateDb && !dbConfig.SyncData)
             {
                 GenerateDataAsync(fsql, appConfig, dbConfig).Wait();
             }
 
-            //¼ÆËã·şÎñÆ÷Ê±¼ä
+            //è®¡ç®—æœåŠ¡å™¨æ—¶é—´
             var serverTime = fsql.Ado.QuerySingle(() => DateTime.UtcNow);
             var timeOffset = DateTime.UtcNow.Subtract(serverTime);
             TimeOffset = timeOffset;
@@ -611,39 +611,39 @@ public class DbHelper
                 fsql.CodeFirst.IsSyncStructureToUpper = true;
             }
 
-            //ÅäÖÃÊµÌå
+            //é…ç½®å®ä½“
             ConfigEntity(fsql, appConfig, dbConfig);
 
-            //Í¬²½½á¹¹
+            //åŒæ­¥ç»“æ„
             if (dbConfig.SyncStructure)
             {
                 SyncStructure(fsql, dbConfig: dbConfig, configureFreeSqlSyncStructure: hostAppOptions?.ConfigureFreeSqlSyncStructure);
             }
 
-            //Í¬²½Êı¾İ
+            //åŒæ­¥æ•°æ®
             if (dbConfig.SyncData)
             {
                 SyncDataAsync(fsql, dbConfig, appConfig).Wait();
             }
 
-            //Éó¼ÆÊı¾İ
+            //å®¡è®¡æ•°æ®
             fsql.Aop.AuditValue += (s, e) =>
             {
                 AuditValue(e, timeOffset, user, dbConfig);
             };
 
-            #region ¹ıÂËÆ÷
+            #region è¿‡æ»¤å™¨
 
-            //ÈíÉ¾³ı¹ıÂËÆ÷
+            //è½¯åˆ é™¤è¿‡æ»¤å™¨
             fsql.GlobalFilter.ApplyOnly<IDelete>(FilterNames.Delete, a => a.IsDeleted == false);
 
-            //×â»§¹ıÂËÆ÷
+            //ç§Ÿæˆ·è¿‡æ»¤å™¨
             if (appConfig.Tenant)
             {
                 fsql.GlobalFilter.ApplyOnly<ITenant>(FilterNames.Tenant, a => a.TenantId == user.TenantId);
             }
 
-            //»áÔ±¹ıÂËÆ÷
+            //ä¼šå‘˜è¿‡æ»¤å™¨
             fsql.GlobalFilter.ApplyOnlyIf<IMember>(FilterNames.Member,
                 () =>
                 {
@@ -656,7 +656,7 @@ public class DbHelper
                 a => a.MemberId == user.Id
             );
 
-            //Êı¾İÈ¨ÏŞ¹ıÂËÆ÷
+            //æ•°æ®æƒé™è¿‡æ»¤å™¨
             fsql.GlobalFilter.ApplyOnlyIf<IData>(FilterNames.Self,
                 () =>
                 {
@@ -684,7 +684,7 @@ public class DbHelper
 
             #endregion
 
-            #region ¼àÌıCurd²Ù×÷
+            #region ç›‘å¬Curdæ“ä½œ
 
             if (dbConfig.Curd)
             {
@@ -705,7 +705,7 @@ public class DbHelper
                 };
             }
 
-            #endregion ¼àÌıCurd²Ù×÷
+            #endregion ç›‘å¬Curdæ“ä½œ
 
             hostAppOptions?.ConfigureFreeSql?.Invoke(fsql, dbConfig);
 

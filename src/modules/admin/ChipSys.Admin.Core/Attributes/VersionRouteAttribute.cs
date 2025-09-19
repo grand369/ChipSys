@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
+ï»¿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using ChipSys.Admin.Core.Enums;
 
 namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ×Ô¶¨ÒåÂ·ÓÉ /api/{version}/[area]/[controler]/[action]
+/// è‡ªå®šä¹‰è·¯ç”± /api/{version}/[area]/[controler]/[action]
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true, Inherited = true)]
 public class VersionRouteAttribute : RouteAttribute, IApiDescriptionGroupNameProvider

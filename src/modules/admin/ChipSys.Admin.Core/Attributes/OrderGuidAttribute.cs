@@ -1,7 +1,7 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ÅÅĞòGuidÌØĞÔ
+/// æ’åºGuidç‰¹æ€§
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
 public class OrderGuidAttribute : Attribute

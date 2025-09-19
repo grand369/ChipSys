@@ -1,18 +1,18 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ·şÎñ¶ËÊ±¼ä
+/// æœåŠ¡ç«¯æ—¶é—´
 /// </summary>
 [AttributeUsage(AttributeTargets.Property)]
 public class ServerTimeAttribute : Attribute
 {
     /// <summary>
-    /// ¸üĞÂÉèÖÃ¸Ã×Ö¶Î·şÎñÆ÷¶ËÊ±¼ä£¬Ä¬ÈÏÖµfalse£¬Ö¸¶¨Îªtrue¸üĞÂÊ±ÉèÖÃ
+    /// æ›´æ–°è®¾ç½®è¯¥å­—æ®µæœåŠ¡å™¨ç«¯æ—¶é—´ï¼Œé»˜è®¤å€¼falseï¼ŒæŒ‡å®šä¸ºtrueæ›´æ–°æ—¶è®¾ç½®
     /// </summary>
     public bool CanUpdate { get; set; } = false;
 
     /// <summary>
-    /// ²åÈëÉèÖÃ¸Ã×Ö¶Î·şÎñÆ÷¶ËÊ±¼ä£¬Ä¬ÈÏÖµtrue£¬Ö¸¶¨Îªfalse²åÈëÊ±²»ÉèÖÃ
+    /// æ’å…¥è®¾ç½®è¯¥å­—æ®µæœåŠ¡å™¨ç«¯æ—¶é—´ï¼Œé»˜è®¤å€¼trueï¼ŒæŒ‡å®šä¸ºfalseæ’å…¥æ—¶ä¸è®¾ç½®
     /// </summary>
     public bool CanInsert { get; set; } = true;
 }

@@ -1,32 +1,33 @@
-namespace ChipSys.Admin.Domain.Role;
+ï»¿namespace ChipSys.Admin.Domain.Role;
 
 /// <summary>
-/// Êı¾İ·¶Î§
+/// æ•°æ®èŒƒå›´
 /// </summary>
 public enum DataScope
 {
     /// <summary>
-    /// È«²¿
+    /// å…¨éƒ¨
     /// </summary>
     All = 1,
 
     /// <summary>
-    /// ±¾²¿ÃÅºÍÏÂ¼¶²¿ÃÅ
+    /// æœ¬éƒ¨é—¨å’Œä¸‹çº§éƒ¨é—¨
     /// </summary>
     DeptWithChild = 2,
 
     /// <summary>
-    /// ±¾²¿ÃÅ
+    /// æœ¬éƒ¨é—¨
     /// </summary>
     Dept = 3,
 
     /// <summary>
-    /// ±¾ÈËÊı¾İ
+    /// æœ¬äººæ•°æ®
     /// </summary>
     Self = 4,
 
     /// <summary>
-    /// Ö¸¶¨²¿ÃÅ
+    /// æŒ‡å®šéƒ¨é—¨
     /// </summary>
     Custom = 5
 }
+

@@ -1,18 +1,18 @@
-namespace ChipSys.Admin.Core.Attributes;
+ï»¿namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// SchemaIdÌØĞÔ
+/// SchemaIdç‰¹æ€§
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, Inherited = true)]
 public class SchemaIdAttribute : Attribute
 {
     /// <summary>
-    /// Ç°×º
+    /// å‰ç¼€
     /// </summary>
     public string Prefix { get; set; }
 
     /// <summary>
-    /// ºó×º
+    /// åç¼€
     /// </summary>
     public string Suffix { get; set; }
 

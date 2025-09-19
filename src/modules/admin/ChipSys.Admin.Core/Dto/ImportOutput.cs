@@ -1,22 +1,22 @@
-namespace ChipSys.Admin.Core.Dto;
+ï»¿namespace ChipSys.Admin.Core.Dto;
 
 /// <summary>
-/// µ¼ÈëĞÅÏ¢Êä³ö
+/// å¯¼å…¥ä¿¡æ¯è¾“å‡º
 /// </summary>
 public class ImportOutput
 {
     /// <summary>
-    /// Êı¾İ×ÜÊı
+    /// æ•°æ®æ€»æ•°
     /// </summary>
     public long Total { get; set; } = 0;
 
     /// <summary>
-    /// ĞÂÔöÊı
+    /// æ–°å¢æ•°
     /// </summary>
     public long InsertCount { get; set; } = 0;
 
     /// <summary>
-    /// ¸üĞÂÊı
+    /// æ›´æ–°æ•°
     /// </summary>
     public long UpdateCount { get; set; } = 0;
 }

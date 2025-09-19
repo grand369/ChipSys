@@ -11,15 +11,21 @@ namespace ChipSys.Client.Contracts.Domain.Client;
 public partial class MemberLevelEntity : EntityTenantWithData
 {
     /// <summary>
-    /// 会员用户Id
+    /// 会员用户Id（0表示等级模板）
     /// </summary>
     public long MemberId { get; set; }
 
     /// <summary>
-    /// 会员等级：Free-免费会员，Basic-基础版，Standard-标准版，Advanced-高级版，Enterprise-企业版
+    /// 等级名称：Free-免费会员，Basic-基础版，Standard-标准版，Premium-高级版，Enterprise-企业版
     /// </summary>
     [Column(StringLength = 20)]
     public string Level { get; set; } = "Free";
+
+    /// <summary>
+    /// 等级显示名称
+    /// </summary>
+    [Column(StringLength = 50)]
+    public string LevelName { get; set; } = "免费会员";
 
     /// <summary>
     /// 可查看的产品分类数量限制
@@ -40,6 +46,21 @@ public partial class MemberLevelEntity : EntityTenantWithData
     /// 是否显示完整联系人信息
     /// </summary>
     public bool ShowFullContactInfo { get; set; } = false;
+
+    /// <summary>
+    /// 等级原价（元）
+    /// </summary>
+    public decimal OriginalPrice { get; set; } = 0;
+
+    /// <summary>
+    /// 等级折扣后价格（元）
+    /// </summary>
+    public decimal DiscountedPrice { get; set; } = 0;
+
+    /// <summary>
+    /// 折扣百分比（0-100）
+    /// </summary>
+    public decimal DiscountPercent { get; set; } = 0;
 
     /// <summary>
     /// 等级生效时间

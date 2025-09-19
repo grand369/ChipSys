@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using System.Reflection;
 using ChipSys.Admin.Core.Attributes;
 using ChipSys.Admin.Core.Configs;

@@ -1,23 +1,23 @@
-using FreeSql.DataAnnotations;
+锘縰sing FreeSql.DataAnnotations;
 using System.ComponentModel;
 
 namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 实体版本
+/// 瀹炰綋鐗堟湰
 /// </summary>
 public class EntityVersion<TKey> : EntityBase<TKey>, IVersion where TKey : struct
 {
     /// <summary>
-    /// 版本
+    /// 鐗堟湰
     /// </summary>
-    [Description("版本")]
+    [Description("鐗堟湰")]
     [Column(Position = -30, IsVersion = true)]
     public virtual long Version { get; set; }
 }
 
 /// <summary>
-/// 实体版本
+/// 瀹炰綋鐗堟湰
 /// </summary>
 public class EntityVersion : EntityVersion<long>
 {

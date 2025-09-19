@@ -1,19 +1,19 @@
-using FreeSql.Internal.Model;
+锘縰sing FreeSql.Internal.Model;
 
 namespace ChipSys.Admin.Core.Dto;
 
 /// <summary>
-/// 查询信息输入
+/// 鏌ヨ淇℃伅杈撳叆
 /// </summary>
 public abstract class QueryInput
 {
     /// <summary>
-    /// 高级查询条件
+    /// 楂樼骇鏌ヨ鏉′欢
     /// </summary>
     public virtual DynamicFilterInfo DynamicFilter { get; set; } = null;
 
     /// <summary>
-    /// 排序列表
+    /// 鎺掑簭鍒楄〃
     /// </summary>
     public virtual List<SortInput>? SortList { get; set; }
 }

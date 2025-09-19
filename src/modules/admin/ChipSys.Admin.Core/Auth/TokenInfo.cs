@@ -1,14 +1,14 @@
-namespace ChipSys.Admin.Core.Auth;
+ï»¿namespace ChipSys.Admin.Core.Auth;
 
 /// <summary>
-/// ÁîÅÆĞÅÏ¢
+/// ä»¤ç‰Œä¿¡æ¯
 /// </summary>
 public class TokenInfo
 {
     private string _accessToken;
 
     /// <summary>
-    /// ·ÃÎÊÁîÅÆ
+    /// è®¿é—®ä»¤ç‰Œ
     /// </summary>
     public string AccessToken
     {
@@ -20,32 +20,33 @@ public class TokenInfo
     }
 
     /// <summary>
-    /// ·ÃÎÊÁîÅÆµÄ¹ıÆÚÊ±¼ä
+    /// è®¿é—®ä»¤ç‰Œçš„è¿‡æœŸæ—¶é—´
     /// </summary>
     public DateTime AccessTokenExpiresAt { get; set; }
 
     /// <summary>
-    /// ·ÃÎÊÁîÅÆµÄÉúÃüÖÜÆÚ£¨ÒÔÃëÎªµ¥Î»£©
+    /// è®¿é—®ä»¤ç‰Œçš„ç”Ÿå‘½å‘¨æœŸï¼ˆä»¥ç§’ä¸ºå•ä½ï¼‰
     /// </summary>
     public int AccessTokenLifeTime { get; set; }
 
     /// <summary>
-    /// Ë¢ĞÂÁîÅÆ
+    /// åˆ·æ–°ä»¤ç‰Œ
     /// </summary>
     public string RefreshToken { get; set; }
 
     /// <summary>
-    /// Ë¢ĞÂÁîÅÆµÄ¹ıÆÚÊ±¼ä
+    /// åˆ·æ–°ä»¤ç‰Œçš„è¿‡æœŸæ—¶é—´
     /// </summary>
     public DateTime RefreshTokenExpiresAt { get; set; }
 
     /// <summary>
-    /// Ë¢ĞÂÁîÅÆµÄÉúÃüÖÜÆÚ£¨ÒÔÃëÎªµ¥Î»£©
+    /// åˆ·æ–°ä»¤ç‰Œçš„ç”Ÿå‘½å‘¨æœŸï¼ˆä»¥ç§’ä¸ºå•ä½ï¼‰
     /// </summary>
     public int RefreshTokenLifeTime { get; set; }
 
     /// <summary>
-    /// ´´½¨ÁîÅÆĞÅÏ¢Ê±¼ä´Á
+    /// åˆ›å»ºä»¤ç‰Œä¿¡æ¯æ—¶é—´æˆ³
     /// </summary>
     public long Timestamp { get; set; }
 }
+

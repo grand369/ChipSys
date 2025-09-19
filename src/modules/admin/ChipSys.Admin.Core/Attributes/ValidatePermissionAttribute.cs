@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Authorization;
+ï»¿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -10,19 +10,19 @@ using ChipSys.Admin.Core.Handlers;
 namespace ChipSys.Admin.Core.Attributes;
 
 /// <summary>
-/// ÆôÓÃÈ¨ÏŞÑéÖ¤
+/// å¯ç”¨æƒé™éªŒè¯
 /// </summary>
 [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = true)]
 public class ValidatePermissionAttribute : AuthorizeAttribute, IAuthorizationFilter, IAsyncAuthorizationFilter
 {
     private async Task PermissionAuthorization(AuthorizationFilterContext context)
     {
-        //ÅÅ³ıÄäÃû·ÃÎÊ
+        //æ’é™¤åŒ¿åè®¿é—®
         if (context.ActionDescriptor.EndpointMetadata.Any(m => m.GetType() == typeof(AllowAnonymousAttribute)))
             return;
 
         var serviceProvider = context.HttpContext.RequestServices;
-        //µÇÂ¼ÑéÖ¤
+        //ç™»å½•éªŒè¯
         var user = serviceProvider.GetService<IUser>();
         if (user == null || !(user?.Id > 0))
         {
@@ -30,7 +30,7 @@ public class ValidatePermissionAttribute : AuthorizeAttribute, IAuthorizationFil
             return;
         }
 
-        //ÅÅ³ıµÇÂ¼½Ó¿Ú
+        //æ’é™¤ç™»å½•æ¥å£
         if (context.ActionDescriptor.EndpointMetadata.Any(m => m.GetType() == typeof(LoginAttribute)))
             return;
 
@@ -39,7 +39,7 @@ public class ValidatePermissionAttribute : AuthorizeAttribute, IAuthorizationFil
             return;
         }
 
-        //×Ô¶¨ÒåÈ¨ÏŞÑéÖ¤
+        //è‡ªå®šä¹‰æƒé™éªŒè¯
         var customPermissionHandler = serviceProvider.GetService<ICustomPermissionHandler>();
         if (customPermissionHandler != null)
         {
@@ -50,7 +50,7 @@ public class ValidatePermissionAttribute : AuthorizeAttribute, IAuthorizationFil
             }
         }
 
-        //È¨ÏŞÑéÖ¤
+        //æƒé™éªŒè¯
         if (serviceProvider.GetRequiredService<AppConfig>().Validate.Permission)
         {
             var apiAccess = context.HttpContext.GetEndpoint()?.Metadata?.GetMetadata<ApiAccessAttribute>();

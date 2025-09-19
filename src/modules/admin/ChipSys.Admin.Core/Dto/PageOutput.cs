@@ -1,17 +1,17 @@
-namespace ChipSys.Admin.Core.Dto;
+锘縩amespace ChipSys.Admin.Core.Dto;
 
 /// <summary>
-/// 分页信息输出
+/// 鍒嗛〉淇℃伅杈撳嚭
 /// </summary>
 public class PageOutput<T>
 {
     /// <summary>
-    /// 数据总数
+    /// 鏁版嵁鎬绘暟
     /// </summary>
     public long Total { get; set; } = 0;
 
     /// <summary>
-    /// 数据
+    /// 鏁版嵁
     /// </summary>
     public IList<T> List { get; set; }
 }

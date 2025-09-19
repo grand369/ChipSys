@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -6,6 +6,7 @@ using Microsoft.Extensions.Hosting;
 using System.Reflection;
 
 namespace ChipSys.Admin.Core;
+
 /// <summary>
 /// 应用基础信息
 /// </summary>
@@ -37,3 +38,4 @@ internal static class AppInfoBase
         ServiceProvider = app.Services;
     }
 }
+

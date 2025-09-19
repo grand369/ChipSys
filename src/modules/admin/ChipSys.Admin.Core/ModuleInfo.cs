@@ -1,4 +1,4 @@
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace ChipSys.Admin.Core;
 
@@ -17,3 +17,4 @@ public class ModuleInfo
     /// </summary>
     public Type LocalizerType { get; set; }
 }
+

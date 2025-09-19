@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Minio;
 using OnceMi.AspNetCore.OSS;
@@ -8,12 +8,12 @@ using OSSOptions = ChipSys.Admin.Core.Configs.OSSOptions;
 namespace ChipSys.Admin.Core.Extensions;
 
 /// <summary>
-/// OSS��չ
+/// OSS扩展
 /// </summary>
 public static class OSSExtensions
 {
     /// <summary>
-    /// �����洢Ͱ
+    /// 创建存储桶
     /// </summary>
     /// <param name="oSSServiceFactory"></param>
     /// <param name="oSSOptions"></param>
@@ -25,7 +25,7 @@ public static class OSSExtensions
             oSSService.CreateBucketAsync(oSSOptions.BucketName).Wait();
         }
 
-        //����Minio�洢ͰȨ��
+        //设置Minio存储桶权限
         if (oSSOptions.Provider == OSSProvider.Minio)
         {
             var bucketName = oSSOptions.BucketName;
@@ -39,9 +39,9 @@ public static class OSSExtensions
             }
 
             minioClient = minioClient.Build();
-            //�鿴�洢ͰȨ��
+            //查看存储桶权限
             //var policy = minioClient.GetPolicyAsync(new GetPolicyArgs().WithBucket(bucketName)).Result;
-            //���ô洢ͰȨ�ޣ��洢Ͱ�ڵ������ļ�����ͨ���������÷���
+            //设置存储桶权限，存储桶内的所有文件可以通过链接永久访问
             var policy = $@"{{""Version"":""2012-10-17"",""Statement"":[{{""Effect"":""Allow"",""Principal"":{{""AWS"":[""*""]}},""Action"":[""s3:GetBucketLocation""],""Resource"":[""arn:aws:s3:::{bucketName}""]}},{{""Effect"":""Allow"",""Principal"":{{""AWS"":[""*""]}},""Action"":[""s3:GetObject""],""Resource"":[""arn:aws:s3:::{bucketName}/*.*""]}}]}}";
             var setPolicyArgs = new SetPolicyArgs().WithBucket(bucketName).WithPolicy(policy);
             minioClient.SetPolicyAsync(setPolicyArgs).Wait();
@@ -49,7 +49,7 @@ public static class OSSExtensions
     }
 
     /// <summary>
-    /// ����OSS
+    /// 添加OSS
     /// </summary>
     /// <param name="services"></param>
     /// <returns></returns>
@@ -81,7 +81,7 @@ public static class OSSExtensions
         }
         else
         {
-            //δ����OSSע��
+            //未启用OSS注入
             services.AddOSSService(option =>
             {
                 option.Provider = OSSProvider.Invalid;
@@ -91,3 +91,4 @@ public static class OSSExtensions
         return services;
     }
 }
+

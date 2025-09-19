@@ -1,4 +1,4 @@
-using Grpc.Net.Client.Configuration;
+ï»¿using Grpc.Net.Client.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
@@ -12,12 +12,12 @@ using ChipSys.Admin.Core.Configs;
 namespace Microsoft.Extensions.DependencyInjection;
 
 /// <summary>
-/// GrpcÀ©Õ¹
+/// Grpcæ‰©å±•
 /// </summary>
 public static class GrpcExtensions
 {
     /// <summary>
-    /// Ìí¼ÓGrpc¿Í»§¶Ë
+    /// æ·»åŠ Grpcå®¢æˆ·ç«¯
     /// </summary>
     /// <param name="services"></param>
     /// <param name="assemblies"></param>
@@ -48,7 +48,7 @@ public static class GrpcExtensions
     }
 
     /// <summary>
-    /// Ìí¼ÓCodeFirstGrpc¿Í»§¶Ë
+    /// æ·»åŠ CodeFirstGrpcå®¢æˆ·ç«¯
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="services"></param>
@@ -109,7 +109,7 @@ public static class GrpcExtensions
     }
 
     /// <summary>
-    /// Ê¹ÓÃGrpc·şÎñ
+    /// ä½¿ç”¨GrpcæœåŠ¡
     /// </summary>
     /// <param name="endpointRouteBuilder"></param>
     /// <param name="assemblies"></param>
@@ -139,3 +139,4 @@ public static class GrpcExtensions
         return endpointRouteBuilder;
     }
 }
+

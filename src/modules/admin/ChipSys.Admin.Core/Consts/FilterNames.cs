@@ -1,39 +1,39 @@
-using System.ComponentModel;
+锘縰sing System.ComponentModel;
 
 namespace ChipSys.Admin.Core.Consts;
 
 /// <summary>
-/// 全局过滤器名
+/// 鍏ㄥ眬杩囨护鍣ㄥ悕
 /// </summary>
 public static partial class FilterNames
 {
     /// <summary>
-    /// 删除
+    /// 鍒犻櫎
     /// </summary>
-    [Description("删除")]
+    [Description("鍒犻櫎")]
     public const string Delete = "Delete";
 
     /// <summary>
-    /// 租户
+    /// 绉熸埛
     /// </summary>
-    [Description("租户")]
+    [Description("绉熸埛")]
     public const string Tenant = "Tenant";
 
     /// <summary>
-    /// 本人权限
+    /// 鏈汉鏉冮檺
     /// </summary>
-    [Description("本人权限")]
+    [Description("鏈汉鏉冮檺")]
     public const string Self = "Self";
 
     /// <summary>
-    /// 数据权限
+    /// 鏁版嵁鏉冮檺
     /// </summary>
-    [Description("数据权限")]
+    [Description("鏁版嵁鏉冮檺")]
     public const string Data = "Data";
 
     /// <summary>
-    /// 会员
+    /// 浼氬憳
     /// </summary>
-    [Description("会员")]
+    [Description("浼氬憳")]
     public const string Member = "Member";
 }

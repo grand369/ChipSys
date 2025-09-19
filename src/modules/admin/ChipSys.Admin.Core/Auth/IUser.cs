@@ -1,4 +1,4 @@
-using ChipSys.Admin.Domain.Tenant;
+ï»¿using ChipSys.Admin.Domain.Tenant;
 using ChipSys.Admin.Domain.User;
 using ChipSys.Admin.Domain.User.Dto;
 using ChipSys.Admin.Services.User.Dto;
@@ -6,82 +6,82 @@ using ChipSys.Admin.Services.User.Dto;
 namespace ChipSys.Admin.Core.Auth;
 
 /// <summary>
-/// ÓÃ»§ĞÅÏ¢½Ó¿Ú
+/// ç”¨æˆ·ä¿¡æ¯æ¥å£
 /// </summary>
 public interface IUser
 {
     /// <summary>
-    /// ÓÃ»§Id
+    /// ç”¨æˆ·Id
     /// </summary>
     long Id { get; }
 
     /// <summary>
-    /// ÓÃ»§Ãû
+    /// ç”¨æˆ·å
     /// </summary>
     string UserName { get; }
 
     /// <summary>
-    /// ĞÕÃû
+    /// å§“å
     /// </summary>
     string Name { get; }
 
     /// <summary>
-    /// ÓÃ»§ÀàĞÍ
+    /// ç”¨æˆ·ç±»å‹
     /// </summary>
     UserType Type { get; }
 
     /// <summary>
-    /// Ä¬ÈÏÓÃ»§
+    /// é»˜è®¤ç”¨æˆ·
     /// </summary>
     bool DefaultUser { get; }
 
     /// <summary>
-    /// Æ½Ì¨¹ÜÀíÔ±
+    /// å¹³å°ç®¡ç†å‘˜
     /// </summary>
     bool PlatformAdmin { get; }
 
     /// <summary>
-    /// ×â»§¹ÜÀíÔ±
+    /// ç§Ÿæˆ·ç®¡ç†å‘˜
     /// </summary>
     bool TenantAdmin { get; }
 
     /// <summary>
-    /// ×â»§Id
+    /// ç§Ÿæˆ·Id
     /// </summary>
     long? TenantId { get; }
 
     /// <summary>
-    /// ×â»§ÀàĞÍ
+    /// ç§Ÿæˆ·ç±»å‹
     /// </summary>
     TenantType? TenantType { get; }
 
     /// <summary>
-    /// Êı¾İ¿â×¢²á¼ü
+    /// æ•°æ®åº“æ³¨å†Œé”®
     /// </summary>
     string DbKey { get; }
 
     /// <summary>
-    /// Êı¾İÈ¨ÏŞ
+    /// æ•°æ®æƒé™
     /// </summary>
     DataPermissionOutput DataPermission { get; }
 
     /// <summary>
-    /// ÓÃ»§È¨ÏŞ
+    /// ç”¨æˆ·æƒé™
     /// </summary>
     UserGetPermissionOutput UserPermission { get; }
 
     /// <summary>
-    /// ¼ì²éÓÃ»§ÊÇ·ñÓµÓĞÄ³¸öÈ¨ÏŞµã
+    /// æ£€æŸ¥ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰æŸä¸ªæƒé™ç‚¹
     /// </summary>
-    /// <param name="permissionCode">È¨ÏŞµã±àÂë</param>
+    /// <param name="permissionCode">æƒé™ç‚¹ç¼–ç </param>
     /// <returns></returns>
     bool HasPermission(string permissionCode);
 
     /// <summary>
-    /// ¼ì²éÓÃ»§ÊÇ·ñÓµÓĞÕâĞ©È¨ÏŞµã
+    /// æ£€æŸ¥ç”¨æˆ·æ˜¯å¦æ‹¥æœ‰è¿™äº›æƒé™ç‚¹
     /// </summary>
-    /// <param name="permissionCodes">È¨ÏŞµã±àÂëÁĞ±í</param>
-    /// <param name="all">ÊÇ·ñÈ«²¿Âú×ã</param>
+    /// <param name="permissionCodes">æƒé™ç‚¹ç¼–ç åˆ—è¡¨</param>
+    /// <param name="all">æ˜¯å¦å…¨éƒ¨æ»¡è¶³</param>
     /// <returns></returns>
     bool HasPermissions(string[] permissionCodes, bool all = false);
 }

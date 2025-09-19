@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
+锘縰sing Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using ChipSys.DynamicApi.Attributes;
 
 namespace ChipSys.Admin.Core.Conventions;
 
 /// <summary>
-/// Api分组约定
+/// Api鍒嗙粍绾﹀畾
 /// </summary>
 public class ApiGroupConvention : IControllerModelConvention
 {

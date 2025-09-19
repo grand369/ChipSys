@@ -93,6 +93,22 @@ public partial class MemberEntity : EntityTenantWithData
     public bool IsProfileComplete { get; set; } = false;
 
     /// <summary>
+    /// 会员等级：Free-免费会员，Basic-基础版，Standard-标准版，Premium-高级版，Enterprise-企业版
+    /// </summary>
+    [Column(StringLength = 20)]
+    public string Level { get; set; } = "Free";
+
+    /// <summary>
+    /// 等级生效时间
+    /// </summary>
+    public DateTime? LevelEffectiveTime { get; set; }
+
+    /// <summary>
+    /// 等级过期时间
+    /// </summary>
+    public DateTime? LevelExpireTime { get; set; }
+
+    /// <summary>
     /// 是否启用
     /// </summary>
     public bool Enabled { get; set; } = true;

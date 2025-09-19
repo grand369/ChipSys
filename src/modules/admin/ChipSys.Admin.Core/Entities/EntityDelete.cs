@@ -1,23 +1,23 @@
-using FreeSql.DataAnnotations;
+锘縰sing FreeSql.DataAnnotations;
 using System.ComponentModel;
 
 namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 实体删除
+/// 瀹炰綋鍒犻櫎
 /// </summary>
 public class EntityDelete<TKey> : EntityUpdate<TKey>, IDelete where TKey : struct
 {
     /// <summary>
-    /// 是否删除
+    /// 鏄惁鍒犻櫎
     /// </summary>
-    [Description("是否删除")]
+    [Description("鏄惁鍒犻櫎")]
     [Column(Position = -9)]
     public virtual bool IsDeleted { get; set; } = false;
 }
 
 /// <summary>
-/// 实体删除
+/// 瀹炰綋鍒犻櫎
 /// </summary>
 public class EntityDelete : EntityDelete<long>
 {

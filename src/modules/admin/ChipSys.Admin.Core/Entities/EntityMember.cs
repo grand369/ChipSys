@@ -1,47 +1,47 @@
-using FreeSql.DataAnnotations;
+锘縰sing FreeSql.DataAnnotations;
 using System.ComponentModel;
 using ChipSys.Admin.Core.Attributes;
 
 namespace ChipSys.Admin.Core.Entities;
 
 /// <summary>
-/// 实体会员
+/// 瀹炰綋浼氬憳
 /// </summary>
 public class EntityMember<TKey> : Entity<TKey>, IMember, IDelete
 {
     /// <summary>
-    /// 会员Id
+    /// 浼氬憳Id
     /// </summary>
-    [Description("会员Id")]
+    [Description("浼氬憳Id")]
     [Column(Position = -23, CanUpdate = false)]
     public virtual long? MemberId { get; set; }
 
     /// <summary>
-    /// 创建时间
+    /// 鍒涘缓鏃堕棿
     /// </summary>
-    [Description("创建时间")]
+    [Description("鍒涘缓鏃堕棿")]
     [Column(Position = -20, CanUpdate = false)]
     [ServerTime]
     public virtual DateTime? CreatedTime { get; set; }
 
     /// <summary>
-    /// 修改时间
+    /// 淇敼鏃堕棿
     /// </summary>
-    [Description("修改时间")]
+    [Description("淇敼鏃堕棿")]
     [Column(Position = -10)]
     [ServerTime(CanInsert = false, CanUpdate = true)]
     public virtual DateTime? ModifiedTime { get; set; }
 
     /// <summary>
-    /// 是否删除
+    /// 鏄惁鍒犻櫎
     /// </summary>
-    [Description("是否删除")]
+    [Description("鏄惁鍒犻櫎")]
     [Column(Position = -9)]
     public virtual bool IsDeleted { get; set; } = false;
 }
 
 /// <summary>
-/// 实体会员
+/// 瀹炰綋浼氬憳
 /// </summary>
 public class EntityMember : EntityMember<long>
 {

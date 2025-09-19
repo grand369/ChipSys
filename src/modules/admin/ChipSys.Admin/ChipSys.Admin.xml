@@ -354,6 +354,68 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService">
+            <summary>
+            管理员端会员等级价格方案管理服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService.GetAsync(System.Int64)">
+            <summary>
+            获取会员等级价格方案信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanGetPageInput})">
+            <summary>
+            获取会员等级价格方案分页列表（管理员端）
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput)">
+            <summary>
+            添加会员等级价格方案
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanUpdateInput)">
+            <summary>
+            更新会员等级价格方案
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService.DeleteAsync(System.Int64)">
+            <summary>
+            删除会员等级价格方案
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService.GetByMemberLevelIdAsync(System.Int64)">
+            <summary>
+            获取指定等级的价格方案列表
+            </summary>
+            <param name="memberLevelId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService.BatchSetPricePlansAsync(ChipSys.Client.Contracts.Services.Client.BatchSetPricePlansInput)">
+            <summary>
+            批量设置价格方案
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Admin.MemberLevelPricePlanManageService.ToggleEnabledAsync(System.Int64,System.Boolean)">
+            <summary>
+            切换价格方案启用状态
+            </summary>
+            <param name="id"></param>
+            <param name="enabled"></param>
+            <returns></returns>
+        </member>
         <member name="T:ChipSys.Admin.Services.Admin.MemberManageService">
             <summary>
             平台管理/权限管理下：会员管理服务
@@ -391,7 +453,7 @@
         <member name="M:ChipSys.Admin.Services.Admin.MemberManageService.AdjustLevelAsync(ChipSys.Admin.Services.Admin.MemberManageService.AdjustLevelInput)">
             <summary>
             调整会员等级（独立按钮）
-            逻辑：关闭原有启用记录，插入新等级为启用记录
+            逻辑：直接更新会员表的等级字段
             </summary>
         </member>
         <member name="T:ChipSys.Admin.Services.Admin.PaymentConfigService">
@@ -1812,6 +1874,60 @@
             </summary>
             <param name="favoriteType"></param>
             <param name="favoriteId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ChipSys.Admin.Services.Client.MemberLevelPricePlanService">
+            <summary>
+            会员等级价格方案服务
+            </summary>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelPricePlanService.GetAsync(System.Int64)">
+            <summary>
+            获取会员等级价格方案信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelPricePlanService.GetPageAsync(ChipSys.Admin.Core.Dto.PageInput{ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanGetPageInput})">
+            <summary>
+            获取会员等级价格方案分页列表
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelPricePlanService.AddAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanAddInput)">
+            <summary>
+            添加会员等级价格方案
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelPricePlanService.UpdateAsync(ChipSys.Client.Contracts.Services.Client.Dto.MemberLevelPricePlanUpdateInput)">
+            <summary>
+            更新会员等级价格方案
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelPricePlanService.DeleteAsync(System.Int64)">
+            <summary>
+            删除会员等级价格方案
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelPricePlanService.GetByMemberLevelIdAsync(System.Int64)">
+            <summary>
+            获取指定等级的价格方案列表
+            </summary>
+            <param name="memberLevelId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberLevelPricePlanService.BatchSetPricePlansAsync(ChipSys.Client.Contracts.Services.Client.BatchSetPricePlansInput)">
+            <summary>
+            批量设置价格方案
+            </summary>
+            <param name="input"></param>
             <returns></returns>
         </member>
         <member name="T:ChipSys.Admin.Services.Client.MemberLevelService">

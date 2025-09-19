@@ -1,11 +1,12 @@
-using ChipSys.Admin.Core.Configs;
+锘縰sing ChipSys.Admin.Core.Configs;
 
 namespace ChipSys.Admin.Core.Db.Data;
 
 /// <summary>
-/// 生成数据接口
+/// 鐢熸垚鏁版嵁鎺ュ彛
 /// </summary>
 public interface IGenerateData
 {
     Task GenerateDataAsync(IFreeSql db, AppConfig appConfig);
 }
+
