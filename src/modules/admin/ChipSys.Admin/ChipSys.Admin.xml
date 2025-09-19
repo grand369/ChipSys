@@ -1868,6 +1868,27 @@
             <param name="favoriteId"></param>
             <returns></returns>
         </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.GetSupplierNameAsync(System.Int64)">
+            <summary>
+            获取供应商名称
+            </summary>
+            <param name="supplierId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.GetProductNameAsync(System.Int64)">
+            <summary>
+            获取产品名称
+            </summary>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.GetContactNameAsync(System.Int64)">
+            <summary>
+            获取联系人名称
+            </summary>
+            <param name="contactId"></param>
+            <returns></returns>
+        </member>
         <member name="M:ChipSys.Admin.Services.Client.MemberFavoriteService.ValidateFavoriteObjectAsync(System.String,System.Int64)">
             <summary>
             验证收藏对象是否存在

@@ -53,7 +53,11 @@
             <el-table-column prop="realName" label="姓名" width="140" />
             <el-table-column prop="mobile" label="手机号" width="150" />
             <el-table-column prop="email" label="邮箱" min-width="180" />
-            <el-table-column prop="level" label="等级" width="120" />
+            <el-table-column label="等级" width="120">
+              <template #default="{ row }">
+                {{ renderLevelText(row.level) }}
+              </template>
+            </el-table-column>
             <el-table-column label="状态" width="120">
               <template #default="{ row }">
                 <el-tag :type="row.enabled ? 'success' : 'danger'">{{ row.enabled ? '启用' : '禁用' }}</el-tag>

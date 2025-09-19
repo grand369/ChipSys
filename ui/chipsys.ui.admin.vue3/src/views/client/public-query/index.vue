@@ -412,7 +412,7 @@ const viewAllProducts = async () => {
 
 // 获取收藏状态（从后端返回的数据中获取）
 const getFavoriteStatus = (item: any) => {
-  return item?.IsFavorited || false
+  return item?.isFavorited || false
 }
 
 // 更新本地数据中的收藏状态
@@ -421,32 +421,32 @@ const updateFavoriteStatusInData = (favoriteType: string, favoriteId: number, is
   if (state.searchResults) {
     if (favoriteType === 'Supplier' && state.searchResults.suppliers) {
       const supplier = state.searchResults.suppliers.find((s: any) => s.id === favoriteId)
-      if (supplier) supplier.IsFavorited = isFavorited
+      if (supplier) supplier.isFavorited = isFavorited
     }
     if (favoriteType === 'Product' && state.searchResults.products) {
       const product = state.searchResults.products.find((p: any) => p.id === favoriteId)
-      if (product) product.IsFavorited = isFavorited
+      if (product) product.isFavorited = isFavorited
     }
   }
   
   // 更新默认展示数据
   if (favoriteType === 'Supplier' && state.suppliers) {
     const supplier = state.suppliers.find((s: any) => s.id === favoriteId)
-    if (supplier) supplier.IsFavorited = isFavorited
+    if (supplier) supplier.isFavorited = isFavorited
   }
   if (favoriteType === 'Product' && state.products) {
     const product = state.products.find((p: any) => p.id === favoriteId)
-    if (product) product.IsFavorited = isFavorited
+    if (product) product.isFavorited = isFavorited
   }
   
   // 更新供应商详情
   if (state.supplierDetail) {
     if (favoriteType === 'Supplier' && state.supplierDetail.supplier?.id === favoriteId) {
-      state.supplierDetail.supplier.IsFavorited = isFavorited
+      state.supplierDetail.supplier.isFavorited = isFavorited
     }
     if (favoriteType === 'Contact' && state.supplierDetail.contacts) {
       const contact = state.supplierDetail.contacts.find((c: any) => c.id === favoriteId)
-      if (contact) contact.IsFavorited = isFavorited
+      if (contact) contact.isFavorited = isFavorited
     }
   }
 }
@@ -468,9 +468,9 @@ const addToFavorite = async (favoriteType: string, favoriteId: number, favoriteN
       updateFavoriteStatusInData(favoriteType, favoriteId, isFavorited)
       
       if (isFavorited) {
-        proxy.$modal.msgSuccess(`已收藏${favoriteType === 'Supplier' ? '供应商' : favoriteType === 'Product' ? '产品' : '联系人'}：${favoriteName}`)
+        proxy.$modal.msgSuccess(`已收藏${favoriteType === 'Supplier' ? '供应商' : favoriteType === 'Product' ? '产品' : '联系人'}`)
       } else {
-        proxy.$modal.msgSuccess(`已取消收藏${favoriteType === 'Supplier' ? '供应商' : favoriteType === 'Product' ? '产品' : '联系人'}：${favoriteName}`)
+        proxy.$modal.msgSuccess('已取消收藏')
       }
     }
   } catch (error) {

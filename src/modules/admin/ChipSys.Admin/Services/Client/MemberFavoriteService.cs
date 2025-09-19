@@ -80,10 +80,10 @@ public class MemberFavoriteService : BaseService, IMemberFavoriteService, IDynam
             .Page(input.CurrentPage, input.PageSize)
             .ToListAsync<MemberFavoriteGetPageOutput>();
 
-        // 填充收藏对象名称
+        // 填充收藏对象名称 - 使用简单的占位符，避免循环查询
         foreach (var item in list)
         {
-            item.FavoriteName = await GetFavoriteNameAsync(item.FavoriteType, item.FavoriteId);
+            item.FavoriteName = GetSimpleFavoriteName(item.FavoriteType, item.FavoriteId);
         }
 
         return new PageOutput<MemberFavoriteGetPageOutput>
@@ -218,23 +218,22 @@ public class MemberFavoriteService : BaseService, IMemberFavoriteService, IDynam
     }
 
     /// <summary>
-    /// 获取收藏对象名称
+    /// 获取收藏对象名称（简单版本，不进行数据库查询）
     /// </summary>
     /// <param name="favoriteType"></param>
     /// <param name="favoriteId"></param>
     /// <returns></returns>
-    private async Task<string> GetFavoriteNameAsync(string favoriteType, long favoriteId)
+    private string GetSimpleFavoriteName(string favoriteType, long favoriteId)
     {
-        // 这里需要根据实际的供应商、产品、联系人实体来获取名称
-        // 由于这些实体可能在其他模块中，这里使用占位符实现
         return favoriteType switch
         {
-            "Supplier" => $"供应商_{favoriteId}",
-            "Product" => $"产品_{favoriteId}",
-            "Contact" => $"联系人_{favoriteId}",
+            "Supplier" => "供应商",
+            "Product" => "产品",
+            "Contact" => "联系人",
             _ => "未知对象"
         };
     }
+
 
     /// <summary>
     /// 验证收藏对象是否存在

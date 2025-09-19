@@ -189,6 +189,7 @@ public class MemberManageService : BaseService, IDynamicApi
             Mobile = userDict.TryGetValue(m.UserId, out var user) ? user.Mobile : null,
             Email = userDict.TryGetValue(m.UserId, out var user2) ? user2.Email : null,
             Enabled = m.Enabled,
+            Level = m.Level,
             CreatedTime = m.CreatedTime ?? DateTime.Now
         }).ToList();
 

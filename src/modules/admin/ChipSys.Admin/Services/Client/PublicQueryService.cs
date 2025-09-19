@@ -78,18 +78,32 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
                 s.CompanyName,
                 s.BusinessScope,
                 s.Address,
-                ContactName = memberLimits.ShowFullContactInfo ? s.ContactName : "****",
-                ContactPhone = memberLimits.ShowFullContactInfo ? s.ContactPhone : "****",
-                ContactEmail = memberLimits.ShowFullContactInfo ? s.ContactEmail : "****",
+                s.ContactName,
+                s.ContactPhone,
+                s.ContactEmail,
                 IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
                     .Where(a => a.MemberId == User.Id && a.FavoriteType == "Supplier" && a.FavoriteId == s.Id)
                     .Any(),
                 s.CreatedTime
             });
 
+        // 后处理：根据权限限制处理联系人信息
+        var processedResult = result.Select(item => new
+        {
+            item.Id,
+            item.CompanyName,
+            item.BusinessScope,
+            item.Address,
+            ContactName = memberLimits.ShowFullContactInfo ? item.ContactName : "****",
+            ContactPhone = memberLimits.ShowFullContactInfo ? item.ContactPhone : "****",
+            ContactEmail = memberLimits.ShowFullContactInfo ? item.ContactEmail : "****",
+            item.IsFavorited,
+            item.CreatedTime
+        }).ToList();
+
         return new PageOutput<object>
         {
-            List = result.Cast<object>().ToList(),
+            List = processedResult.Cast<object>().ToList(),
             Total = total
         };
     }
@@ -290,16 +304,30 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
                     s.CompanyName,
                     s.BusinessScope,
                     s.Address,
-                    ContactName = memberLimits.ShowFullContactInfo ? s.ContactName : "****",
-                    ContactPhone = memberLimits.ShowFullContactInfo ? s.ContactPhone : "****",
-                    ContactEmail = memberLimits.ShowFullContactInfo ? s.ContactEmail : "****",
+                    s.ContactName,
+                    s.ContactPhone,
+                    s.ContactEmail,
                     IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
                         .Where(a => a.MemberId == User.Id && a.FavoriteType == "Supplier" && a.FavoriteId == s.Id)
                         .Any(),
                     s.CreatedTime
                 });
 
-            suppliers.AddRange(supplierList);
+            // 后处理：根据权限限制处理联系人信息
+            var processedSupplierList = supplierList.Select(item => new
+            {
+                item.Id,
+                item.CompanyName,
+                item.BusinessScope,
+                item.Address,
+                ContactName = memberLimits.ShowFullContactInfo ? item.ContactName : "****",
+                ContactPhone = memberLimits.ShowFullContactInfo ? item.ContactPhone : "****",
+                ContactEmail = memberLimits.ShowFullContactInfo ? item.ContactEmail : "****",
+                item.IsFavorited,
+                item.CreatedTime
+            }).ToList();
+
+            suppliers.AddRange(processedSupplierList);
         }
 
         // 搜索产品（从供应商产品表查询，FreeSql 关联 + 分页）
@@ -404,13 +432,24 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
             {
                 c.Id,
                 c.Name,
-                Phone = memberLimits.ShowFullContactInfo ? c.Phone : "****",
-                Email = memberLimits.ShowFullContactInfo ? c.Email : "****",
+                c.Phone,
+                c.Email,
                 c.Position,
                 IsFavorited = _memberFavoriteRep.Orm.Select<MemberFavoriteEntity>()
                     .Where(a => a.MemberId == User.Id && a.FavoriteType == "Contact" && a.FavoriteId == c.Id)
                     .Any()
             });
+
+        // 后处理：根据权限限制处理联系人信息
+        var processedContacts = contacts.Select(c => new
+        {
+            c.Id,
+            c.Name,
+            Phone = memberLimits.ShowFullContactInfo ? c.Phone : "****",
+            Email = memberLimits.ShowFullContactInfo ? c.Email : "****",
+            c.Position,
+            c.IsFavorited
+        }).ToList();
 
         return new
         {
@@ -431,7 +470,7 @@ public class PublicQueryService : BaseService, IPublicQueryService, IDynamicApi
                 supplierInfo.IsFavorited,
                 supplierInfo.CreatedTime
             },
-            Contacts = contacts
+            Contacts = processedContacts
         };
     }
 
